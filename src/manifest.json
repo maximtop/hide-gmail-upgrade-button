@@ -9,11 +9,19 @@
     },
     "content_scripts": [
         {
-            "matches": ["https://mail.google.com/*"],
+            "matches": [
+                "https://mail.google.com/*",
+                "https://drive.google.com/*",
+                "https://docs.google.com/*"
+            ],
             "js": ["content-script.js"],
             "run_at": "document_end"
         }
     ],
     "permissions": ["storage", "scripting"],
-    "host_permissions": ["https://mail.google.com/*"]
+    "host_permissions": [
+        "https://mail.google.com/*",
+        "https://drive.google.com/*",
+        "https://docs.google.com/*"
+    ]
 }

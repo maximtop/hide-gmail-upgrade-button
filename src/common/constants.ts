@@ -33,11 +33,17 @@ export const GEMINI_NAME_FRAGMENT = 'gemini';
 export const WRAPPER_WIDTH_TOLERANCE_PX = 16;
 
 /**
- * URL pattern of Gmail tabs — mirrors the manifest `content_scripts.matches`
- * and `host_permissions`, so programmatic injection never reaches beyond
- * what the user already granted.
+ * URL patterns of supported Google apps — mirror the manifest
+ * `content_scripts.matches` and `host_permissions`, so programmatic
+ * injection never reaches beyond what the user already granted.
+ * docs.google.com covers the Docs/Sheets/Slides editors and their home
+ * screens.
  */
-export const GMAIL_URL_PATTERN = 'https://mail.google.com/*';
+export const SUPPORTED_URL_PATTERNS: readonly string[] = [
+    'https://mail.google.com/*',
+    'https://drive.google.com/*',
+    'https://docs.google.com/*',
+];
 
 /**
  * Bundled content script file name, as emitted by the build.

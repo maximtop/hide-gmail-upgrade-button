@@ -4,7 +4,7 @@
         "description": "Extension name."
     },
     "description": {
-        "message": "מסתיר את הכפתורים Upgrade ו‑Ask Gemini בסרגל הכלים של Gmail",
+        "message": "מסתיר את הכפתורים Upgrade ו‑Ask Gemini ב‑Gmail, ב‑Google Drive וב‑Google Docs",
         "description": "Extension short description."
     },
     "popup_title": {

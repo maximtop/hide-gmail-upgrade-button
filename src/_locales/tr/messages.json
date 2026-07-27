@@ -4,7 +4,7 @@
         "description": "Extension name."
     },
     "description": {
-        "message": "Gmail araç çubuğundaki Upgrade ve Ask Gemini düğmelerini gizler",
+        "message": "Gmail, Google Drive ve Google Dokümanlar’daki Upgrade ve Ask Gemini düğmelerini gizler",
         "description": "Extension short description."
     },
     "popup_title": {

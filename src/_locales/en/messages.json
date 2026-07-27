@@ -4,7 +4,7 @@
         "description": "Extension name."
     },
     "description": {
-        "message": "Hides the Upgrade and Ask Gemini buttons in the Gmail toolbar",
+        "message": "Hides the Upgrade and Ask Gemini buttons in Gmail, Google Drive, and Google Docs",
         "description": "Extension short description."
     },
     "popup_title": {

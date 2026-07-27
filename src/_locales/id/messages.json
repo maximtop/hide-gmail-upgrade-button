@@ -4,7 +4,7 @@
         "description": "Extension name."
     },
     "description": {
-        "message": "Menyembunyikan tombol Upgrade dan Ask Gemini di toolbar Gmail",
+        "message": "Menyembunyikan tombol Upgrade dan Ask Gemini di Gmail, Google Drive, dan Google Docs",
         "description": "Extension short description."
     },
     "popup_title": {

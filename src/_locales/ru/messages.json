@@ -4,7 +4,7 @@
         "description": "Extension name."
     },
     "description": {
-        "message": "Скрывает кнопки Upgrade и Ask Gemini в интерфейсе Gmail",
+        "message": "Скрывает кнопки Upgrade и Ask Gemini в Gmail, Google Диске и Google Документах",
         "description": "Extension short description."
     },
     "popup_title": {

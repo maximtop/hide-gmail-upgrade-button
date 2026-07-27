@@ -4,7 +4,7 @@
         "description": "Extension name."
     },
     "description": {
-        "message": "Verbergt de knoppen Upgrade en Ask Gemini in de Gmail-werkbalk",
+        "message": "Verbergt de knoppen Upgrade en Ask Gemini in Gmail, Google Drive en Google Documenten",
         "description": "Extension short description."
     },
     "popup_title": {

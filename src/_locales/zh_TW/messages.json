@@ -4,7 +4,7 @@
         "description": "Extension name."
     },
     "description": {
-        "message": "隱藏 Gmail 工具列中的 Upgrade 和 Ask Gemini 按鈕",
+        "message": "隱藏 Gmail、Google 雲端硬碟和 Google 文件中的 Upgrade 和 Ask Gemini 按鈕",
         "description": "Extension short description."
     },
     "popup_title": {

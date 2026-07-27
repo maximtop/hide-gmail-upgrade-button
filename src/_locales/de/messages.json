@@ -4,7 +4,7 @@
         "description": "Extension name."
     },
     "description": {
-        "message": "Blendet die Schaltflächen „Upgrade“ und „Ask Gemini“ in der Gmail-Symbolleiste aus",
+        "message": "Blendet die Schaltflächen „Upgrade“ und „Ask Gemini“ in Gmail, Google Drive und Google Docs aus",
         "description": "Extension short description."
     },
     "popup_title": {

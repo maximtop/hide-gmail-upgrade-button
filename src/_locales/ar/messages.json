@@ -4,7 +4,7 @@
         "description": "Extension name."
     },
     "description": {
-        "message": "يخفي زرّي Upgrade وAsk Gemini في شريط أدوات Gmail",
+        "message": "يخفي زرّي Upgrade وAsk Gemini في Gmail وGoogle Drive وGoogle Docs",
         "description": "Extension short description."
     },
     "popup_title": {

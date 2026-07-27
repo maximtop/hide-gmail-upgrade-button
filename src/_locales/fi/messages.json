@@ -4,7 +4,7 @@
         "description": "Extension name."
     },
     "description": {
-        "message": "Piilottaa Upgrade- ja Ask Gemini -painikkeet Gmailin työkalupalkista",
+        "message": "Piilottaa Upgrade- ja Ask Gemini -painikkeet Gmailissa, Google Drivessa ja Google Docsissa",
         "description": "Extension short description."
     },
     "popup_title": {

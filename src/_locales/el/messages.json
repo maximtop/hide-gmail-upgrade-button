@@ -4,7 +4,7 @@
         "description": "Extension name."
     },
     "description": {
-        "message": "Αποκρύπτει τα κουμπιά Upgrade και Ask Gemini στη γραμμή εργαλείων του Gmail",
+        "message": "Αποκρύπτει τα κουμπιά Upgrade και Ask Gemini σε Gmail, Google Drive και Google Docs",
         "description": "Extension short description."
     },
     "popup_title": {

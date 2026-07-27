@@ -4,7 +4,7 @@
         "description": "Extension name."
     },
     "description": {
-        "message": "Скрива дугмад Upgrade и Ask Gemini на траци са алаткама Gmail-а",
+        "message": "Скрива дугмад Upgrade и Ask Gemini у Gmail-у, Google диску и Google документима",
         "description": "Extension short description."
     },
     "popup_title": {

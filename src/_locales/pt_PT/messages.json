@@ -4,7 +4,7 @@
         "description": "Extension name."
     },
     "description": {
-        "message": "Oculta os botões Upgrade e Ask Gemini na barra de ferramentas do Gmail",
+        "message": "Oculta os botões Upgrade e Ask Gemini no Gmail, Google Drive e Google Docs",
         "description": "Extension short description."
     },
     "popup_title": {

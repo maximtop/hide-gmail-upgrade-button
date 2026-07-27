@@ -4,7 +4,7 @@
         "description": "Extension name."
     },
     "description": {
-        "message": "Ukrywa przyciski Upgrade i Ask Gemini na pasku narzędzi Gmaila",
+        "message": "Ukrywa przyciski Upgrade i Ask Gemini w Gmailu, na Dysku Google i w Dokumentach Google",
         "description": "Extension short description."
     },
     "popup_title": {

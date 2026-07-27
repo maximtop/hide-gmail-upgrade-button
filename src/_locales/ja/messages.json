@@ -4,7 +4,7 @@
         "description": "Extension name."
     },
     "description": {
-        "message": "Gmail のツールバーの Upgrade ボタンと Ask Gemini ボタンを非表示にします",
+        "message": "Gmail、Google ドライブ、Google ドキュメントの Upgrade ボタンと Ask Gemini ボタンを非表示にします",
         "description": "Extension short description."
     },
     "popup_title": {

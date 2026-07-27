@@ -4,7 +4,7 @@
         "description": "Extension name."
     },
     "description": {
-        "message": "Skryje tlačítka Upgrade a Ask Gemini na panelu nástrojů Gmailu",
+        "message": "Skryje tlačítka Upgrade a Ask Gemini v Gmailu, na Disku Google a v Dokumentech Google",
         "description": "Extension short description."
     },
     "popup_title": {

@@ -4,7 +4,7 @@
         "description": "Extension name."
     },
     "description": {
-        "message": "Amaga els botons Upgrade i Ask Gemini de la barra d’eines de Gmail",
+        "message": "Amaga els botons Upgrade i Ask Gemini a Gmail, Google Drive i Google Docs",
         "description": "Extension short description."
     },
     "popup_title": {

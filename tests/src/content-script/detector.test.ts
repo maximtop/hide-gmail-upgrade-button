@@ -82,6 +82,24 @@ describe('findUpgradeButton', () => {
         expect(findUpgradeButton(document)).toBeNull();
     });
 
+    it('ignores hidden responsive duplicates, like the real Drive/Docs markup', () => {
+        renderPage(`
+            <button id="visible" role="link">Upgrade</button>
+            <button role="link" aria-label="Upgrade" style="display: none;"></button>
+        `);
+
+        expect(findUpgradeButton(document)?.id).toBe('visible');
+    });
+
+    it('ignores candidates inside a display-none wrapper', () => {
+        renderPage(`
+            <button id="visible" role="link">Upgrade</button>
+            <div style="display: none;"><button role="link">Upgrade</button></div>
+        `);
+
+        expect(findUpgradeButton(document)?.id).toBe('visible');
+    });
+
     it('finds a button[role=link] with an unknown localized label (structural fallback)', () => {
         renderPage('<button id="target" role="link"><span>Улучшить</span></button>');
 

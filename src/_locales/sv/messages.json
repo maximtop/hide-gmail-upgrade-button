@@ -4,7 +4,7 @@
         "description": "Extension name."
     },
     "description": {
-        "message": "Döljer knapparna Upgrade och Ask Gemini i Gmails verktygsfält",
+        "message": "Döljer knapparna Upgrade och Ask Gemini i Gmail, Google Drive och Google Dokument",
         "description": "Extension short description."
     },
     "popup_title": {

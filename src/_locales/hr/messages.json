@@ -4,7 +4,7 @@
         "description": "Extension name."
     },
     "description": {
-        "message": "Skriva gumbe Upgrade i Ask Gemini na alatnoj traci Gmaila",
+        "message": "Skriva gumbe Upgrade i Ask Gemini u Gmailu, Google Driveu i Google dokumentima",
         "description": "Extension short description."
     },
     "popup_title": {

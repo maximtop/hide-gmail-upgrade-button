@@ -4,7 +4,7 @@
         "description": "Extension name."
     },
     "description": {
-        "message": "Itinatago ang mga button na Upgrade at Ask Gemini sa toolbar ng Gmail",
+        "message": "Itinatago ang mga button na Upgrade at Ask Gemini sa Gmail, Google Drive, at Google Docs",
         "description": "Extension short description."
     },
     "popup_title": {

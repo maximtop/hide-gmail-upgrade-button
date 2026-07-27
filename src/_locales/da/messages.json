@@ -4,7 +4,7 @@
         "description": "Extension name."
     },
     "description": {
-        "message": "Skjuler knapperne Upgrade og Ask Gemini i Gmails værktøjslinje",
+        "message": "Skjuler knapperne Upgrade og Ask Gemini i Gmail, Google Drev og Google Docs",
         "description": "Extension short description."
     },
     "popup_title": {

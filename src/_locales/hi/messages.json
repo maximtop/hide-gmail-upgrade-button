@@ -4,7 +4,7 @@
         "description": "Extension name."
     },
     "description": {
-        "message": "Gmail टूलबार में Upgrade और Ask Gemini बटन छिपाता है",
+        "message": "Gmail, Google Drive और Google Docs में Upgrade और Ask Gemini बटन छिपाता है",
         "description": "Extension short description."
     },
     "popup_title": {

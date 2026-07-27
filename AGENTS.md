@@ -4,7 +4,7 @@ Build commands, structure and environment setup live in [DEVELOPMENT.md](DEVELOP
 
 ## Scope boundary
 
-The content script hides two header buttons (Upgrade, Ask Gemini) behind popup toggles stored in `chrome.storage.local`; the mutation watcher keeps them hidden across Gmail re-renders. Still separate tasks — do not add them "while you are here": icons, store assets, programmatic injection into already open tabs after install.
+The content script hides two header buttons (Upgrade, Ask Gemini) behind popup toggles stored in `chrome.storage.local`, on Gmail, Google Drive and Google Docs; the mutation watcher keeps them hidden across re-renders, and the background re-injects into tabs already open at install time. Still separate tasks — do not add them "while you are here": icons and store assets.
 
 ## Code style
 
@@ -29,7 +29,7 @@ Every dependency must have a clear, explainable need for this small extension. N
 ## Safety
 
 - Never commit secrets, store credentials or extension store IDs.
-- Keep manifest permissions minimal (`storage`, `scripting`, Gmail host only) — any addition must be justified.
+- Keep manifest permissions minimal (`storage`, `scripting`, Gmail/Drive/Docs hosts only) — any addition must be justified.
 - No analytics or data collection of any kind.
 
 ## Testing

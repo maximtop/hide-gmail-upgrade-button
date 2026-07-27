@@ -89,17 +89,39 @@ const singleOrNull = (candidates: HTMLElement[]): HTMLElement | null => {
 };
 
 /**
- * Collects clickable elements living in the page header (banner) areas.
+ * Checks whether an element takes part in layout: neither it nor any
+ * ancestor is `display: none`. Google apps keep hidden responsive
+ * duplicates of the Upgrade button in the DOM (verified on Drive and Docs)
+ * — those must not count as detector candidates.
+ *
+ * @param element Element to check.
+ *
+ * @returns Whether the element is displayed.
+ */
+const isDisplayed = (element: HTMLElement): boolean => {
+    for (let node: HTMLElement | null = element; node; node = node.parentElement) {
+        if (getComputedStyle(node).display === 'none') {
+            return false;
+        }
+    }
+    return true;
+};
+
+/**
+ * Collects displayed clickable elements living in the page header (banner)
+ * areas.
  *
  * @param root Document or element to search in.
  *
- * @returns Clickable header elements.
+ * @returns Clickable header elements taking part in layout.
  */
 const getHeaderClickables = (root: Document | HTMLElement): HTMLElement[] => {
     const headers = Array.from(root.querySelectorAll<HTMLElement>(HEADER_SELECTOR));
-    return headers.flatMap((header) => {
-        return Array.from(header.querySelectorAll<HTMLElement>(CLICKABLE_SELECTOR));
-    });
+    return headers
+        .flatMap((header) => {
+            return Array.from(header.querySelectorAll<HTMLElement>(CLICKABLE_SELECTOR));
+        })
+        .filter(isDisplayed);
 };
 
 /**

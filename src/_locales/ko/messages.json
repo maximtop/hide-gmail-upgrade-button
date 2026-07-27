@@ -4,7 +4,7 @@
         "description": "Extension name."
     },
     "description": {
-        "message": "Gmail 툴바의 Upgrade 버튼과 Ask Gemini 버튼을 숨깁니다",
+        "message": "Gmail, Google Drive, Google Docs의 Upgrade 버튼과 Ask Gemini 버튼을 숨깁니다",
         "description": "Extension short description."
     },
     "popup_title": {

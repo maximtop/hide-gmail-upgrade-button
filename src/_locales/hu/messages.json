@@ -4,7 +4,7 @@
         "description": "Extension name."
     },
     "description": {
-        "message": "Elrejti az Upgrade és az Ask Gemini gombokat a Gmail eszköztárán",
+        "message": "Elrejti az Upgrade és az Ask Gemini gombokat a Gmailben, a Google Drive-ban és a Google Dokumentumokban",
         "description": "Extension short description."
     },
     "popup_title": {

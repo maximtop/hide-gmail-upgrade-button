@@ -1,6 +1,6 @@
 # Hide Upgrade Button for Gmail
 
-A minimal browser extension (Manifest V3) that hides the Upgrade button in the Gmail toolbar. No analytics, no data collection.
+A minimal browser extension (Manifest V3) that hides the Upgrade and Ask Gemini buttons in Gmail, Google Drive, and Google Docs. No analytics, no data collection.
 
 > Status: early scaffold — the hiding logic and the popup toggle are under development.
 

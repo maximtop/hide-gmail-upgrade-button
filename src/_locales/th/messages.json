@@ -4,7 +4,7 @@
         "description": "Extension name."
     },
     "description": {
-        "message": "ซ่อนปุ่ม Upgrade และ Ask Gemini ในแถบเครื่องมือของ Gmail",
+        "message": "ซ่อนปุ่ม Upgrade และ Ask Gemini ใน Gmail, Google ไดรฟ์ และ Google เอกสาร",
         "description": "Extension short description."
     },
     "popup_title": {

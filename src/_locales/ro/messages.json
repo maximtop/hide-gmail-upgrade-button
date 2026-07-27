@@ -4,7 +4,7 @@
         "description": "Extension name."
     },
     "description": {
-        "message": "Ascunde butoanele Upgrade și Ask Gemini din bara de instrumente Gmail",
+        "message": "Ascunde butoanele Upgrade și Ask Gemini din Gmail, Google Drive și Google Docs",
         "description": "Extension short description."
     },
     "popup_title": {

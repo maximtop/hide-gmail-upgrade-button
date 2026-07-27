@@ -4,7 +4,7 @@
         "description": "Extension name."
     },
     "description": {
-        "message": "دکمه‌های Upgrade و Ask Gemini را در نوار ابزار Gmail پنهان می‌کند",
+        "message": "دکمه‌های Upgrade و Ask Gemini را در Gmail، Google Drive و Google Docs پنهان می‌کند",
         "description": "Extension short description."
     },
     "popup_title": {

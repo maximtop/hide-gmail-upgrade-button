@@ -4,7 +4,7 @@
         "description": "Extension name."
     },
     "description": {
-        "message": "Ẩn các nút Upgrade và Ask Gemini trên thanh công cụ Gmail",
+        "message": "Ẩn các nút Upgrade và Ask Gemini trong Gmail, Google Drive và Google Tài liệu",
         "description": "Extension short description."
     },
     "popup_title": {
