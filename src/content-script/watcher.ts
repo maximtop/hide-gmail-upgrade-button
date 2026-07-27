@@ -19,9 +19,10 @@
  *   construction.
  */
 
+import { debugLog } from '../common/debug';
 import { DEFAULT_SETTINGS } from '../common/settings';
 import type { Settings } from '../common/settings';
-import { findHideTarget } from './detector';
+import { CLICKABLE_SELECTOR, HEADER_SELECTOR, findHideTarget } from './detector';
 import { HIDE_FEATURES } from './features';
 import { syncPrehideOverrides } from './prehide';
 import {
@@ -68,8 +69,24 @@ export const createHidingWatcher = (doc: Document): HidingWatcher => {
     let observer: MutationObserver | null = null;
     let checkQueued = false;
     let stopped = true;
+    let checkCount = 0;
     let settings: Settings = DEFAULT_SETTINGS;
     const hiddenByFeature = new Map<string, HTMLElement>();
+
+    const DIAGNOSTIC_CHECK_LIMIT = 120;
+
+    /**
+     * Summarizes the header state for diagnostics: how many clickables the
+     * banners currently contain and how many of them take part in layout.
+     *
+     * @returns Short state description.
+     */
+    const describeHeaderState = (): string => {
+        const headers = Array.from(doc.querySelectorAll<HTMLElement>(HEADER_SELECTOR));
+        const clickables = headers.flatMap((h) => Array.from(h.querySelectorAll<HTMLElement>(CLICKABLE_SELECTOR)));
+        const displayed = clickables.filter((el) => el.getClientRects().length > 0);
+        return `headers=${headers.length} clickables=${clickables.length} displayed=${displayed.length}`;
+    };
 
     /**
      * Runs one hiding pass over the enabled features: cheap short-circuit
@@ -77,6 +94,7 @@ export const createHidingWatcher = (doc: Document): HidingWatcher => {
      * scan otherwise.
      */
     const check = (): void => {
+        checkCount += 1;
         for (const feature of HIDE_FEATURES) {
             if (!settings[feature.settingKey]) {
                 continue;
@@ -92,8 +110,19 @@ export const createHidingWatcher = (doc: Document): HidingWatcher => {
             const button = feature.findButton(doc);
             if (button) {
                 const target = findHideTarget(button);
+                const width = Math.round(target.getBoundingClientRect().width);
                 hideElement(target, feature.id);
                 hiddenByFeature.set(feature.id, target);
+                debugLog(
+                    `check#${checkCount}`,
+                    feature.id,
+                    'HIDE',
+                    `${target.tagName}.${String(target.className).slice(0, 20)}`,
+                    `w=${width}`,
+                    `buttonDisplayed=${button.getClientRects().length > 0}`,
+                );
+            } else if (checkCount <= DIAGNOSTIC_CHECK_LIMIT) {
+                debugLog(`check#${checkCount}`, feature.id, 'miss', describeHeaderState());
             }
         }
     };
@@ -121,6 +150,7 @@ export const createHidingWatcher = (doc: Document): HidingWatcher => {
                 return;
             }
             stopped = false;
+            debugLog('watcher start', `readyState=${doc.readyState}`);
             check();
             observer = new MutationObserver(scheduleCheck);
             observer.observe(doc.documentElement ?? doc, { childList: true, subtree: true });

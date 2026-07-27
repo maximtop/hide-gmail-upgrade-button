@@ -30,9 +30,9 @@ import {
     WRAPPER_WIDTH_TOLERANCE_PX,
 } from '../common/constants';
 
-const CLICKABLE_SELECTOR = 'a, button, [role="button"], [role="link"]';
+export const CLICKABLE_SELECTOR = 'a, button, [role="button"], [role="link"]';
 
-const HEADER_SELECTOR = 'header, [role="banner"]';
+export const HEADER_SELECTOR = 'header, [role="banner"]';
 
 /**
  * Normalizes a label for comparison: trims and collapses whitespace,

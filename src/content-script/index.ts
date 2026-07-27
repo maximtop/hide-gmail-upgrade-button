@@ -11,6 +11,7 @@
  * changes keep applying live through the storage subscription.
  */
 
+import { debugLog } from '../common/debug';
 import { loadSettings, subscribeToSettings } from '../common/settings';
 import { createHidingWatcher } from './watcher';
 
@@ -35,9 +36,11 @@ const watcher = createHidingWatcher(document);
  * they load.
  */
 const init = async (): Promise<void> => {
+    debugLog('content script start', `readyState=${document.readyState}`, location.host);
     watcher.start();
 
     const settings = await loadSettings();
+    debugLog('settings loaded', JSON.stringify(settings));
     watcher.applySettings(settings);
     subscribeToSettings((next) => {
         watcher.applySettings(next);
