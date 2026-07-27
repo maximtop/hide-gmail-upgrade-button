@@ -1,0 +1,22 @@
+{
+    "name": {
+        "message": "Hide Upgrade Button for Gmail",
+        "description": "Extension name."
+    },
+    "description": {
+        "message": "Paslepia mygtukus „Upgrade“ ir „Ask Gemini“ Gmail įrankių juostoje",
+        "description": "Extension short description."
+    },
+    "popup_title": {
+        "message": "Slėpti mygtuką „Upgrade“",
+        "description": "Popup document title."
+    },
+    "popup_toggle_label": {
+        "message": "Slėpti mygtuką „Upgrade“",
+        "description": "Label of the Upgrade toggle."
+    },
+    "popup_toggle_gemini_label": {
+        "message": "Slėpti mygtuką „Ask Gemini“",
+        "description": "Label of the Ask Gemini toggle."
+    }
+}

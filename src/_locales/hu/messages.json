@@ -1,0 +1,22 @@
+{
+    "name": {
+        "message": "Hide Upgrade Button for Gmail",
+        "description": "Extension name."
+    },
+    "description": {
+        "message": "Elrejti az Upgrade és az Ask Gemini gombokat a Gmail eszköztárán",
+        "description": "Extension short description."
+    },
+    "popup_title": {
+        "message": "Az Upgrade gomb elrejtése",
+        "description": "Popup document title."
+    },
+    "popup_toggle_label": {
+        "message": "Az Upgrade gomb elrejtése",
+        "description": "Label of the Upgrade toggle."
+    },
+    "popup_toggle_gemini_label": {
+        "message": "Az Ask Gemini gomb elrejtése",
+        "description": "Label of the Ask Gemini toggle."
+    }
+}

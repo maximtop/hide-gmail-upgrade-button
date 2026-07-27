@@ -1,0 +1,22 @@
+{
+    "name": {
+        "message": "Hide Upgrade Button for Gmail",
+        "description": "Extension name."
+    },
+    "description": {
+        "message": "Amaga els botons Upgrade i Ask Gemini de la barra d’eines de Gmail",
+        "description": "Extension short description."
+    },
+    "popup_title": {
+        "message": "Amaga el botó Upgrade",
+        "description": "Popup document title."
+    },
+    "popup_toggle_label": {
+        "message": "Amaga el botó Upgrade",
+        "description": "Label of the Upgrade toggle."
+    },
+    "popup_toggle_gemini_label": {
+        "message": "Amaga el botó Ask Gemini",
+        "description": "Label of the Ask Gemini toggle."
+    }
+}

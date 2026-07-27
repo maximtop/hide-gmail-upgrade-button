@@ -1,0 +1,22 @@
+{
+    "name": {
+        "message": "Hide Upgrade Button for Gmail",
+        "description": "Extension name."
+    },
+    "description": {
+        "message": "Gmail 툴바의 Upgrade 버튼과 Ask Gemini 버튼을 숨깁니다",
+        "description": "Extension short description."
+    },
+    "popup_title": {
+        "message": "Upgrade 버튼 숨기기",
+        "description": "Popup document title."
+    },
+    "popup_toggle_label": {
+        "message": "Upgrade 버튼 숨기기",
+        "description": "Label of the Upgrade toggle."
+    },
+    "popup_toggle_gemini_label": {
+        "message": "Ask Gemini 버튼 숨기기",
+        "description": "Label of the Ask Gemini toggle."
+    }
+}

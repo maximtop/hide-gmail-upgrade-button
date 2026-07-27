@@ -1,0 +1,22 @@
+{
+    "name": {
+        "message": "Hide Upgrade Button for Gmail",
+        "description": "Extension name."
+    },
+    "description": {
+        "message": "מסתיר את הכפתורים Upgrade ו‑Ask Gemini בסרגל הכלים של Gmail",
+        "description": "Extension short description."
+    },
+    "popup_title": {
+        "message": "הסתרת כפתור Upgrade",
+        "description": "Popup document title."
+    },
+    "popup_toggle_label": {
+        "message": "הסתרת כפתור Upgrade",
+        "description": "Label of the Upgrade toggle."
+    },
+    "popup_toggle_gemini_label": {
+        "message": "הסתרת כפתור Ask Gemini",
+        "description": "Label of the Ask Gemini toggle."
+    }
+}

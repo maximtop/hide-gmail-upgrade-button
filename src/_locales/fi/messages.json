@@ -1,0 +1,22 @@
+{
+    "name": {
+        "message": "Hide Upgrade Button for Gmail",
+        "description": "Extension name."
+    },
+    "description": {
+        "message": "Piilottaa Upgrade- ja Ask Gemini -painikkeet Gmailin työkalupalkista",
+        "description": "Extension short description."
+    },
+    "popup_title": {
+        "message": "Piilota Upgrade-painike",
+        "description": "Popup document title."
+    },
+    "popup_toggle_label": {
+        "message": "Piilota Upgrade-painike",
+        "description": "Label of the Upgrade toggle."
+    },
+    "popup_toggle_gemini_label": {
+        "message": "Piilota Ask Gemini -painike",
+        "description": "Label of the Ask Gemini toggle."
+    }
+}
