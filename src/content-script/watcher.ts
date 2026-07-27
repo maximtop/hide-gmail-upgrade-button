@@ -91,7 +91,8 @@ export const createHidingWatcher = (doc: Document): HidingWatcher => {
         const prehideMatches = HIDE_FEATURES
             .map((f) => `${f.id}=${doc.querySelectorAll(f.prehideSelector).length}`)
             .join(' ');
-        return `headers=${headers.length} clickables=${clickables.length} displayed=${displayed.length} ${prehideMatches}`;
+        return `headers=${headers.length} clickables=${clickables.length} `
+            + `displayed=${displayed.length} ${prehideMatches}`;
     };
 
     /**
