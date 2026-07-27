@@ -13,11 +13,13 @@ export const UPGRADE_BUTTON_LABELS: readonly string[] = [
 ];
 
 /**
- * Accessible labels the Ask Gemini button is known to carry, lowercase.
- * Matched against the whole normalized label first.
+ * Accessible labels the Gemini button is known to carry, lowercase.
+ * Matched against the whole normalized label first. "Ask Gemini" is the
+ * Gmail wording; "Try Gemini" is what the Docs editor uses (verified live).
  */
 export const GEMINI_BUTTON_LABELS: readonly string[] = [
     'ask gemini',
+    'try gemini',
 ];
 
 /**

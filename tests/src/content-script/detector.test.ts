@@ -152,6 +152,12 @@ describe('findGeminiButton', () => {
         expect(findGeminiButton(document)?.id).toBe('target');
     });
 
+    it('finds the Docs editor variant labeled Try Gemini', () => {
+        renderPage('<button id="target" aria-label="Try Gemini"></button>');
+
+        expect(findGeminiButton(document)?.id).toBe('target');
+    });
+
     it('returns null when the button is absent', () => {
         renderPage('');
 
