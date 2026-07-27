@@ -1,0 +1,19 @@
+{
+    "manifest_version": 3,
+    "name": "__MSG_name__",
+    "description": "__MSG_description__",
+    "default_locale": "en",
+    "action": {
+        "default_title": "__MSG_name__",
+        "default_popup": "popup.html"
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://mail.google.com/*"],
+            "js": ["content-script.js"],
+            "run_at": "document_end"
+        }
+    ],
+    "permissions": ["storage", "scripting"],
+    "host_permissions": ["https://mail.google.com/*"]
+}

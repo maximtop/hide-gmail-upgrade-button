@@ -1,0 +1,18 @@
+{
+    "name": {
+        "message": "Hide Upgrade Button for Gmail",
+        "description": "Extension name."
+    },
+    "description": {
+        "message": "Hides the Upgrade button in the Gmail toolbar",
+        "description": "Extension short description."
+    },
+    "popup_title": {
+        "message": "Hide Upgrade Button",
+        "description": "Popup document title."
+    },
+    "popup_toggle_label": {
+        "message": "Hide the Upgrade button",
+        "description": "Label of the main popup toggle."
+    }
+}
