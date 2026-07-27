@@ -33,6 +33,18 @@ export const GEMINI_NAME_FRAGMENT = 'gemini';
 export const WRAPPER_WIDTH_TOLERANCE_PX = 16;
 
 /**
+ * URL pattern of Gmail tabs — mirrors the manifest `content_scripts.matches`
+ * and `host_permissions`, so programmatic injection never reaches beyond
+ * what the user already granted.
+ */
+export const GMAIL_URL_PATTERN = 'https://mail.google.com/*';
+
+/**
+ * Bundled content script file name, as emitted by the build.
+ */
+export const CONTENT_SCRIPT_FILE = 'content-script.js';
+
+/**
  * Debounce window for coalescing DOM mutations before re-running the
  * detector. Gmail mutates the page constantly; one check per window keeps
  * the observer cheap while re-hiding the button quickly after re-renders.

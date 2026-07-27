@@ -26,7 +26,9 @@ export default defineConfig([
             '@stylistic/semi': ['error', 'always'],
             '@stylistic/comma-dangle': ['error', 'always-multiline'],
             curly: ['error', 'all'],
-            'no-console': 'error',
+            // debug is allowed as the minimal diagnostics channel until a
+            // logger utility is warranted; log/warn/error stay banned.
+            'no-console': ['error', { allow: ['debug'] }],
             '@typescript-eslint/no-unused-vars': [
                 'error',
                 { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },

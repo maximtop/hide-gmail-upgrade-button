@@ -8,6 +8,20 @@
 import { loadSettings, subscribeToSettings } from '../common/settings';
 import { createHidingWatcher } from './watcher';
 
+declare global {
+    /**
+     * Extension-world window state.
+     */
+    interface Window {
+        /**
+         * Set on first run; guards against double initialization when the
+         * background re-injects into a tab that already has the manifest
+         * content script (same isolated world).
+         */
+        hgubContentScriptLoaded?: boolean;
+    }
+}
+
 const watcher = createHidingWatcher(document);
 
 /**
@@ -40,7 +54,10 @@ const init = async (): Promise<void> => {
     });
 };
 
-init().catch(() => {
-    // Settings unavailable (storage error): fail closed by doing nothing
-    // rather than hiding against an unknown user preference.
-});
+if (!window.hgubContentScriptLoaded) {
+    window.hgubContentScriptLoaded = true;
+    init().catch(() => {
+        // Settings unavailable (storage error): fail closed by doing nothing
+        // rather than hiding against an unknown user preference.
+    });
+}
