@@ -137,6 +137,25 @@ describe('createHidingWatcher', () => {
         await vi.waitFor(() => { expect(isHidden('late')).toBe(true); });
     });
 
+    it('collapses a staged cell mounted with only a hidden duplicate, before the visible button arrives', async () => {
+        watcher.start();
+
+        // Drive mounts the header cell with a hidden duplicate first...
+        banner.insertAdjacentHTML(
+            'beforeend',
+            '<div id="cell"><button role="link" aria-label="Upgrade" style="display: none;"></button></div>',
+        );
+        await vi.waitFor(() => { expect(isHidden('cell')).toBe(true); });
+
+        // ...and mounts the visible button into the already collapsed cell.
+        const cell = document.getElementById('cell') as HTMLElement;
+        cell.insertAdjacentHTML('beforeend', upgradeButtonHtml('late'));
+        await sleep(WAIT_MS);
+
+        expect(isHidden('cell')).toBe(true);
+        expect(document.querySelectorAll('[data-hgub-hidden]').length).toBe(1);
+    });
+
     it('reaches a stable state without observer feedback loops', async () => {
         banner.insertAdjacentHTML('beforeend', upgradeButtonHtml('upgrade') + geminiButtonHtml('gemini'));
         watcher.start();

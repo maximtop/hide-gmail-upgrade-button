@@ -100,6 +100,24 @@ describe('findUpgradeButton', () => {
         expect(findUpgradeButton(document)?.id).toBe('visible');
     });
 
+    it('matches a hidden duplicate when no visible button mounted yet (pre-mount phase)', () => {
+        renderPage(
+            '<div id="cell"><button id="dup" role="link" aria-label="Upgrade" style="display: none;"></button></div>',
+        );
+
+        expect(findUpgradeButton(document)?.id).toBe('dup');
+    });
+
+    it('does not re-detect elements inside a wrapper the extension already hid', () => {
+        renderPage(`
+            <div data-hgub-hidden="upgrade" style="display: none;">
+                <button role="link" aria-label="Upgrade"></button>
+            </div>
+        `);
+
+        expect(findUpgradeButton(document)).toBeNull();
+    });
+
     it('finds a button[role=link] with an unknown localized label (structural fallback)', () => {
         renderPage('<button id="target" role="link"><span>Улучшить</span></button>');
 
