@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+    <!-- 16 px export variant: same artwork with a thicker slash core so the
+         white line stays >=1px after downscaling (see README). -->
+    <rect width="128" height="128" rx="28" fill="#0F766E"/>
+    <rect x="26" y="52" width="76" height="24" rx="12" fill="#FFFFFF"/>
+    <line x1="34" y1="98" x2="94" y2="30" stroke="#0F766E" stroke-width="18" stroke-linecap="round"/>
+    <line x1="34" y1="98" x2="94" y2="30" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round"/>
+</svg>

@@ -98,6 +98,10 @@ export const createRspackConfig = (browser: BrowserTarget, buildEnv: ChannelEnv)
                         to: '_locales',
                         transform: (content) => updateLocalesName(content, buildEnv),
                     },
+                    {
+                        from: 'src/assets',
+                        to: 'assets',
+                    },
                 ],
             }),
             new GeneratedFilePlugin('prehide.css', buildPrehideCss()),
