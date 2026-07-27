@@ -81,4 +81,38 @@ describe('findUpgradeButton', () => {
 
         expect(findUpgradeButton(document)).toBeNull();
     });
+
+    it('finds a button[role=link] with an unknown localized label (structural fallback)', () => {
+        renderPage('<button id="target" role="link"><span>Улучшить</span></button>');
+
+        expect(findUpgradeButton(document)?.id).toBe('target');
+    });
+
+    it('prefers the labeled match when both a labeled element and a button[role=link] exist', () => {
+        renderPage('<button id="labeled">Upgrade</button><button id="structural" role="link">Премиум</button>');
+
+        expect(findUpgradeButton(document)?.id).toBe('labeled');
+    });
+
+    it('returns null when several button[role=link] candidates exist without a label match', () => {
+        renderPage('<button role="link">Улучшить</button><button role="link">Премиум</button>');
+
+        expect(findUpgradeButton(document)).toBeNull();
+    });
+
+    it('ignores button[role=link] outside the banner', () => {
+        renderPage('', '<button id="in-body" role="link">Читать далее</button>');
+
+        expect(findUpgradeButton(document)).toBeNull();
+    });
+
+    it('matches the real Gmail markup shape: nested spans inside button[role=link]', () => {
+        renderPage(`
+            <button id="target" role="link" data-tooltip-enabled="true" aria-describedby="tt">
+                <span><span>Upgrade</span></span>
+            </button>
+        `);
+
+        expect(findUpgradeButton(document)?.id).toBe('target');
+    });
 });

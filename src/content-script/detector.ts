@@ -1,16 +1,26 @@
 /**
  * @file Detector of the Gmail Upgrade button.
  *
- * Gmail's CSS classes are obfuscated and unstable, so the detector relies on
- * several semantic signals instead: the element must be clickable, live in
- * the page header (banner) area and carry a known accessible label. When the
- * signals are ambiguous — no candidate or several unrelated candidates — the
- * detector returns null and the extension safely does nothing.
+ * Gmail's CSS classes are obfuscated and unstable, and (verified on live
+ * Gmail, July 2026) the Upgrade control is a `<button role="link">` with no
+ * href and no semantic data attributes, rendered into the header (banner)
+ * asynchronously after page load. The detector therefore combines two
+ * signals, most reliable first:
+ *
+ * 1. Label: a clickable element in the banner whose whole accessible label
+ *    matches a known Upgrade label — precise but locale-dependent.
+ * 2. Structure: a `<button role="link">` in the banner — a button that acts
+ *    as a link is the upsell pattern (regular header controls are
+ *    `role="button"` or real links), and it is locale-independent.
+ *
+ * When either signal is ambiguous — no candidate or several unrelated
+ * candidates — the detector returns null and the extension safely does
+ * nothing.
  */
 
 import { UPGRADE_BUTTON_LABELS } from '../common/constants';
 
-const CLICKABLE_SELECTOR = 'a, button, [role="button"]';
+const CLICKABLE_SELECTOR = 'a, button, [role="button"], [role="link"]';
 
 const HEADER_SELECTOR = 'header, [role="banner"]';
 
@@ -54,6 +64,18 @@ const hasUpgradeLabel = (element: HTMLElement): boolean => {
 };
 
 /**
+ * Checks whether an element matches the structural upsell pattern: a real
+ * `<button>` declaring itself a link.
+ *
+ * @param element Candidate element.
+ *
+ * @returns Whether the element is a button with `role="link"`.
+ */
+const isLinkRoleButton = (element: HTMLElement): boolean => {
+    return element.tagName === 'BUTTON' && element.getAttribute('role') === 'link';
+};
+
+/**
  * Drops candidates nested inside another candidate, keeping only the
  * outermost element of each cluster. A link wrapping an inner
  * `role="button"` span is one button, not two.
@@ -69,6 +91,18 @@ const keepOutermost = (candidates: HTMLElement[]): HTMLElement[] => {
 };
 
 /**
+ * Returns the only element of the list, or null when the list is empty or
+ * ambiguous.
+ *
+ * @param candidates Filtered candidate list.
+ *
+ * @returns The single candidate or null.
+ */
+const singleOrNull = (candidates: HTMLElement[]): HTMLElement | null => {
+    return candidates.length === 1 ? (candidates[0] ?? null) : null;
+};
+
+/**
  * Finds the Gmail Upgrade button within the given root.
  *
  * @param root Document or element to search in.
@@ -79,16 +113,21 @@ const keepOutermost = (candidates: HTMLElement[]): HTMLElement[] => {
 export const findUpgradeButton = (root: Document | HTMLElement): HTMLElement | null => {
     const headers = Array.from(root.querySelectorAll<HTMLElement>(HEADER_SELECTOR));
 
-    const candidates = headers.flatMap((header) => {
-        const clickables = Array.from(header.querySelectorAll<HTMLElement>(CLICKABLE_SELECTOR));
-        return clickables.filter(hasUpgradeLabel);
+    const clickables = headers.flatMap((header) => {
+        return Array.from(header.querySelectorAll<HTMLElement>(CLICKABLE_SELECTOR));
     });
 
-    const outermost = keepOutermost(candidates);
-
-    if (outermost.length !== 1) {
-        return null;
+    const byLabel = keepOutermost(clickables.filter(hasUpgradeLabel));
+    const labelMatch = singleOrNull(byLabel);
+    if (labelMatch) {
+        return labelMatch;
     }
 
-    return outermost[0] ?? null;
+    // Locale-independent fallback: only when no label matched at all, so an
+    // unknown locale still works while a labeled match is never overridden.
+    if (byLabel.length === 0) {
+        return singleOrNull(keepOutermost(clickables.filter(isLinkRoleButton)));
+    }
+
+    return null;
 };
