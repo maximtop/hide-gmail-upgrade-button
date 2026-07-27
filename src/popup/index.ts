@@ -53,6 +53,12 @@ const init = async (): Promise<void> => {
     bindToggle('hide-gemini', 'hideGemini', settings);
 };
 
-init().catch(() => {
-    // Storage unavailable: the popup stays with unchecked defaults visible.
-});
+init()
+    .catch(() => {
+        // Storage unavailable: reveal with the built-in defaults.
+    })
+    .finally(() => {
+        // Content is hidden via CSS until the stored state is applied —
+        // the switches never visibly flip on open.
+        document.body.classList.add('ready');
+    });
