@@ -4,7 +4,7 @@ Build commands, structure and environment setup live in [DEVELOPMENT.md](DEVELOP
 
 ## Scope boundary
 
-This scaffold intentionally contains **placeholder** entrypoints. The Gmail button-hiding logic, the popup toggle, icons and store assets are separate tasks — do not add them "while you are here".
+The content script contains the Upgrade button detector and idempotent hide/restore operations. The MutationObserver for Gmail SPA re-renders, the popup toggle with a stored setting, icons and store assets are separate tasks — do not add them "while you are here". Until the toggle exists, hiding is unconditionally on.
 
 ## Code style
 

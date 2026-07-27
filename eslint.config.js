@@ -94,6 +94,8 @@ export default defineConfig([
     {
         files: ['tests/**/*.ts'],
         rules: {
+            // Vitest per-file environment pragma, e.g. happy-dom for DOM tests.
+            'jsdoc/check-tag-names': ['error', { definedTags: ['vitest-environment'] }],
             'jsdoc/require-jsdoc': 'off',
             'jsdoc/require-file-overview': 'off',
             'jsdoc/require-description': 'off',
