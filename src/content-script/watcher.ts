@@ -8,15 +8,17 @@
  *
  * - The whole document is observed (childList only): Gmail can replace the
  *   header wholesale, and an observer scoped to a detached header would go
- *   silent forever. Cost stays bounded — mutations are coalesced into one
- *   check per debounce window, and while a button stays hidden its check
+ *   silent forever. Cost stays bounded — mutation bursts are coalesced into
+ *   one check per microtask, and while a button stays hidden its check
  *   short-circuits without scanning the DOM.
+ * - Checks run in the same frame as the mutation (microtask, before paint),
+ *   so a late-inserted button's reserved space collapses before it ever
+ *   renders — a timer-based debounce would let the empty gap flash.
  * - Only `childList` mutations are observed, never attributes, so the
  *   watcher's own style/attribute writes cannot re-trigger it — no loops by
  *   construction.
  */
 
-import { MUTATION_DEBOUNCE_MS } from '../common/constants';
 import { DEFAULT_SETTINGS } from '../common/settings';
 import type { Settings } from '../common/settings';
 import { findHideTarget } from './detector';
@@ -59,17 +61,13 @@ export interface HidingWatcher {
  * hiding after DOM changes.
  *
  * @param doc Document to watch.
- * @param debounceMs Mutation coalescing window; defaults to
- * {@link MUTATION_DEBOUNCE_MS}.
  *
  * @returns Watcher handle; starts out with {@link DEFAULT_SETTINGS}.
  */
-export const createHidingWatcher = (
-    doc: Document,
-    debounceMs: number = MUTATION_DEBOUNCE_MS,
-): HidingWatcher => {
+export const createHidingWatcher = (doc: Document): HidingWatcher => {
     let observer: MutationObserver | null = null;
-    let debounceTimer: ReturnType<typeof setTimeout> | null = null;
+    let checkQueued = false;
+    let stopped = true;
     let settings: Settings = DEFAULT_SETTINGS;
     const hiddenByFeature = new Map<string, HTMLElement>();
 
@@ -101,16 +99,20 @@ export const createHidingWatcher = (
     };
 
     /**
-     * Coalesces mutation bursts into a single delayed check.
+     * Coalesces mutation bursts into a single check per microtask — still
+     * within the current frame, so hiding lands before the next paint.
      */
     const scheduleCheck = (): void => {
-        if (debounceTimer !== null) {
+        if (checkQueued) {
             return;
         }
-        debounceTimer = setTimeout(() => {
-            debounceTimer = null;
-            check();
-        }, debounceMs);
+        checkQueued = true;
+        queueMicrotask(() => {
+            checkQueued = false;
+            if (!stopped) {
+                check();
+            }
+        });
     };
 
     return {
@@ -118,16 +120,14 @@ export const createHidingWatcher = (
             if (observer) {
                 return;
             }
+            stopped = false;
             check();
             observer = new MutationObserver(scheduleCheck);
             observer.observe(doc.documentElement ?? doc, { childList: true, subtree: true });
         },
 
         stop: (): void => {
-            if (debounceTimer !== null) {
-                clearTimeout(debounceTimer);
-                debounceTimer = null;
-            }
+            stopped = true;
             if (observer) {
                 observer.disconnect();
                 observer = null;

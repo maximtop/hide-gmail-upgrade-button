@@ -8,7 +8,7 @@ import { DEFAULT_SETTINGS } from '../../../src/common/settings';
 import type { HidingWatcher } from '../../../src/content-script/watcher';
 import { createHidingWatcher } from '../../../src/content-script/watcher';
 
-const DEBOUNCE_MS = 10;
+const WAIT_MS = 20;
 
 const sleep = (ms: number) => new Promise((resolve) => { setTimeout(resolve, ms); });
 
@@ -28,7 +28,7 @@ describe('createHidingWatcher', () => {
     beforeEach(() => {
         document.body.innerHTML = '<div role="banner"><button aria-label="Settings"></button></div><main></main>';
         banner = document.querySelector('[role="banner"]') as HTMLElement;
-        watcher = createHidingWatcher(document, DEBOUNCE_MS);
+        watcher = createHidingWatcher(document);
     });
 
     afterEach(() => {
@@ -110,7 +110,7 @@ describe('createHidingWatcher', () => {
         watcher.start();
 
         banner.insertAdjacentHTML('beforeend', upgradeButtonHtml('upgrade') + geminiButtonHtml('gemini'));
-        await sleep(DEBOUNCE_MS * 5);
+        await sleep(WAIT_MS);
 
         expect(isHidden('upgrade')).toBe(false);
         expect(isHidden('gemini')).toBe(false);
@@ -121,7 +121,7 @@ describe('createHidingWatcher', () => {
         watcher.stop();
 
         banner.insertAdjacentHTML('beforeend', upgradeButtonHtml('late'));
-        await sleep(DEBOUNCE_MS * 5);
+        await sleep(WAIT_MS);
 
         expect(isHidden('late')).toBe(false);
     });
@@ -140,10 +140,10 @@ describe('createHidingWatcher', () => {
     it('reaches a stable state without observer feedback loops', async () => {
         banner.insertAdjacentHTML('beforeend', upgradeButtonHtml('upgrade') + geminiButtonHtml('gemini'));
         watcher.start();
-        await sleep(DEBOUNCE_MS * 3);
+        await sleep(WAIT_MS);
 
         const snapshot = document.body.innerHTML;
-        await sleep(DEBOUNCE_MS * 5);
+        await sleep(WAIT_MS);
 
         expect(document.body.innerHTML).toBe(snapshot);
     });
