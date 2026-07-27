@@ -109,6 +109,11 @@ export const createRspackConfig = (browser: BrowserTarget, buildEnv: ChannelEnv)
                 template: 'src/popup/index.html',
                 filename: 'popup.html',
                 chunks: ['popup'],
+                // Blocking script at the end of body: the popup applies its
+                // state synchronously before the first paint (no visible
+                // state flip on open).
+                inject: 'body',
+                scriptLoading: 'blocking',
             }),
             new ArchivePlugin(outputPath, `${outputPath}.zip`),
         ],

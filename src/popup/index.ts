@@ -1,11 +1,17 @@
 /**
  * @file Popup: two toggles controlling which Gmail header buttons are
- * hidden. Reads and writes settings through the shared storage adapter;
- * open Gmail tabs pick changes up live via storage subscription.
+ * hidden.
+ *
+ * Rendering is synchronous to avoid any visible state change on open: the
+ * bundle loads as a blocking script, applies the last known settings from
+ * the synchronous cache and reveals the content — all before the first
+ * paint. The authoritative `chrome.storage` state is reconciled right
+ * after; open Gmail tabs pick changes up live via storage subscription.
  */
 
-import { loadSettings, saveSettings } from '../common/settings';
+import { DEFAULT_SETTINGS, loadSettings, saveSettings } from '../common/settings';
 import type { Settings } from '../common/settings';
+import { readCachedSettings, writeCachedSettings } from './settings-cache';
 
 /**
  * Sets the localized text of an element.
@@ -21,44 +27,70 @@ const localize = (elementId: string, messageKey: string): void => {
 };
 
 /**
- * Wires a checkbox to a boolean settings field.
+ * Returns the checkbox controlling a settings field.
  *
  * @param elementId DOM id of the checkbox.
- * @param settingKey Settings field the checkbox controls.
- * @param settings Current settings used for the initial state.
+ *
+ * @returns The checkbox, or null when missing.
  */
-const bindToggle = (elementId: string, settingKey: keyof Settings, settings: Settings): void => {
-    const checkbox = document.getElementById(elementId);
-    if (!(checkbox instanceof HTMLInputElement)) {
-        return;
-    }
+const getToggle = (elementId: string): HTMLInputElement | null => {
+    const element = document.getElementById(elementId);
+    return element instanceof HTMLInputElement ? element : null;
+};
 
-    checkbox.checked = settings[settingKey];
-    checkbox.addEventListener('change', () => {
-        saveSettings({ [settingKey]: checkbox.checked });
-    });
+const TOGGLES: ReadonlyArray<{ elementId: string; settingKey: keyof Settings }> = [
+    { elementId: 'hide-upgrade', settingKey: 'hideUpgrade' },
+    { elementId: 'hide-gemini', settingKey: 'hideGemini' },
+];
+
+/**
+ * Applies a settings object to the toggle states.
+ *
+ * @param settings Settings to render.
+ */
+const renderSettings = (settings: Settings): void => {
+    for (const { elementId, settingKey } of TOGGLES) {
+        const toggle = getToggle(elementId);
+        if (toggle) {
+            toggle.checked = settings[settingKey];
+        }
+    }
 };
 
 /**
- * Localizes the popup and binds both toggles to the stored settings.
+ * Synchronous part of startup: localized texts, last known state, reveal.
+ * Runs before the first paint (blocking script), so the popup opens already
+ * in its final state.
  */
-const init = async (): Promise<void> => {
+const initSync = (): void => {
     document.title = chrome.i18n.getMessage('popup_title');
     localize('title', 'popup_title');
     localize('hide-upgrade-label', 'popup_toggle_label');
     localize('hide-gemini-label', 'popup_toggle_gemini_label');
 
-    const settings = await loadSettings();
-    bindToggle('hide-upgrade', 'hideUpgrade', settings);
-    bindToggle('hide-gemini', 'hideGemini', settings);
+    renderSettings(readCachedSettings() ?? DEFAULT_SETTINGS);
+
+    for (const { elementId, settingKey } of TOGGLES) {
+        getToggle(elementId)?.addEventListener('change', (event) => {
+            const checked = (event.target as HTMLInputElement).checked;
+            saveSettings({ [settingKey]: checked }).then(writeCachedSettings);
+        });
+    }
+
+    document.body.classList.add('ready');
 };
 
-init()
-    .catch(() => {
-        // Storage unavailable: reveal with the built-in defaults.
-    })
-    .finally(() => {
-        // Content is hidden via CSS until the stored state is applied —
-        // the switches never visibly flip on open.
-        document.body.classList.add('ready');
-    });
+/**
+ * Reconciles the rendered state with the authoritative storage and
+ * refreshes the synchronous cache.
+ */
+const reconcile = async (): Promise<void> => {
+    const settings = await loadSettings();
+    renderSettings(settings);
+    writeCachedSettings(settings);
+};
+
+initSync();
+reconcile().catch(() => {
+    // Storage unavailable: the popup keeps showing the cached state.
+});
