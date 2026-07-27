@@ -4,65 +4,155 @@
     <meta charset="utf-8">
     <title>Hide Upgrade Button for Gmail</title>
     <style>
+        :root {
+            --bg: #ffffff;
+            --fg: #1b1b1f;
+            --muted: #6b7280;
+            --accent: #0f766e;
+            --accent-strong: #0d675f;
+            --hover: rgba(15, 118, 110, 0.08);
+            --track-off: #d1d5db;
+            --thumb: #ffffff;
+            --divider: #e5e7eb;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #1e1f22;
+                --fg: #e6e6ea;
+                --muted: #9ca3af;
+                --accent: #14b8a6;
+                --accent-strong: #2dd4bf;
+                --hover: rgba(45, 212, 191, 0.1);
+                --track-off: #4b5563;
+                --thumb: #f3f4f6;
+                --divider: #33353a;
+            }
+        }
+
         body {
             margin: 0;
             font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-            font-size: 14px;
-            color: #1f1f1f;
-            background: #ffffff;
+            font-size: 13.5px;
+            color: var(--fg);
+            background: var(--bg);
         }
 
         main {
-            width: 280px;
-            padding: 16px;
+            width: 300px;
+            padding: 14px 14px 10px;
             box-sizing: border-box;
         }
 
+        header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 2px 4px 12px;
+            border-bottom: 1px solid var(--divider);
+            margin-bottom: 6px;
+        }
+
+        header svg {
+            flex: none;
+            border-radius: 5px;
+        }
+
         h1 {
-            margin: 0 0 12px;
-            font-size: 15px;
+            margin: 0;
+            font-size: 14.5px;
             font-weight: 600;
+            letter-spacing: 0.1px;
         }
 
         .toggle-row {
             display: flex;
             align-items: center;
-            gap: 10px;
-            padding: 8px 0;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 11px 8px;
+            border-radius: 9px;
             cursor: pointer;
+            user-select: none;
+        }
+
+        .toggle-row:hover {
+            background: var(--hover);
         }
 
         .toggle-row input {
-            width: 16px;
-            height: 16px;
+            appearance: none;
+            -webkit-appearance: none;
+            flex: none;
+            width: 38px;
+            height: 22px;
             margin: 0;
-            accent-color: #0b57d0;
+            border-radius: 11px;
+            background: var(--track-off);
+            position: relative;
             cursor: pointer;
+            transition: background 0.15s ease;
         }
 
-        @media (prefers-color-scheme: dark) {
-            body {
-                color: #e3e3e3;
-                background: #1f1f1f;
-            }
+        .toggle-row input::before {
+            content: "";
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--thumb);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+            transition: transform 0.15s ease;
+        }
 
-            .toggle-row input {
-                accent-color: #a8c7fa;
-            }
+        .toggle-row input:checked {
+            background: var(--accent);
+        }
+
+        .toggle-row input:checked::before {
+            transform: translateX(16px);
+        }
+
+        .toggle-row input:hover {
+            filter: brightness(1.05);
+        }
+
+        .toggle-row input:focus-visible {
+            outline: 2px solid var(--accent-strong);
+            outline-offset: 2px;
+        }
+
+        footer {
+            padding: 10px 8px 2px;
+            border-top: 1px solid var(--divider);
+            margin-top: 6px;
+            font-size: 11px;
+            color: var(--muted);
         }
     </style>
 </head>
 <body>
     <main>
-        <h1 id="title"></h1>
+        <header>
+            <svg width="22" height="22" viewBox="0 0 128 128" role="img" aria-hidden="true">
+                <rect width="128" height="128" rx="28" fill="#0F766E"/>
+                <rect x="26" y="52" width="76" height="24" rx="12" fill="#FFFFFF"/>
+                <line x1="34" y1="98" x2="94" y2="30" stroke="#0F766E" stroke-width="16" stroke-linecap="round"/>
+                <line x1="34" y1="98" x2="94" y2="30" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round"/>
+            </svg>
+            <h1 id="title"></h1>
+        </header>
         <label class="toggle-row">
-            <input type="checkbox" id="hide-upgrade">
             <span id="hide-upgrade-label"></span>
+            <input type="checkbox" id="hide-upgrade" checked>
         </label>
         <label class="toggle-row">
-            <input type="checkbox" id="hide-gemini">
             <span id="hide-gemini-label"></span>
+            <input type="checkbox" id="hide-gemini" checked>
         </label>
+        <footer>Gmail &middot; Google Drive &middot; Google Docs</footer>
     </main>
 </body>
 </html>
