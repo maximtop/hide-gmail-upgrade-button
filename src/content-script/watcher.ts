@@ -21,6 +21,7 @@ import { DEFAULT_SETTINGS } from '../common/settings';
 import type { Settings } from '../common/settings';
 import { findHideTarget } from './detector';
 import { HIDE_FEATURES } from './features';
+import { syncPrehideOverrides } from './prehide';
 import {
     ensureHidden,
     hideElement,
@@ -141,6 +142,7 @@ export const createHidingWatcher = (
                 }
             }
             settings = next;
+            syncPrehideOverrides(doc, next);
             check();
         },
     };

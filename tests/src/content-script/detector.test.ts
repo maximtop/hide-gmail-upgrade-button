@@ -252,4 +252,48 @@ describe('findHideTarget', () => {
 
         expect(target.id).toBe('btn');
     });
+
+    it('climbs past hidden duplicate clickables, like the real Drive cell', () => {
+        document.body.innerHTML = `
+            <div role="banner">
+                <button aria-label="Settings"></button>
+                <div id="cell"><div id="inner">
+                    <button id="btn" role="link">Upgrade</button>
+                    <button role="link" aria-label="Upgrade" style="display: none;"></button>
+                </div></div>
+            </div>
+        `;
+
+        const target = findHideTarget(document.getElementById('btn') as HTMLElement);
+
+        expect(target.id).toBe('cell');
+    });
+});
+
+describe('prehide selector alignment', () => {
+    beforeEach(() => {
+        document.body.innerHTML = '';
+    });
+
+    it('the upgrade prehide selector matches what the detector finds', () => {
+        renderPage('<button id="target" role="link"><span>Upgrade</span></button>');
+
+        const detected = findUpgradeButton(document);
+        const bySelector = document.querySelector(':is(header, [role="banner"]) button[role="link"]');
+
+        expect(detected).not.toBeNull();
+        expect(bySelector).toBe(detected);
+    });
+
+    it('the gemini prehide selector matches what the detector finds', () => {
+        renderPage('<button id="target" aria-label="Try Gemini"></button>');
+
+        const detected = findGeminiButton(document);
+        const selector = ':is(header, [role="banner"]) :is(a, button, [role="button"], [role="link"])'
+            + '[aria-label*="gemini" i]';
+        const bySelector = document.querySelector(selector);
+
+        expect(detected).not.toBeNull();
+        expect(bySelector).toBe(detected);
+    });
 });

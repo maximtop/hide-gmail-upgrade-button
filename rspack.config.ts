@@ -11,7 +11,9 @@ import type { Configuration } from '@rspack/core';
 import { CHANNEL_ENVS } from './scripts/constants';
 import type { BrowserTarget, ChannelEnv } from './scripts/constants';
 import { ArchivePlugin } from './scripts/build/archive-plugin';
+import { GeneratedFilePlugin } from './scripts/build/generated-file-plugin';
 import { updateLocalesName, updateManifest } from './scripts/build/helpers';
+import { buildPrehideCss } from './src/content-script/prehide';
 
 const ROOT_DIR = import.meta.dirname;
 
@@ -98,6 +100,7 @@ export const createRspackConfig = (browser: BrowserTarget, buildEnv: ChannelEnv)
                     },
                 ],
             }),
+            new GeneratedFilePlugin('prehide.css', buildPrehideCss()),
             new rspack.HtmlRspackPlugin({
                 template: 'src/popup/index.html',
                 filename: 'popup.html',

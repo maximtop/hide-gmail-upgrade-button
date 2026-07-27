@@ -15,7 +15,8 @@
                 "https://docs.google.com/*"
             ],
             "js": ["content-script.js"],
-            "run_at": "document_end"
+            "css": ["prehide.css"],
+            "run_at": "document_start"
         }
     ],
     "permissions": ["storage", "scripting"],

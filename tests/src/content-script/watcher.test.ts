@@ -90,6 +90,21 @@ describe('createHidingWatcher', () => {
         expect(isHidden('upgrade')).toBe(true);
     });
 
+    it('adds a prehide override style for switched-off features and removes it on re-enable', () => {
+        watcher.start();
+
+        watcher.applySettings({ ...DEFAULT_SETTINGS, hideUpgrade: false });
+
+        const override = document.querySelector('style[data-hgub-prehide-override="upgrade"]');
+        expect(override).not.toBeNull();
+        expect(override?.textContent).toContain('visibility: visible');
+        expect(document.querySelector('style[data-hgub-prehide-override="gemini"]')).toBeNull();
+
+        watcher.applySettings(DEFAULT_SETTINGS);
+
+        expect(document.querySelector('style[data-hgub-prehide-override="upgrade"]')).toBeNull();
+    });
+
     it('does not hide anything while both features are off, even after mutations', async () => {
         watcher.applySettings({ hideUpgrade: false, hideGemini: false });
         watcher.start();

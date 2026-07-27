@@ -185,17 +185,24 @@ export const findGeminiButton = (root: Document | HTMLElement): HTMLElement | nu
 };
 
 /**
- * Checks whether a node contains a clickable element unrelated to the given
- * button — hiding such a node would take out neighboring controls.
+ * Checks whether a node contains a displayed clickable element unrelated to
+ * the given button — hiding such a node would take out neighboring
+ * controls. Non-displayed clickables (hidden responsive duplicates, or
+ * elements this extension already hid) do not count: on Drive the Upgrade
+ * cell keeps a `display: none` duplicate, and stopping at it would leave
+ * an empty cell taking up header space.
  *
  * @param node Candidate wrapper.
  * @param button The button being hidden.
  *
- * @returns Whether an unrelated clickable exists inside the node.
+ * @returns Whether an unrelated displayed clickable exists inside the node.
  */
 const containsForeignClickable = (node: HTMLElement, button: HTMLElement): boolean => {
     return Array.from(node.querySelectorAll<HTMLElement>(CLICKABLE_SELECTOR)).some((clickable) => {
-        return clickable !== button && !clickable.contains(button) && !button.contains(clickable);
+        return clickable !== button
+            && !clickable.contains(button)
+            && !button.contains(clickable)
+            && isDisplayed(clickable);
     });
 };
 
