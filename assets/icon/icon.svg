@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+    <!-- Approved concept "B": a pill-shaped button struck through - "this button is gone".
+         Colors: teal #0F766E plate, white glyph. Not derived from any Gmail/Google branding. -->
+    <rect width="128" height="128" rx="28" fill="#0F766E"/>
+    <rect x="26" y="52" width="76" height="24" rx="12" fill="#FFFFFF"/>
+    <line x1="34" y1="98" x2="94" y2="30" stroke="#0F766E" stroke-width="16" stroke-linecap="round"/>
+    <line x1="34" y1="98" x2="94" y2="30" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round"/>
+</svg>
