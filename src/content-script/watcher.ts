@@ -73,11 +73,14 @@ export const createHidingWatcher = (doc: Document): HidingWatcher => {
     let settings: Settings = DEFAULT_SETTINGS;
     const hiddenByFeature = new Map<string, HTMLElement>();
 
-    const DIAGNOSTIC_CHECK_LIMIT = 120;
+    const DIAGNOSTIC_CHECK_LIMIT = 500;
 
     /**
      * Summarizes the header state for diagnostics: how many clickables the
-     * banners currently contain and how many of them take part in layout.
+     * banners currently contain, how many take part in layout, and how many
+     * elements each feature's pre-hide selector already matches (hidden
+     * duplicates included) — reveals the window where a mounted cell has
+     * nothing identifiable inside yet.
      *
      * @returns Short state description.
      */
@@ -85,7 +88,10 @@ export const createHidingWatcher = (doc: Document): HidingWatcher => {
         const headers = Array.from(doc.querySelectorAll<HTMLElement>(HEADER_SELECTOR));
         const clickables = headers.flatMap((h) => Array.from(h.querySelectorAll<HTMLElement>(CLICKABLE_SELECTOR)));
         const displayed = clickables.filter((el) => el.getClientRects().length > 0);
-        return `headers=${headers.length} clickables=${clickables.length} displayed=${displayed.length}`;
+        const prehideMatches = HIDE_FEATURES
+            .map((f) => `${f.id}=${doc.querySelectorAll(f.prehideSelector).length}`)
+            .join(' ');
+        return `headers=${headers.length} clickables=${clickables.length} displayed=${displayed.length} ${prehideMatches}`;
     };
 
     /**
