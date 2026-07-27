@@ -1,24 +1,33 @@
 /**
- * @file Detector of the Gmail Upgrade button.
+ * @file Detectors of the Gmail header buttons this extension can hide.
  *
  * Gmail's CSS classes are obfuscated and unstable, and (verified on live
- * Gmail, July 2026) the Upgrade control is a `<button role="link">` with no
- * href and no semantic data attributes, rendered into the header (banner)
- * asynchronously after page load. The detector therefore combines two
- * signals, most reliable first:
+ * Gmail, July 2026) the header buttons carry no href and no semantic data
+ * attributes, so the detectors rely on semantic signals only and never on
+ * class names:
  *
- * 1. Label: a clickable element in the banner whose whole accessible label
- *    matches a known Upgrade label — precise but locale-dependent.
- * 2. Structure: a `<button role="link">` in the banner — a button that acts
- *    as a link is the upsell pattern (regular header controls are
- *    `role="button"` or real links), and it is locale-independent.
+ * - Upgrade: exact accessible label, with a locale-independent structural
+ *   fallback — the only `<button role="link">` in the banner (a button that
+ *   acts as a link is the upsell pattern; regular header controls are
+ *   `role="button"` or real links).
+ * - Ask Gemini: exact accessible label, with a fallback on the "gemini"
+ *   product-name fragment, which stays untranslated in localized UIs.
  *
- * When either signal is ambiguous — no candidate or several unrelated
- * candidates — the detector returns null and the extension safely does
- * nothing.
+ * When a signal is ambiguous — no candidate or several unrelated candidates
+ * — a detector returns null and the extension safely does nothing.
+ *
+ * Hiding the button element alone leaves a gap in the header layout, so
+ * {@link findHideTarget} resolves the button's single-purpose layout wrapper
+ * to hide instead: it climbs ancestors that are no wider than the button and
+ * contain no other clickable controls.
  */
 
-import { UPGRADE_BUTTON_LABELS } from '../common/constants';
+import {
+    GEMINI_BUTTON_LABELS,
+    GEMINI_NAME_FRAGMENT,
+    UPGRADE_BUTTON_LABELS,
+    WRAPPER_WIDTH_TOLERANCE_PX,
+} from '../common/constants';
 
 const CLICKABLE_SELECTOR = 'a, button, [role="button"], [role="link"]';
 
@@ -53,29 +62,6 @@ const getAccessibleLabel = (element: HTMLElement): string => {
 };
 
 /**
- * Checks whether an element's whole label matches a known Upgrade label.
- *
- * @param element Candidate element.
- *
- * @returns Whether the label matches exactly.
- */
-const hasUpgradeLabel = (element: HTMLElement): boolean => {
-    return UPGRADE_BUTTON_LABELS.includes(getAccessibleLabel(element));
-};
-
-/**
- * Checks whether an element matches the structural upsell pattern: a real
- * `<button>` declaring itself a link.
- *
- * @param element Candidate element.
- *
- * @returns Whether the element is a button with `role="link"`.
- */
-const isLinkRoleButton = (element: HTMLElement): boolean => {
-    return element.tagName === 'BUTTON' && element.getAttribute('role') === 'link';
-};
-
-/**
  * Drops candidates nested inside another candidate, keeping only the
  * outermost element of each cluster. A link wrapping an inner
  * `role="button"` span is one button, not two.
@@ -103,31 +89,125 @@ const singleOrNull = (candidates: HTMLElement[]): HTMLElement | null => {
 };
 
 /**
- * Finds the Gmail Upgrade button within the given root.
+ * Collects clickable elements living in the page header (banner) areas.
  *
  * @param root Document or element to search in.
  *
- * @returns The single unambiguous match, or null when the button is absent
- * or the match is ambiguous (several unrelated candidates).
+ * @returns Clickable header elements.
  */
-export const findUpgradeButton = (root: Document | HTMLElement): HTMLElement | null => {
+const getHeaderClickables = (root: Document | HTMLElement): HTMLElement[] => {
     const headers = Array.from(root.querySelectorAll<HTMLElement>(HEADER_SELECTOR));
-
-    const clickables = headers.flatMap((header) => {
+    return headers.flatMap((header) => {
         return Array.from(header.querySelectorAll<HTMLElement>(CLICKABLE_SELECTOR));
     });
+};
 
-    const byLabel = keepOutermost(clickables.filter(hasUpgradeLabel));
+/**
+ * Finds a single element whose whole label matches one of the known labels,
+ * falling back to a secondary predicate when no label matched.
+ *
+ * @param root Document or element to search in.
+ * @param labels Known exact labels, lowercase.
+ * @param fallback Locale-independent predicate used when no label matched.
+ *
+ * @returns The single unambiguous match, or null.
+ */
+const findByLabelWithFallback = (
+    root: Document | HTMLElement,
+    labels: readonly string[],
+    fallback: (element: HTMLElement) => boolean,
+): HTMLElement | null => {
+    const clickables = getHeaderClickables(root);
+
+    const byLabel = keepOutermost(clickables.filter((el) => labels.includes(getAccessibleLabel(el))));
     const labelMatch = singleOrNull(byLabel);
     if (labelMatch) {
         return labelMatch;
     }
 
-    // Locale-independent fallback: only when no label matched at all, so an
-    // unknown locale still works while a labeled match is never overridden.
+    // The fallback applies only when no label matched at all, so an unknown
+    // locale still works while a labeled match is never overridden.
     if (byLabel.length === 0) {
-        return singleOrNull(keepOutermost(clickables.filter(isLinkRoleButton)));
+        return singleOrNull(keepOutermost(clickables.filter(fallback)));
     }
 
     return null;
+};
+
+/**
+ * Finds the Gmail Upgrade button within the given root.
+ *
+ * @param root Document or element to search in.
+ *
+ * @returns The single unambiguous match, or null when the button is absent
+ * or the match is ambiguous.
+ */
+export const findUpgradeButton = (root: Document | HTMLElement): HTMLElement | null => {
+    return findByLabelWithFallback(root, UPGRADE_BUTTON_LABELS, (element) => {
+        return element.tagName === 'BUTTON' && element.getAttribute('role') === 'link';
+    });
+};
+
+/**
+ * Finds the Gmail Ask Gemini button within the given root.
+ *
+ * @param root Document or element to search in.
+ *
+ * @returns The single unambiguous match, or null when the button is absent
+ * or the match is ambiguous.
+ */
+export const findGeminiButton = (root: Document | HTMLElement): HTMLElement | null => {
+    return findByLabelWithFallback(root, GEMINI_BUTTON_LABELS, (element) => {
+        return getAccessibleLabel(element).includes(GEMINI_NAME_FRAGMENT);
+    });
+};
+
+/**
+ * Checks whether a node contains a clickable element unrelated to the given
+ * button — hiding such a node would take out neighboring controls.
+ *
+ * @param node Candidate wrapper.
+ * @param button The button being hidden.
+ *
+ * @returns Whether an unrelated clickable exists inside the node.
+ */
+const containsForeignClickable = (node: HTMLElement, button: HTMLElement): boolean => {
+    return Array.from(node.querySelectorAll<HTMLElement>(CLICKABLE_SELECTOR)).some((clickable) => {
+        return clickable !== button && !clickable.contains(button) && !button.contains(clickable);
+    });
+};
+
+/**
+ * Resolves the element to actually hide for a detected button: the highest
+ * single-purpose layout wrapper of the button, so the header row collapses
+ * and neighboring controls shift instead of leaving a gap.
+ *
+ * A wrapper qualifies while it is no wider than the button itself (within a
+ * small tolerance; zero-width inline wrappers qualify too) and contains no
+ * clickable elements other than the button. The climb never crosses the
+ * header (banner) element.
+ *
+ * @param button Detected button.
+ *
+ * @returns The wrapper to hide; the button itself when it has no wrapper.
+ */
+export const findHideTarget = (button: HTMLElement): HTMLElement => {
+    const boundary = button.closest(HEADER_SELECTOR);
+    const widthLimit = button.getBoundingClientRect().width + WRAPPER_WIDTH_TOLERANCE_PX;
+
+    let target = button;
+    let ancestor = button.parentElement;
+
+    while (ancestor && ancestor !== boundary) {
+        if (ancestor.getBoundingClientRect().width > widthLimit) {
+            break;
+        }
+        if (containsForeignClickable(ancestor, button)) {
+            break;
+        }
+        target = ancestor;
+        ancestor = ancestor.parentElement;
+    }
+
+    return target;
 };

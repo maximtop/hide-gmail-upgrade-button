@@ -4,7 +4,7 @@
         "description": "Extension name."
     },
     "description": {
-        "message": "Hides the Upgrade button in the Gmail toolbar",
+        "message": "Hides the Upgrade and Ask Gemini buttons in the Gmail toolbar",
         "description": "Extension short description."
     },
     "popup_title": {
@@ -13,6 +13,10 @@
     },
     "popup_toggle_label": {
         "message": "Hide the Upgrade button",
-        "description": "Label of the main popup toggle."
+        "description": "Label of the Upgrade toggle."
+    },
+    "popup_toggle_gemini_label": {
+        "message": "Hide the Ask Gemini button",
+        "description": "Label of the Ask Gemini toggle."
     }
 }

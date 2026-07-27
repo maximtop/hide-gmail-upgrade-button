@@ -13,6 +13,26 @@ export const UPGRADE_BUTTON_LABELS: readonly string[] = [
 ];
 
 /**
+ * Accessible labels the Ask Gemini button is known to carry, lowercase.
+ * Matched against the whole normalized label first.
+ */
+export const GEMINI_BUTTON_LABELS: readonly string[] = [
+    'ask gemini',
+];
+
+/**
+ * Product-name fragment for the locale-independent Gemini fallback:
+ * "Gemini" is a brand name and stays untranslated in localized Gmail UIs.
+ */
+export const GEMINI_NAME_FRAGMENT = 'gemini';
+
+/**
+ * How much wider than the target button an ancestor may be while still
+ * counting as its layout wrapper (accounts for wrapper padding/margins).
+ */
+export const WRAPPER_WIDTH_TOLERANCE_PX = 16;
+
+/**
  * Debounce window for coalescing DOM mutations before re-running the
  * detector. Gmail mutates the page constantly; one check per window keeps
  * the observer cheap while re-hiding the button quickly after re-renders.

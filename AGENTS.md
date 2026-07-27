@@ -4,7 +4,7 @@ Build commands, structure and environment setup live in [DEVELOPMENT.md](DEVELOP
 
 ## Scope boundary
 
-The content script contains the Upgrade button detector and idempotent hide/restore operations. The MutationObserver for Gmail SPA re-renders, the popup toggle with a stored setting, icons and store assets are separate tasks — do not add them "while you are here". Until the toggle exists, hiding is unconditionally on.
+The content script hides two header buttons (Upgrade, Ask Gemini) behind popup toggles stored in `chrome.storage.local`; the mutation watcher keeps them hidden across Gmail re-renders. Still separate tasks — do not add them "while you are here": icons, store assets, programmatic injection into already open tabs after install.
 
 ## Code style
 

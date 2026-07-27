@@ -1,19 +1,19 @@
 /**
- * @file Gmail content script: hides the Upgrade button and keeps it hidden
- * across Gmail's dynamic re-renders via the mutation watcher.
- *
- * Scope note for follow-up tasks: the user-facing toggle with a stored
- * setting arrives separately; until it exists, hiding is unconditionally on.
+ * @file Gmail content script: loads the user settings, hides the enabled
+ * header buttons and keeps them hidden across Gmail's re-renders via the
+ * mutation watcher. Settings changes apply live through storage
+ * subscription — no Gmail reload needed.
  */
 
-import { createUpgradeButtonWatcher } from './watcher';
+import { loadSettings, subscribeToSettings } from '../common/settings';
+import { createHidingWatcher } from './watcher';
 
-const watcher = createUpgradeButtonWatcher(document);
+const watcher = createHidingWatcher(document);
 
 /**
  * Starts the watcher once the document is ready enough to contain the header.
  */
-const init = (): void => {
+const startWhenReady = (): void => {
     if (document.readyState === 'interactive' || document.readyState === 'complete') {
         watcher.start();
         return;
@@ -28,4 +28,19 @@ const init = (): void => {
     );
 };
 
-init();
+/**
+ * Loads settings, starts the watcher and keeps settings in sync.
+ */
+const init = async (): Promise<void> => {
+    const settings = await loadSettings();
+    watcher.applySettings(settings);
+    startWhenReady();
+    subscribeToSettings((next) => {
+        watcher.applySettings(next);
+    });
+};
+
+init().catch(() => {
+    // Settings unavailable (storage error): fail closed by doing nothing
+    // rather than hiding against an unknown user preference.
+});

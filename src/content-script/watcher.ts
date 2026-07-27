@@ -1,15 +1,15 @@
 /**
- * @file Mutation watcher that keeps the Upgrade button hidden across Gmail's
- * dynamic re-renders and SPA navigation.
+ * @file Mutation watcher that keeps the enabled header buttons hidden across
+ * Gmail's dynamic re-renders and SPA navigation.
  *
- * The button is rendered into the header asynchronously after load (verified
- * on live Gmail), and navigation re-renders can recreate it, so a one-shot
- * pass is not enough. Design decisions:
+ * The buttons are rendered into the header asynchronously after load
+ * (verified on live Gmail), and navigation re-renders can recreate them, so
+ * a one-shot pass is not enough. Design decisions:
  *
  * - The whole document is observed (childList only): Gmail can replace the
  *   header wholesale, and an observer scoped to a detached header would go
  *   silent forever. Cost stays bounded — mutations are coalesced into one
- *   check per debounce window, and while the button stays hidden the check
+ *   check per debounce window, and while a button stays hidden its check
  *   short-circuits without scanning the DOM.
  * - Only `childList` mutations are observed, never attributes, so the
  *   watcher's own style/attribute writes cannot re-trigger it — no loops by
@@ -17,58 +17,85 @@
  */
 
 import { MUTATION_DEBOUNCE_MS } from '../common/constants';
-import { findUpgradeButton } from './detector';
-import { ensureHidden, hideElement, isHiddenByExtension } from './visibility';
+import { DEFAULT_SETTINGS } from '../common/settings';
+import type { Settings } from '../common/settings';
+import { findHideTarget } from './detector';
+import { HIDE_FEATURES } from './features';
+import {
+    ensureHidden,
+    hideElement,
+    isHiddenByExtension,
+    restoreAllHidden,
+} from './visibility';
 
 /**
- * Lifecycle handle of the upgrade button watcher.
+ * Lifecycle handle of the hiding watcher.
  */
-export interface UpgradeButtonWatcher {
+export interface HidingWatcher {
     /**
-     * Applies hiding immediately and starts observing. Idempotent.
+     * Applies hiding for the current settings immediately and starts
+     * observing. Idempotent.
      */
     start(): void;
 
     /**
      * Stops observing and cancels any pending check. Idempotent; hidden
-     * state of the button is left as is.
+     * elements are left as is.
      */
     stop(): void;
+
+    /**
+     * Replaces the active settings, restoring elements of features that got
+     * switched off and hiding buttons of features that got switched on.
+     *
+     * @param next New settings.
+     */
+    applySettings(next: Settings): void;
 }
 
 /**
- * Creates a watcher that hides the Upgrade button and re-applies hiding
- * after DOM changes.
+ * Creates a watcher that hides the enabled header buttons and re-applies
+ * hiding after DOM changes.
  *
  * @param doc Document to watch.
  * @param debounceMs Mutation coalescing window; defaults to
  * {@link MUTATION_DEBOUNCE_MS}.
  *
- * @returns Watcher lifecycle handle.
+ * @returns Watcher handle; starts out with {@link DEFAULT_SETTINGS}.
  */
-export const createUpgradeButtonWatcher = (
+export const createHidingWatcher = (
     doc: Document,
     debounceMs: number = MUTATION_DEBOUNCE_MS,
-): UpgradeButtonWatcher => {
+): HidingWatcher => {
     let observer: MutationObserver | null = null;
     let debounceTimer: ReturnType<typeof setTimeout> | null = null;
-    let hiddenButton: HTMLElement | null = null;
+    let settings: Settings = DEFAULT_SETTINGS;
+    const hiddenByFeature = new Map<string, HTMLElement>();
 
     /**
-     * Runs one hiding pass: cheap short-circuit while the previously hidden
-     * button is still in place, full detector scan otherwise.
+     * Runs one hiding pass over the enabled features: cheap short-circuit
+     * while a previously hidden element is still in place, full detector
+     * scan otherwise.
      */
     const check = (): void => {
-        if (hiddenButton && hiddenButton.isConnected && isHiddenByExtension(hiddenButton)) {
-            ensureHidden(hiddenButton);
-            return;
-        }
+        for (const feature of HIDE_FEATURES) {
+            if (!settings[feature.settingKey]) {
+                continue;
+            }
 
-        hiddenButton = null;
-        const button = findUpgradeButton(doc);
-        if (button) {
-            hideElement(button);
-            hiddenButton = button;
+            const tracked = hiddenByFeature.get(feature.id);
+            if (tracked && tracked.isConnected && isHiddenByExtension(tracked)) {
+                ensureHidden(tracked);
+                continue;
+            }
+
+            hiddenByFeature.delete(feature.id);
+            const button = feature.findButton(doc);
+            if (button) {
+                const target = findHideTarget(button);
+                hideElement(target, feature.id);
+                hiddenByFeature.set(feature.id, target);
+            }
         }
     };
 
@@ -104,6 +131,17 @@ export const createUpgradeButtonWatcher = (
                 observer.disconnect();
                 observer = null;
             }
+        },
+
+        applySettings: (next: Settings): void => {
+            for (const feature of HIDE_FEATURES) {
+                if (settings[feature.settingKey] && !next[feature.settingKey]) {
+                    restoreAllHidden(doc, feature.id);
+                    hiddenByFeature.delete(feature.id);
+                }
+            }
+            settings = next;
+            check();
         },
     };
 };

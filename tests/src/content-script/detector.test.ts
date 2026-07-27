@@ -4,7 +4,7 @@
 
 import { beforeEach, describe, expect, it } from 'vitest';
 
-import { findUpgradeButton } from '../../../src/content-script/detector';
+import { findGeminiButton, findHideTarget, findUpgradeButton } from '../../../src/content-script/detector';
 
 /**
  * Minimal anonymized fixture of the Gmail chrome: a banner with regular
@@ -114,5 +114,118 @@ describe('findUpgradeButton', () => {
         `);
 
         expect(findUpgradeButton(document)?.id).toBe('target');
+    });
+});
+
+describe('findGeminiButton', () => {
+    beforeEach(() => {
+        document.body.innerHTML = '';
+    });
+
+    it('finds the button by its exact aria-label', () => {
+        renderPage('<button id="target" aria-label="Ask Gemini"></button>');
+
+        expect(findGeminiButton(document)?.id).toBe('target');
+    });
+
+    it('finds a localized button via the untranslated product-name fragment', () => {
+        renderPage('<button id="target" aria-label="Спросить Gemini"></button>');
+
+        expect(findGeminiButton(document)?.id).toBe('target');
+    });
+
+    it('returns null when the button is absent', () => {
+        renderPage('');
+
+        expect(findGeminiButton(document)).toBeNull();
+    });
+
+    it('returns null when several candidates mention gemini without an exact label match', () => {
+        renderPage('<button aria-label="Gemini settings"></button><button aria-label="Открыть Gemini"></button>');
+
+        expect(findGeminiButton(document)).toBeNull();
+    });
+
+    it('prefers the exact label when a second element merely mentions gemini', () => {
+        renderPage(
+            '<button id="exact" aria-label="Ask Gemini"></button><button aria-label="Gemini settings"></button>',
+        );
+
+        expect(findGeminiButton(document)?.id).toBe('exact');
+    });
+
+    it('ignores gemini mentions outside the banner', () => {
+        renderPage('', '<button aria-label="Ask Gemini"></button>');
+
+        expect(findGeminiButton(document)).toBeNull();
+    });
+});
+
+describe('findHideTarget', () => {
+    beforeEach(() => {
+        document.body.innerHTML = '';
+    });
+
+    /**
+     * Overrides the reported width of an element — happy-dom performs no
+     * layout, so geometry is stubbed where the climb must be width-limited.
+     *
+     * @param element Element to patch.
+     * @param width Reported width in pixels.
+     */
+    const stubWidth = (element: HTMLElement, width: number): void => {
+        element.getBoundingClientRect = () => ({ width } as DOMRect);
+    };
+
+    it('climbs single-purpose wrappers up to the row item, like the real Upgrade markup', () => {
+        document.body.innerHTML = `
+            <div role="banner">
+                <div id="row">
+                    <button aria-label="Settings"></button>
+                    <div id="row-item"><span><span><div id="touch-wrap">
+                        <button id="btn" role="link">Upgrade</button>
+                    </div></span></span></div>
+                </div>
+            </div>
+        `;
+
+        const target = findHideTarget(document.getElementById('btn') as HTMLElement);
+
+        expect(target.id).toBe('row-item');
+    });
+
+    it('stops at an ancestor wider than the button', () => {
+        document.body.innerHTML = `
+            <div role="banner">
+                <div id="wide"><div id="narrow"><button id="btn">Upgrade</button></div></div>
+            </div>
+        `;
+        stubWidth(document.getElementById('btn') as HTMLElement, 100);
+        stubWidth(document.getElementById('narrow') as HTMLElement, 104);
+        stubWidth(document.getElementById('wide') as HTMLElement, 500);
+
+        const target = findHideTarget(document.getElementById('btn') as HTMLElement);
+
+        expect(target.id).toBe('narrow');
+    });
+
+    it('never hides a wrapper containing other clickable controls', () => {
+        document.body.innerHTML = `
+            <div role="banner">
+                <div id="shared"><button id="btn">Upgrade</button><button aria-label="Settings"></button></div>
+            </div>
+        `;
+
+        const target = findHideTarget(document.getElementById('btn') as HTMLElement);
+
+        expect(target.id).toBe('btn');
+    });
+
+    it('returns the button itself when it sits directly in the banner', () => {
+        document.body.innerHTML = '<div role="banner"><button id="btn">Upgrade</button></div>';
+
+        const target = findHideTarget(document.getElementById('btn') as HTMLElement);
+
+        expect(target.id).toBe('btn');
     });
 });
