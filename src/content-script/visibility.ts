@@ -37,6 +37,19 @@ export const hideElement = (element: HTMLElement): void => {
 };
 
 /**
+ * Re-applies `display: none` to an element the extension already hid, in
+ * case the page rewrote the inline style during a re-render. Does not touch
+ * the saved original state; no-op for elements not hidden by the extension.
+ *
+ * @param element Element to check and repair.
+ */
+export const ensureHidden = (element: HTMLElement): void => {
+    if (isHiddenByExtension(element) && element.style.display !== 'none') {
+        element.style.display = 'none';
+    }
+};
+
+/**
  * Restores an element previously hidden by {@link hideElement} to its exact
  * original inline display. Idempotent: restoring an element that is not
  * hidden by the extension does nothing.

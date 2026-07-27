@@ -13,6 +13,13 @@ export const UPGRADE_BUTTON_LABELS: readonly string[] = [
 ];
 
 /**
+ * Debounce window for coalescing DOM mutations before re-running the
+ * detector. Gmail mutates the page constantly; one check per window keeps
+ * the observer cheap while re-hiding the button quickly after re-renders.
+ */
+export const MUTATION_DEBOUNCE_MS = 100;
+
+/**
  * Marker attribute set on an element hidden by this extension.
  * Also serves as the idempotency guard for repeated hide calls.
  */
