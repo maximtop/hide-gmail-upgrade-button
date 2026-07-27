@@ -1,8 +1,14 @@
 /**
- * @file Gmail content script: loads the user settings, hides the enabled
- * header buttons and keeps them hidden across Gmail's re-renders via the
- * mutation watcher. Settings changes apply live through storage
- * subscription — no Gmail reload needed.
+ * @file Content script entrypoint: hides the enabled header buttons and
+ * keeps them hidden across re-renders via the mutation watcher.
+ *
+ * Runs at document_start and starts watching immediately with the default
+ * settings (hide everything): Drive builds its header during the initial
+ * page load, so waiting for document readiness or for the async settings
+ * read would let the buttons' reserved space paint and then collapse — a
+ * visible flash. The stored settings are applied as soon as they load
+ * (milliseconds later), restoring anything the user switched off; settings
+ * changes keep applying live through the storage subscription.
  */
 
 import { loadSettings, subscribeToSettings } from '../common/settings';
@@ -25,30 +31,14 @@ declare global {
 const watcher = createHidingWatcher(document);
 
 /**
- * Starts the watcher once the document is ready enough to contain the header.
- */
-const startWhenReady = (): void => {
-    if (document.readyState === 'interactive' || document.readyState === 'complete') {
-        watcher.start();
-        return;
-    }
-
-    document.addEventListener(
-        'readystatechange',
-        () => {
-            watcher.start();
-        },
-        { once: true },
-    );
-};
-
-/**
- * Loads settings, starts the watcher and keeps settings in sync.
+ * Starts the watcher right away and reconciles with stored settings once
+ * they load.
  */
 const init = async (): Promise<void> => {
+    watcher.start();
+
     const settings = await loadSettings();
     watcher.applySettings(settings);
-    startWhenReady();
     subscribeToSettings((next) => {
         watcher.applySettings(next);
     });
@@ -57,7 +47,8 @@ const init = async (): Promise<void> => {
 if (!window.hgubContentScriptLoaded) {
     window.hgubContentScriptLoaded = true;
     init().catch(() => {
-        // Settings unavailable (storage error): fail closed by doing nothing
-        // rather than hiding against an unknown user preference.
+        // Settings unavailable (storage error): stay on the safe defaults —
+        // the extension's single purpose is hiding, so defaults hide.
+        // Toggling still works once storage recovers via the subscription.
     });
 }
