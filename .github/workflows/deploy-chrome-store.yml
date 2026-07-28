@@ -1,0 +1,201 @@
+name: Deploy Chrome Web Store
+
+# Publishing a GitHub Release submits that exact release artifact to the
+# Chrome Web Store for review with staged (deferred) publishing.
+# Nothing ever goes live automatically: after the store approves the review,
+# the final publish is done by hand in the Developer Dashboard.
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Published release tag to (re)deploy (vX.Y.Z)'
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    name: Submit release archive to the Chrome Web Store
+    if: github.event_name == 'workflow_dispatch' || !github.event.release.prerelease
+    runs-on: ubuntu-latest
+    concurrency:
+      group: chrome-store-deploy
+      cancel-in-progress: false
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GO_WEBEXT_VERSION: v0.4.2
+    steps:
+      - name: Resolve and validate release
+        id: release
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          EVENT_TAG: ${{ github.event.release.tag_name }}
+          INPUT_TAG: ${{ inputs.tag }}
+        run: |
+          set -euo pipefail
+          if [[ "$EVENT_NAME" == "workflow_dispatch" ]]; then
+            RELEASE_TAG="$INPUT_TAG"
+          else
+            RELEASE_TAG="$EVENT_TAG"
+          fi
+          if [[ ! "$RELEASE_TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "Release tag must match vX.Y.Z: $RELEASE_TAG" >&2
+            exit 1
+          fi
+
+          RELEASE_JSON="$(gh release view "$RELEASE_TAG" \
+            --repo "$GITHUB_REPOSITORY" --json isDraft,isPrerelease)"
+          if [[ "$(jq -r '.isDraft' <<<"$RELEASE_JSON")" != "false" ]]; then
+            echo "Release $RELEASE_TAG is a draft; publish it first" >&2
+            exit 1
+          fi
+          if [[ "$(jq -r '.isPrerelease' <<<"$RELEASE_JSON")" != "false" ]]; then
+            echo "Release $RELEASE_TAG is a pre-release; store deployment ships full releases only" >&2
+            exit 1
+          fi
+
+          echo "tag=$RELEASE_TAG" >> "$GITHUB_OUTPUT"
+          echo "version=${RELEASE_TAG#v}" >> "$GITHUB_OUTPUT"
+
+      - name: Check store configuration
+        env:
+          CHROME_APP_ID: ${{ vars.CHROME_APP_ID }}
+          CHROME_CLIENT_ID: ${{ secrets.CHROME_CLIENT_ID }}
+          CHROME_CLIENT_SECRET: ${{ secrets.CHROME_CLIENT_SECRET }}
+          CHROME_REFRESH_TOKEN: ${{ secrets.CHROME_REFRESH_TOKEN }}
+        run: |
+          set -euo pipefail
+          missing=()
+          for name in CHROME_APP_ID CHROME_CLIENT_ID CHROME_CLIENT_SECRET CHROME_REFRESH_TOKEN; do
+            [[ -n "${!name}" ]] || missing+=("$name")
+          done
+          if [[ "${#missing[@]}" -gt 0 ]]; then
+            echo "Missing store configuration: ${missing[*]}" >&2
+            echo "See docs/RELEASE.md for the variables and secrets to set." >&2
+            exit 1
+          fi
+
+      - name: Check out the released tag
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          ref: ${{ steps.release.outputs.tag }}
+          fetch-depth: 0
+
+      - name: Ensure the release commit is on main
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          if ! git merge-base --is-ancestor HEAD FETCH_HEAD; then
+            echo "Release commit must be reachable from main" >&2
+            exit 1
+          fi
+
+      - name: Download the published release archive
+        env:
+          RELEASE_TAG: ${{ steps.release.outputs.tag }}
+          VERSION: ${{ steps.release.outputs.version }}
+        run: |
+          set -euo pipefail
+          mkdir -p store-upload
+          gh release download "$RELEASE_TAG" \
+            --repo "$GITHUB_REPOSITORY" \
+            --dir store-upload \
+            --pattern "hide-gmail-upgrade-button-$VERSION-chrome.zip" \
+            --pattern 'SHA256SUMS.txt'
+
+      - name: Verify archive checksum and manifest version
+        working-directory: store-upload
+        env:
+          VERSION: ${{ steps.release.outputs.version }}
+        run: |
+          set -euo pipefail
+          ARCHIVE="hide-gmail-upgrade-button-$VERSION-chrome.zip"
+          # The release publishes checksums for every archive; check only the
+          # one being submitted, so a missing sibling archive is not an error.
+          grep -F "$ARCHIVE" SHA256SUMS.txt > archive.sha256
+          sha256sum -c archive.sha256
+
+          ZIP_VERSION="$(unzip -p "$ARCHIVE" manifest.json | jq -r '.version')"
+          if [[ "$ZIP_VERSION" != "$VERSION" ]]; then
+            echo "Archive manifest version $ZIP_VERSION does not match release version $VERSION" >&2
+            exit 1
+          fi
+
+      - name: Set up Go
+        uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6.5.0
+        with:
+          go-version: '1.26.x'
+          cache: false
+
+      - name: Install go-webext
+        run: |
+          set -euo pipefail
+          go install "github.com/adguardteam/go-webext@${GO_WEBEXT_VERSION}"
+          echo "$(go env GOPATH)/bin" >> "$GITHUB_PATH"
+
+      - name: Upload to Chrome Web Store
+        env:
+          CHROME_API_VERSION: v2
+          CHROME_APP_ID: ${{ vars.CHROME_APP_ID }}
+          CHROME_CLIENT_ID: ${{ secrets.CHROME_CLIENT_ID }}
+          CHROME_CLIENT_SECRET: ${{ secrets.CHROME_CLIENT_SECRET }}
+          CHROME_REFRESH_TOKEN: ${{ secrets.CHROME_REFRESH_TOKEN }}
+          VERSION: ${{ steps.release.outputs.version }}
+        run: |
+          set -euo pipefail
+          go-webext update chrome \
+            -a "$CHROME_APP_ID" \
+            -f "store-upload/hide-gmail-upgrade-button-$VERSION-chrome.zip" 2>&1 \
+            | tee "$RUNNER_TEMP/upload-output.txt"
+          # The upload can finish asynchronously; never submit for review
+          # unless the store confirmed this exact version as the draft.
+          if ! grep -qxF "Upload State: SUCCEEDED" "$RUNNER_TEMP/upload-output.txt"; then
+            echo "Upload did not reach SUCCEEDED; refusing to submit an unconfirmed draft." \
+              "Re-run this workflow once the store finishes processing." >&2
+            exit 1
+          fi
+          if ! grep -qxF "Version: $VERSION" "$RUNNER_TEMP/upload-output.txt"; then
+            echo "Store draft version does not match release version $VERSION;" \
+              "refusing to submit for review." >&2
+            exit 1
+          fi
+
+      - name: Submit for review with deferred publishing
+        env:
+          CHROME_API_VERSION: v2
+          CHROME_APP_ID: ${{ vars.CHROME_APP_ID }}
+          CHROME_CLIENT_ID: ${{ secrets.CHROME_CLIENT_ID }}
+          CHROME_CLIENT_SECRET: ${{ secrets.CHROME_CLIENT_SECRET }}
+          CHROME_REFRESH_TOKEN: ${{ secrets.CHROME_REFRESH_TOKEN }}
+        run: |
+          set -euo pipefail
+          go-webext publish chrome -a "$CHROME_APP_ID" --staged 2>&1
+
+      - name: Report store status
+        env:
+          CHROME_API_VERSION: v2
+          CHROME_APP_ID: ${{ vars.CHROME_APP_ID }}
+          CHROME_CLIENT_ID: ${{ secrets.CHROME_CLIENT_ID }}
+          CHROME_CLIENT_SECRET: ${{ secrets.CHROME_CLIENT_SECRET }}
+          CHROME_REFRESH_TOKEN: ${{ secrets.CHROME_REFRESH_TOKEN }}
+          RELEASE_TAG: ${{ steps.release.outputs.tag }}
+          VERSION: ${{ steps.release.outputs.version }}
+        run: |
+          set -euo pipefail
+          go-webext status chrome -a "$CHROME_APP_ID" 2>&1 | tee "$RUNNER_TEMP/status-output.txt"
+          {
+            echo "## Chrome Web Store deployment"
+            echo
+            echo "- Release: \`$RELEASE_TAG\` (version $VERSION)"
+            echo "- The published release archive was submitted for review with deferred publishing."
+            echo "- After approval, publish manually in the Developer Dashboard within 30 days."
+            echo
+            echo '```'
+            cat "$RUNNER_TEMP/status-output.txt"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
