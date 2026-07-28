@@ -1,22 +1,52 @@
 # Hide Upgrade Button for Gmail
 
-A minimal browser extension (Manifest V3) that hides the Upgrade and Ask Gemini buttons in Gmail, Google Drive, and Google Docs. No analytics, no data collection.
+A tiny browser extension (Manifest V3) that hides the **Upgrade** and **Ask Gemini** buttons in the headers of Gmail, Google Drive, and Google Docs. No analytics, no network requests, no data collection — it does one thing.
 
-> Status: early scaffold — the hiding logic and the popup toggle are under development.
+![Gmail header before and after](assets/screenshots/before-after.png)
 
-## Install (from source)
+## What it does
+
+- Hides the **Upgrade** upsell button and the **Ask Gemini** button — each behind its own toggle in the popup, both on by default.
+- Works across **Gmail, Google Drive and Google Docs** (Docs/Sheets/Slides editors and their home screens).
+- Hides **before the first paint**: a stylesheet applied at `document_start` plus a mutation watcher keep the buttons from ever flashing, and keep them hidden through Google's dynamic re-renders and SPA navigation.
+- Neighboring header icons **shift to fill the space** — no empty gap is left behind.
+- Applies to **already open tabs** right after install, no reload needed.
+- Toggling a setting applies **live** to every open tab.
+
+## How it stays safe
+
+Google's markup is obfuscated and changes often, so the extension never relies on CSS class names. It identifies the buttons by stable semantics (accessible labels, roles, header scope) and by locale-independent structural signals. When a match is ambiguous, it **does nothing** rather than hide the wrong thing. If Google changes the markup beyond recognition, the worst case is that the buttons come back — nothing breaks.
+
+## Install
+
+Store listings (Chrome Web Store, Firefox Add-ons, Edge Add-ons) are on the way. Until then, install from source:
 
 ```bash
 pnpm install
 pnpm dev chrome
 ```
 
-Then load the unpacked extension from `build/dev/chrome/` via `chrome://extensions` (enable Developer mode → "Load unpacked").
+Then open `chrome://extensions`, enable **Developer mode**, click **Load unpacked** and pick `build/dev/chrome/`. See [DEVELOPMENT.md](DEVELOPMENT.md) for Firefox/Edge and all other commands.
 
-## Development
+## Permissions
 
-See [DEVELOPMENT.md](DEVELOPMENT.md) for commands, build channels and project structure. Conventions for contributors and AI agents live in [AGENTS.md](AGENTS.md).
+| Permission | Why |
+| --- | --- |
+| `storage` | Persist the two toggles locally |
+| `scripting` | Apply the extension to Gmail/Drive/Docs tabs that were already open at install time |
+| `mail.google.com`, `drive.google.com`, `docs.google.com` | The only sites the extension runs on |
+
+Nothing else. The extension makes no network requests and collects no data of any kind.
+
+## Remove
+
+`chrome://extensions` (or `about:addons` in Firefox) → find *Hide Upgrade Button for Gmail* → **Remove**. The extension stores only its two toggle values, which are deleted together with it. Reload open Gmail/Drive/Docs tabs to bring the hidden buttons back instantly (they also reappear on the next natural page re-render).
+
+## Support & contributing
+
+- Bugs and ideas: [GitHub issues](https://github.com/maximtop/hide-gmail-upgrade-button/issues). If a button stopped being hidden, Google likely changed the markup — please attach the button's `outerHTML` if you can.
+- PRs are welcome: read [AGENTS.md](AGENTS.md) for conventions and run `pnpm validate` before submitting.
 
 ## License
 
-[MIT](LICENSE). This project is not affiliated with Google.
+[MIT](LICENSE). This project is not affiliated with, endorsed by, or sponsored by Google. Gmail, Google Drive, Google Docs and Gemini are trademarks of Google LLC, referenced only to describe compatibility.
