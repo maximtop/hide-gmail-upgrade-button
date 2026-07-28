@@ -46,8 +46,10 @@ describe('real store descriptions', () => {
     );
     const sections = extractLanguageSections(source);
 
-    it('contain at least en and ru sections', () => {
-        expect(Object.keys(sections)).toEqual(expect.arrayContaining(['en', 'ru']));
+    it('cover exactly the same locales as src/_locales', () => {
+        const locales = fs.readdirSync(path.join(import.meta.dirname, '../../src/_locales')).sort();
+
+        expect(Object.keys(sections).sort()).toEqual(locales);
     });
 
     it('convert to store-ready plain text without markdown leftovers, within the 16k limit', () => {
