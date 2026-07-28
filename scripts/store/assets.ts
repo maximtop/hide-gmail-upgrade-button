@@ -29,50 +29,55 @@ const BG = '#F2F6F5';
 
 const FONT = 'Helvetica, Arial, sans-serif';
 
-/**
- * Locales the screenshots are generated for; captions below plus popup
- * strings from src/_locales keep the assets localizable.
- */
-const LOCALES = ['en', 'ru'] as const;
+import captionsJson from './screenshot-captions.json';
 
 /**
- * Screenshot locale.
+ * Screenshot texts for one locale.
  */
-type Locale = (typeof LOCALES)[number];
+interface ScreenshotCaptions {
+    /**
+     * Headline per screenshot, in order.
+     */
+    headlines: string[];
+
+    /**
+     * Subline per screenshot, in order.
+     */
+    sublines: string[];
+
+    /**
+     * Label of the "before" strip.
+     */
+    before: string;
+
+    /**
+     * Label of the "after" strip.
+     */
+    after: string;
+
+    /**
+     * Localized names of the three supported apps.
+     */
+    apps: string[];
+
+    /**
+     * Privacy screenshot bullet lines.
+     */
+    bullets: string[];
+}
 
 /**
- * Headline/subline pairs per screenshot, per locale.
+ * Screenshot locale code.
  */
-const CAPTIONS: Record<Locale, { headlines: string[]; sublines: string[] }> = {
-    en: {
-        headlines: [
-            'Remove Upgrade from the header',
-            'Two toggles — the whole UI',
-            'Works across three apps',
-            'Private by default',
-        ],
-        sublines: [
-            'The Upgrade and Ask Gemini buttons disappear from Gmail, Drive and Docs',
-            'Each button switches off separately; changes apply instantly',
-            'Gmail · Google Drive · Google Docs',
-            'No analytics, no network requests; only two toggles are stored',
-        ],
-    },
-    ru: {
-        headlines: [
-            'Уберите Upgrade из шапки',
-            'Два переключателя — весь интерфейс',
-            'Работает в трёх приложениях',
-            'Приватность по умолчанию',
-        ],
-        sublines: [
-            'Кнопки Upgrade и Ask Gemini исчезают из Gmail, Диска и Документов',
-            'Каждая кнопка отключается отдельно; настройки применяются мгновенно',
-            'Gmail · Google Диск · Google Документы',
-            'Без аналитики и сетевых запросов; хранится только два переключателя',
-        ],
-    },
-};
+type Locale = string;
+
+const CAPTIONS = captionsJson as Record<Locale, ScreenshotCaptions>;
+
+/**
+ * Locales the screenshots are generated for — driven by the captions file,
+ * which a unit test keeps in lockstep with src/_locales.
+ */
+const LOCALES: Locale[] = Object.keys(CAPTIONS);
 
 /**
  * Escapes text for embedding into SVG.
@@ -232,7 +237,7 @@ const popupMock = (x: number, y: number, scale: number, locale: Locale): string 
  * @returns Complete SVG document 1280x800.
  */
 const screenshotSvg = (locale: Locale, index: number, body: string): string => {
-    const { headlines, sublines } = CAPTIONS[locale];
+    const { headlines, sublines } = CAPTIONS[locale] ?? { headlines: [], sublines: [] };
     return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 800" width="1280" height="800">
         <rect width="1280" height="800" fill="${BG}"/>
         <rect width="1280" height="8" fill="${TEAL}"/>
@@ -250,10 +255,16 @@ const screenshotSvg = (locale: Locale, index: number, body: string): string => {
  * @param locale Locale for captions and popup strings.
  *
  * @returns SVG documents in order.
+ *
+ * @throws Error when the captions file has no entry for the locale.
  */
 const buildScreenshots = (locale: Locale): string[] => {
-    const beforeLabel = locale === 'ru' ? 'ДО' : 'BEFORE';
-    const afterLabel = locale === 'ru' ? 'ПОСЛЕ' : 'AFTER';
+    const captions = CAPTIONS[locale];
+    if (!captions) {
+        throw new Error(`No screenshot captions for locale ${locale}`);
+    }
+    const beforeLabel = captions.before;
+    const afterLabel = captions.after;
     const s1 = `
         <text x="120" y="272" font-family="${FONT}" font-size="22" font-weight="700" letter-spacing="3"
             fill="#9aa1ab">${beforeLabel}</text>
@@ -282,17 +293,13 @@ const buildScreenshots = (locale: Locale): string[] => {
         stroke="#5f6368" stroke-width="6"/><g stroke="#5f6368" stroke-width="6" stroke-linecap="round">
         <line x1="22" y1="34" x2="70" y2="34"/><line x1="22" y1="54" x2="70" y2="54"/>
         <line x1="22" y1="74" x2="52" y2="74"/></g></g>`;
-    const appNames = locale === 'ru'
-        ? ['Gmail', 'Google Диск', 'Google Документы']
-        : ['Gmail', 'Google Drive', 'Google Docs'];
+    const appNames = captions.apps;
     const s3 = [
         appCard(112, appNames[0] ?? '', envelope),
         appCard(490, appNames[1] ?? '', folder),
         appCard(868, appNames[2] ?? '', doc),
     ].join('');
-    const bullets = locale === 'ru'
-        ? ['Без аналитики и телеметрии', 'Ноль сетевых запросов', 'Открытый код, лицензия MIT']
-        : ['No analytics or telemetry', 'Zero network requests', 'Open source, MIT licensed'];
+    const bullets = captions.bullets;
     const bulletRow = (by: number, text: string): string => `
         <g transform="translate(240 ${by})">
             <rect width="800" height="104" rx="20" fill="#ffffff" stroke="${CARD_BORDER}" stroke-width="2"/>

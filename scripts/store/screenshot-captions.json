@@ -1,0 +1,282 @@
+{
+    "en": {
+        "headlines": ["Remove Upgrade from the header", "Two toggles — the whole UI", "Works across three apps", "Private by default"],
+        "sublines": ["The Upgrade and Ask Gemini buttons disappear from Gmail, Drive and Docs", "Each button switches off separately; changes apply instantly", "Gmail · Google Drive · Google Docs", "No analytics, no network requests; only two toggles are stored"],
+        "before": "BEFORE", "after": "AFTER",
+        "apps": ["Gmail", "Google Drive", "Google Docs"],
+        "bullets": ["No analytics or telemetry", "Zero network requests", "Open source, MIT licensed"]
+    },
+    "ru": {
+        "headlines": ["Уберите Upgrade из шапки", "Два переключателя — весь интерфейс", "Работает в трёх приложениях", "Приватность по умолчанию"],
+        "sublines": ["Кнопки Upgrade и Ask Gemini исчезают из Gmail, Диска и Документов", "Каждая кнопка отключается отдельно; настройки применяются мгновенно", "Gmail · Google Диск · Google Документы", "Без аналитики и сетевых запросов; хранится только два переключателя"],
+        "before": "ДО", "after": "ПОСЛЕ",
+        "apps": ["Gmail", "Google Диск", "Google Документы"],
+        "bullets": ["Без аналитики и телеметрии", "Ноль сетевых запросов", "Открытый код, лицензия MIT"]
+    },
+    "de": {
+        "headlines": ["Upgrade aus der Kopfzeile entfernen", "Zwei Schalter — die ganze Oberfläche", "Funktioniert in drei Apps", "Standardmäßig privat"],
+        "sublines": ["Die Buttons Upgrade und Ask Gemini verschwinden aus Gmail, Drive und Docs", "Jeder Button lässt sich einzeln abschalten; Änderungen gelten sofort", "Gmail · Google Drive · Google Docs", "Keine Analyse, keine Netzwerkanfragen; gespeichert werden nur zwei Schalter"],
+        "before": "VORHER", "after": "NACHHER",
+        "apps": ["Gmail", "Google Drive", "Google Docs"],
+        "bullets": ["Keine Analyse, keine Telemetrie", "Null Netzwerkanfragen", "Open Source, MIT-Lizenz"]
+    },
+    "fr": {
+        "headlines": ["Retirez Upgrade de l'en-tête", "Deux interrupteurs — toute l'interface", "Fonctionne dans trois applications", "Privé par défaut"],
+        "sublines": ["Les boutons Upgrade et Ask Gemini disparaissent de Gmail, Drive et Docs", "Chaque bouton se désactive séparément ; les changements s'appliquent aussitôt", "Gmail · Google Drive · Google Docs", "Pas d'analytique ni de requêtes réseau ; seuls deux réglages sont stockés"],
+        "before": "AVANT", "after": "APRÈS",
+        "apps": ["Gmail", "Google Drive", "Google Docs"],
+        "bullets": ["Ni analytique ni télémétrie", "Zéro requête réseau", "Open source, licence MIT"]
+    },
+    "es": {
+        "headlines": ["Quita Upgrade de la cabecera", "Dos interruptores: toda la interfaz", "Funciona en tres aplicaciones", "Privado por defecto"],
+        "sublines": ["Los botones Upgrade y Ask Gemini desaparecen de Gmail, Drive y Docs", "Cada botón se desactiva por separado; los cambios se aplican al instante", "Gmail · Google Drive · Google Docs", "Sin analítica ni peticiones de red; solo se guardan dos ajustes"],
+        "before": "ANTES", "after": "DESPUÉS",
+        "apps": ["Gmail", "Google Drive", "Google Docs"],
+        "bullets": ["Sin analítica ni telemetría", "Cero peticiones de red", "Código abierto, licencia MIT"]
+    },
+    "es_419": {
+        "headlines": ["Quita Upgrade de la cabecera", "Dos interruptores: toda la interfaz", "Funciona en tres aplicaciones", "Privado por defecto"],
+        "sublines": ["Los botones Upgrade y Ask Gemini desaparecen de Gmail, Drive y Docs", "Cada botón se desactiva por separado; los cambios se aplican al instante", "Gmail · Google Drive · Google Docs", "Sin analítica ni solicitudes de red; solo se guardan dos ajustes"],
+        "before": "ANTES", "after": "DESPUÉS",
+        "apps": ["Gmail", "Google Drive", "Google Docs"],
+        "bullets": ["Sin analítica ni telemetría", "Cero solicitudes de red", "Código abierto, licencia MIT"]
+    },
+    "it": {
+        "headlines": ["Rimuovi Upgrade dall'intestazione", "Due interruttori: tutta l'interfaccia", "Funziona in tre app", "Privato per impostazione"],
+        "sublines": ["I pulsanti Upgrade e Ask Gemini spariscono da Gmail, Drive e Docs", "Ogni pulsante si disattiva separatamente; le modifiche sono immediate", "Gmail · Google Drive · Google Documenti", "Niente analisi né richieste di rete; vengono salvati solo due interruttori"],
+        "before": "PRIMA", "after": "DOPO",
+        "apps": ["Gmail", "Google Drive", "Google Documenti"],
+        "bullets": ["Niente analisi né telemetria", "Zero richieste di rete", "Open source, licenza MIT"]
+    },
+    "pt_BR": {
+        "headlines": ["Remova o Upgrade do cabeçalho", "Dois interruptores — toda a interface", "Funciona em três apps", "Privado por padrão"],
+        "sublines": ["Os botões Upgrade e Ask Gemini somem do Gmail, Drive e Docs", "Cada botão desliga separadamente; as mudanças valem na hora", "Gmail · Google Drive · Google Documentos", "Sem análise nem solicitações de rede; só dois ajustes são armazenados"],
+        "before": "ANTES", "after": "DEPOIS",
+        "apps": ["Gmail", "Google Drive", "Google Documentos"],
+        "bullets": ["Sem análise nem telemetria", "Zero solicitações de rede", "Código aberto, licença MIT"]
+    },
+    "pt_PT": {
+        "headlines": ["Remova o Upgrade do cabeçalho", "Dois interruptores — toda a interface", "Funciona em três aplicações", "Privado por predefinição"],
+        "sublines": ["Os botões Upgrade e Ask Gemini desaparecem do Gmail, Drive e Docs", "Cada botão desliga-se separadamente; as alterações aplicam-se de imediato", "Gmail · Google Drive · Google Docs", "Sem análises nem pedidos de rede; apenas dois ajustes são guardados"],
+        "before": "ANTES", "after": "DEPOIS",
+        "apps": ["Gmail", "Google Drive", "Google Docs"],
+        "bullets": ["Sem análises nem telemetria", "Zero pedidos de rede", "Código aberto, licença MIT"]
+    },
+    "nl": {
+        "headlines": ["Haal Upgrade uit de koptekst", "Twee schakelaars — de hele interface", "Werkt in drie apps", "Standaard privé"],
+        "sublines": ["De knoppen Upgrade en Ask Gemini verdwijnen uit Gmail, Drive en Docs", "Elke knop schakelt apart uit; wijzigingen gelden direct", "Gmail · Google Drive · Google Documenten", "Geen analyse, geen netwerkverzoeken; alleen twee schakelaars worden bewaard"],
+        "before": "VOOR", "after": "NA",
+        "apps": ["Gmail", "Google Drive", "Google Documenten"],
+        "bullets": ["Geen analyse of telemetrie", "Nul netwerkverzoeken", "Open source, MIT-licentie"]
+    },
+    "da": {
+        "headlines": ["Fjern Upgrade fra toppen", "To kontakter — hele fladen", "Virker i tre apps", "Privat som standard"],
+        "sublines": ["Knapperne Upgrade og Ask Gemini forsvinder fra Gmail, Drev og Docs", "Hver knap slås fra separat; ændringer gælder med det samme", "Gmail · Google Drev · Google Docs", "Ingen analyse, ingen netværksforespørgsler; kun to kontakter gemmes"],
+        "before": "FØR", "after": "EFTER",
+        "apps": ["Gmail", "Google Drev", "Google Docs"],
+        "bullets": ["Ingen analyse eller telemetri", "Nul netværksforespørgsler", "Open source, MIT-licens"]
+    },
+    "sv": {
+        "headlines": ["Ta bort Upgrade från sidhuvudet", "Två reglage — hela gränssnittet", "Fungerar i tre appar", "Privat som standard"],
+        "sublines": ["Knapparna Upgrade och Ask Gemini försvinner från Gmail, Drive och Dokument", "Varje knapp stängs av separat; ändringar gäller direkt", "Gmail · Google Drive · Google Dokument", "Ingen analys, inga nätverksanrop; endast två reglage sparas"],
+        "before": "FÖRE", "after": "EFTER",
+        "apps": ["Gmail", "Google Drive", "Google Dokument"],
+        "bullets": ["Ingen analys eller telemetri", "Noll nätverksanrop", "Öppen källkod, MIT-licens"]
+    },
+    "nb": {
+        "headlines": ["Fjern Upgrade fra toppfeltet", "To brytere — hele grensesnittet", "Virker i tre apper", "Privat som standard"],
+        "sublines": ["Knappene Upgrade og Ask Gemini forsvinner fra Gmail, Disk og Dokumenter", "Hver knapp slås av separat; endringer gjelder umiddelbart", "Gmail · Google Disk · Google Dokumenter", "Ingen analyse, ingen nettverksforespørsler; bare to brytere lagres"],
+        "before": "FØR", "after": "ETTER",
+        "apps": ["Gmail", "Google Disk", "Google Dokumenter"],
+        "bullets": ["Ingen analyse eller telemetri", "Null nettverksforespørsler", "Åpen kildekode, MIT-lisens"]
+    },
+    "fi": {
+        "headlines": ["Poista Upgrade yläpalkista", "Kaksi kytkintä — koko käyttöliittymä", "Toimii kolmessa sovelluksessa", "Yksityinen oletuksena"],
+        "sublines": ["Upgrade- ja Ask Gemini -painikkeet katoavat Gmailista, Drivesta ja Docsista", "Kumpikin painike sammuu erikseen; muutokset tulevat voimaan heti", "Gmail · Google Drive · Google Docs", "Ei analytiikkaa eikä verkkopyyntöjä; vain kaksi kytkintä tallennetaan"],
+        "before": "ENNEN", "after": "JÄLKEEN",
+        "apps": ["Gmail", "Google Drive", "Google Docs"],
+        "bullets": ["Ei analytiikkaa eikä telemetriaa", "Nolla verkkopyyntöä", "Avoin lähdekoodi, MIT-lisenssi"]
+    },
+    "pl": {
+        "headlines": ["Usuń Upgrade z nagłówka", "Dwa przełączniki — cały interfejs", "Działa w trzech aplikacjach", "Prywatność domyślnie"],
+        "sublines": ["Przyciski Upgrade i Ask Gemini znikają z Gmaila, Dysku i Dokumentów", "Każdy przycisk wyłącza się osobno; zmiany działają natychmiast", "Gmail · Dysk Google · Dokumenty Google", "Bez analityki i żądań sieciowych; zapisywane są tylko dwa przełączniki"],
+        "before": "PRZED", "after": "PO",
+        "apps": ["Gmail", "Dysk Google", "Dokumenty Google"],
+        "bullets": ["Bez analityki i telemetrii", "Zero żądań sieciowych", "Open source, licencja MIT"]
+    },
+    "cs": {
+        "headlines": ["Odstraňte Upgrade ze záhlaví", "Dva přepínače — celé rozhraní", "Funguje ve třech aplikacích", "Soukromé ve výchozím stavu"],
+        "sublines": ["Tlačítka Upgrade a Ask Gemini zmizí z Gmailu, Disku a Dokumentů", "Každé tlačítko se vypíná zvlášť; změny platí okamžitě", "Gmail · Disk Google · Dokumenty Google", "Žádná analytika ani síťové požadavky; ukládají se jen dva přepínače"],
+        "before": "PŘED", "after": "PO",
+        "apps": ["Gmail", "Disk Google", "Dokumenty Google"],
+        "bullets": ["Žádná analytika ani telemetrie", "Nula síťových požadavků", "Open source, licence MIT"]
+    },
+    "sk": {
+        "headlines": ["Odstráňte Upgrade zo záhlavia", "Dva prepínače — celé rozhranie", "Funguje v troch aplikáciách", "Súkromné predvolene"],
+        "sublines": ["Tlačidlá Upgrade a Ask Gemini zmiznú z Gmailu, Disku a Dokumentov", "Každé tlačidlo sa vypína zvlášť; zmeny platia okamžite", "Gmail · Disk Google · Dokumenty Google", "Žiadna analytika ani sieťové požiadavky; ukladajú sa len dva prepínače"],
+        "before": "PRED", "after": "PO",
+        "apps": ["Gmail", "Disk Google", "Dokumenty Google"],
+        "bullets": ["Žiadna analytika ani telemetria", "Nula sieťových požiadaviek", "Open source, licencia MIT"]
+    },
+    "hu": {
+        "headlines": ["Tüntesse el az Upgrade gombot", "Két kapcsoló — a teljes felület", "Három alkalmazásban működik", "Alapból privát"],
+        "sublines": ["Az Upgrade és az Ask Gemini gombok eltűnnek a Gmailből, a Drive-ból és a Dokumentumokból", "Mindkét gomb külön kapcsolható; a változás azonnal érvényes", "Gmail · Google Drive · Google Dokumentumok", "Nincs analitika, nincs hálózati kérés; csak két kapcsoló tárolódik"],
+        "before": "ELŐTTE", "after": "UTÁNA",
+        "apps": ["Gmail", "Google Drive", "Google Dokumentumok"],
+        "bullets": ["Nincs analitika, se telemetria", "Nulla hálózati kérés", "Nyílt forráskód, MIT-licenc"]
+    },
+    "ro": {
+        "headlines": ["Scoateți Upgrade din antet", "Două comutatoare — toată interfața", "Funcționează în trei aplicații", "Privat în mod implicit"],
+        "sublines": ["Butoanele Upgrade și Ask Gemini dispar din Gmail, Drive și Docs", "Fiecare buton se dezactivează separat; schimbările se aplică instant", "Gmail · Google Drive · Google Docs", "Fără analitice și cereri de rețea; se stochează doar două comutatoare"],
+        "before": "ÎNAINTE", "after": "DUPĂ",
+        "apps": ["Gmail", "Google Drive", "Google Docs"],
+        "bullets": ["Fără analitice sau telemetrie", "Zero cereri de rețea", "Open source, licență MIT"]
+    },
+    "bg": {
+        "headlines": ["Махнете Upgrade от лентата", "Два превключвателя — целият интерфейс", "Работи в три приложения", "Поверително по подразбиране"],
+        "sublines": ["Бутоните Upgrade и Ask Gemini изчезват от Gmail, Drive и Docs", "Всеки бутон се изключва поотделно; промените важат веднага", "Gmail · Google Drive · Google Docs", "Без анализи и мрежови заявки; съхраняват се само два превключвателя"],
+        "before": "ПРЕДИ", "after": "СЛЕД",
+        "apps": ["Gmail", "Google Drive", "Google Docs"],
+        "bullets": ["Без анализи и телеметрия", "Нула мрежови заявки", "Отворен код, лиценз MIT"]
+    },
+    "el": {
+        "headlines": ["Αφαιρέστε το Upgrade από την κεφαλίδα", "Δύο διακόπτες — όλη η διεπαφή", "Λειτουργεί σε τρεις εφαρμογές", "Ιδιωτικό εξ ορισμού"],
+        "sublines": ["Τα κουμπιά Upgrade και Ask Gemini εξαφανίζονται από Gmail, Drive και Docs", "Κάθε κουμπί απενεργοποιείται χωριστά· οι αλλαγές ισχύουν αμέσως", "Gmail · Google Drive · Google Docs", "Χωρίς αναλυτικά και αιτήματα δικτύου· αποθηκεύονται μόνο δύο διακόπτες"],
+        "before": "ΠΡΙΝ", "after": "ΜΕΤΑ",
+        "apps": ["Gmail", "Google Drive", "Google Docs"],
+        "bullets": ["Χωρίς αναλυτικά ή τηλεμετρία", "Μηδέν αιτήματα δικτύου", "Ανοιχτός κώδικας, άδεια MIT"]
+    },
+    "uk": {
+        "headlines": ["Приберіть Upgrade із шапки", "Два перемикачі — весь інтерфейс", "Працює у трьох застосунках", "Приватність за замовчуванням"],
+        "sublines": ["Кнопки Upgrade і Ask Gemini зникають із Gmail, Диска та Документів", "Кожна кнопка вимикається окремо; зміни діють миттєво", "Gmail · Google Диск · Google Документи", "Без аналітики та мережевих запитів; зберігаються лише два перемикачі"],
+        "before": "ДО", "after": "ПІСЛЯ",
+        "apps": ["Gmail", "Google Диск", "Google Документи"],
+        "bullets": ["Без аналітики й телеметрії", "Нуль мережевих запитів", "Відкритий код, ліцензія MIT"]
+    },
+    "hr": {
+        "headlines": ["Maknite Upgrade iz zaglavlja", "Dva prekidača — cijelo sučelje", "Radi u tri aplikacije", "Privatno prema zadanome"],
+        "sublines": ["Gumbi Upgrade i Ask Gemini nestaju iz Gmaila, Drivea i Dokumenata", "Svaki se gumb isključuje zasebno; promjene vrijede odmah", "Gmail · Google Drive · Google dokumenti", "Bez analitike i mrežnih zahtjeva; spremaju se samo dva prekidača"],
+        "before": "PRIJE", "after": "POSLIJE",
+        "apps": ["Gmail", "Google Drive", "Google dokumenti"],
+        "bullets": ["Bez analitike i telemetrije", "Nula mrežnih zahtjeva", "Otvoreni kod, MIT licenca"]
+    },
+    "sl": {
+        "headlines": ["Odstranite Upgrade iz glave", "Dve stikali — celoten vmesnik", "Deluje v treh aplikacijah", "Zasebno privzeto"],
+        "sublines": ["Gumba Upgrade in Ask Gemini izgineta iz Gmaila, Drivea in Dokumentov", "Vsak gumb se izklopi posebej; spremembe veljajo takoj", "Gmail · Google Drive · Google Dokumenti", "Brez analitike in omrežnih zahtev; shranjeni sta le dve stikali"],
+        "before": "PREJ", "after": "POTEM",
+        "apps": ["Gmail", "Google Drive", "Google Dokumenti"],
+        "bullets": ["Brez analitike in telemetrije", "Nič omrežnih zahtev", "Odprta koda, licenca MIT"]
+    },
+    "sr": {
+        "headlines": ["Уклоните Upgrade из заглавља", "Два прекидача — цео интерфејс", "Ради у три апликације", "Приватно подразумевано"],
+        "sublines": ["Дугмад Upgrade и Ask Gemini нестају из Gmail-а, Диска и Докумената", "Свако дугме се искључује засебно; промене важе одмах", "Gmail · Google диск · Google документи", "Без аналитике и мрежних захтева; чувају се само два прекидача"],
+        "before": "ПРЕ", "after": "ПОСЛЕ",
+        "apps": ["Gmail", "Google диск", "Google документи"],
+        "bullets": ["Без аналитике и телеметрије", "Нула мрежних захтева", "Отворени код, MIT лиценца"]
+    },
+    "lt": {
+        "headlines": ["Pašalinkite Upgrade iš antraštės", "Du jungikliai — visa sąsaja", "Veikia trijose programose", "Privatu pagal numatymą"],
+        "sublines": ["Mygtukai „Upgrade“ ir „Ask Gemini“ dingsta iš „Gmail“, Disko ir Dokumentų", "Kiekvienas mygtukas išjungiamas atskirai; pakeitimai galioja iškart", "Gmail · „Google“ diskas · „Google“ dokumentai", "Jokios analitikos ir tinklo užklausų; saugomi tik du jungikliai"],
+        "before": "PRIEŠ", "after": "PO",
+        "apps": ["Gmail", "„Google“ diskas", "„Google“ dokumentai"],
+        "bullets": ["Jokios analitikos ar telemetrijos", "Nulis tinklo užklausų", "Atviras kodas, MIT licencija"]
+    },
+    "tr": {
+        "headlines": ["Upgrade düğmesini üst çubuktan kaldırın", "İki anahtar — arayüzün tamamı", "Üç uygulamada çalışır", "Varsayılan olarak gizli"],
+        "sublines": ["Upgrade ve Ask Gemini düğmeleri Gmail, Drive ve Dokümanlar'dan kaybolur", "Her düğme ayrı ayrı kapatılır; değişiklikler anında uygulanır", "Gmail · Google Drive · Google Dokümanlar", "Analiz yok, ağ isteği yok; yalnızca iki anahtar saklanır"],
+        "before": "ÖNCE", "after": "SONRA",
+        "apps": ["Gmail", "Google Drive", "Google Dokümanlar"],
+        "bullets": ["Analiz ve telemetri yok", "Sıfır ağ isteği", "Açık kaynak, MIT lisansı"]
+    },
+    "ar": {
+        "headlines": ["أزل زر Upgrade من الرأس", "مفتاحان — هذه كل الواجهة", "يعمل في ثلاثة تطبيقات", "خاص افتراضيًا"],
+        "sublines": ["يختفي زرّا Upgrade وAsk Gemini من Gmail وDrive وDocs", "كل زر يُعطَّل على حدة؛ وتسري التغييرات فورًا", "Gmail · Google Drive · Google Docs", "لا تحليلات ولا طلبات شبكة؛ يُخزَّن مفتاحان فقط"],
+        "before": "قبل", "after": "بعد",
+        "apps": ["Gmail", "Google Drive", "Google Docs"],
+        "bullets": ["لا تحليلات ولا قياس عن بُعد", "صفر طلبات شبكة", "مفتوح المصدر، رخصة MIT"]
+    },
+    "he": {
+        "headlines": ["הסירו את Upgrade מהכותרת", "שני מתגים — זה כל הממשק", "עובד בשלוש אפליקציות", "פרטי כברירת מחדל"],
+        "sublines": ["הכפתורים Upgrade ו-Ask Gemini נעלמים מ-Gmail, מ-Drive ומ-Docs", "כל כפתור כבה בנפרד; השינויים חלים מיד", "Gmail · Google Drive · Google Docs", "בלי אנליטיקה ובקשות רשת; נשמרים רק שני מתגים"],
+        "before": "לפני", "after": "אחרי",
+        "apps": ["Gmail", "Google Drive", "Google Docs"],
+        "bullets": ["בלי אנליטיקה וטלמטריה", "אפס בקשות רשת", "קוד פתוח, רישיון MIT"]
+    },
+    "fa": {
+        "headlines": ["دکمه Upgrade را از سربرگ بردارید", "دو کلید — کل رابط همین است", "در سه برنامه کار می‌کند", "خصوصی به‌طور پیش‌فرض"],
+        "sublines": ["دکمه‌های Upgrade و Ask Gemini از Gmail، Drive و Docs ناپدید می‌شوند", "هر دکمه جداگانه خاموش می‌شود؛ تغییرات فوری اعمال می‌شوند", "Gmail · Google Drive · Google Docs", "بدون تحلیل و درخواست شبکه؛ فقط دو کلید ذخیره می‌شود"],
+        "before": "قبل", "after": "بعد",
+        "apps": ["Gmail", "Google Drive", "Google Docs"],
+        "bullets": ["بدون تحلیل و تله‌متری", "صفر درخواست شبکه", "متن‌باز، مجوز MIT"]
+    },
+    "hi": {
+        "headlines": ["हेडर से Upgrade हटाएँ", "दो टॉगल — पूरा इंटरफ़ेस", "तीन ऐप्स में काम करता है", "डिफ़ॉल्ट रूप से निजी"],
+        "sublines": ["Upgrade और Ask Gemini बटन Gmail, Drive और Docs से गायब हो जाते हैं", "हर बटन अलग से बंद होता है; बदलाव तुरंत लागू होते हैं", "Gmail · Google Drive · Google Docs", "न एनालिटिक्स, न नेटवर्क अनुरोध; केवल दो टॉगल सहेजे जाते हैं"],
+        "before": "पहले", "after": "बाद में",
+        "apps": ["Gmail", "Google Drive", "Google Docs"],
+        "bullets": ["न एनालिटिक्स, न टेलीमेट्री", "शून्य नेटवर्क अनुरोध", "ओपन सोर्स, MIT लाइसेंस"]
+    },
+    "th": {
+        "headlines": ["เอา Upgrade ออกจากส่วนหัว", "สองสวิตช์ — ทั้งหมดของอินเทอร์เฟซ", "ใช้ได้ในสามแอป", "เป็นส่วนตัวโดยค่าเริ่มต้น"],
+        "sublines": ["ปุ่ม Upgrade และ Ask Gemini หายไปจาก Gmail, ไดรฟ์ และเอกสาร", "แต่ละปุ่มปิดแยกกันได้ การเปลี่ยนแปลงมีผลทันที", "Gmail · Google ไดรฟ์ · Google เอกสาร", "ไม่มีการวิเคราะห์หรือคำขอเครือข่าย เก็บเพียงสวิตช์สองตัว"],
+        "before": "ก่อน", "after": "หลัง",
+        "apps": ["Gmail", "Google ไดรฟ์", "Google เอกสาร"],
+        "bullets": ["ไม่มีการวิเคราะห์หรือเทเลเมทรี", "ไม่มีคำขอเครือข่าย", "โอเพนซอร์ส สัญญาอนุญาต MIT"]
+    },
+    "id": {
+        "headlines": ["Hapus Upgrade dari header", "Dua sakelar — seluruh antarmukanya", "Bekerja di tiga aplikasi", "Privat secara bawaan"],
+        "sublines": ["Tombol Upgrade dan Ask Gemini hilang dari Gmail, Drive, dan Docs", "Tiap tombol dimatikan terpisah; perubahan langsung berlaku", "Gmail · Google Drive · Google Docs", "Tanpa analitik dan permintaan jaringan; hanya dua sakelar yang disimpan"],
+        "before": "SEBELUM", "after": "SESUDAH",
+        "apps": ["Gmail", "Google Drive", "Google Docs"],
+        "bullets": ["Tanpa analitik atau telemetri", "Nol permintaan jaringan", "Open source, lisensi MIT"]
+    },
+    "fil": {
+        "headlines": ["Alisin ang Upgrade sa header", "Dalawang switch — buong interface", "Gumagana sa tatlong app", "Pribado bilang default"],
+        "sublines": ["Nawawala ang mga button na Upgrade at Ask Gemini sa Gmail, Drive, at Docs", "Hiwalay na napapatay ang bawat button; agad na nalalapat ang mga pagbabago", "Gmail · Google Drive · Google Docs", "Walang analytics at network request; dalawang switch lang ang iniimbak"],
+        "before": "BAGO", "after": "PAGKATAPOS",
+        "apps": ["Gmail", "Google Drive", "Google Docs"],
+        "bullets": ["Walang analytics o telemetry", "Zero network request", "Open source, MIT license"]
+    },
+    "vi": {
+        "headlines": ["Bỏ Upgrade khỏi thanh đầu", "Hai công tắc — toàn bộ giao diện", "Hoạt động trong ba ứng dụng", "Riêng tư theo mặc định"],
+        "sublines": ["Các nút Upgrade và Ask Gemini biến mất khỏi Gmail, Drive và Tài liệu", "Mỗi nút tắt riêng; thay đổi có hiệu lực tức thì", "Gmail · Google Drive · Google Tài liệu", "Không phân tích, không yêu cầu mạng; chỉ lưu hai công tắc"],
+        "before": "TRƯỚC", "after": "SAU",
+        "apps": ["Gmail", "Google Drive", "Google Tài liệu"],
+        "bullets": ["Không phân tích hay đo từ xa", "Không yêu cầu mạng", "Mã nguồn mở, giấy phép MIT"]
+    },
+    "ja": {
+        "headlines": ["ヘッダーから Upgrade を消す", "スイッチ 2 つ — それが UI のすべて", "3 つのアプリで動作", "既定でプライベート"],
+        "sublines": ["Upgrade と Ask Gemini のボタンが Gmail・ドライブ・ドキュメントから消えます", "各ボタンは個別にオフにでき、変更は即時反映されます", "Gmail · Google ドライブ · Google ドキュメント", "分析なし・通信なし。保存されるのはスイッチ 2 つだけ"],
+        "before": "導入前", "after": "導入後",
+        "apps": ["Gmail", "Google ドライブ", "Google ドキュメント"],
+        "bullets": ["分析もテレメトリーもなし", "ネットワーク通信ゼロ", "オープンソース、MIT ライセンス"]
+    },
+    "ko": {
+        "headlines": ["헤더에서 Upgrade를 제거", "스위치 두 개 — UI의 전부", "세 개 앱에서 작동", "기본이 프라이빗"],
+        "sublines": ["Upgrade와 Ask Gemini 버튼이 Gmail, Drive, Docs에서 사라집니다", "각 버튼은 개별로 끌 수 있고 변경은 즉시 적용됩니다", "Gmail · Google Drive · Google Docs", "분석 없음, 네트워크 요청 없음; 저장되는 것은 스위치 두 개뿐"],
+        "before": "이전", "after": "이후",
+        "apps": ["Gmail", "Google Drive", "Google Docs"],
+        "bullets": ["분석·텔레메트리 없음", "네트워크 요청 0", "오픈 소스, MIT 라이선스"]
+    },
+    "zh_CN": {
+        "headlines": ["把 Upgrade 从顶栏移除", "两个开关——全部界面", "三款应用通用", "默认即隐私"],
+        "sublines": ["Upgrade 和 Ask Gemini 按钮从 Gmail、云端硬盘和文档中消失", "每个按钮可单独关闭；更改即时生效", "Gmail · Google 云端硬盘 · Google 文档", "无分析、无网络请求；仅存储两个开关"],
+        "before": "之前", "after": "之后",
+        "apps": ["Gmail", "Google 云端硬盘", "Google 文档"],
+        "bullets": ["无分析、无遥测", "零网络请求", "开源，MIT 许可"]
+    },
+    "zh_TW": {
+        "headlines": ["把 Upgrade 從頂欄移除", "兩個開關——全部介面", "三款應用通用", "預設即隱私"],
+        "sublines": ["Upgrade 和 Ask Gemini 按鈕從 Gmail、雲端硬碟和文件中消失", "每個按鈕可單獨關閉；變更即時生效", "Gmail · Google 雲端硬碟 · Google 文件", "無分析、無網路請求；僅儲存兩個開關"],
+        "before": "之前", "after": "之後",
+        "apps": ["Gmail", "Google 雲端硬碟", "Google 文件"],
+        "bullets": ["無分析、無遙測", "零網路請求", "開源，MIT 授權"]
+    },
+    "ca": {
+        "headlines": ["Treu Upgrade de la capçalera", "Dos interruptors: tota la interfície", "Funciona en tres aplicacions", "Privat per defecte"],
+        "sublines": ["Els botons Upgrade i Ask Gemini desapareixen de Gmail, Drive i Docs", "Cada botó es desactiva per separat; els canvis s'apliquen a l'instant", "Gmail · Google Drive · Google Docs", "Sense analítica ni peticions de xarxa; només es guarden dos ajustos"],
+        "before": "ABANS", "after": "DESPRÉS",
+        "apps": ["Gmail", "Google Drive", "Google Docs"],
+        "bullets": ["Sense analítica ni telemetria", "Zero peticions de xarxa", "Codi obert, llicència MIT"]
+    }
+}
