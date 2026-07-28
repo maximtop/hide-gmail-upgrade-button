@@ -36,6 +36,14 @@ describe('locale files', () => {
         expect(locales.length).toBeGreaterThanOrEqual(40);
     });
 
+    it('keep every name within the strictest store limit of 45 characters (Edge Add-ons)', () => {
+        for (const locale of locales) {
+            const filePath = path.join(localesDir, locale, 'messages.json');
+            const messages = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+            expect(messages.name.message.length).toBeLessThanOrEqual(45);
+        }
+    });
+
     it('keep every description within the Chrome Web Store limit of 132 characters', () => {
         for (const locale of locales) {
             const filePath = path.join(localesDir, locale, 'messages.json');
