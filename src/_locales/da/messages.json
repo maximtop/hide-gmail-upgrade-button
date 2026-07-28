@@ -18,5 +18,13 @@
     "popup_toggle_gemini_label": {
         "message": "Skjul Ask Gemini-knappen",
         "description": "Label of the Ask Gemini toggle."
+    },
+    "popup_markup_note": {
+        "message": "Hvis en knap dukker op igen, har Google ændret designet — en rettelse kommer i en opdatering af udvidelsen.",
+        "description": "Popup note explaining that Google interface changes are fixed by extension updates."
+    },
+    "popup_report_link": {
+        "message": "Rapportér et problem",
+        "description": "Popup link to the issue tracker."
     }
 }

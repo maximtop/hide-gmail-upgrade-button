@@ -18,5 +18,13 @@
     "popup_toggle_gemini_label": {
         "message": "Az Ask Gemini gomb elrejtése",
         "description": "Label of the Ask Gemini toggle."
+    },
+    "popup_markup_note": {
+        "message": "Ha egy gomb újra megjelenik, a Google módosította a felületet — a javítás a bővítmény frissítésével érkezik.",
+        "description": "Popup note explaining that Google interface changes are fixed by extension updates."
+    },
+    "popup_report_link": {
+        "message": "Probléma jelentése",
+        "description": "Popup link to the issue tracker."
     }
 }

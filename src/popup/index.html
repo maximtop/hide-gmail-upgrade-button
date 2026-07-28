@@ -147,6 +147,26 @@
             font-size: 11px;
             color: var(--muted);
         }
+
+        footer .note {
+            margin: 8px 0 4px;
+            line-height: 1.45;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        footer a:focus-visible {
+            outline: 2px solid var(--accent-strong);
+            outline-offset: 2px;
+            border-radius: 3px;
+        }
     </style>
 </head>
 <body>
@@ -168,7 +188,11 @@
             <span id="hide-gemini-label"></span>
             <input type="checkbox" id="hide-gemini" checked>
         </label>
-        <footer>Gmail &middot; Google Drive &middot; Google Docs</footer>
+        <footer>
+            <div>Gmail &middot; Google Drive &middot; Google Docs</div>
+            <p class="note" id="markup-note"></p>
+            <a id="report-link" href="https://github.com/maximtop/hide-gmail-upgrade-button/issues" target="_blank" rel="noreferrer"></a>
+        </footer>
     </main>
 </body>
 </html>

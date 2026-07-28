@@ -18,5 +18,13 @@
     "popup_toggle_gemini_label": {
         "message": "Скриване на бутона Ask Gemini",
         "description": "Label of the Ask Gemini toggle."
+    },
+    "popup_markup_note": {
+        "message": "Ако бутонът се появи отново, Google е променил интерфейса — поправката ще дойде с обновление на разширението.",
+        "description": "Popup note explaining that Google interface changes are fixed by extension updates."
+    },
+    "popup_report_link": {
+        "message": "Съобщете за проблем",
+        "description": "Popup link to the issue tracker."
     }
 }

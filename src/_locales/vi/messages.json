@@ -18,5 +18,13 @@
     "popup_toggle_gemini_label": {
         "message": "Ẩn nút Ask Gemini",
         "description": "Label of the Ask Gemini toggle."
+    },
+    "popup_markup_note": {
+        "message": "Nếu một nút xuất hiện lại, Google đã thay đổi giao diện — bản sửa sẽ có trong bản cập nhật tiện ích.",
+        "description": "Popup note explaining that Google interface changes are fixed by extension updates."
+    },
+    "popup_report_link": {
+        "message": "Báo cáo sự cố",
+        "description": "Popup link to the issue tracker."
     }
 }

@@ -18,5 +18,13 @@
     "popup_toggle_gemini_label": {
         "message": "پنهان کردن دکمه Ask Gemini",
         "description": "Label of the Ask Gemini toggle."
+    },
+    "popup_markup_note": {
+        "message": "اگر دکمه‌ای دوباره ظاهر شد، Google رابط را تغییر داده است — اصلاح در به‌روزرسانی بعدی افزونه ارائه می‌شود.",
+        "description": "Popup note explaining that Google interface changes are fixed by extension updates."
+    },
+    "popup_report_link": {
+        "message": "گزارش مشکل",
+        "description": "Popup link to the issue tracker."
     }
 }

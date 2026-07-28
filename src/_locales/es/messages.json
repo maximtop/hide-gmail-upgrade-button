@@ -18,5 +18,13 @@
     "popup_toggle_gemini_label": {
         "message": "Ocultar el botón Ask Gemini",
         "description": "Label of the Ask Gemini toggle."
+    },
+    "popup_markup_note": {
+        "message": "Si un botón reaparece, Google cambió la interfaz — la corrección llegará con una actualización de la extensión.",
+        "description": "Popup note explaining that Google interface changes are fixed by extension updates."
+    },
+    "popup_report_link": {
+        "message": "Informar de un problema",
+        "description": "Popup link to the issue tracker."
     }
 }

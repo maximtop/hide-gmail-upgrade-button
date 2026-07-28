@@ -18,5 +18,13 @@
     "popup_toggle_gemini_label": {
         "message": "Ask-Gemini-Schaltfläche ausblenden",
         "description": "Label of the Ask Gemini toggle."
+    },
+    "popup_markup_note": {
+        "message": "Taucht ein Button wieder auf, hat Google die Oberfläche geändert — ein Update der Erweiterung bringt die Korrektur.",
+        "description": "Popup note explaining that Google interface changes are fixed by extension updates."
+    },
+    "popup_report_link": {
+        "message": "Problem melden",
+        "description": "Popup link to the issue tracker."
     }
 }

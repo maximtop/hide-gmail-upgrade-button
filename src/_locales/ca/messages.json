@@ -18,5 +18,13 @@
     "popup_toggle_gemini_label": {
         "message": "Amaga el botó Ask Gemini",
         "description": "Label of the Ask Gemini toggle."
+    },
+    "popup_markup_note": {
+        "message": "Si un botó torna a aparèixer, Google ha canviat la interfície — la solució arribarà amb una actualització de l’extensió.",
+        "description": "Popup note explaining that Google interface changes are fixed by extension updates."
+    },
+    "popup_report_link": {
+        "message": "Informa d’un problema",
+        "description": "Popup link to the issue tracker."
     }
 }

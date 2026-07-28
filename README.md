@@ -15,7 +15,7 @@ A tiny browser extension (Manifest V3) that hides the **Upgrade** and **Ask Gemi
 
 ## How it stays safe
 
-Google's markup is obfuscated and changes often, so the extension never relies on CSS class names. It identifies the buttons by stable semantics (accessible labels, roles, header scope) and by locale-independent structural signals. When a match is ambiguous, it **does nothing** rather than hide the wrong thing. If Google changes the markup beyond recognition, the worst case is that the buttons come back — nothing breaks.
+Google's markup is obfuscated and changes often, so the extension never relies on CSS class names. It identifies the buttons by stable semantics (accessible labels, roles, header scope) and by locale-independent structural signals. When a match is ambiguous, it **does nothing** rather than hide the wrong thing. If Google changes the markup beyond recognition, the worst case is that the buttons come back — nothing breaks. When that happens, hiding will be restored by an extension update; the popup links to the [issue tracker](https://github.com/maximtop/hide-gmail-upgrade-button/issues) so reappearing buttons get noticed quickly.
 
 ## Install
 

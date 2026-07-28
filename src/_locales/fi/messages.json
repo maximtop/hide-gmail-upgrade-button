@@ -18,5 +18,13 @@
     "popup_toggle_gemini_label": {
         "message": "Piilota Ask Gemini -painike",
         "description": "Label of the Ask Gemini toggle."
+    },
+    "popup_markup_note": {
+        "message": "Jos painike ilmestyy uudelleen, Google on muuttanut käyttöliittymää — korjaus tulee laajennuksen päivityksessä.",
+        "description": "Popup note explaining that Google interface changes are fixed by extension updates."
+    },
+    "popup_report_link": {
+        "message": "Ilmoita ongelmasta",
+        "description": "Popup link to the issue tracker."
     }
 }

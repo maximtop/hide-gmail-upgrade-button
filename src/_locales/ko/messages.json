@@ -18,5 +18,13 @@
     "popup_toggle_gemini_label": {
         "message": "Ask Gemini 버튼 숨기기",
         "description": "Label of the Ask Gemini toggle."
+    },
+    "popup_markup_note": {
+        "message": "버튼이 다시 나타나면 Google이 인터페이스를 변경한 것입니다. 확장 프로그램 업데이트로 수정됩니다.",
+        "description": "Popup note explaining that Google interface changes are fixed by extension updates."
+    },
+    "popup_report_link": {
+        "message": "문제 신고",
+        "description": "Popup link to the issue tracker."
     }
 }

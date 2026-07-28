@@ -18,5 +18,13 @@
     "popup_toggle_gemini_label": {
         "message": "Skrij gumb Ask Gemini",
         "description": "Label of the Ask Gemini toggle."
+    },
+    "popup_markup_note": {
+        "message": "Če se gumb spet pojavi, je Google spremenil vmesnik — popravek bo prišel s posodobitvijo razširitve.",
+        "description": "Popup note explaining that Google interface changes are fixed by extension updates."
+    },
+    "popup_report_link": {
+        "message": "Prijavi težavo",
+        "description": "Popup link to the issue tracker."
     }
 }

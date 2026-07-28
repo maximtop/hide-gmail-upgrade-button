@@ -18,5 +18,13 @@
     "popup_toggle_gemini_label": {
         "message": "Ask Gemini-knop verbergen",
         "description": "Label of the Ask Gemini toggle."
+    },
+    "popup_markup_note": {
+        "message": "Verschijnt een knop opnieuw, dan heeft Google de interface gewijzigd — een update van de extensie lost dit op.",
+        "description": "Popup note explaining that Google interface changes are fixed by extension updates."
+    },
+    "popup_report_link": {
+        "message": "Een probleem melden",
+        "description": "Popup link to the issue tracker."
     }
 }

@@ -18,5 +18,13 @@
     "popup_toggle_gemini_label": {
         "message": "Απόκρυψη του κουμπιού Ask Gemini",
         "description": "Label of the Ask Gemini toggle."
+    },
+    "popup_markup_note": {
+        "message": "Αν ένα κουμπί εμφανιστεί ξανά, η Google άλλαξε τη διεπαφή — η διόρθωση θα έρθει με ενημέρωση της επέκτασης.",
+        "description": "Popup note explaining that Google interface changes are fixed by extension updates."
+    },
+    "popup_report_link": {
+        "message": "Αναφορά προβλήματος",
+        "description": "Popup link to the issue tracker."
     }
 }

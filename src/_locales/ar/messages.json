@@ -18,5 +18,13 @@
     "popup_toggle_gemini_label": {
         "message": "إخفاء زر Ask Gemini",
         "description": "Label of the Ask Gemini toggle."
+    },
+    "popup_markup_note": {
+        "message": "إذا ظهر الزر من جديد فذلك لأن Google غيّرت الواجهة — سيصل الإصلاح في تحديث قادم للإضافة.",
+        "description": "Popup note explaining that Google interface changes are fixed by extension updates."
+    },
+    "popup_report_link": {
+        "message": "الإبلاغ عن مشكلة",
+        "description": "Popup link to the issue tracker."
     }
 }

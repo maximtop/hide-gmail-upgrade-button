@@ -67,6 +67,8 @@ const initSync = (): void => {
     localize('title', 'popup_title');
     localize('hide-upgrade-label', 'popup_toggle_label');
     localize('hide-gemini-label', 'popup_toggle_gemini_label');
+    localize('markup-note', 'popup_markup_note');
+    localize('report-link', 'popup_report_link');
 
     renderSettings(readCachedSettings() ?? DEFAULT_SETTINGS);
 

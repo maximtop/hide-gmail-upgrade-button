@@ -18,5 +18,13 @@
     "popup_toggle_gemini_label": {
         "message": "Itago ang button na Ask Gemini",
         "description": "Label of the Ask Gemini toggle."
+    },
+    "popup_markup_note": {
+        "message": "Kung muling lumitaw ang isang button, binago ng Google ang interface — darating ang ayos sa update ng extension.",
+        "description": "Popup note explaining that Google interface changes are fixed by extension updates."
+    },
+    "popup_report_link": {
+        "message": "Mag-ulat ng problema",
+        "description": "Popup link to the issue tracker."
     }
 }

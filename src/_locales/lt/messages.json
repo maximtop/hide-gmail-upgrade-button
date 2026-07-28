@@ -18,5 +18,13 @@
     "popup_toggle_gemini_label": {
         "message": "Slėpti mygtuką „Ask Gemini“",
         "description": "Label of the Ask Gemini toggle."
+    },
+    "popup_markup_note": {
+        "message": "Jei mygtukas vėl pasirodė, „Google“ pakeitė sąsają — pataisymas atkeliaus su plėtinio atnaujinimu.",
+        "description": "Popup note explaining that Google interface changes are fixed by extension updates."
+    },
+    "popup_report_link": {
+        "message": "Pranešti apie problemą",
+        "description": "Popup link to the issue tracker."
     }
 }
