@@ -4,7 +4,7 @@
     "private": true,
     "type": "module",
     "packageManager": "pnpm@10.33.4",
-    "description": "Browser extension that hides the Upgrade button in Gmail",
+    "description": "Browser extension that hides the Upgrade and Ask Gemini buttons in Gmail, Google Drive, and Google Docs",
     "license": "MIT",
     "author": "Maxim Topciu [maximtop] <maximtop@gmail.com>",
     "homepage": "https://github.com/maximtop/hide-gmail-upgrade-button#readme",

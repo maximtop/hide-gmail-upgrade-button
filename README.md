@@ -1,4 +1,4 @@
-# Hide Upgrade Button for Gmail
+# Hide Upgrade Button for Gmail, Drive & Docs
 
 A tiny browser extension (Manifest V3) that hides the **Upgrade** and **Ask Gemini** buttons in the headers of Gmail, Google Drive, and Google Docs. No analytics, no network requests, no data collection — it does one thing.
 
@@ -40,7 +40,7 @@ Nothing else. The extension makes no network requests and collects no data of an
 
 ## Remove
 
-`chrome://extensions` (or `about:addons` in Firefox) → find *Hide Upgrade Button for Gmail* → **Remove**. The extension stores only its two toggle values, which are deleted together with it. Reload open Gmail/Drive/Docs tabs to bring the hidden buttons back instantly (they also reappear on the next natural page re-render).
+`chrome://extensions` (or `about:addons` in Firefox) → find *Hide Upgrade Button for Gmail, Drive & Docs* → **Remove**. The extension stores only its two toggle values, which are deleted together with it. Reload open Gmail/Drive/Docs tabs to bring the hidden buttons back instantly (they also reappear on the next natural page re-render).
 
 ## Support & contributing
 

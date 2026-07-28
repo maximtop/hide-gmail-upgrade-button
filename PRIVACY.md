@@ -1,12 +1,12 @@
 # Privacy Policy
 
-**Hide Upgrade Button for Gmail**
+**Hide Upgrade Button for Gmail, Drive & Docs**
 
 Effective date: July 28, 2026
 
 ## Summary
 
-Hide Upgrade Button for Gmail does not collect, transmit, sell or share any
+Hide Upgrade Button for Gmail, Drive & Docs does not collect, transmit, sell or share any
 data. It makes no network requests. The only thing it stores is your two
 on/off preferences, locally in your own browser.
 
