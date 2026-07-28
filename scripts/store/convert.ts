@@ -36,7 +36,7 @@ export const convertMarkdownToPlainText = (markdown: string): string => {
  */
 export const extractLanguageSections = (content: string): Record<string, string> => {
     const sections: Record<string, string> = {};
-    const headingPattern = /^## .+ \(([a-z_]{2,5})\)$/gm;
+    const headingPattern = /^## .+ \(([a-zA-Z0-9_]{2,6})\)$/gm;
 
     const matches = Array.from(content.matchAll(headingPattern));
     matches.forEach((match, index) => {
