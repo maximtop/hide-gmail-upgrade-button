@@ -23,6 +23,7 @@
         "release": "CHANNEL_ENV=release tsx scripts/build/bundle.ts",
         "build": "pnpm release",
         "icons": "tsx scripts/icons/generate.ts",
+        "store:descriptions": "tsx scripts/store/convert-descriptions.ts",
         "test": "vitest run",
         "lint": "eslint .",
         "typecheck": "tsc --noEmit",
