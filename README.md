@@ -36,7 +36,7 @@ Then open `chrome://extensions`, enable **Developer mode**, click **Load unpacke
 | `scripting` | Apply the extension to Gmail/Drive/Docs tabs that were already open at install time |
 | `mail.google.com`, `drive.google.com`, `docs.google.com` | The only sites the extension runs on |
 
-Nothing else. The extension makes no network requests and collects no data of any kind.
+Nothing else. The extension makes no network requests and collects no data of any kind — see the [privacy policy](PRIVACY.md).
 
 ## Remove
 
