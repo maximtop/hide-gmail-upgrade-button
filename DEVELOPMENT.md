@@ -62,6 +62,20 @@ rspack.config.ts          per-browser config factory
 
 Styling note: there is no CSS pipeline — the popup styles live in its HTML, the content script injects only tiny generated/inline styles.
 
+## CI and releases
+
+- **CI** (`.github/workflows/ci.yml`) runs on every push to `main` and every
+  PR: `pnpm validate`, release builds for all three browsers, a manifest
+  sanity check (version stamped, Chrome service worker, Firefox background
+  scripts + gecko id) and uploads the three zips as a build artifact.
+- **Release** (`.github/workflows/release.yml`) runs on a `vX.Y.Z` tag: it
+  verifies the tag matches `package.json` and is reachable from `main`,
+  re-validates, rebuilds, and publishes a GitHub Release with the three
+  browser zips, a source archive and `SHA256SUMS.txt`.
+- To cut a release: bump `version` in `package.json`, commit to `main`, then
+  `git tag vX.Y.Z && git push origin vX.Y.Z`.
+- All GitHub Actions are pinned to commit SHAs.
+
 ## Testing notes
 
 - DOM tests run in happy-dom (per-file `@vitest-environment` pragma) on minimal anonymized fixtures — never on copied Gmail markup.

@@ -1,0 +1,59 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-and-build:
+    name: Validate and build extensions
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+      - name: Set up Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: '24'
+      - name: Install dependencies
+        run: |
+          corepack enable
+          pnpm install --frozen-lockfile
+      - name: Validate project
+        run: pnpm validate
+      - name: Build release extensions
+        run: pnpm release
+      - name: Verify built manifests
+        shell: bash
+        run: |
+          set -euo pipefail
+          PACKAGE_VERSION="$(node -p "require('./package.json').version")"
+          for BROWSER in chrome edge firefox; do
+            MANIFEST="build/release/$BROWSER/manifest.json"
+            BUILT_VERSION="$(node -p "require('./$MANIFEST').version")"
+            if [[ "$BUILT_VERSION" != "$PACKAGE_VERSION" ]]; then
+              echo "$MANIFEST version $BUILT_VERSION != package.json $PACKAGE_VERSION" >&2
+              exit 1
+            fi
+          done
+          node -e "
+            const chrome = require('./build/release/chrome/manifest.json');
+            const firefox = require('./build/release/firefox/manifest.json');
+            if (!chrome.background.service_worker) throw new Error('chrome: no service worker');
+            if (!Array.isArray(firefox.background.scripts)) throw new Error('firefox: no background scripts');
+            if (!firefox.browser_specific_settings?.gecko?.id) throw new Error('firefox: no gecko id');
+          "
+      - name: Retain extension archives
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: extension-archives
+          path: |
+            build/release/chrome.zip
+            build/release/edge.zip
+            build/release/firefox.zip
+          if-no-files-found: error
+          retention-days: 14
