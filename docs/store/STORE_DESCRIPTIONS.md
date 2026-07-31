@@ -37,7 +37,7 @@ Google's markup is obfuscated and changes without notice, so the extension never
 
 #### Privacy
 
-No account, no analytics, no servers, no network requests. The only data the extension stores is the two on/off toggles, locally in your browser. Privacy policy: https://github.com/maximtop/hide-gmail-upgrade-button/blob/main/PRIVACY.md
+No account, no analytics, no servers, no network requests. The only data the extension stores is the two on/off toggles, locally in your browser. Privacy policy: https://github.com/maximtop/hide-gmail-upgrade-button/blob/master/PRIVACY.md
 
 Free and open source: https://github.com/maximtop/hide-gmail-upgrade-button
 
@@ -72,7 +72,7 @@ Google держит в шапке Gmail, Google Диска и Google Докум�
 
 #### Приватность
 
-Без аккаунтов, аналитики, серверов и сетевых запросов. Единственные данные, которые хранит расширение, — два переключателя, локально в вашем браузере. Политика конфиденциальности: https://github.com/maximtop/hide-gmail-upgrade-button/blob/main/PRIVACY.md
+Без аккаунтов, аналитики, серверов и сетевых запросов. Единственные данные, которые хранит расширение, — два переключателя, локально в вашем браузере. Политика конфиденциальности: https://github.com/maximtop/hide-gmail-upgrade-button/blob/master/PRIVACY.md
 
 Бесплатно и с открытым кодом: https://github.com/maximtop/hide-gmail-upgrade-button
 
@@ -107,7 +107,7 @@ Googles Markup ist verschleiert und ändert sich ohne Ankündigung, daher verlä
 
 #### Datenschutz
 
-Kein Konto, keine Analyse, keine Server, keine Netzwerkanfragen. Die einzigen gespeicherten Daten sind die zwei Schalter, lokal in Ihrem Browser. Datenschutzerklärung: https://github.com/maximtop/hide-gmail-upgrade-button/blob/main/PRIVACY.md
+Kein Konto, keine Analyse, keine Server, keine Netzwerkanfragen. Die einzigen gespeicherten Daten sind die zwei Schalter, lokal in Ihrem Browser. Datenschutzerklärung: https://github.com/maximtop/hide-gmail-upgrade-button/blob/master/PRIVACY.md
 
 Kostenlos und Open Source: https://github.com/maximtop/hide-gmail-upgrade-button
 
@@ -142,7 +142,7 @@ Le balisage de Google est obscurci et change sans préavis ; l'extension ne s'ap
 
 #### Confidentialité
 
-Pas de compte, pas d'analytique, pas de serveurs, pas de requêtes réseau. Les seules données stockées sont vos deux interrupteurs, localement dans votre navigateur. Politique de confidentialité : https://github.com/maximtop/hide-gmail-upgrade-button/blob/main/PRIVACY.md
+Pas de compte, pas d'analytique, pas de serveurs, pas de requêtes réseau. Les seules données stockées sont vos deux interrupteurs, localement dans votre navigateur. Politique de confidentialité : https://github.com/maximtop/hide-gmail-upgrade-button/blob/master/PRIVACY.md
 
 Gratuit et open source : https://github.com/maximtop/hide-gmail-upgrade-button
 
@@ -177,7 +177,7 @@ El marcado de Google está ofuscado y cambia sin aviso, así que la extensión n
 
 #### Privacidad
 
-Sin cuentas, sin analítica, sin servidores, sin peticiones de red. Los únicos datos que guarda la extensión son los dos interruptores, localmente en tu navegador. Política de privacidad: https://github.com/maximtop/hide-gmail-upgrade-button/blob/main/PRIVACY.md
+Sin cuentas, sin analítica, sin servidores, sin peticiones de red. Los únicos datos que guarda la extensión son los dos interruptores, localmente en tu navegador. Política de privacidad: https://github.com/maximtop/hide-gmail-upgrade-button/blob/master/PRIVACY.md
 
 Gratuita y de código abierto: https://github.com/maximtop/hide-gmail-upgrade-button
 
@@ -212,7 +212,7 @@ El marcado de Google está ofuscado y cambia sin aviso, así que la extensión n
 
 #### Privacidad
 
-Sin cuentas, sin analítica, sin servidores, sin solicitudes de red. Los únicos datos que guarda la extensión son los dos interruptores, localmente en tu navegador. Política de privacidad: https://github.com/maximtop/hide-gmail-upgrade-button/blob/main/PRIVACY.md
+Sin cuentas, sin analítica, sin servidores, sin solicitudes de red. Los únicos datos que guarda la extensión son los dos interruptores, localmente en tu navegador. Política de privacidad: https://github.com/maximtop/hide-gmail-upgrade-button/blob/master/PRIVACY.md
 
 Gratuita y de código abierto: https://github.com/maximtop/hide-gmail-upgrade-button
 
@@ -247,7 +247,7 @@ Il markup di Google è offuscato e cambia senza preavviso, quindi l'estensione n
 
 #### Privacy
 
-Nessun account, nessuna analisi, nessun server, nessuna richiesta di rete. Gli unici dati salvati sono i due interruttori, localmente nel tuo browser. Informativa sulla privacy: https://github.com/maximtop/hide-gmail-upgrade-button/blob/main/PRIVACY.md
+Nessun account, nessuna analisi, nessun server, nessuna richiesta di rete. Gli unici dati salvati sono i due interruttori, localmente nel tuo browser. Informativa sulla privacy: https://github.com/maximtop/hide-gmail-upgrade-button/blob/master/PRIVACY.md
 
 Gratuita e open source: https://github.com/maximtop/hide-gmail-upgrade-button
 
@@ -282,7 +282,7 @@ A marcação do Google é ofuscada e muda sem aviso, então a extensão nunca de
 
 #### Privacidade
 
-Sem conta, sem análise, sem servidores, sem solicitações de rede. Os únicos dados armazenados são os dois interruptores, localmente no seu navegador. Política de privacidade: https://github.com/maximtop/hide-gmail-upgrade-button/blob/main/PRIVACY.md
+Sem conta, sem análise, sem servidores, sem solicitações de rede. Os únicos dados armazenados são os dois interruptores, localmente no seu navegador. Política de privacidade: https://github.com/maximtop/hide-gmail-upgrade-button/blob/master/PRIVACY.md
 
 Gratuita e de código aberto: https://github.com/maximtop/hide-gmail-upgrade-button
 
@@ -317,7 +317,7 @@ A marcação da Google é ofuscada e muda sem aviso, pelo que a extensão nunca 
 
 #### Privacidade
 
-Sem conta, sem análises, sem servidores, sem pedidos de rede. Os únicos dados guardados são os dois interruptores, localmente no seu navegador. Política de privacidade: https://github.com/maximtop/hide-gmail-upgrade-button/blob/main/PRIVACY.md
+Sem conta, sem análises, sem servidores, sem pedidos de rede. Os únicos dados guardados são os dois interruptores, localmente no seu navegador. Política de privacidade: https://github.com/maximtop/hide-gmail-upgrade-button/blob/master/PRIVACY.md
 
 Gratuita e de código aberto: https://github.com/maximtop/hide-gmail-upgrade-button
 
@@ -352,7 +352,7 @@ De opmaak van Google is versluierd en verandert zonder aankondiging; de extensie
 
 #### Privacy
 
-Geen account, geen analyse, geen servers, geen netwerkverzoeken. De enige opgeslagen gegevens zijn de twee schakelaars, lokaal in uw browser. Privacybeleid: https://github.com/maximtop/hide-gmail-upgrade-button/blob/main/PRIVACY.md
+Geen account, geen analyse, geen servers, geen netwerkverzoeken. De enige opgeslagen gegevens zijn de twee schakelaars, lokaal in uw browser. Privacybeleid: https://github.com/maximtop/hide-gmail-upgrade-button/blob/master/PRIVACY.md
 
 Gratis en open source: https://github.com/maximtop/hide-gmail-upgrade-button
 
@@ -387,7 +387,7 @@ Googles opmærkning er sløret og ændrer sig uden varsel, så udvidelsen stoler
 
 #### Privatliv
 
-Ingen konto, ingen analyse, ingen servere, ingen netværksforespørgsler. De eneste gemte data er de to kontakter, lokalt i din browser. Privatlivspolitik: https://github.com/maximtop/hide-gmail-upgrade-button/blob/main/PRIVACY.md
+Ingen konto, ingen analyse, ingen servere, ingen netværksforespørgsler. De eneste gemte data er de to kontakter, lokalt i din browser. Privatlivspolitik: https://github.com/maximtop/hide-gmail-upgrade-button/blob/master/PRIVACY.md
 
 Gratis og open source: https://github.com/maximtop/hide-gmail-upgrade-button
 
@@ -422,7 +422,7 @@ Googles markup är obfuskerad och ändras utan förvarning, så tillägget litar
 
 #### Integritet
 
-Inget konto, ingen analys, inga servrar, inga nätverksanrop. Det enda som lagras är de två omkopplarna, lokalt i din webbläsare. Integritetspolicy: https://github.com/maximtop/hide-gmail-upgrade-button/blob/main/PRIVACY.md
+Inget konto, ingen analys, inga servrar, inga nätverksanrop. Det enda som lagras är de två omkopplarna, lokalt i din webbläsare. Integritetspolicy: https://github.com/maximtop/hide-gmail-upgrade-button/blob/master/PRIVACY.md
 
 Gratis och öppen källkod: https://github.com/maximtop/hide-gmail-upgrade-button
 
@@ -457,7 +457,7 @@ Googles oppmerking er tilslørt og endres uten varsel, så utvidelsen stoler ald
 
 #### Personvern
 
-Ingen konto, ingen analyse, ingen servere, ingen nettverksforespørsler. Det eneste som lagres er de to bryterne, lokalt i nettleseren din. Personvernerklæring: https://github.com/maximtop/hide-gmail-upgrade-button/blob/main/PRIVACY.md
+Ingen konto, ingen analyse, ingen servere, ingen nettverksforespørsler. Det eneste som lagres er de to bryterne, lokalt i nettleseren din. Personvernerklæring: https://github.com/maximtop/hide-gmail-upgrade-button/blob/master/PRIVACY.md
 
 Gratis og åpen kildekode: https://github.com/maximtop/hide-gmail-upgrade-button
 
@@ -492,7 +492,7 @@ Googlen merkintäkoodi on sekoitettu ja muuttuu ilman varoitusta, joten laajennu
 
 #### Yksityisyys
 
-Ei tiliä, ei analytiikkaa, ei palvelimia, ei verkkopyyntöjä. Ainoat tallennetut tiedot ovat kaksi kytkintä, paikallisesti selaimessasi. Tietosuojakäytäntö: https://github.com/maximtop/hide-gmail-upgrade-button/blob/main/PRIVACY.md
+Ei tiliä, ei analytiikkaa, ei palvelimia, ei verkkopyyntöjä. Ainoat tallennetut tiedot ovat kaksi kytkintä, paikallisesti selaimessasi. Tietosuojakäytäntö: https://github.com/maximtop/hide-gmail-upgrade-button/blob/master/PRIVACY.md
 
 Ilmainen ja avoin lähdekoodi: https://github.com/maximtop/hide-gmail-upgrade-button
 
@@ -527,7 +527,7 @@ Znaczniki Google są zaciemnione i zmieniają się bez ostrzeżenia, więc rozsz
 
 #### Prywatność
 
-Bez kont, analityki, serwerów i żądań sieciowych. Jedyne przechowywane dane to dwa przełączniki, lokalnie w Twojej przeglądarce. Polityka prywatności: https://github.com/maximtop/hide-gmail-upgrade-button/blob/main/PRIVACY.md
+Bez kont, analityki, serwerów i żądań sieciowych. Jedyne przechowywane dane to dwa przełączniki, lokalnie w Twojej przeglądarce. Polityka prywatności: https://github.com/maximtop/hide-gmail-upgrade-button/blob/master/PRIVACY.md
 
 Bezpłatne i open source: https://github.com/maximtop/hide-gmail-upgrade-button
 
@@ -562,7 +562,7 @@ Značky Google jsou obfuskované a mění se bez varování, takže rozšířen�
 
 #### Soukromí
 
-Žádný účet, žádná analytika, žádné servery, žádné síťové požadavky. Jediná uložená data jsou dva přepínače, lokálně ve vašem prohlížeči. Zásady ochrany soukromí: https://github.com/maximtop/hide-gmail-upgrade-button/blob/main/PRIVACY.md
+Žádný účet, žádná analytika, žádné servery, žádné síťové požadavky. Jediná uložená data jsou dva přepínače, lokálně ve vašem prohlížeči. Zásady ochrany soukromí: https://github.com/maximtop/hide-gmail-upgrade-button/blob/master/PRIVACY.md
 
 Zdarma a open source: https://github.com/maximtop/hide-gmail-upgrade-button
 
@@ -597,7 +597,7 @@ Značky Google sú obfuskované a menia sa bez varovania, takže rozšírenie sa
 
 #### Súkromie
 
-Žiadny účet, žiadna analytika, žiadne servery, žiadne sieťové požiadavky. Jediné uložené dáta sú dva prepínače, lokálne vo vašom prehliadači. Zásady ochrany súkromia: https://github.com/maximtop/hide-gmail-upgrade-button/blob/main/PRIVACY.md
+Žiadny účet, žiadna analytika, žiadne servery, žiadne sieťové požiadavky. Jediné uložené dáta sú dva prepínače, lokálne vo vašom prehliadači. Zásady ochrany súkromia: https://github.com/maximtop/hide-gmail-upgrade-button/blob/master/PRIVACY.md
 
 Zadarmo a open source: https://github.com/maximtop/hide-gmail-upgrade-button
 
@@ -632,7 +632,7 @@ A Google jelölése obfuszkált és figyelmeztetés nélkül változik, ezért a
 
 #### Adatvédelem
 
-Nincs fiók, nincs analitika, nincsenek szerverek, nincsenek hálózati kérések. Az egyetlen tárolt adat a két kapcsoló, helyben a böngészőjében. Adatvédelmi irányelvek: https://github.com/maximtop/hide-gmail-upgrade-button/blob/main/PRIVACY.md
+Nincs fiók, nincs analitika, nincsenek szerverek, nincsenek hálózati kérések. Az egyetlen tárolt adat a két kapcsoló, helyben a böngészőjében. Adatvédelmi irányelvek: https://github.com/maximtop/hide-gmail-upgrade-button/blob/master/PRIVACY.md
 
 Ingyenes és nyílt forráskódú: https://github.com/maximtop/hide-gmail-upgrade-button
 
@@ -667,7 +667,7 @@ Marcajul Google este obfuscat și se schimbă fără avertisment, așa că exten
 
 #### Confidențialitate
 
-Fără cont, fără analitice, fără servere, fără cereri de rețea. Singurele date stocate sunt cele două comutatoare, local în browserul dvs. Politica de confidențialitate: https://github.com/maximtop/hide-gmail-upgrade-button/blob/main/PRIVACY.md
+Fără cont, fără analitice, fără servere, fără cereri de rețea. Singurele date stocate sunt cele două comutatoare, local în browserul dvs. Politica de confidențialitate: https://github.com/maximtop/hide-gmail-upgrade-button/blob/master/PRIVACY.md
 
 Gratuită și open source: https://github.com/maximtop/hide-gmail-upgrade-button
 
@@ -702,7 +702,7 @@ Google държи постоянен бутон «Upgrade» в заглавна�
 
 #### Поверителност
 
-Без акаунти, без анализи, без сървъри, без мрежови заявки. Единствените съхранявани данни са двата превключвателя, локално във вашия браузър. Политика за поверителност: https://github.com/maximtop/hide-gmail-upgrade-button/blob/main/PRIVACY.md
+Без акаунти, без анализи, без сървъри, без мрежови заявки. Единствените съхранявани данни са двата превключвателя, локално във вашия браузър. Политика за поверителност: https://github.com/maximtop/hide-gmail-upgrade-button/blob/master/PRIVACY.md
 
 Безплатно и с отворен код: https://github.com/maximtop/hide-gmail-upgrade-button
 
@@ -737,7 +737,7 @@ Google държи постоянен бутон «Upgrade» в заглавна�
 
 #### Απόρρητο
 
-Χωρίς λογαριασμό, χωρίς αναλυτικά στοιχεία, χωρίς διακομιστές, χωρίς αιτήματα δικτύου. Τα μόνα αποθηκευμένα δεδομένα είναι οι δύο διακόπτες, τοπικά στο πρόγραμμα περιήγησής σας. Πολιτική απορρήτου: https://github.com/maximtop/hide-gmail-upgrade-button/blob/main/PRIVACY.md
+Χωρίς λογαριασμό, χωρίς αναλυτικά στοιχεία, χωρίς διακομιστές, χωρίς αιτήματα δικτύου. Τα μόνα αποθηκευμένα δεδομένα είναι οι δύο διακόπτες, τοπικά στο πρόγραμμα περιήγησής σας. Πολιτική απορρήτου: https://github.com/maximtop/hide-gmail-upgrade-button/blob/master/PRIVACY.md
 
 Δωρεάν και ανοιχτού κώδικα: https://github.com/maximtop/hide-gmail-upgrade-button
 
@@ -772,7 +772,7 @@ Google тримає в шапці Gmail, Google Диска та Google Доку�
 
 #### Приватність
 
-Без облікових записів, аналітики, серверів і мережевих запитів. Єдині дані, які зберігає розширення, — два перемикачі, локально у вашому браузері. Політика конфіденційності: https://github.com/maximtop/hide-gmail-upgrade-button/blob/main/PRIVACY.md
+Без облікових записів, аналітики, серверів і мережевих запитів. Єдині дані, які зберігає розширення, — два перемикачі, локально у вашому браузері. Політика конфіденційності: https://github.com/maximtop/hide-gmail-upgrade-button/blob/master/PRIVACY.md
 
 Безкоштовно і з відкритим кодом: https://github.com/maximtop/hide-gmail-upgrade-button
 
@@ -807,7 +807,7 @@ Googleove su oznake obfuscirane i mijenjaju se bez najave, pa se proširenje nik
 
 #### Privatnost
 
-Bez računa, bez analitike, bez poslužitelja, bez mrežnih zahtjeva. Jedini pohranjeni podaci su dva prekidača, lokalno u vašem pregledniku. Pravila privatnosti: https://github.com/maximtop/hide-gmail-upgrade-button/blob/main/PRIVACY.md
+Bez računa, bez analitike, bez poslužitelja, bez mrežnih zahtjeva. Jedini pohranjeni podaci su dva prekidača, lokalno u vašem pregledniku. Pravila privatnosti: https://github.com/maximtop/hide-gmail-upgrade-button/blob/master/PRIVACY.md
 
 Besplatno i otvorenog koda: https://github.com/maximtop/hide-gmail-upgrade-button
 
@@ -842,7 +842,7 @@ Googlove oznake so zakrite in se spreminjajo brez opozorila, zato se razširitev
 
 #### Zasebnost
 
-Brez računa, brez analitike, brez strežnikov, brez omrežnih zahtev. Edina shranjena podatka sta dve stikali, lokalno v vašem brskalniku. Pravilnik o zasebnosti: https://github.com/maximtop/hide-gmail-upgrade-button/blob/main/PRIVACY.md
+Brez računa, brez analitike, brez strežnikov, brez omrežnih zahtev. Edina shranjena podatka sta dve stikali, lokalno v vašem brskalniku. Pravilnik o zasebnosti: https://github.com/maximtop/hide-gmail-upgrade-button/blob/master/PRIVACY.md
 
 Brezplačno in odprtokodno: https://github.com/maximtop/hide-gmail-upgrade-button
 
@@ -877,7 +877,7 @@ Google-ове ознаке су обфусковане и мењају се бе
 
 #### Приватност
 
-Без налога, без аналитике, без сервера, без мрежних захтева. Једини сачувани подаци су два прекидача, локално у вашем прегледачу. Политика приватности: https://github.com/maximtop/hide-gmail-upgrade-button/blob/main/PRIVACY.md
+Без налога, без аналитике, без сервера, без мрежних захтева. Једини сачувани подаци су два прекидача, локално у вашем прегледачу. Политика приватности: https://github.com/maximtop/hide-gmail-upgrade-button/blob/master/PRIVACY.md
 
 Бесплатно и отвореног кода: https://github.com/maximtop/hide-gmail-upgrade-button
 
@@ -912,7 +912,7 @@ Google-ове ознаке су обфусковане и мењају се бе
 
 #### Privatumas
 
-Jokių paskyrų, analitikos, serverių ar tinklo užklausų. Vieninteliai saugomi duomenys — du jungikliai, lokaliai jūsų naršyklėje. Privatumo politika: https://github.com/maximtop/hide-gmail-upgrade-button/blob/main/PRIVACY.md
+Jokių paskyrų, analitikos, serverių ar tinklo užklausų. Vieninteliai saugomi duomenys — du jungikliai, lokaliai jūsų naršyklėje. Privatumo politika: https://github.com/maximtop/hide-gmail-upgrade-button/blob/master/PRIVACY.md
 
 Nemokamas ir atviro kodo: https://github.com/maximtop/hide-gmail-upgrade-button
 
@@ -947,7 +947,7 @@ Google'ın işaretlemesi gizlenmiştir ve haber vermeden değişir; bu yüzden u
 
 #### Gizlilik
 
-Hesap yok, analiz yok, sunucu yok, ağ isteği yok. Saklanan tek veri, tarayıcınızda yerel olarak tutulan iki anahtardır. Gizlilik politikası: https://github.com/maximtop/hide-gmail-upgrade-button/blob/main/PRIVACY.md
+Hesap yok, analiz yok, sunucu yok, ağ isteği yok. Saklanan tek veri, tarayıcınızda yerel olarak tutulan iki anahtardır. Gizlilik politikası: https://github.com/maximtop/hide-gmail-upgrade-button/blob/master/PRIVACY.md
 
 Ücretsiz ve açık kaynak: https://github.com/maximtop/hide-gmail-upgrade-button
 
@@ -982,7 +982,7 @@ Bu uzantı Google ile bağlantılı değildir ve Google tarafından desteklenmem
 
 #### الخصوصية
 
-لا حسابات، لا تحليلات، لا خوادم، لا طلبات شبكة. البيانات الوحيدة المخزّنة هي المفتاحان، محليًا في متصفحك. سياسة الخصوصية: https://github.com/maximtop/hide-gmail-upgrade-button/blob/main/PRIVACY.md
+لا حسابات، لا تحليلات، لا خوادم، لا طلبات شبكة. البيانات الوحيدة المخزّنة هي المفتاحان، محليًا في متصفحك. سياسة الخصوصية: https://github.com/maximtop/hide-gmail-upgrade-button/blob/master/PRIVACY.md
 
 مجانية ومفتوحة المصدر: https://github.com/maximtop/hide-gmail-upgrade-button
 
@@ -1017,7 +1017,7 @@ Google מחזיקה כפתור «Upgrade» קבוע בכותרת של Gmail, Goo
 
 #### פרטיות
 
-בלי חשבון, בלי אנליטיקה, בלי שרתים, בלי בקשות רשת. הנתונים היחידים שנשמרים הם שני המתגים, מקומית בדפדפן שלכם. מדיניות פרטיות: https://github.com/maximtop/hide-gmail-upgrade-button/blob/main/PRIVACY.md
+בלי חשבון, בלי אנליטיקה, בלי שרתים, בלי בקשות רשת. הנתונים היחידים שנשמרים הם שני המתגים, מקומית בדפדפן שלכם. מדיניות פרטיות: https://github.com/maximtop/hide-gmail-upgrade-button/blob/master/PRIVACY.md
 
 חינמי ובקוד פתוח: https://github.com/maximtop/hide-gmail-upgrade-button
 
@@ -1052,7 +1052,7 @@ Google در سربرگ Gmail، Google Drive و Google Docs دکمهٔ دائمی
 
 #### حریم خصوصی
 
-نه حساب کاربری، نه تحلیل رفتار، نه سرور، نه درخواست شبکه. تنها داده‌های ذخیره‌شده همان دو کلیدند، به‌صورت محلی در مرورگر شما. سیاست حریم خصوصی: https://github.com/maximtop/hide-gmail-upgrade-button/blob/main/PRIVACY.md
+نه حساب کاربری، نه تحلیل رفتار، نه سرور، نه درخواست شبکه. تنها داده‌های ذخیره‌شده همان دو کلیدند، به‌صورت محلی در مرورگر شما. سیاست حریم خصوصی: https://github.com/maximtop/hide-gmail-upgrade-button/blob/master/PRIVACY.md
 
 رایگان و متن‌باز: https://github.com/maximtop/hide-gmail-upgrade-button
 
@@ -1087,7 +1087,7 @@ Google का मार्कअप अस्पष्ट है और बि�
 
 #### निजता
 
-न खाता, न एनालिटिक्स, न सर्वर, न नेटवर्क अनुरोध। संग्रहीत एकमात्र डेटा दो टॉगल हैं, आपके ब्राउज़र में स्थानीय रूप से। गोपनीयता नीति: https://github.com/maximtop/hide-gmail-upgrade-button/blob/main/PRIVACY.md
+न खाता, न एनालिटिक्स, न सर्वर, न नेटवर्क अनुरोध। संग्रहीत एकमात्र डेटा दो टॉगल हैं, आपके ब्राउज़र में स्थानीय रूप से। गोपनीयता नीति: https://github.com/maximtop/hide-gmail-upgrade-button/blob/master/PRIVACY.md
 
 मुफ़्त और ओपन सोर्स: https://github.com/maximtop/hide-gmail-upgrade-button
 
@@ -1122,7 +1122,7 @@ Google วางปุ่ม «Upgrade» ถาวรไว้ในส่วน
 
 #### ความเป็นส่วนตัว
 
-ไม่มีบัญชี ไม่มีการวิเคราะห์ ไม่มีเซิร์ฟเวอร์ ไม่มีคำขอเครือข่าย ข้อมูลเดียวที่เก็บคือสวิตช์สองตัว ในเบราว์เซอร์ของคุณเอง นโยบายความเป็นส่วนตัว: https://github.com/maximtop/hide-gmail-upgrade-button/blob/main/PRIVACY.md
+ไม่มีบัญชี ไม่มีการวิเคราะห์ ไม่มีเซิร์ฟเวอร์ ไม่มีคำขอเครือข่าย ข้อมูลเดียวที่เก็บคือสวิตช์สองตัว ในเบราว์เซอร์ของคุณเอง นโยบายความเป็นส่วนตัว: https://github.com/maximtop/hide-gmail-upgrade-button/blob/master/PRIVACY.md
 
 ฟรีและโอเพนซอร์ส: https://github.com/maximtop/hide-gmail-upgrade-button
 
@@ -1157,7 +1157,7 @@ Markup Google dikaburkan dan berubah tanpa pemberitahuan, jadi ekstensi ini tida
 
 #### Privasi
 
-Tanpa akun, tanpa analitik, tanpa server, tanpa permintaan jaringan. Satu-satunya data yang disimpan adalah dua sakelar, secara lokal di browser Anda. Kebijakan privasi: https://github.com/maximtop/hide-gmail-upgrade-button/blob/main/PRIVACY.md
+Tanpa akun, tanpa analitik, tanpa server, tanpa permintaan jaringan. Satu-satunya data yang disimpan adalah dua sakelar, secara lokal di browser Anda. Kebijakan privasi: https://github.com/maximtop/hide-gmail-upgrade-button/blob/master/PRIVACY.md
 
 Gratis dan open source: https://github.com/maximtop/hide-gmail-upgrade-button
 
@@ -1192,7 +1192,7 @@ Ang markup ng Google ay obfuscated at nagbabago nang walang abiso, kaya hindi ka
 
 #### Privacy
 
-Walang account, walang analytics, walang server, walang network request. Ang tanging data na iniimbak ay ang dalawang switch, lokal sa iyong browser. Patakaran sa privacy: https://github.com/maximtop/hide-gmail-upgrade-button/blob/main/PRIVACY.md
+Walang account, walang analytics, walang server, walang network request. Ang tanging data na iniimbak ay ang dalawang switch, lokal sa iyong browser. Patakaran sa privacy: https://github.com/maximtop/hide-gmail-upgrade-button/blob/master/PRIVACY.md
 
 Libre at open source: https://github.com/maximtop/hide-gmail-upgrade-button
 
@@ -1227,7 +1227,7 @@ Mã đánh dấu của Google bị làm rối và thay đổi không báo trư�
 
 #### Quyền riêng tư
 
-Không tài khoản, không phân tích, không máy chủ, không yêu cầu mạng. Dữ liệu duy nhất được lưu là hai công tắc, cục bộ trong trình duyệt của bạn. Chính sách quyền riêng tư: https://github.com/maximtop/hide-gmail-upgrade-button/blob/main/PRIVACY.md
+Không tài khoản, không phân tích, không máy chủ, không yêu cầu mạng. Dữ liệu duy nhất được lưu là hai công tắc, cục bộ trong trình duyệt của bạn. Chính sách quyền riêng tư: https://github.com/maximtop/hide-gmail-upgrade-button/blob/master/PRIVACY.md
 
 Miễn phí và mã nguồn mở: https://github.com/maximtop/hide-gmail-upgrade-button
 
@@ -1262,7 +1262,7 @@ Google のマークアップは難読化されており予告なく変わるた�
 
 #### プライバシー
 
-アカウントなし、分析なし、サーバーなし、ネットワークリクエストなし。保存されるデータは 2 つのスイッチだけで、ブラウザー内にローカル保存されます。プライバシーポリシー: https://github.com/maximtop/hide-gmail-upgrade-button/blob/main/PRIVACY.md
+アカウントなし、分析なし、サーバーなし、ネットワークリクエストなし。保存されるデータは 2 つのスイッチだけで、ブラウザー内にローカル保存されます。プライバシーポリシー: https://github.com/maximtop/hide-gmail-upgrade-button/blob/master/PRIVACY.md
 
 無料でオープンソース: https://github.com/maximtop/hide-gmail-upgrade-button
 
@@ -1297,7 +1297,7 @@ Google의 마크업은 난독화되어 있고 예고 없이 바뀌므로, 이 �
 
 #### 개인정보 보호
 
-계정 없음, 분석 없음, 서버 없음, 네트워크 요청 없음. 저장되는 유일한 데이터는 두 개의 스위치이며, 브라우저에 로컬로 보관됩니다. 개인정보처리방침: https://github.com/maximtop/hide-gmail-upgrade-button/blob/main/PRIVACY.md
+계정 없음, 분석 없음, 서버 없음, 네트워크 요청 없음. 저장되는 유일한 데이터는 두 개의 스위치이며, 브라우저에 로컬로 보관됩니다. 개인정보처리방침: https://github.com/maximtop/hide-gmail-upgrade-button/blob/master/PRIVACY.md
 
 무료 오픈 소스: https://github.com/maximtop/hide-gmail-upgrade-button
 
@@ -1332,7 +1332,7 @@ Google 的标记经过混淆且随时变化，因此扩展从不依赖脆弱的�
 
 #### 隐私
 
-无账号、无分析、无服务器、无网络请求。存储的唯一数据就是那两个开关，保存在你浏览器本地。隐私政策: https://github.com/maximtop/hide-gmail-upgrade-button/blob/main/PRIVACY.md
+无账号、无分析、无服务器、无网络请求。存储的唯一数据就是那两个开关，保存在你浏览器本地。隐私政策: https://github.com/maximtop/hide-gmail-upgrade-button/blob/master/PRIVACY.md
 
 免费且开源: https://github.com/maximtop/hide-gmail-upgrade-button
 
@@ -1367,7 +1367,7 @@ Google 的標記經過混淆且隨時變動，因此擴充功能從不依賴脆�
 
 #### 隱私
 
-無帳號、無分析、無伺服器、無網路請求。儲存的唯一資料就是那兩個開關，保存在你瀏覽器本機。隱私權政策: https://github.com/maximtop/hide-gmail-upgrade-button/blob/main/PRIVACY.md
+無帳號、無分析、無伺服器、無網路請求。儲存的唯一資料就是那兩個開關，保存在你瀏覽器本機。隱私權政策: https://github.com/maximtop/hide-gmail-upgrade-button/blob/master/PRIVACY.md
 
 免費且開源: https://github.com/maximtop/hide-gmail-upgrade-button
 
@@ -1402,7 +1402,7 @@ El marcatge de Google està ofuscat i canvia sense avís, així que l'extensió 
 
 #### Privadesa
 
-Sense comptes, sense analítica, sense servidors, sense peticions de xarxa. Les úniques dades desades són els dos interruptors, localment al vostre navegador. Política de privadesa: https://github.com/maximtop/hide-gmail-upgrade-button/blob/main/PRIVACY.md
+Sense comptes, sense analítica, sense servidors, sense peticions de xarxa. Les úniques dades desades són els dos interruptors, localment al vostre navegador. Política de privadesa: https://github.com/maximtop/hide-gmail-upgrade-button/blob/master/PRIVACY.md
 
 Gratuïta i de codi obert: https://github.com/maximtop/hide-gmail-upgrade-button
 
