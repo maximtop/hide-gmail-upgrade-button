@@ -2,7 +2,7 @@
 
 ## Cutting a release
 
-1. Bump `version` in `package.json` (semantic, `X.Y.Z`) and land it on `main`.
+1. Bump `version` in `package.json` (semantic, `X.Y.Z`) and land it on `master`.
 2. Tag and push:
 
    ```bash
@@ -27,7 +27,7 @@ What it does:
 1. Validates the tag shape, and that the release is neither a draft nor a
    pre-release.
 2. Checks that the store configuration below is present.
-3. Verifies the tagged commit is reachable from `main`.
+3. Verifies the tagged commit is reachable from `master`.
 4. Downloads **the archive already published in the release** — not a fresh
    rebuild — verifies its SHA-256 against `SHA256SUMS.txt` and checks the
    manifest version inside the zip. What users can verify is exactly what
