@@ -57,6 +57,7 @@ jobs:
     needs: validate-release
     runs-on: ubuntu-latest
     permissions:
+      actions: write
       contents: write
     steps:
       - name: Check out repository
@@ -108,3 +109,14 @@ jobs:
             --notes "Store-ready archives for Chrome, Edge and Firefox, plus the source archive and SHA-256 checksums. Release notes live in docs/store/STORE_LISTING.md." \
             release-artifacts/*.zip \
             release-artifacts/SHA256SUMS.txt
+      - name: Start Chrome Web Store deployment
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ needs.validate-release.outputs.tag }}
+        run: |
+          set -euo pipefail
+          gh workflow run deploy-chrome-store.yml \
+            --repo "$GITHUB_REPOSITORY" \
+            --ref master \
+            -f "tag=$TAG"

@@ -75,10 +75,10 @@ Styling note: there is no CSS pipeline — the popup styles live in its HTML, th
   verifies the tag matches `package.json` and is reachable from `master`,
   re-validates, rebuilds, and publishes a GitHub Release with the three
   browser zips, a source archive and `SHA256SUMS.txt`.
-- **Store deployment** (`.github/workflows/deploy-chrome-store.yml`) runs when
-  a GitHub Release is published: it submits the already-published Chrome
-  archive (checksum-verified) to the Chrome Web Store for review with
-  deferred publishing. The final publish stays manual.
+- **Store deployment** (`.github/workflows/deploy-chrome-store.yml`) is
+  dispatched after the GitHub Release is published: it submits the
+  already-published Chrome archive (checksum-verified) to the Chrome Web Store
+  for review with deferred publishing. The final publish stays manual.
 - To cut a release: bump `version` in `package.json`, commit to `master`, then
   `git tag vX.Y.Z && git push origin vX.Y.Z`. Full process and the required
   store credentials: [docs/RELEASE.md](docs/RELEASE.md).

@@ -65,13 +65,19 @@ jobs:
       - name: Check store configuration
         env:
           CHROME_APP_ID: ${{ vars.CHROME_APP_ID }}
+          CHROME_PUBLISHER_ID: ${{ vars.CHROME_PUBLISHER_ID }}
           CHROME_CLIENT_ID: ${{ secrets.CHROME_CLIENT_ID }}
           CHROME_CLIENT_SECRET: ${{ secrets.CHROME_CLIENT_SECRET }}
           CHROME_REFRESH_TOKEN: ${{ secrets.CHROME_REFRESH_TOKEN }}
         run: |
           set -euo pipefail
           missing=()
-          for name in CHROME_APP_ID CHROME_CLIENT_ID CHROME_CLIENT_SECRET CHROME_REFRESH_TOKEN; do
+          for name in \
+            CHROME_APP_ID \
+            CHROME_PUBLISHER_ID \
+            CHROME_CLIENT_ID \
+            CHROME_CLIENT_SECRET \
+            CHROME_REFRESH_TOKEN; do
             [[ -n "${!name}" ]] || missing+=("$name")
           done
           if [[ "${#missing[@]}" -gt 0 ]]; then
@@ -142,6 +148,7 @@ jobs:
         env:
           CHROME_API_VERSION: v2
           CHROME_APP_ID: ${{ vars.CHROME_APP_ID }}
+          CHROME_PUBLISHER_ID: ${{ vars.CHROME_PUBLISHER_ID }}
           CHROME_CLIENT_ID: ${{ secrets.CHROME_CLIENT_ID }}
           CHROME_CLIENT_SECRET: ${{ secrets.CHROME_CLIENT_SECRET }}
           CHROME_REFRESH_TOKEN: ${{ secrets.CHROME_REFRESH_TOKEN }}
@@ -169,6 +176,7 @@ jobs:
         env:
           CHROME_API_VERSION: v2
           CHROME_APP_ID: ${{ vars.CHROME_APP_ID }}
+          CHROME_PUBLISHER_ID: ${{ vars.CHROME_PUBLISHER_ID }}
           CHROME_CLIENT_ID: ${{ secrets.CHROME_CLIENT_ID }}
           CHROME_CLIENT_SECRET: ${{ secrets.CHROME_CLIENT_SECRET }}
           CHROME_REFRESH_TOKEN: ${{ secrets.CHROME_REFRESH_TOKEN }}
@@ -180,6 +188,7 @@ jobs:
         env:
           CHROME_API_VERSION: v2
           CHROME_APP_ID: ${{ vars.CHROME_APP_ID }}
+          CHROME_PUBLISHER_ID: ${{ vars.CHROME_PUBLISHER_ID }}
           CHROME_CLIENT_ID: ${{ secrets.CHROME_CLIENT_ID }}
           CHROME_CLIENT_SECRET: ${{ secrets.CHROME_CLIENT_SECRET }}
           CHROME_REFRESH_TOKEN: ${{ secrets.CHROME_REFRESH_TOKEN }}
