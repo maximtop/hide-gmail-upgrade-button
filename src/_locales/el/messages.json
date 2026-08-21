@@ -4,7 +4,7 @@
         "description": "Extension name."
     },
     "description": {
-        "message": "Αποκρύπτει τα κουμπιά Upgrade και Ask Gemini σε Gmail, Google Drive και Google Docs",
+        "message": "Αποκρύπτει τα Upgrade και Ask Gemini σε Gmail, Google Drive και Google Docs, καθώς και το Upgrade στο Ημερολόγιο Google",
         "description": "Extension short description."
     },
     "popup_title": {
@@ -18,6 +18,10 @@
     "popup_toggle_gemini_label": {
         "message": "Απόκρυψη του κουμπιού Ask Gemini",
         "description": "Label of the Ask Gemini toggle."
+    },
+    "popup_calendar_access_label": {
+        "message": "Ενεργοποίηση στο Ημερολόγιο Google",
+        "description": "Label of the optional Google Calendar access toggle."
     },
     "popup_markup_note": {
         "message": "Αν ένα κουμπί εμφανιστεί ξανά, η Google άλλαξε τη διεπαφή — η διόρθωση θα έρθει με ενημέρωση της επέκτασης.",

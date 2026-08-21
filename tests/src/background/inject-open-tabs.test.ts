@@ -43,6 +43,14 @@ describe('injectIntoOpenTabs', () => {
         });
     });
 
+    it('can target an optional granted origin without querying required hosts', async () => {
+        queryMock.mockResolvedValue([]);
+
+        await injectIntoOpenTabs(['https://calendar.google.com/*']);
+
+        expect(queryMock).toHaveBeenCalledWith({ url: ['https://calendar.google.com/*'] });
+    });
+
     it('skips tabs without an id', async () => {
         queryMock.mockResolvedValue([{ id: undefined }, { id: 3 }]);
 

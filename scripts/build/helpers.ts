@@ -6,6 +6,7 @@
 import {
     BROWSER_TARGETS,
     CHANNEL_ENVS,
+    CHROMIUM_STRICT_MIN_VERSION,
     DEV_NAME_SUFFIX,
     FIREFOX_STRICT_MIN_VERSION,
     GECKO_ID,
@@ -31,8 +32,8 @@ interface UpdateManifestOptions {
 
 /**
  * Finalizes the static manifest for a concrete browser: stamps the version,
- * declares the background entry in the browser-specific shape and adds the
- * Firefox `browser_specific_settings` block when needed.
+ * declares the background entry and minimum supported version in each
+ * browser-specific shape, and adds Firefox settings when needed.
  *
  * @param content Raw contents of src/manifest.json.
  * @param options Browser target and extension version.
@@ -58,10 +59,12 @@ export const updateManifest = (content: Buffer | string, options: UpdateManifest
                 },
             },
         };
+        delete manifest.minimum_chrome_version;
     } else {
         manifest.background = {
             service_worker: 'background.js',
         };
+        manifest.minimum_chrome_version = CHROMIUM_STRICT_MIN_VERSION;
         delete manifest.browser_specific_settings;
     }
 

@@ -4,7 +4,7 @@ Build commands, structure and environment setup live in [DEVELOPMENT.md](DEVELOP
 
 ## Scope boundary
 
-The content script hides two header buttons (Upgrade, Ask Gemini) behind popup toggles stored in `chrome.storage.local`, on Gmail, Google Drive and Google Docs; the mutation watcher keeps them hidden across re-renders, and the background re-injects into tabs already open at install time. Still separate tasks — do not add them "while you are here": icons and store assets.
+The content script hides two header buttons (Upgrade, Ask Gemini) behind popup toggles stored in `chrome.storage.local`, on Gmail, Google Drive and Google Docs, plus Upgrade in Google Calendar after an optional runtime host grant. The mutation watcher keeps them hidden across re-renders, and the background re-injects into tabs already open when access is granted. Still separate tasks — do not add them "while you are here": icons and store assets.
 
 ## Code style
 
@@ -22,6 +22,12 @@ if (app) {
 }
 ```
 
+## UI initialization
+
+- Do not expose provisional default values for UI backed by asynchronous state. Render a validated synchronous cache before first paint when available; otherwise keep the unresolved region hidden and non-interactive while preserving its layout until the authoritative state is applied.
+- Apply initial state without transitions and reveal the UI only after that state is committed. Enable animations only for subsequent user interaction.
+- Test the observable pending and resolved UI states, including that authoritative values are applied before reveal; do not test source structure or CSS text.
+
 ## Dependencies
 
 Every dependency must have a clear, explainable need for this small extension. No React/MobX/frameworks until the UI actually requires them. Zero runtime dependencies is the current baseline.
@@ -29,7 +35,7 @@ Every dependency must have a clear, explainable need for this small extension. N
 ## Safety
 
 - Never commit secrets, store credentials or extension store IDs.
-- Keep manifest permissions minimal (`storage`, `scripting`, Gmail/Drive/Docs hosts only) — any addition must be justified.
+- Keep manifest permissions minimal (`storage`, `scripting`, required Gmail/Drive/Docs hosts and optional Calendar access) — any addition must be justified.
 - No analytics or data collection of any kind.
 
 ## Testing

@@ -4,7 +4,11 @@ import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 
 import { updateManifest } from '../../scripts/build/helpers';
-import { ALL_BROWSER_TARGETS, BROWSER_TARGETS } from '../../scripts/constants';
+import {
+    ALL_BROWSER_TARGETS,
+    BROWSER_TARGETS,
+    CHROMIUM_STRICT_MIN_VERSION,
+} from '../../scripts/constants';
 
 const VERSION = '1.2.3';
 
@@ -24,6 +28,7 @@ describe('updateManifest', () => {
 
         expect(result.version).toBe(VERSION);
         expect(result.background).toEqual({ service_worker: 'background.js' });
+        expect(result.minimum_chrome_version).toBe(CHROMIUM_STRICT_MIN_VERSION);
         expect(result.browser_specific_settings).toBeUndefined();
         expect(result.permissions).toEqual(baseManifest.permissions);
     });
@@ -36,6 +41,7 @@ describe('updateManifest', () => {
         expect(result.background.service_worker).toBeUndefined();
         expect(result.browser_specific_settings.gecko.id).toContain('@');
         expect(result.browser_specific_settings.gecko.strict_min_version).toBeTruthy();
+        expect(result.minimum_chrome_version).toBeUndefined();
     });
 
     it('produces a valid MV3 manifest from the real src/manifest.json for every browser', () => {
@@ -48,6 +54,9 @@ describe('updateManifest', () => {
             expect(result.default_locale).toBe('en');
             expect(result.version).toBe(VERSION);
             expect(result.background).toBeDefined();
+            expect(result.optional_host_permissions).toContain('https://calendar.google.com/*');
+            expect(result.host_permissions).not.toContain('https://calendar.google.com/*');
+            expect(result.content_scripts[0].matches).not.toContain('https://calendar.google.com/*');
         }
     });
 });

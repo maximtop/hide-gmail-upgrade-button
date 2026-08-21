@@ -42,9 +42,9 @@
             width: 300px;
             padding: 14px 14px 10px;
             box-sizing: border-box;
-            /* Content appears only after the stored state is applied, so the
-               switches never visibly change state on open; visibility keeps
-               the layout, so the popup window does not resize on reveal. */
+            /* Content appears only after all authoritative initial state is
+               applied. Visibility preserves layout, so the popup window does
+               not resize while that state resolves. */
             visibility: hidden;
         }
 
@@ -115,12 +115,24 @@
 
         /* Transitions turn on only after the initial state is rendered, so
            applying the stored state never animates. */
-        body.ready .toggle-row input {
+        body.interactive .toggle-row input {
             transition: background 0.15s ease;
         }
 
-        body.ready .toggle-row input::before {
+        body.interactive .toggle-row input::before {
             transition: transform 0.15s ease;
+        }
+
+        /* Async-backed controls remain hidden and transition-free until their
+           authoritative state has been applied and committed. */
+        .toggle-row[data-pending] {
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        body.interactive .toggle-row[data-pending] input,
+        body.interactive .toggle-row[data-pending] input::before {
+            transition: none;
         }
 
         .toggle-row input:checked {
@@ -138,6 +150,15 @@
         .toggle-row input:focus-visible {
             outline: 2px solid var(--accent-strong);
             outline-offset: 2px;
+        }
+
+        .calendar-access-row {
+            margin-top: 4px;
+        }
+
+        .calendar-access-row input:disabled {
+            cursor: wait;
+            opacity: 0.65;
         }
 
         footer {
@@ -188,8 +209,12 @@
             <span id="hide-gemini-label"></span>
             <input type="checkbox" id="hide-gemini" checked>
         </label>
+        <label class="toggle-row calendar-access-row" id="calendar-access-row" data-pending>
+            <span id="calendar-access-label"></span>
+            <input type="checkbox" id="calendar-access" disabled>
+        </label>
         <footer>
-            <div>Gmail &middot; Google Drive &middot; Google Docs</div>
+            <div>Gmail &middot; Google Drive &middot; Google Docs &middot; Google Calendar</div>
             <p class="note" id="markup-note"></p>
             <a id="report-link" href="https://github.com/maximtop/hide-gmail-upgrade-button/issues" target="_blank" rel="noreferrer"></a>
         </footer>

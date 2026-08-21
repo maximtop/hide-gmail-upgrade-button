@@ -4,7 +4,7 @@
         "description": "Extension name."
     },
     "description": {
-        "message": "Skjuler knappene Upgrade og Ask Gemini i Gmail, Google Disk og Google Dokumenter",
+        "message": "Skjuler knappene Upgrade og Ask Gemini i Gmail, Google Disk og Google Dokumenter samt Upgrade-knappen i Google Kalender",
         "description": "Extension short description."
     },
     "popup_title": {
@@ -18,6 +18,10 @@
     "popup_toggle_gemini_label": {
         "message": "Skjul Ask Gemini-knappen",
         "description": "Label of the Ask Gemini toggle."
+    },
+    "popup_calendar_access_label": {
+        "message": "Aktiver i Google Kalender",
+        "description": "Label of the optional Google Calendar access toggle."
     },
     "popup_markup_note": {
         "message": "Hvis en knapp dukker opp igjen, har Google endret grensesnittet — en oppdatering av utvidelsen fikser det.",
