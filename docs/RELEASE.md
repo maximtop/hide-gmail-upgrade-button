@@ -18,9 +18,9 @@
 
 ## Chrome Web Store deployment
 
-`deploy-chrome-store.yml` runs when a **GitHub Release is published**
-(pre-releases are skipped) and can also be re-run manually via
-`workflow_dispatch` with the tag as input.
+`release.yml` dispatches `deploy-chrome-store.yml` after publishing a GitHub
+Release. A manually published release also triggers it (pre-releases are
+skipped), and it can be re-run via `workflow_dispatch` with the tag as input.
 
 What it does:
 
@@ -47,6 +47,7 @@ Repository **variable**:
 | Name | Value |
 | --- | --- |
 | `CHROME_APP_ID` | The extension ID from the dashboard URL |
+| `CHROME_PUBLISHER_ID` | Publisher ID from Developer Dashboard → Publisher → Settings |
 
 Repository **secrets**:
 
