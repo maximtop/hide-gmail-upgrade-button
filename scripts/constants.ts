@@ -32,4 +32,6 @@ export const GECKO_ID = 'hide-gmail-upgrade-button@maximtop.dev';
 
 export const FIREFOX_STRICT_MIN_VERSION = '128.0';
 
+export const CHROMIUM_STRICT_MIN_VERSION = '102';
+
 export const DEV_NAME_SUFFIX = ' (Dev)';

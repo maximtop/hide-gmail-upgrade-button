@@ -35,22 +35,52 @@ export const GEMINI_NAME_FRAGMENT = 'gemini';
 export const WRAPPER_WIDTH_TOLERANCE_PX = 16;
 
 /**
- * URL patterns of supported Google apps — mirror the manifest
+ * URL patterns of the required Google apps — mirror the manifest
  * `content_scripts.matches` and `host_permissions`, so programmatic
  * injection never reaches beyond what the user already granted.
  * docs.google.com covers the Docs/Sheets/Slides editors and their home
  * screens.
  */
-export const SUPPORTED_URL_PATTERNS: readonly string[] = [
+export const REQUIRED_URL_PATTERNS: readonly string[] = [
     'https://mail.google.com/*',
     'https://drive.google.com/*',
     'https://docs.google.com/*',
 ];
 
 /**
+ * Optional Google Calendar origin. It deliberately stays out of the static
+ * content-script matches and required host permissions so adding Calendar in
+ * an update never disables existing installations pending re-approval.
+ */
+export const CALENDAR_URL_PATTERN = 'https://calendar.google.com/*';
+
+/**
+ * Google Calendar hostname used to scope cleanup messages that may be
+ * broadcast after the optional host permission has already been removed.
+ */
+export const CALENDAR_HOSTNAME = 'calendar.google.com';
+
+/**
+ * Stable id of the dynamically registered Google Calendar content script.
+ */
+export const CALENDAR_CONTENT_SCRIPT_ID = 'google-calendar';
+
+/**
+ * Runtime message sent before optional Calendar access is removed so an
+ * already-running content script can restore the page immediately.
+ */
+export const CALENDAR_DISABLE_MESSAGE_TYPE = 'disable-google-calendar';
+
+/**
  * Bundled content script file name, as emitted by the build.
  */
 export const CONTENT_SCRIPT_FILE = 'content-script.js';
+
+/**
+ * Pre-paint stylesheet emitted by the build and paired with the content
+ * script for both required and optional hosts.
+ */
+export const PREHIDE_STYLESHEET_FILE = 'prehide.css';
 
 /**
  * Marker attribute set on an element hidden by this extension.

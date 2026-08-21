@@ -4,7 +4,7 @@
         "description": "Extension name."
     },
     "description": {
-        "message": "Amaga els botons Upgrade i Ask Gemini a Gmail, Google Drive i Google Docs",
+        "message": "Amaga els botons Upgrade i Ask Gemini a Gmail, Google Drive i Google Docs, i també el botó Upgrade a Google Calendar",
         "description": "Extension short description."
     },
     "popup_title": {
@@ -18,6 +18,10 @@
     "popup_toggle_gemini_label": {
         "message": "Amaga el botó Ask Gemini",
         "description": "Label of the Ask Gemini toggle."
+    },
+    "popup_calendar_access_label": {
+        "message": "Activa a Google Calendar",
+        "description": "Label of the optional Google Calendar access toggle."
     },
     "popup_markup_note": {
         "message": "Si un botó torna a aparèixer, Google ha canviat la interfície — la solució arribarà amb una actualització de l’extensió.",

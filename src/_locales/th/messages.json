@@ -4,7 +4,7 @@
         "description": "Extension name."
     },
     "description": {
-        "message": "ซ่อนปุ่ม Upgrade และ Ask Gemini ใน Gmail, Google ไดรฟ์ และ Google เอกสาร",
+        "message": "ซ่อนปุ่ม Upgrade และ Ask Gemini ใน Gmail, Google ไดรฟ์ และ Google เอกสาร รวมถึงปุ่ม Upgrade ใน Google ปฏิทิน",
         "description": "Extension short description."
     },
     "popup_title": {
@@ -18,6 +18,10 @@
     "popup_toggle_gemini_label": {
         "message": "ซ่อนปุ่ม Ask Gemini",
         "description": "Label of the Ask Gemini toggle."
+    },
+    "popup_calendar_access_label": {
+        "message": "เปิดใช้ใน Google ปฏิทิน",
+        "description": "Label of the optional Google Calendar access toggle."
     },
     "popup_markup_note": {
         "message": "หากปุ่มกลับมาแสดงอีกครั้ง แสดงว่า Google เปลี่ยนอินเทอร์เฟซ — การแก้ไขจะมาพร้อมอัปเดตของส่วนขยาย",

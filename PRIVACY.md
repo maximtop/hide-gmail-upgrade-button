@@ -2,7 +2,7 @@
 
 **Hide Upgrade Button for Gmail, Drive & Docs**
 
-Effective date: July 28, 2026
+Effective date: August 21, 2026
 
 ## Summary
 
@@ -18,8 +18,9 @@ on/off preferences, locally in your own browser.
   profile, plus a copy in the extension's own local cache so the popup can
   open instantly. Neither ever leaves your device.
 - **Header markup of supported pages, in memory only.** To find the buttons,
-  the content script inspects the header area of Gmail, Google Drive and
-  Google Docs pages while they are open. Nothing it sees is recorded,
+  the content script inspects the header area of Gmail, Google Drive,
+  Google Docs and, when you grant optional access, Google Calendar pages
+  while they are open. Nothing it sees is recorded,
   persisted or transmitted — it never reads your email, files or documents,
   only the toolbar controls it exists to hide.
 
@@ -40,8 +41,9 @@ any server — there is no server.
 | Permission | Why it is required |
 | --- | --- |
 | `storage` | Keep your two toggle values on your device |
-| `scripting` | Apply the extension to Gmail/Drive/Docs tabs that were already open when it was installed or updated |
-| `mail.google.com`, `drive.google.com`, `docs.google.com` | The only sites the extension runs on; it cannot read any other page |
+| `scripting` | Apply the extension to supported tabs that were already open when access was granted |
+| `mail.google.com`, `drive.google.com`, `docs.google.com` | Required access for the extension's original supported sites |
+| `calendar.google.com` (optional) | Works automatically after you enable Calendar once in the popup |
 
 ## Removing your data
 
@@ -64,5 +66,5 @@ Questions or concerns: open an issue at
 ## Affiliation
 
 This project is independent. It is not affiliated with, endorsed by, or
-sponsored by Google. Gmail, Google Drive, Google Docs and Gemini are
+sponsored by Google. Gmail, Google Drive, Google Docs, Google Calendar and Gemini are
 trademarks of Google LLC and are referenced only to describe compatibility.

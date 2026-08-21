@@ -4,7 +4,7 @@
         "description": "Extension name."
     },
     "description": {
-        "message": "Hides the Upgrade and Ask Gemini buttons in Gmail, Google Drive, and Google Docs",
+        "message": "Hides the Upgrade and Ask Gemini buttons in Gmail, Google Drive, and Google Docs, plus the Upgrade button in Google Calendar",
         "description": "Extension short description."
     },
     "popup_title": {
@@ -18,6 +18,10 @@
     "popup_toggle_gemini_label": {
         "message": "Hide the Ask Gemini button",
         "description": "Label of the Ask Gemini toggle."
+    },
+    "popup_calendar_access_label": {
+        "message": "Enable in Google Calendar",
+        "description": "Label of the optional Google Calendar access toggle."
     },
     "popup_markup_note": {
         "message": "If a button reappears, Google has changed its interface — a fix will arrive in an extension update.",

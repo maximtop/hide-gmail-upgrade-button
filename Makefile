@@ -20,7 +20,7 @@ release:
 build:
 	pnpm build
 
-lint:
+lint: typecheck
 	pnpm lint
 
 typecheck:

@@ -4,7 +4,7 @@
         "description": "Extension name."
     },
     "description": {
-        "message": "Ẩn các nút Upgrade và Ask Gemini trong Gmail, Google Drive và Google Tài liệu",
+        "message": "Ẩn các nút Upgrade và Ask Gemini trong Gmail, Google Drive và Google Tài liệu, cùng nút Upgrade trong Lịch Google",
         "description": "Extension short description."
     },
     "popup_title": {
@@ -18,6 +18,10 @@
     "popup_toggle_gemini_label": {
         "message": "Ẩn nút Ask Gemini",
         "description": "Label of the Ask Gemini toggle."
+    },
+    "popup_calendar_access_label": {
+        "message": "Bật trong Lịch Google",
+        "description": "Label of the optional Google Calendar access toggle."
     },
     "popup_markup_note": {
         "message": "Nếu một nút xuất hiện lại, Google đã thay đổi giao diện — bản sửa sẽ có trong bản cập nhật tiện ích.",

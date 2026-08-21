@@ -1,14 +1,14 @@
 /**
- * @file Popup: two toggles controlling which Gmail header buttons are
- * hidden.
+ * @file Popup: two feature toggles plus optional Google Calendar access.
  *
- * Rendering is synchronous to avoid any visible state change on open: the
- * bundle loads as a blocking script, applies the last known settings from
- * the synchronous cache and reveals the content — all before the first
- * paint. The authoritative `chrome.storage` state is reconciled right
- * after; open Gmail tabs pick changes up live via storage subscription.
+ * Rendering avoids visible initialization transitions: the popup stays hidden
+ * while its one authoritative async snapshot is loaded, then reveals the
+ * resolved controls without transitions. Animations are armed only after the
+ * first visible frame. Open supported tabs pick setting changes up live via
+ * storage subscription.
  */
 
+import { CALENDAR_URL_PATTERN } from '../common/constants';
 import { DEFAULT_SETTINGS, loadSettings, saveSettings } from '../common/settings';
 import type { Settings } from '../common/settings';
 import { readCachedSettings, writeCachedSettings } from './settings-cache';
@@ -43,6 +43,77 @@ const TOGGLES: ReadonlyArray<{ elementId: string; settingKey: keyof Settings }> 
     { elementId: 'hide-gemini', settingKey: 'hideGemini' },
 ];
 
+const CALENDAR_ACCESS_TOGGLE_ID = 'calendar-access';
+
+const CALENDAR_ACCESS_ROW_ID = 'calendar-access-row';
+
+/**
+ * Reveals the fully resolved popup without transitions, then arms animations
+ * after one complete visible frame so no control can animate from its markup
+ * default to its authoritative initial state.
+ */
+const revealPopup = (): void => {
+    document.body.classList.add('ready');
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            document.body.classList.add('interactive');
+        });
+    });
+};
+
+/**
+ * Creates the exact optional host request declared in the manifest.
+ *
+ * @returns Calendar host permission request.
+ */
+const getCalendarPermission = (): chrome.permissions.Permissions => {
+    return { origins: [CALENDAR_URL_PATTERN] };
+};
+
+/**
+ * Renders the authoritative Calendar permission state and reveals its row.
+ *
+ * @param enabled Whether Calendar access is granted.
+ */
+const renderCalendarAccess = (enabled: boolean): void => {
+    const toggle = getToggle(CALENDAR_ACCESS_TOGGLE_ID);
+    const row = document.getElementById(CALENDAR_ACCESS_ROW_ID);
+    if (!toggle || !row) {
+        return;
+    }
+
+    toggle.checked = enabled;
+    toggle.disabled = false;
+    row.removeAttribute('data-pending');
+};
+
+/**
+ * Requests or removes Calendar host access after a direct checkbox gesture,
+ * then re-renders from the browser's authoritative permission state.
+ *
+ * @param toggle Calendar permission checkbox.
+ */
+const updateCalendarAccess = async (toggle: HTMLInputElement): Promise<void> => {
+    const requestedEnabled = toggle.checked;
+    const previousEnabled = !requestedEnabled;
+    toggle.disabled = true;
+
+    try {
+        await (requestedEnabled
+            ? chrome.permissions.request(getCalendarPermission())
+            : chrome.permissions.remove(getCalendarPermission()));
+    } catch {
+        // The operation may still have changed browser state before failing,
+        // so the authoritative check below remains necessary.
+    }
+
+    try {
+        renderCalendarAccess(await chrome.permissions.contains(getCalendarPermission()));
+    } catch {
+        renderCalendarAccess(previousEnabled);
+    }
+};
+
 /**
  * Applies a settings object to the toggle states.
  *
@@ -58,15 +129,15 @@ const renderSettings = (settings: Settings): void => {
 };
 
 /**
- * Synchronous part of startup: localized texts, last known state, reveal.
- * Runs before the first paint (blocking script), so the popup opens already
- * in its final state.
+ * Synchronous part of startup: localized texts, cached state and listeners.
+ * The popup remains hidden until asynchronous authoritative state resolves.
  */
 const initSync = (): void => {
     document.title = chrome.i18n.getMessage('popup_title');
     localize('title', 'popup_title');
     localize('hide-upgrade-label', 'popup_toggle_label');
     localize('hide-gemini-label', 'popup_toggle_gemini_label');
+    localize('calendar-access-label', 'popup_calendar_access_label');
     localize('markup-note', 'popup_markup_note');
     localize('report-link', 'popup_report_link');
 
@@ -79,7 +150,9 @@ const initSync = (): void => {
         });
     }
 
-    document.body.classList.add('ready');
+    getToggle(CALENDAR_ACCESS_TOGGLE_ID)?.addEventListener('change', (event) => {
+        void updateCalendarAccess(event.target as HTMLInputElement);
+    });
 };
 
 /**
@@ -87,12 +160,25 @@ const initSync = (): void => {
  * refreshes the synchronous cache.
  */
 const reconcile = async (): Promise<void> => {
-    const settings = await loadSettings();
-    renderSettings(settings);
-    writeCachedSettings(settings);
+    const [settingsResult, calendarAccessResult] = await Promise.allSettled([
+        loadSettings(),
+        chrome.permissions.contains(getCalendarPermission()),
+    ]);
+
+    if (settingsResult.status === 'fulfilled') {
+        renderSettings(settingsResult.value);
+        writeCachedSettings(settingsResult.value);
+    }
+
+    if (calendarAccessResult.status === 'fulfilled') {
+        renderCalendarAccess(calendarAccessResult.value);
+    }
 };
 
 initSync();
-reconcile().catch(() => {
-    // Storage unavailable: the popup keeps showing the cached state.
-});
+reconcile()
+    .catch(() => {
+        // Promise.allSettled itself cannot reject. If a non-standard runtime
+        // does, keep asynchronous controls pending instead of guessing.
+    })
+    .finally(revealPopup);

@@ -4,7 +4,7 @@
         "description": "Extension name."
     },
     "description": {
-        "message": "隱藏 Gmail、Google 雲端硬碟和 Google 文件中的 Upgrade 和 Ask Gemini 按鈕",
+        "message": "隱藏 Gmail、Google 雲端硬碟和 Google 文件中的 Upgrade 和 Ask Gemini 按鈕，以及 Google 日曆中的 Upgrade 按鈕",
         "description": "Extension short description."
     },
     "popup_title": {
@@ -18,6 +18,10 @@
     "popup_toggle_gemini_label": {
         "message": "隱藏 Ask Gemini 按鈕",
         "description": "Label of the Ask Gemini toggle."
+    },
+    "popup_calendar_access_label": {
+        "message": "在 Google 日曆中啟用",
+        "description": "Label of the optional Google Calendar access toggle."
     },
     "popup_markup_note": {
         "message": "如果按鈕再次出現，表示 Google 變更了介面——修正將隨擴充功能更新推出。",

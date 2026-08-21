@@ -3,23 +3,26 @@
 ## Prerequisites
 
 - Node.js 24 (see `.nvmrc`; `engines` enforces `>=24 <25`)
-- pnpm 10 (pinned via the `packageManager` field; `corepack enable` picks it up)
+- pnpm 10.33.4 installed separately (the expected version is pinned in the
+  `packageManager` field)
 
 ## Commands
 
 | Command | Description |
 | --- | --- |
-| `pnpm install` | Install dependencies |
-| `pnpm dev [browser] [--watch]` | Dev build; no browser = all targets. `--watch` needs exactly one browser |
-| `pnpm release [browser]` | Release build (store-ready name, production mode) |
-| `pnpm build` | Alias for `pnpm release` |
-| `pnpm test` | Run unit tests (Vitest, DOM tests via happy-dom) |
-| `pnpm lint` | ESLint (flat config) |
-| `pnpm typecheck` | `tsc --noEmit` |
-| `pnpm validate` | test + lint + typecheck — run before every commit |
-| `pnpm icons` | Re-render icon PNGs from `assets/icon/*.svg` (after changing the master art) |
+| `make install` | Install dependencies |
+| `make dev chrome` | Build an unpacked development extension for Chrome |
+| `make release chrome` | Build a production extension and ZIP archive for Chrome |
+| `make lint` | Run ESLint and TypeScript type checking |
+| `make test` | Run unit tests (Vitest, DOM tests via happy-dom) |
 
-Browser targets: `chrome`, `edge`, `firefox`. The same commands are available through `make` (e.g. `make dev chrome`).
+The build commands also accept `edge` and `firefox`; omit the browser to build
+all three targets. Lower-level `pnpm dev [browser]`, `pnpm release [browser]`,
+`pnpm lint`, `pnpm typecheck`, `pnpm test` and `pnpm validate` scripts remain
+available. Run `pnpm dev chrome --watch` for a watched Chrome development build.
+
+Use `pnpm icons` to re-render icon PNGs from `assets/icon/*.svg` after changing
+the master artwork.
 
 ## Build output
 

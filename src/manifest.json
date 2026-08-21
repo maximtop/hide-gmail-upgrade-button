@@ -36,5 +36,8 @@
         "https://mail.google.com/*",
         "https://drive.google.com/*",
         "https://docs.google.com/*"
+    ],
+    "optional_host_permissions": [
+        "https://calendar.google.com/*"
     ]
 }
