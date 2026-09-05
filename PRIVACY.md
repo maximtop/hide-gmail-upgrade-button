@@ -61,7 +61,7 @@ effective date above updated accordingly.
 
 Questions or concerns: open an issue at
 <https://github.com/maximtop/hide-gmail-upgrade-button/issues> or email
-<maximtop@gmail.com>.
+<me@maximtop.dev>.
 
 ## Affiliation
 

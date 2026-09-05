@@ -16,11 +16,20 @@
    - `hide-gmail-upgrade-button-<version>-source.zip`
    - `SHA256SUMS.txt`
 
+## Manual store deployment
+
+Creating a GitHub Release does not submit to any store. In GitHub Actions,
+choose **Deploy Chrome** or **Deploy Firefox**, then **Run workflow** on
+`master`. An optional `tag` selects a published stable `vX.Y.Z` release;
+leaving it blank resolves the latest published stable release once, at the
+start of the run. All subsequent downloads use that selected tag.
+
+Each store has its own concurrency group. Simultaneous runs for the same
+store are serialized. Deployment never rebuilds the extension.
+
 ## Chrome Web Store deployment
 
-`release.yml` dispatches `deploy-chrome-store.yml` after publishing a GitHub
-Release. A manually published release also triggers it (pre-releases are
-skipped), and it can be re-run via `workflow_dispatch` with the tag as input.
+**Deploy Chrome** uploads and submits the selected Chrome ZIP for review.
 
 What it does:
 
@@ -74,7 +83,51 @@ store only accepts them through the Developer Dashboard. Sources and sizes
 live in [docs/store/STORE_LISTING.md](store/STORE_LISTING.md); regenerate the
 plain-text descriptions with `pnpm store:descriptions`.
 
-### Other stores
+## Firefox AMO deployment
 
-Firefox Add-ons and Edge Add-ons archives are attached to every release and
-are uploaded by hand for now.
+**Deploy Firefox** has two modes:
+
+- `submit`: validate the Firefox ZIP and matching source ZIP, check the
+  authenticated AMO API for that exact version, then submit only if absent.
+  Existing versions are never uploaded again. If an existing version has no
+  source attached, fix it in the Developer Hub using the matching release
+  source ZIP before continuing.
+- `status`: read review/publication status without uploading. Once AMO offers
+  the signed XPI, download it, check the AMO SHA-256, manifest version, Gecko
+  ID and Mozilla signature envelope, then retain it as an Actions artifact
+  for 30 days. The AMO hash authenticates the download; this is not a separate
+  cryptographic verification of Mozilla's signing certificate chain.
+
+Firefox publishes automatically after Mozilla approval. The summary
+separates submission, pending review, approval and current publication.
+Signing does not keep the job running: run `status` again later. A status API
+failure after a successful upload produces a warning without invalidating
+that submission. In status-only mode, the same failure fails the run.
+Never retry an upload merely because status is temporarily unavailable.
+
+The helper reads AMO JSON directly because `go-webext v0.4.2` cannot parse
+some current `categories` responses. `go-webext update firefox` still handles
+listed uploads and matching source attachment; it does not wait for signing.
+
+Repository variable: `FIREFOX_AMO_ID` (listing slug or numeric identifier).
+Repository secrets: `FIREFOX_CLIENT_ID` and `FIREFOX_CLIENT_SECRET` from
+[AMO API credentials](https://addons.mozilla.org/en-US/developers/addon/api/key/).
+Store credential values and listing identifiers belong in GitHub settings,
+not committed configuration.
+
+Both stores reject invalid tags, drafts/prereleases, commits outside master,
+package/manifest version mismatches, missing configuration and missing,
+duplicate or incorrect asset checksums before upload. Firefox additionally
+checks the Gecko ID and source metadata. A new submission requires
+`docs/AMO_REVIEW.md` inside that same release's source archive. Update these
+[reviewer instructions](AMO_REVIEW.md) whenever build requirements change.
+
+The initial Firefox v0.2.0 was submitted through the Developer Hub on
+2026-09-05 with matching sources and is awaiting review. Its source archive
+predates `AMO_REVIEW.md`; status checks and duplicate detection support it.
+Do not submit it again. The next release can use the manual submit workflow.
+
+## Edge Add-ons
+
+Edge archives remain attached to GitHub Releases. Edge store deployment is a
+separate task.

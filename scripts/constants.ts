@@ -35,3 +35,11 @@ export const FIREFOX_STRICT_MIN_VERSION = '128.0';
 export const CHROMIUM_STRICT_MIN_VERSION = '102';
 
 export const DEV_NAME_SUFFIX = ' (Dev)';
+
+export const RELEASE_TAG_PATTERN = /^v[0-9]+\.[0-9]+\.[0-9]+$/;
+export const RELEASE_ASSET_PREFIX = 'hide-gmail-upgrade-button';
+export const STORE_UPLOAD_DIRECTORY = 'store-upload';
+export const AMO_API_URL = 'https://addons.mozilla.org/api/v5/addons/addon/';
+export const AMO_REQUEST_TIMEOUT_MS = 30_000;
+export const AMO_JWT_LIFETIME_SECONDS = 60;
+export const MILLISECONDS_PER_SECOND = 1_000;
