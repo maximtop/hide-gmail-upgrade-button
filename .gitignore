@@ -4,3 +4,6 @@ node_modules/
 .DS_Store
 .env
 .claude/
+
+# Downloaded release and signed store artifacts
+store-upload/

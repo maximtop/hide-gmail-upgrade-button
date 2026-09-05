@@ -6,7 +6,7 @@
     "packageManager": "pnpm@10.33.4",
     "description": "Hides Upgrade and Ask Gemini in Gmail, Drive, and Docs, plus Upgrade in Google Calendar",
     "license": "MIT",
-    "author": "Maxim Topciu [maximtop] <maximtop@gmail.com>",
+    "author": "Maxim Topciu [maximtop] <me@maximtop.dev>",
     "homepage": "https://github.com/maximtop/hide-gmail-upgrade-button#readme",
     "repository": {
         "type": "git",
