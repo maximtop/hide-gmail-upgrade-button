@@ -70,7 +70,8 @@ export const readAmo = async <T>(id: string, suffix: string, token: string, requ
         const body = await response.json().catch(() => null) as { detail?: unknown } | null;
         const detail = typeof body?.detail === 'string' ? body.detail : '';
         // Report only known authentication diagnostics, never arbitrary response values or credentials.
-        const reason = detail.match(/expired|not yet valid|signature|issuer|credentials|authentication/i)?.[0];
+        const reason = ['expired', 'not yet valid', 'signature', 'issuer', 'credentials', 'authentication']
+            .filter((word) => detail.toLowerCase().includes(word)).join(', ');
         throw new Error(`AMO status request failed: HTTP ${response.status}${reason ? ` (${reason})` : ''}`);
     }
     return response.json() as Promise<T>;
