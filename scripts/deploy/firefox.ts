@@ -67,7 +67,11 @@ export const readAmo = async <T>(id: string, suffix: string, token: string, requ
         return null;
     }
     if (!response.ok) {
-        throw new Error(`AMO status request failed: HTTP ${response.status}`);
+        const body = await response.json().catch(() => null) as { detail?: unknown } | null;
+        const detail = typeof body?.detail === 'string' ? body.detail : '';
+        // Report only known authentication diagnostics, never arbitrary response values or credentials.
+        const reason = detail.match(/expired|not yet valid|signature|issuer|credentials|authentication/i)?.[0];
+        throw new Error(`AMO status request failed: HTTP ${response.status}${reason ? ` (${reason})` : ''}`);
     }
     return response.json() as Promise<T>;
 };
