@@ -82,7 +82,7 @@ export const verifyManifest = (bytes: Buffer, version: string, browser: string):
             throw new Error('Incorrect Firefox Gecko ID or background');
         }
     } else if (!manifest.background?.service_worker) {
-        throw new Error('Chrome package has no service worker');
+        throw new Error('Chromium package has no service worker');
     }
 };
 

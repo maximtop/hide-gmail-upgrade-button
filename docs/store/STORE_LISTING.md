@@ -54,17 +54,118 @@ fields; keep them identical to the localized package strings.
 - Use the four English 1280×800 screenshots as AMO's one shared image set and
   localize their descriptions in the listing.
 
-## Edge Add-ons notes
+## Edge Add-ons
 
-- Use Public visibility, all markets, Productivity, and no mature content.
-- Partner Center requires a description and logo for every locale detected in
-  the package. There are 40; use the generated text files and duplicate the
-  128×128 logo across languages.
-- Privacy answers: narrow single purpose, justify `storage`, `scripting` and
-  the three host permissions, no remote code, no collected data, and provide
-  the public PRIVACY.md URL.
-- Search terms are optional and intentionally left empty for the initial
-  submission in all 40 locales, avoiding partial EN/RU-only coverage.
+Status (2026-09-05): the product exists in Partner Center as a draft. The
+v0.2.0 Edge ZIP is uploaded and verified, Availability, Properties and the
+Privacy answers are saved, and all 40 store listings carry their localized
+description, four localized screenshots, the logo and both promotional tiles
+(every description was checked against `build/store-descriptions/<locale>.txt`
+by SHA-256). Still open, and reserved for the account owner: the three
+data-use disclosure checkboxes on the Privacy page, the certification notes
+on the Submit page, and the **Publish** click. The Edge API cannot create a
+product or edit listing metadata, so the first submission — and every later
+change to Availability, Properties, Privacy or Store listings — is made in
+Partner Center; package updates then go through **Deploy Edge**
+([RELEASE.md](../RELEASE.md)). Registration in the Microsoft Edge program is
+free and needs a Microsoft account; an individual account is enough.
+
+### First submission checklist (Partner Center)
+
+1. Microsoft Edge → **Create new extension** → upload
+   `hide-gmail-upgrade-button-<version>-edge.zip` from the GitHub Release
+   (verify it against `SHA256SUMS.txt`). Name and short description come from
+   the package; Partner Center detects the 40 locales from `_locales` and
+   requires a description and a logo for each of them.
+2. **Availability**: Visibility Public; Markets: all current and future.
+3. **Properties**: Category Productivity; Website
+   `https://github.com/maximtop/hide-gmail-upgrade-button`; Support contact
+   `https://github.com/maximtop/hide-gmail-upgrade-button/issues`; Mature
+   content: no.
+4. **Privacy**: the answers below; Privacy policy URL
+   `https://github.com/maximtop/hide-gmail-upgrade-button/blob/master/PRIVACY.md`.
+5. **Store listings**, per language: Description from
+   `build/store-descriptions/<locale>.txt` (`pnpm store:descriptions`;
+   250–10,000 chars, all 40 fit); Extension logo `src/assets/icons/icon-128.png`
+   uploaded once, then "Duplicate this logo for all languages"; Screenshots
+   `assets/store/screenshots/<locale>/screenshot-{1..4}.png` (1280×800, up to
+   6, localized per language); Small promotional tile
+   `assets/store/small-promo-tile.png` (440×280) and Large promotional tile
+   `assets/store/marquee-promo-tile.png` (1400×560), each uploaded once and
+   duplicated; YouTube video and Search terms left empty.
+6. **Publish** → paste the certification notes below → **Publish**.
+   Certification takes up to seven business days; a certified extension is
+   published automatically and its status becomes **In the Store**.
+7. Afterwards: copy the Product ID from the extension overview page into the
+   `EDGE_PRODUCT_ID` repository variable and create the Publish API
+   credentials (RELEASE.md), so later versions can use **Deploy Edge**.
+
+The privacy, certification and market confirmations are the account owner's
+declarations: fill the forms with the texts below, but never tick those boxes
+on the owner's behalf.
+
+### Privacy answers (copy-ready)
+
+Single purpose:
+
+> Hides the promotional "Upgrade" and "Ask Gemini" buttons in the headers of
+> Gmail, Google Drive and Google Docs, and — only after the user grants
+> optional access from the popup — the "Upgrade" button in Google Calendar.
+> Each button has its own local on/off toggle.
+
+`storage`:
+
+> Stores the user's two on/off preferences (hide Upgrade, hide Ask Gemini)
+> locally in the browser. They are never transmitted.
+
+`scripting`:
+
+> Re-injects the packaged content script into Gmail, Google Drive and Google
+> Docs tabs that were already open when the extension was installed or
+> updated, and registers the same packaged script for Google Calendar once
+> the user grants that optional access, because browsers do not inject newly
+> installed content scripts retroactively. No remote code is involved.
+
+Host permissions — use for each of `mail.google.com`, `drive.google.com`
+and `docs.google.com`:
+
+> Needed only to identify and hide the two promotional header controls on
+> this supported Google site. The extension does not read email, file or
+> document contents, does not run on other sites and makes no network
+> requests.
+
+Optional host permission `calendar.google.com` (if listed):
+
+> Optional and off by default. Requested only when the user turns on "Enable
+> in Google Calendar" in the popup, to hide the Upgrade button in the
+> Calendar header; the user can revoke it from the popup at any time. The
+> extension does not read calendar contents.
+
+Remote code: **No, I am not using remote code.**
+
+Data usage: select no data category — nothing is collected, transmitted or
+sold; the two toggles stay on the device. If the older combined question
+"accesses, collects, or transmits personal information" is shown, answer Yes
+conservatively because of the host access to Gmail/Drive/Docs pages, give
+the privacy policy URL and explain that only header markup is processed
+locally and nothing leaves the browser.
+
+### Notes for certification (copy-ready)
+
+```text
+No extension account, payment or paid feature is required. Any consumer Google account works for the Google websites.
+
+Test steps:
+1. Open Gmail, Google Drive and Google Docs, then install the extension. Tabs that were already open are handled without a reload.
+2. Where Google shows the Upgrade or Ask Gemini controls in the header, confirm they are hidden and the neighbouring icons close the gap.
+3. Open the extension popup and turn either toggle off: the corresponding control returns immediately. Turn it on again: the control is hidden immediately.
+4. Reload or navigate inside a Google app: the settings persist and re-rendered controls stay hidden.
+5. Google Calendar is optional. Before access is granted, nothing changes there. Turn on "Enable in Google Calendar" in the popup and accept the browser prompt: the Upgrade button in the Calendar header is hidden without a reload. Turn it off: the button returns and the optional access is removed.
+
+Google varies promotional controls by account, region and rollout, so their absence is expected. When a match is ambiguous, the extension deliberately does nothing.
+
+The extension uses no remote code, analytics, telemetry or network requests. It stores only two on/off preferences locally in the browser. Source: https://github.com/maximtop/hide-gmail-upgrade-button (MIT). Support: me@maximtop.dev
+```
 
 ## Release notes (v0.1.0)
 
