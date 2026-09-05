@@ -112,6 +112,12 @@ listed uploads and matching source attachment; it does not wait for signing.
 Repository variable: `FIREFOX_AMO_ID` (listing slug or numeric identifier).
 Repository secrets: `FIREFOX_CLIENT_ID` and `FIREFOX_CLIENT_SECRET` from
 [AMO API credentials](https://addons.mozilla.org/en-US/developers/addon/api/key/).
+Use the full original JWT secret: AMO may show an existing secret only as a
+masked value containing dots. That displayed value cannot authenticate API
+requests. Regenerating AMO credentials invalidates the previous key and can
+affect other add-ons and repositories using the same account credentials;
+coordinate their updates first.
+
 Store credential values and listing identifiers belong in GitHub settings,
 not committed configuration.
 
