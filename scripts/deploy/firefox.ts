@@ -36,8 +36,13 @@ export type AmoAddon = {
  *
  * @param issuer API issuer from GitHub Secrets.
  * @param secret API secret from GitHub Secrets.
+ *
+ * @throws If the supplied value is the masked secret shown by AMO.
  */
 export const amoToken = (issuer: string, secret: string): string => {
+    if (secret.includes('...')) {
+        throw new Error('AMO secret is masked; use the full original JWT secret, not the displayed value with dots');
+    }
     const now = Math.floor(Date.now() / MILLISECONDS_PER_SECOND);
     const header = Buffer.from(JSON.stringify({ alg: 'HS256', typ: 'JWT' })).toString('base64url');
     const payload = Buffer.from(JSON.stringify({

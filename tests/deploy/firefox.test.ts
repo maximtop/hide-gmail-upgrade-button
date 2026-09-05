@@ -15,6 +15,17 @@ const addon: AmoAddon = {
 const version: AmoVersion = { id: 123, version: '1.2.3', channel: 'listed', file: { status: 'unreviewed' } };
 
 describe('AMO read-only checks', () => {
+    it('rejects the masked secret displayed by AMO without disclosing it', () => {
+        expect(() => amoToken('issuer', 'prefix...suffix')).toThrow('AMO secret is masked');
+    });
+    it('reports authentication diagnostics without echoing response secrets', async () => {
+        const request = vi.fn<typeof fetch>().mockResolvedValue(new Response(JSON.stringify({
+            detail: 'Signature has expired. Sensitive diagnostic: do-not-log-me',
+        }), { status: 401 }));
+        await expect(readAmo('fixture', '', 'jwt', request)).rejects.toThrow(
+            /^AMO status request failed: HTTP 401 \(expired, signature\)$/,
+        );
+    });
     it('signs a short-lived JWT without exposing its secret', () => {
         const token = amoToken('issuer', 'private-secret');
         const [header, payload, signature] = token.split('.');
