@@ -211,3 +211,8 @@ Failure playbook:
   deploying again.
 - **Certification rejected**: the verdict arrives after the run; fix the
   cause, then ship a new release or update the metadata in Partner Center.
+
+The initial Edge v0.2.0 was submitted through Partner Center on 2026-09-05
+and certified on 2026-09-06; it is listed at
+<https://microsoftedge.microsoft.com/addons/detail/hide-upgrade-button-for-g/oifpjlhikjiifjlcihandpghdiechhik>.
+Later versions go through **Deploy Edge**.

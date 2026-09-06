@@ -56,21 +56,19 @@ fields; keep them identical to the localized package strings.
 
 ## Edge Add-ons
 
-Status (2026-09-05): the product exists in Partner Center as a draft. The
-v0.2.0 Edge ZIP is uploaded and verified, Availability, Properties and the
-Privacy answers are saved, and all 40 store listings carry their localized
-description, four localized screenshots, the logo and both promotional tiles
-(every description was checked against `build/store-descriptions/<locale>.txt`
-by SHA-256). Still open, and reserved for the account owner: the three
-data-use disclosure checkboxes on the Privacy page, the certification notes
-on the Submit page, and the **Publish** click. The Edge API cannot create a
-product or edit listing metadata, so the first submission — and every later
-change to Availability, Properties, Privacy or Store listings — is made in
-Partner Center; package updates then go through **Deploy Edge**
-([RELEASE.md](../RELEASE.md)). Registration in the Microsoft Edge program is
-free and needs a Microsoft account; an individual account is enough.
+Status: published. v0.2.0 was submitted through Partner Center on
+2026-09-05, passed certification on 2026-09-06 and is listed at
+<https://microsoftedge.microsoft.com/addons/detail/hide-upgrade-button-for-g/oifpjlhikjiifjlcihandpghdiechhik>.
+The public store ID in that URL is not the Product ID: the Product ID is
+the GUID from the Partner Center overview page and lives only in the
+`EDGE_PRODUCT_ID` repository variable. The Edge API cannot create a product
+or edit listing metadata, so every change to Availability, Properties,
+Privacy or Store listings is made in Partner Center; package updates go
+through **Deploy Edge** ([RELEASE.md](../RELEASE.md)). The checklist below
+documents how the initial submission was assembled, in case the product
+ever has to be recreated.
 
-### First submission checklist (Partner Center)
+### First submission checklist (Partner Center, done for v0.2.0)
 
 1. Microsoft Edge → **Create new extension** → upload
    `hide-gmail-upgrade-button-<version>-edge.zip` from the GitHub Release
