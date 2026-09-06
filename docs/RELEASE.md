@@ -66,6 +66,11 @@ Repository **secrets**:
 | `CHROME_CLIENT_SECRET` | Secret of that OAuth client |
 | `CHROME_REFRESH_TOKEN` | Refresh token obtained once for that client |
 
+The source of truth for these three secrets and `CHROME_PUBLISHER_ID` is the
+1Password item `chrome-web-store-api`, shared by every extension of the
+account; push a value without printing it with
+`op item get chrome-web-store-api --fields label=<NAME> --reveal | gh secret set <NAME>`.
+
 Getting the OAuth credentials (one-time):
 
 1. In a Google Cloud project, enable the **Chrome Web Store API**.
@@ -117,6 +122,10 @@ masked value containing dots. That displayed value cannot authenticate API
 requests. Regenerating AMO credentials invalidates the previous key and can
 affect other add-ons and repositories using the same account credentials;
 coordinate their updates first.
+
+The source of truth for both secrets is the 1Password item `firefox-amo-api`;
+push a value without printing it with
+`op item get firefox-amo-api --fields label=<NAME> --reveal | gh secret set <NAME>`.
 
 Store credential values and listing identifiers belong in GitHub settings,
 not committed configuration.
@@ -191,6 +200,11 @@ Repository **secrets**:
 | --- | --- |
 | `EDGE_CLIENT_ID` | Partner Center → Microsoft Edge → **Publish API** → Client ID |
 | `EDGE_API_KEY` | An active API key from the same page |
+
+The source of truth for both secrets is the 1Password item `edge-addons-api`,
+which also records the key name and expiry date; push a value without
+printing it with
+`op item get edge-addons-api --fields label=<NAME> --reveal | gh secret set <NAME>`.
 
 Getting the credentials (one-time): on the **Publish API** page, switch to
 the API-key experience if the page still shows the retired v1 secrets, then
