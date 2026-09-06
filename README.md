@@ -19,9 +19,9 @@ Google's markup is obfuscated and changes often, so the extension never relies o
 
 ## Install
 
-Install the extension from the [Chrome Web Store](https://chromewebstore.google.com/detail/hide-upgrade-button-for-g/flakajdfnklpgiefoffmecgbfbckmpcb).
+Install the extension from the [Chrome Web Store](https://chromewebstore.google.com/detail/hide-upgrade-button-for-g/flakajdfnklpgiefoffmecgbfbckmpcb) or from [Microsoft Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/hide-upgrade-button-for-g/oifpjlhikjiifjlcihandpghdiechhik).
 
-Firefox Add-ons and Edge Add-ons listings are on the way. For local development, install from source:
+The Firefox Add-ons listing is on the way. For local development, install from source:
 
 ```bash
 make install
@@ -43,7 +43,7 @@ Nothing else. The extension makes no network requests and collects no data of an
 
 ## Remove
 
-`chrome://extensions` (or `about:addons` in Firefox) → find *Hide Upgrade Button for Gmail, Drive & Docs* → **Remove**. The extension stores only its two toggle values, which are deleted together with it. Reload open supported tabs to bring the hidden buttons back instantly (they also reappear on the next natural page re-render).
+`chrome://extensions` (or `edge://extensions` in Edge, `about:addons` in Firefox) → find *Hide Upgrade Button for Gmail, Drive & Docs* → **Remove**. The extension stores only its two toggle values, which are deleted together with it. Reload open supported tabs to bring the hidden buttons back instantly (they also reappear on the next natural page re-render).
 
 ## Support & contributing
 
