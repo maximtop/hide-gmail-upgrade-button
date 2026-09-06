@@ -1,20 +1,61 @@
 /**
  * @file Validation of published store assets, independent of GitHub and store credentials.
+ * Identical in every extension repository; repository specifics live in ./constants.
  */
 
 import { createHash } from 'node:crypto';
 import AdmZip from 'adm-zip';
-import { GECKO_ID, RELEASE_TAG_PATTERN } from '../constants';
+import {
+    AMO_REVIEW_NOTES_PATH,
+    GECKO_ID,
+    RELEASE_TAG_PATTERN,
+    SOURCE_REQUIRED_FILES,
+} from './constants';
 
 /**
  * GitHub metadata required to select a stable release.
  */
-export type PublishedRelease = { tagName: string; isDraft: boolean; isPrerelease: boolean };
+export type PublishedRelease = {
+    /**
+     * Git tag of the release, `vX.Y.Z` for stable releases.
+     */
+    tagName: string;
+
+    /**
+     * Whether the release is still a draft.
+     */
+    isDraft: boolean;
+
+    /**
+     * Whether the release is marked as a pre-release.
+     */
+    isPrerelease: boolean;
+};
+
+/**
+ * Read a nested field of parsed JSON without assuming its shape.
+ *
+ * @param value Parsed JSON value.
+ * @param keys Property path to follow.
+ *
+ * @returns The nested value, or undefined when any step is missing.
+ */
+const read = (value: unknown, ...keys: string[]): unknown => keys.reduce<unknown>(
+    (current, key) => {
+        if (current && typeof current === 'object') {
+            return (current as Record<string, unknown>)[key];
+        }
+        return undefined;
+    },
+    value,
+);
 
 /**
  * Validate a stable published release and return its version.
  *
  * @param release Metadata returned by GitHub.
+ *
+ * @returns Version without the `v` prefix.
  *
  * @throws If the release is not a stable semantic version.
  */
@@ -50,9 +91,12 @@ export const requireConfiguration = (names: string[], env: NodeJS.ProcessEnv): v
  * @throws If the checksum is absent, duplicated or incorrect.
  */
 export const verifyChecksum = (name: string, bytes: Buffer, checksums: string): void => {
-    const entries = checksums.split(/\r?\n/).map((line) => line.match(/^([a-f0-9]{64}) [ *](?:\.\/)?(.+)$/));
+    const entries = checksums
+        .split(/\r?\n/)
+        .map((line) => line.match(/^([a-f0-9]{64}) [ *](?:\.\/)?(.+)$/));
     const matches = entries.filter((entry) => entry?.[2] === name);
-    if (matches.length !== 1 || matches[0]?.[1] !== createHash('sha256').update(bytes).digest('hex')) {
+    const digest = createHash('sha256').update(bytes).digest('hex');
+    if (matches.length !== 1 || matches[0]?.[1] !== digest) {
         throw new Error(`Missing, duplicate or mismatched SHA-256 for ${name}`);
     }
 };
@@ -69,19 +113,22 @@ export const verifyChecksum = (name: string, bytes: Buffer, checksums: string): 
 export const verifyManifest = (bytes: Buffer, version: string, browser: string): void => {
     const archive = new AdmZip(bytes);
     const manifests = archive.getEntries().filter((entry) => entry.entryName === 'manifest.json');
-    if (manifests.length !== 1) {
+    const [manifestEntry] = manifests;
+    if (manifests.length !== 1 || !manifestEntry) {
         throw new Error('Package must contain exactly one root manifest.json');
     }
-    const manifest = JSON.parse(archive.readAsText(manifests[0]));
-    if (manifest.version !== version || manifest.manifest_version !== 3) {
+    const manifest: unknown = JSON.parse(archive.readAsText(manifestEntry));
+    if (read(manifest, 'version') !== version || read(manifest, 'manifest_version') !== 3) {
         throw new Error('Package manifest version does not match the selected release');
     }
+    const serviceWorker = read(manifest, 'background', 'service_worker');
     if (browser === 'firefox') {
-        if (manifest.browser_specific_settings?.gecko?.id !== GECKO_ID
-            || !Array.isArray(manifest.background?.scripts) || manifest.background?.service_worker) {
+        if (read(manifest, 'browser_specific_settings', 'gecko', 'id') !== GECKO_ID
+            || !Array.isArray(read(manifest, 'background', 'scripts'))
+            || serviceWorker) {
             throw new Error('Incorrect Firefox Gecko ID or background');
         }
-    } else if (!manifest.background?.service_worker) {
+    } else if (!serviceWorker) {
         throw new Error('Chromium package has no service worker');
     }
 };
@@ -93,21 +140,25 @@ export const verifyManifest = (bytes: Buffer, version: string, browser: string):
  * @param version Selected package version.
  * @param requireNotes Whether this is a new Firefox submission.
  *
+ * @returns Reviewer notes, empty when the archive has none.
+ *
  * @throws If the source is incomplete or belongs to another version.
  */
 export const verifySource = (bytes: Buffer, version: string, requireNotes: boolean): string => {
     const zip = new AdmZip(bytes);
-    for (const file of ['package.json', 'pnpm-lock.yaml', 'src/manifest.json', 'rspack.config.ts', 'DEVELOPMENT.md']) {
-        if (!zip.getEntry(file)) {
-            throw new Error(`Source archive is missing ${file}`);
-        }
+    const missing = SOURCE_REQUIRED_FILES.filter((file) => !zip.getEntry(file));
+    if (missing.length) {
+        throw new Error(`Source archive is missing ${missing.join(', ')}`);
     }
-    if (JSON.parse(zip.readAsText('package.json')).version !== version) {
+    const pkg: unknown = JSON.parse(zip.readAsText('package.json'));
+    if (read(pkg, 'version') !== version) {
         throw new Error('Source package version does not match the selected release');
     }
-    const notes = zip.readAsText('docs/AMO_REVIEW.md');
+    const notes = zip.getEntry(AMO_REVIEW_NOTES_PATH) ? zip.readAsText(AMO_REVIEW_NOTES_PATH) : '';
     if (requireNotes && !notes.trim()) {
-        throw new Error('Source has no docs/AMO_REVIEW.md; use the Developer Hub for this historical release');
+        throw new Error(
+            `Source has no ${AMO_REVIEW_NOTES_PATH}; use the Developer Hub for this release`,
+        );
     }
     return notes;
 };

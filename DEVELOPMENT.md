@@ -18,7 +18,7 @@
 
 The build commands also accept `edge` and `firefox`; omit the browser to build
 all three targets. Lower-level `pnpm dev [browser]`, `pnpm release [browser]`,
-`pnpm lint`, `pnpm typecheck`, `pnpm test` and `pnpm validate` scripts remain
+`pnpm lint`, `pnpm typecheck`, `pnpm test` and `pnpm check` scripts remain
 available. Run `pnpm dev chrome --watch` for a watched Chrome development build.
 
 Use `pnpm icons` to re-render icon PNGs from `assets/icon/*.svg` after changing
@@ -68,24 +68,28 @@ Styling note: there is no CSS pipeline — the popup styles live in its HTML, th
 ## CI and releases
 
 - **CI** (`.github/workflows/ci.yml`) runs on every push to `master` and every
-  PR: `pnpm validate`, release builds for all three browsers, a manifest
+  PR: `pnpm check`, release builds for all three browsers, a manifest
   sanity check (version stamped, Chrome service worker, Firefox background
   scripts + gecko id) and uploads the three zips as a build artifact.
 - **Release** (`.github/workflows/release.yml`) runs on a `vX.Y.Z` tag: it
   verifies the tag matches `package.json` and is reachable from `master`,
-  re-validates, rebuilds, and publishes a GitHub Release with the three
-  browser zips, a source archive and `SHA256SUMS.txt`.
-- **Deploy Chrome**, **Deploy Edge** and **Deploy Firefox** run only when
-  manually dispatched in GitHub Actions. A GitHub Release never submits to
-  any store. All three use existing release assets with matching checksums;
-  the package is not rebuilt. Chrome requires manual publication after
-  approval. Edge is published by Microsoft after certification and offers an
-  upload-only mode for releases that need listing or privacy changes in
-  Partner Center. Firefox publishes after Mozilla approval and offers a
-  separate read-only status mode.
+  runs `pnpm check`, builds, and publishes a GitHub Release with the three
+  browser zips, a source archive and `SHA256SUMS.txt`. Running it by hand is
+  a dry run that publishes nothing.
+- **Deploy Chrome Web Store**, **Deploy Edge Add-ons** and **Deploy Firefox
+  Add-ons** run only when manually dispatched in GitHub Actions. A GitHub
+  Release never submits to any store. All three validate the release with the
+  shared `scripts/deploy` code (also used by the other extension
+  repositories) and use existing release assets with matching checksums; the
+  package is not rebuilt. Every workflow offers a `validate` mode that stops
+  before the store. Chrome requires manual publication after approval. Edge
+  is published by Microsoft after certification and offers an upload-only
+  mode for releases that need listing or privacy changes in Partner Center.
+  Firefox publishes after Mozilla approval and offers a separate read-only
+  status mode.
 - To cut a release: bump `version` in `package.json`, commit to `master`, then
-  `git tag vX.Y.Z && git push origin vX.Y.Z`. Full process and the required
-  store credentials: [docs/RELEASE.md](docs/RELEASE.md).
+  `git tag vX.Y.Z && git push origin vX.Y.Z`. Full process, store
+  configuration and the failure playbook: [docs/RELEASE.md](docs/RELEASE.md).
 - All GitHub Actions are pinned to commit SHAs.
 
 ## Testing notes

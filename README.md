@@ -48,7 +48,7 @@ Nothing else. The extension makes no network requests and collects no data of an
 ## Support & contributing
 
 - Bugs and ideas: [GitHub issues](https://github.com/maximtop/hide-gmail-upgrade-button/issues). If a button stopped being hidden, Google likely changed the markup — please attach the button's `outerHTML` if you can.
-- PRs are welcome: read [AGENTS.md](AGENTS.md) for conventions and run `pnpm validate` before submitting.
+- PRs are welcome: read [AGENTS.md](AGENTS.md) for conventions and run `pnpm check` before submitting.
 
 ## License
 
