@@ -75,11 +75,14 @@ Styling note: there is no CSS pipeline — the popup styles live in its HTML, th
   verifies the tag matches `package.json` and is reachable from `master`,
   re-validates, rebuilds, and publishes a GitHub Release with the three
   browser zips, a source archive and `SHA256SUMS.txt`.
-- **Deploy Chrome** and **Deploy Firefox** run only when manually dispatched
-  in GitHub Actions. A GitHub Release never submits to either store. Both use
-  existing release assets with matching checksums; the package is not rebuilt.
-  Chrome requires manual publication after approval. Firefox publishes after
-  Mozilla approval and offers a separate read-only status mode.
+- **Deploy Chrome**, **Deploy Edge** and **Deploy Firefox** run only when
+  manually dispatched in GitHub Actions. A GitHub Release never submits to
+  any store. All three use existing release assets with matching checksums;
+  the package is not rebuilt. Chrome requires manual publication after
+  approval. Edge is published by Microsoft after certification and offers an
+  upload-only mode for releases that need listing or privacy changes in
+  Partner Center. Firefox publishes after Mozilla approval and offers a
+  separate read-only status mode.
 - To cut a release: bump `version` in `package.json`, commit to `master`, then
   `git tag vX.Y.Z && git push origin vX.Y.Z`. Full process and the required
   store credentials: [docs/RELEASE.md](docs/RELEASE.md).

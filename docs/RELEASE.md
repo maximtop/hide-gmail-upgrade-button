@@ -19,8 +19,8 @@
 ## Manual store deployment
 
 Creating a GitHub Release does not submit to any store. In GitHub Actions,
-choose **Deploy Chrome** or **Deploy Firefox**, then **Run workflow** on
-`master`. An optional `tag` selects a published stable `vX.Y.Z` release;
+choose **Deploy Chrome**, **Deploy Edge** or **Deploy Firefox**, then
+**Run workflow** on `master`. An optional `tag` selects a published stable `vX.Y.Z` release;
 leaving it blank resolves the latest published stable release once, at the
 start of the run. All subsequent downloads use that selected tag.
 
@@ -121,7 +121,7 @@ coordinate their updates first.
 Store credential values and listing identifiers belong in GitHub settings,
 not committed configuration.
 
-Both stores reject invalid tags, drafts/prereleases, commits outside master,
+All three stores reject invalid tags, drafts/prereleases, commits outside master,
 package/manifest version mismatches, missing configuration and missing,
 duplicate or incorrect asset checksums before upload. Firefox additionally
 checks the Gecko ID and source metadata. A new submission requires
@@ -133,7 +133,81 @@ The initial Firefox v0.2.0 was submitted through the Developer Hub on
 predates `AMO_REVIEW.md`; status checks and duplicate detection support it.
 Do not submit it again. The next release can use the manual submit workflow.
 
-## Edge Add-ons
+## Edge Add-ons deployment
 
-Edge archives remain attached to GitHub Releases. Edge store deployment is a
-separate task.
+**Deploy Edge** updates a product that already exists in Partner Center.
+The Microsoft Edge Add-ons API can neither create a product nor change
+listing metadata, so the first submission — and every later change to
+Availability, Properties, Privacy or Store listings — is done by hand in
+Partner Center. The first-submission checklist and the copy-ready privacy
+answers and certification notes live in
+[docs/store/STORE_LISTING.md](store/STORE_LISTING.md).
+
+Modes:
+
+- `submit` (default): upload the release's Edge ZIP to the draft
+  submission, wait until Partner Center reports the package as processed,
+  then request certification.
+- `upload`: only upload the package to the draft. Use it when the release
+  changes permissions or anything else the Privacy or Store listings pages
+  must reflect: finish those pages in Partner Center, then click **Publish**
+  there.
+
+What the workflow does:
+
+1. The shared release checks: tag shape, published stable release, tagged
+   commit reachable from `master`, matching `package.json` version, SHA-256
+   of the published Edge archive, and a Chromium manifest carrying the
+   release version and a service worker.
+2. Uploads the archive with `go-webext` through the Edge Add-ons API v1.1
+   (API key). The step fails unless package processing reaches `Succeeded`;
+   `go-webext` v0.4.2 waits for that for one minute.
+3. In `submit` mode, requests certification. `go-webext` reads the publish
+   operation once, so `InProgress` in a green run means the request was
+   accepted. The verdict arrives in Partner Center and by email, usually
+   within seven business days, and Microsoft publishes a certified update
+   itself according to the listing's availability settings.
+
+There is no deferred publishing on Edge. The manual gates are running the
+workflow itself, the `upload` mode for releases that need listing or privacy
+changes, and the account owner's confirmations inside Partner Center.
+Certification notes cannot be sent by `go-webext` v0.4.2: keep the reviewer
+notes from STORE_LISTING.md in Partner Center and, when a release changes
+the test steps, deploy it in `upload` mode and finish the submission there.
+Microsoft accepts one submission at a time, and each update needs a higher
+package version than the one in the store.
+
+### Required configuration
+
+Repository **variable**:
+
+| Name | Value |
+| --- | --- |
+| `EDGE_PRODUCT_ID` | Product ID (GUID) from the extension overview page in Partner Center; not the public store ID |
+
+Repository **secrets**:
+
+| Name | Where it comes from |
+| --- | --- |
+| `EDGE_CLIENT_ID` | Partner Center → Microsoft Edge → **Publish API** → Client ID |
+| `EDGE_API_KEY` | An active API key from the same page |
+
+Getting the credentials (one-time): on the **Publish API** page, switch to
+the API-key experience if the page still shows the retired v1 secrets, then
+click **Create API credentials**. The key is shown once and Partner Center
+displays its expiry date; rotate it before that date and update
+`EDGE_API_KEY`. The Client ID and API key belong to the Partner Center
+account, so another extension published from the same account can reuse
+them; only `EDGE_PRODUCT_ID` is specific to this extension.
+
+Failure playbook:
+
+- **401/403**: the key is missing, expired or belongs to another Client ID.
+  Create a new key, update the secret and re-run; nothing was uploaded.
+- **Upload step times out while processing stays `InProgress`**: check the
+  draft in Partner Center, wait for processing to settle and re-run only if
+  no package was accepted.
+- **Submission already in review**: wait for certification to finish before
+  deploying again.
+- **Certification rejected**: the verdict arrives after the run; fix the
+  cause, then ship a new release or update the metadata in Partner Center.
