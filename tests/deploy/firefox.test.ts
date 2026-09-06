@@ -80,7 +80,7 @@ describe('AMO read-only checks', () => {
         await expect(readAmo('fixture@test', '', 'jwt', request)).rejects
             .toThrow('network unavailable');
     });
-    it('reads existing private versions without depending on categories response shape', async () => {
+    it('reads existing private versions regardless of the categories shape', async () => {
         const request = vi.fn<typeof fetch>()
             .mockResolvedValue(new Response(JSON.stringify(version)));
         expect(await readAmo('fixture@test', 'versions/1.2.3/', 'jwt', request))

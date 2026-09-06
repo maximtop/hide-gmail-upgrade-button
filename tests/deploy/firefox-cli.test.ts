@@ -73,7 +73,7 @@ describe('Firefox deployment orchestration', () => {
         expect(readFileSync).not.toHaveBeenCalled();
         expect(appendFileSync).toHaveBeenCalledWith('fixture-output', 'submit=false\n');
     });
-    it('reports pending review immediately without polling or writing a signed artifact', async () => {
+    it('reports pending review immediately without writing a signed artifact', async () => {
         request.mockResolvedValueOnce(json(pending));
         await run(env);
         expect(request).toHaveBeenCalledTimes(2);
@@ -89,7 +89,7 @@ describe('Firefox deployment orchestration', () => {
             .toThrow('HTTP 503');
         expect(appendFileSync).not.toHaveBeenCalled();
     });
-    it('rejects an unexpected listing identity before looking up or creating versions', async () => {
+    it('rejects an unexpected listing identity before looking up versions', async () => {
         request.mockReset().mockResolvedValueOnce(json({ ...addon, guid: 'wrong@test' }));
         await expect(run({ ...env, AMO_OPERATION: 'preflight' })).rejects
             .toThrow('Gecko ID mismatch');
