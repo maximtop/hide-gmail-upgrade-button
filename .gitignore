@@ -7,3 +7,5 @@ node_modules/
 
 # Downloaded release and signed store artifacts
 store-upload/
+.env.1password
+.pnpm-store/

@@ -3,7 +3,7 @@
     "version": "0.2.0",
     "private": true,
     "type": "module",
-    "packageManager": "pnpm@10.33.4",
+    "packageManager": "pnpm@11.18.0",
     "description": "Hides Upgrade and Ask Gemini in Gmail, Drive, and Docs, plus Upgrade in Google Calendar",
     "license": "MIT",
     "author": "Maxim Topciu [maximtop] <me@maximtop.dev>",
@@ -28,7 +28,8 @@
         "test": "vitest run",
         "lint": "eslint .",
         "typecheck": "tsc --noEmit",
-        "validate": "pnpm test && pnpm lint && pnpm typecheck"
+        "check": "pnpm test && pnpm lint && pnpm typecheck",
+        "validate": "pnpm check"
     },
     "devDependencies": {
         "@rspack/core": "^2.1.5",
