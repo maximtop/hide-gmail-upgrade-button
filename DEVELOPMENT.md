@@ -68,14 +68,15 @@ Styling note: there is no CSS pipeline — the popup styles live in its HTML, th
 ## CI and releases
 
 - **CI** (`.github/workflows/ci.yml`) runs on every push to `master` and every
-  PR: `pnpm check`, release builds for all three browsers, a manifest
+  PR, and supports manual runs: separate lint, typecheck, test and package
+  jobs, release builds for all three browsers, a manifest
   sanity check (version stamped, Chrome service worker, Firefox background
   scripts + gecko id) and uploads the three zips as a build artifact.
 - **Please release** (`.github/workflows/please-release.yml`) is manual. It
   takes an exact newer `X.Y.Z` version and creates or updates the release PR.
 - **Release** (`.github/workflows/release.yml`) runs after that PR is merged or
   on a manual-fallback `vX.Y.Z` tag. It verifies the version and `master`
-  ancestry, runs `pnpm check`, builds, and publishes a GitHub Release with the
+  ancestry, reuses CI and its checked artifacts, and publishes a GitHub Release with the
   three browser zips, a source archive and `SHA256SUMS.txt`. Running it by hand
   is a dry run that publishes nothing.
 - **Deploy Chrome Web Store**, **Deploy Edge Add-ons** and **Deploy Firefox
