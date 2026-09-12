@@ -71,11 +71,13 @@ Styling note: there is no CSS pipeline — the popup styles live in its HTML, th
   PR: `pnpm check`, release builds for all three browsers, a manifest
   sanity check (version stamped, Chrome service worker, Firefox background
   scripts + gecko id) and uploads the three zips as a build artifact.
-- **Release** (`.github/workflows/release.yml`) runs on a `vX.Y.Z` tag: it
-  verifies the tag matches `package.json` and is reachable from `master`,
-  runs `pnpm check`, builds, and publishes a GitHub Release with the three
-  browser zips, a source archive and `SHA256SUMS.txt`. Running it by hand is
-  a dry run that publishes nothing.
+- **Please release** (`.github/workflows/please-release.yml`) is manual. It
+  takes an exact newer `X.Y.Z` version and creates or updates the release PR.
+- **Release** (`.github/workflows/release.yml`) runs after that PR is merged or
+  on a manual-fallback `vX.Y.Z` tag. It verifies the version and `master`
+  ancestry, runs `pnpm check`, builds, and publishes a GitHub Release with the
+  three browser zips, a source archive and `SHA256SUMS.txt`. Running it by hand
+  is a dry run that publishes nothing.
 - **Deploy Chrome Web Store**, **Deploy Edge Add-ons** and **Deploy Firefox
   Add-ons** run only when manually dispatched in GitHub Actions. A GitHub
   Release never submits to any store. All three validate the release with the
@@ -87,8 +89,8 @@ Styling note: there is no CSS pipeline — the popup styles live in its HTML, th
   mode for releases that need listing or privacy changes in Partner Center.
   Firefox publishes after Mozilla approval and offers a separate read-only
   status mode.
-- To cut a release: bump `version` in `package.json`, commit to `master`, then
-  `git tag vX.Y.Z && git push origin vX.Y.Z`. Full process, store
+- To cut a release, run `Please release` with the desired `X.Y.Z` and merge its
+  PR. The manual version-and-tag path remains available. Full process, store
   configuration and the failure playbook: [docs/RELEASE.md](docs/RELEASE.md).
 - All GitHub Actions are pinned to commit SHAs.
 
