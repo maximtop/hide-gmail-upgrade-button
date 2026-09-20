@@ -1,6 +1,6 @@
 /**
  * @file Build entrypoint: `CHANNEL_ENV=dev|release tsx scripts/build/bundle.ts [browser] [--watch]`.
- * Builds all browser targets when no browser argument is given.
+ * Builds Chrome in development and all store targets in release when no browser is given.
  */
 
 import rspack from '@rspack/core';
@@ -11,6 +11,7 @@ import {
     ALL_BROWSER_TARGETS,
     ALL_CHANNEL_ENVS,
     CHANNEL_ENVS,
+    BROWSER_TARGETS,
 } from '../constants';
 import type { BrowserTarget, ChannelEnv } from '../constants';
 
@@ -34,21 +35,27 @@ const readChannelEnv = (): ChannelEnv => {
 /**
  * Parses CLI arguments into browser targets and the watch flag.
  *
- * @returns Requested targets (all browsers when none given) and watch mode.
+ * @param buildEnv Selected development or release channel.
+ *
+ * @returns Requested targets (Chrome in development, all store targets in release) and watch mode.
  *
  * @throws Error when an argument is not a known browser target.
  */
-const parseArgs = (): { targets: BrowserTarget[]; watch: boolean } => {
+const parseArgs = (buildEnv: ChannelEnv): { targets: BrowserTarget[]; watch: boolean } => {
     const args = process.argv.slice(2);
     const watch = args.includes(WATCH_FLAG);
-    const browsers = args.filter((arg) => !arg.startsWith('--'));
+    const browsers = args.filter((arg) => arg !== WATCH_FLAG);
+    if (browsers.length > 1) {
+        throw new Error('Choose at most one browser target.');
+    }
 
     const unknown = browsers.filter((browser) => !(ALL_BROWSER_TARGETS as string[]).includes(browser));
     if (unknown.length > 0) {
         throw new Error(`Unknown browser target(s): ${unknown.join(', ')}. Known: ${ALL_BROWSER_TARGETS.join(', ')}`);
     }
 
-    const targets = browsers.length > 0 ? (browsers as BrowserTarget[]) : ALL_BROWSER_TARGETS;
+    const defaults = buildEnv === CHANNEL_ENVS.DEV ? [BROWSER_TARGETS.CHROME] : ALL_BROWSER_TARGETS;
+    const targets = browsers.length > 0 ? (browsers as BrowserTarget[]) : defaults;
     return { targets, watch };
 };
 
@@ -72,7 +79,7 @@ const reportStats = (stats: MultiStats): void => {
  */
 const main = async (): Promise<void> => {
     const buildEnv = readChannelEnv();
-    const { targets, watch } = parseArgs();
+    const { targets, watch } = parseArgs(buildEnv);
 
     if (watch && (buildEnv !== CHANNEL_ENVS.DEV || targets.length !== 1)) {
         throw new Error(

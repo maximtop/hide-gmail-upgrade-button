@@ -53,3 +53,10 @@ Nothing else. The extension makes no network requests and collects no data of an
 ## License
 
 [MIT](LICENSE). This project is not affiliated with, endorsed by, or sponsored by Google. Gmail, Google Drive, Google Docs, Google Calendar and Gemini are trademarks of Google LLC, referenced only to describe compatibility.
+
+## Developer workflow
+
+Use `make install`, `make build`, `make start`, `make check`, and
+`make package`. Builds default to Chrome; packaging is local only. See
+[development guide](DEVELOPMENT.md) for browser targets, output paths,
+and the equivalent pnpm commands.
