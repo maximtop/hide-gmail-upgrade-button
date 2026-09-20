@@ -1,5 +1,29 @@
 # Development
 
+## Shared developer commands
+
+| Make | pnpm | Meaning |
+| --- | --- | --- |
+| `make install` | `pnpm install` | Install dependencies; `make setup` and `make init` are aliases. |
+| `make build [browser]` | `pnpm build [browser]` | Build once in development mode; Chrome by default. |
+| `make dev [browser]` | `pnpm dev [browser]` | Alias for the one-shot development build. |
+| `make start [browser]` | `pnpm start [browser]` | Watch development files; Chrome by default. |
+| `make release [browser]` | `pnpm release [browser]` | Build local production archives; all store targets by default. |
+| `make package [browser]` | `pnpm package [browser]` | Alias for local release packaging. |
+| `make check` | `pnpm check` | Static checks and automated tests, without store submission. |
+
+`make` defaults to `make build`. Pass at most one supported browser as an
+extra goal, for example `make build firefox`. Unknown targets fail before
+building. `lint`, `typecheck`, and `test` also have matching Make targets;
+`make validate` is a compatibility alias for `make check`.
+Store upload/publish commands and CI deployment workflows are separate:
+`release` and `package` never submit to a store or create a GitHub release.
+
+Rspack supports Chrome, Edge, and Firefox and writes
+`build/dev/<browser>` or `build/release/<browser>`, with matching ZIPs.
+Safari is not a supported target on this branch.
+
+
 ## Prerequisites
 
 - Node.js 24 (see `.nvmrc`; `engines` enforces `>=24 <25`)
@@ -13,11 +37,11 @@
 | `make install` | Install dependencies |
 | `make dev chrome` | Build an unpacked development extension for Chrome |
 | `make release chrome` | Build a production extension and ZIP archive for Chrome |
-| `make lint` | Run ESLint and TypeScript type checking |
+| `make lint` | Run ESLint; use `make typecheck` for TypeScript |
 | `make test` | Run unit tests (Vitest, DOM tests via happy-dom) |
 
 The build commands also accept `edge` and `firefox`; omit the browser to build
-all three targets. Lower-level `pnpm dev [browser]`, `pnpm release [browser]`,
+Chrome for development, all three targets for release. Lower-level `pnpm dev [browser]`, `pnpm release [browser]`,
 `pnpm lint`, `pnpm typecheck`, `pnpm test` and `pnpm check` scripts remain
 available. Run `pnpm dev chrome --watch` for a watched Chrome development build.
 

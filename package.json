@@ -21,7 +21,7 @@
     "scripts": {
         "dev": "CHANNEL_ENV=dev tsx scripts/build/bundle.ts",
         "release": "CHANNEL_ENV=release tsx scripts/build/bundle.ts",
-        "build": "pnpm release",
+        "build": "pnpm dev",
         "icons": "tsx scripts/icons/generate.ts",
         "store:assets": "tsx scripts/store/assets.ts",
         "store:descriptions": "tsx scripts/store/convert-descriptions.ts",
@@ -29,7 +29,9 @@
         "lint": "eslint .",
         "typecheck": "tsc --noEmit",
         "check": "pnpm test && pnpm lint && pnpm typecheck",
-        "validate": "pnpm check"
+        "validate": "pnpm check",
+        "start": "pnpm dev --watch",
+        "package": "pnpm release"
     },
     "devDependencies": {
         "@rspack/core": "^2.1.5",
