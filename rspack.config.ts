@@ -104,10 +104,6 @@ export const createRspackConfig = (browser: BrowserTarget, buildEnv: ChannelEnv)
                         from: 'src/assets',
                         to: 'assets',
                     },
-                    {
-                        from: 'assets/screenshots/before-after.png',
-                        to: 'assets/before-after.png',
-                    },
                 ],
             }),
             new GeneratedFilePlugin('prehide.css', buildPrehideCss()),

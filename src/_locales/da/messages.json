@@ -40,99 +40,83 @@
         "description": "Onboarding page title and heading, shown after installation."
     },
     "onboarding_intro": {
-        "message": "Knapperne Upgrade og Ask Gemini er nu skjult. Her er det, der er værd at vide.",
-        "description": "Onboarding page lead paragraph under the title."
+        "message": "Knapperne Upgrade og Ask Gemini er nu skjult i Gmail, Google Drev, Docs, Sheets og Slides. Du behøver ikke at genindlæse åbne faner.",
+        "description": "Onboarding lead line under the title."
     },
-    "onboarding_how_heading": {
-        "message": "Sådan virker det",
-        "description": "Onboarding section heading: what the extension does."
+    "onboarding_before": {
+        "message": "Før",
+        "description": "Onboarding illustration label above the Google header with the buttons still shown."
     },
-    "onboarding_how_text": {
-        "message": "Udvidelsen skjuler knapperne Upgrade og Ask Gemini i toppen af Gmail, Google Drev og Google Docs, Sheets og Slides. Ikonerne ved siden af lukker hullet, og faner, der allerede er åbne, opdateres uden genindlæsning.",
-        "description": "Onboarding: what is hidden and where."
+    "onboarding_after": {
+        "message": "Efter",
+        "description": "Onboarding illustration label above the Google header with the buttons hidden."
     },
     "onboarding_how_image_alt": {
-        "message": "Toppen af Gmail før og efter: knapperne Upgrade og Ask Gemini er væk",
-        "description": "Alt text of the before/after illustration."
+        "message": "Toppen af Googles tjenester før og efter: knapperne Upgrade og Ask Gemini er væk",
+        "description": "Accessible description of the before/after illustration."
     },
     "onboarding_calendar_heading": {
         "message": "Google Kalender",
-        "description": "Onboarding section heading about optional Google Calendar support."
+        "description": "Onboarding card heading about optional Google Calendar support."
     },
     "onboarding_calendar_text": {
-        "message": "Udvidelsen kan også skjule Upgrade-knappen i Google Kalender. Det er slået fra som standard: Slå det til her eller i pop op-vinduet, og giv derefter adgang til calendar.google.com, når browseren spørger.",
-        "description": "Onboarding: how to enable Google Calendar support."
+        "message": "Skjul også Upgrade-knappen dér. Browseren beder dig om at give adgang til calendar.google.com.",
+        "description": "Onboarding Calendar card text while Calendar access is off."
+    },
+    "onboarding_calendar_text_on": {
+        "message": "Upgrade-knappen er også skjult dér.",
+        "description": "Onboarding Calendar card text once Calendar access is granted."
+    },
+    "onboarding_calendar_why_toggle": {
+        "message": "Hvorfor er det valgfrit?",
+        "description": "Onboarding disclosure toggle that reveals why Calendar access is optional."
     },
     "onboarding_calendar_why": {
-        "message": "Hvorfor er det valgfrit? Der bedes kun om adgang til Kalender hos dem, der har brug for den. Hvis adgangen var påkrævet, ville browseren også deaktivere udvidelsen for alle, der allerede har den installeret, indtil de godkender den nye adgang.",
-        "description": "Onboarding: why Google Calendar access is optional instead of on by default."
+        "message": "Der bedes kun om adgang til Kalender hos dem, der har brug for den. Hvis adgangen var påkrævet, ville browseren deaktivere udvidelsen for alle, der allerede har den, indtil de godkender den nye adgang.",
+        "description": "Onboarding: text revealed by the 'Why is it optional?' toggle."
     },
     "onboarding_calendar_enabled": {
-        "message": "Aktiveret i Google Kalender",
+        "message": "Aktiveret",
         "description": "Onboarding status shown when Google Calendar access is granted."
     },
     "onboarding_calendar_disable": {
         "message": "Slå fra",
         "description": "Onboarding button that removes Google Calendar access."
     },
+    "onboarding_calendar_denied": {
+        "message": "Adgangen blev ikke givet. Du kan prøve igen når som helst.",
+        "description": "Onboarding hint shown after the user declined or closed the browser's Calendar access prompt."
+    },
     "onboarding_pin_heading": {
         "message": "Fastgør udvidelsen",
-        "description": "Onboarding section heading about pinning the extension to the toolbar."
+        "description": "Onboarding card heading about pinning the extension to the toolbar."
     },
     "onboarding_pin_text": {
-        "message": "Alle indstillinger findes i udvidelsens pop op-vindue. Indtil du fastgør den, gemmer den sig bag ikonet Udvidelser (puslespilsbrikken) på værktøjslinjen: Klik på ikonet, og fastgør Hide Upgrade Button, så den altid er ét klik væk.",
+        "message": "Åbn menuen Udvidelser (puslespilsbrikken) på værktøjslinjen, og fastgør Hide Upgrade Button, så dens indstillinger altid er ét klik væk.",
         "description": "Onboarding: how to pin the extension icon. Keep 'Hide Upgrade Button' untranslated."
     },
-    "onboarding_settings_heading": {
-        "message": "Indstillinger",
-        "description": "Onboarding section heading about the popup settings."
+    "onboarding_pin_done": {
+        "message": "Fastgjort",
+        "description": "Onboarding status shown when the extension icon is already pinned to the toolbar."
     },
-    "onboarding_settings_text": {
-        "message": "Hver knap har sin egen kontakt i pop op-vinduet, så du kan få en hvilken som helst af dem tilbage. Ændringer træder i kraft med det samme i åbne faner uden genindlæsning.",
-        "description": "Onboarding: per-button switches apply immediately."
-    },
-    "onboarding_returned_heading": {
-        "message": "Hvis en knap kommer tilbage",
-        "description": "Onboarding section heading about a hidden button reappearing."
-    },
-    "onboarding_returned_text": {
-        "message": "Google har ændret designet. Rettelsen kommer i en opdatering af udvidelsen – rapporterer du det, kommer den hurtigere.",
-        "description": "Onboarding: a reappearing button means Google changed its interface."
-    },
-    "onboarding_report_heading": {
-        "message": "Rapportér et problem",
-        "description": "Onboarding section heading about reporting problems."
-    },
-    "onboarding_report_text": {
-        "message": "Opret et issue på GitHub, og angiv:",
-        "description": "Onboarding: lead-in to the list of details to attach to a report."
-    },
-    "onboarding_report_item_service": {
-        "message": "tjenesten: Gmail, Drev, Docs eller Kalender",
-        "description": "Onboarding report checklist item."
-    },
-    "onboarding_report_item_language": {
-        "message": "sproget i din Google-brugerflade",
-        "description": "Onboarding report checklist item."
-    },
-    "onboarding_report_item_screenshot": {
-        "message": "et skærmbillede af toppen",
-        "description": "Onboarding report checklist item."
+    "onboarding_pin_done_text": {
+        "message": "Dens indstillinger åbnes fra ikonet på værktøjslinjen.",
+        "description": "Onboarding Pin card text once the extension icon is pinned."
     },
     "onboarding_report_link": {
-        "message": "Åbn GitHub Issues",
-        "description": "Onboarding link to the issue tracker."
+        "message": "Er en knap kommet tilbage? Rapportér det",
+        "description": "Onboarding footer link to report a hidden button that reappeared."
+    },
+    "onboarding_rate_link": {
+        "message": "Synes du, den er nyttig? Bedøm udvidelsen i butikken",
+        "description": "Onboarding unobtrusive link to the extension's store page."
     },
     "onboarding_privacy_text": {
-        "message": "Ingen analyse og ingen netværksanmodninger: Dine indstillinger bliver i din browser.",
+        "message": "Ingen analyse og ingen netværksanmodninger.",
         "description": "Onboarding one-line privacy summary."
     },
     "onboarding_privacy_link": {
         "message": "Privatlivspolitik",
         "description": "Onboarding link to the privacy policy."
-    },
-    "onboarding_rate_link": {
-        "message": "Synes du, den er nyttig? Bedøm udvidelsen i butikken",
-        "description": "Onboarding unobtrusive link to the extension's store page."
     }
 }

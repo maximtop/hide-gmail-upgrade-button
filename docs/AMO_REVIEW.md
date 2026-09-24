@@ -32,7 +32,8 @@ Required hosts cover only Gmail, Drive and Docs. Calendar host access is
 optional and requested only after clicking the access button on the
 onboarding page or the popup's access switch. The onboarding page is a
 packaged extension page that opens in a new tab once after installation (not
-after updates) and loads nothing remote; `tabs.create` needs no permission.
+after updates) and loads nothing remote; `tabs.create` and `action.getUserSettings`
+(used only to show whether the toolbar icon is pinned) need no permission.
 
 1. In Firefox Desktop, open Gmail, Google Drive and Google Docs with a consumer
    Google account, then install the extension. The onboarding page opens.

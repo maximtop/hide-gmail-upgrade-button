@@ -40,99 +40,83 @@
         "description": "Onboarding page title and heading, shown after installation."
     },
     "onboarding_intro": {
-        "message": "Дугмад Upgrade и Ask Gemini су сада сакривена. Ево шта је добро знати.",
-        "description": "Onboarding page lead paragraph under the title."
+        "message": "Дугмад Upgrade и Ask Gemini су сада сакривена у Gmail-у, Google диску, документима, табелама и презентацијама. Нема потребе да поново учитавате отворене картице.",
+        "description": "Onboarding lead line under the title."
     },
-    "onboarding_how_heading": {
-        "message": "Како функционише",
-        "description": "Onboarding section heading: what the extension does."
+    "onboarding_before": {
+        "message": "Пре",
+        "description": "Onboarding illustration label above the Google header with the buttons still shown."
     },
-    "onboarding_how_text": {
-        "message": "Проширење сакрива дугмад Upgrade и Ask Gemini у заглављу Gmail-а, Google диска и Google докумената, табела и презентација. Суседне иконе попуњавају празан простор, а већ отворене картице се ажурирају без поновног учитавања.",
-        "description": "Onboarding: what is hidden and where."
+    "onboarding_after": {
+        "message": "После",
+        "description": "Onboarding illustration label above the Google header with the buttons hidden."
     },
     "onboarding_how_image_alt": {
-        "message": "Заглавље Gmail-а пре и после: дугмади Upgrade и Ask Gemini више нема",
-        "description": "Alt text of the before/after illustration."
+        "message": "Заглавље Google-а пре и после: дугмади Upgrade и Ask Gemini више нема",
+        "description": "Accessible description of the before/after illustration."
     },
     "onboarding_calendar_heading": {
         "message": "Google календар",
-        "description": "Onboarding section heading about optional Google Calendar support."
+        "description": "Onboarding card heading about optional Google Calendar support."
     },
     "onboarding_calendar_text": {
-        "message": "Проширење може да сакрије и дугме Upgrade у Google календару. То је подразумевано искључено: укључите га овде или у искачућем прозору, а затим дозволите приступ сајту calendar.google.com када прегледач то затражи.",
-        "description": "Onboarding: how to enable Google Calendar support."
+        "message": "Сакријте дугме Upgrade и тамо. Прегледач ће затражити да дозволите приступ сајту calendar.google.com.",
+        "description": "Onboarding Calendar card text while Calendar access is off."
+    },
+    "onboarding_calendar_text_on": {
+        "message": "Дугме Upgrade је сакривено и тамо.",
+        "description": "Onboarding Calendar card text once Calendar access is granted."
+    },
+    "onboarding_calendar_why_toggle": {
+        "message": "Зашто је ово опционално?",
+        "description": "Onboarding disclosure toggle that reveals why Calendar access is optional."
     },
     "onboarding_calendar_why": {
-        "message": "Зашто је ово опционално? Приступ календару тражи се само од оних којима је потребан. Када би био обавезан, прегледач би онемогућио проширење свима који су га већ инсталирали, све док не одобре нови приступ.",
-        "description": "Onboarding: why Google Calendar access is optional instead of on by default."
+        "message": "Приступ календару тражи се само од оних којима је потребан. Када би био обавезан, прегледач би онемогућио проширење свима који га већ имају, све док не одобре нови приступ.",
+        "description": "Onboarding: text revealed by the 'Why is it optional?' toggle."
     },
     "onboarding_calendar_enabled": {
-        "message": "Укључено у Google календару",
+        "message": "Укључено",
         "description": "Onboarding status shown when Google Calendar access is granted."
     },
     "onboarding_calendar_disable": {
         "message": "Искључи",
         "description": "Onboarding button that removes Google Calendar access."
     },
+    "onboarding_calendar_denied": {
+        "message": "Приступ није дозвољен. Можете поново да покушате било када.",
+        "description": "Onboarding hint shown after the user declined or closed the browser's Calendar access prompt."
+    },
     "onboarding_pin_heading": {
         "message": "Закачите проширење",
-        "description": "Onboarding section heading about pinning the extension to the toolbar."
+        "description": "Onboarding card heading about pinning the extension to the toolbar."
     },
     "onboarding_pin_text": {
-        "message": "Сва подешавања су у искачућем прозору проширења. Док га не закачите, искачући прозор је скривен иза иконе проширења у облику слагалице на траци с алаткама: кликните на ту икону и закачите Hide Upgrade Button да би вам увек био на један клик.",
+        "message": "Отворите мени проширења у облику слагалице на траци с алаткама и закачите Hide Upgrade Button да би вам његова подешавања увек била на један клик.",
         "description": "Onboarding: how to pin the extension icon. Keep 'Hide Upgrade Button' untranslated."
     },
-    "onboarding_settings_heading": {
-        "message": "Подешавања",
-        "description": "Onboarding section heading about the popup settings."
+    "onboarding_pin_done": {
+        "message": "Закачено",
+        "description": "Onboarding status shown when the extension icon is already pinned to the toolbar."
     },
-    "onboarding_settings_text": {
-        "message": "Свако дугме има свој прекидач у искачућем прозору, па можете да вратите било које од њих. Промене се одмах примењују у отвореним картицама, без поновног учитавања.",
-        "description": "Onboarding: per-button switches apply immediately."
-    },
-    "onboarding_returned_heading": {
-        "message": "Ако се дугме врати",
-        "description": "Onboarding section heading about a hidden button reappearing."
-    },
-    "onboarding_returned_text": {
-        "message": "Google је променио интерфејс. Исправка стиже уз ажурирање проширења, а ако пријавите проблем, стићи ће брже.",
-        "description": "Onboarding: a reappearing button means Google changed its interface."
-    },
-    "onboarding_report_heading": {
-        "message": "Пријави проблем",
-        "description": "Onboarding section heading about reporting problems."
-    },
-    "onboarding_report_text": {
-        "message": "Отворите пријаву (issue) на GitHub-у и наведите:",
-        "description": "Onboarding: lead-in to the list of details to attach to a report."
-    },
-    "onboarding_report_item_service": {
-        "message": "услугу: Gmail, Диск, Документи или Календар",
-        "description": "Onboarding report checklist item."
-    },
-    "onboarding_report_item_language": {
-        "message": "језик вашег Google интерфејса",
-        "description": "Onboarding report checklist item."
-    },
-    "onboarding_report_item_screenshot": {
-        "message": "снимак екрана заглавља",
-        "description": "Onboarding report checklist item."
+    "onboarding_pin_done_text": {
+        "message": "Подешавања отварате преко иконе проширења на траци с алаткама.",
+        "description": "Onboarding Pin card text once the extension icon is pinned."
     },
     "onboarding_report_link": {
-        "message": "Отвори GitHub Issues",
-        "description": "Onboarding link to the issue tracker."
+        "message": "Дугме се вратило? Пријавите проблем",
+        "description": "Onboarding footer link to report a hidden button that reappeared."
+    },
+    "onboarding_rate_link": {
+        "message": "Корисно вам је? Оцените проширење у продавници",
+        "description": "Onboarding unobtrusive link to the extension's store page."
     },
     "onboarding_privacy_text": {
-        "message": "Без аналитике и без мрежних захтева: ваша подешавања остају у прегледачу.",
+        "message": "Без аналитике, без мрежних захтева.",
         "description": "Onboarding one-line privacy summary."
     },
     "onboarding_privacy_link": {
         "message": "Политика приватности",
         "description": "Onboarding link to the privacy policy."
-    },
-    "onboarding_rate_link": {
-        "message": "Корисно вам је? Оцените проширење у продавници",
-        "description": "Onboarding unobtrusive link to the extension's store page."
     }
 }

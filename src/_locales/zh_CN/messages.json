@@ -40,99 +40,83 @@
         "description": "Onboarding page title and heading, shown after installation."
     },
     "onboarding_intro": {
-        "message": "Upgrade 和 Ask Gemini 按钮现已隐藏。以下是值得了解的内容。",
-        "description": "Onboarding page lead paragraph under the title."
+        "message": "Upgrade 和 Ask Gemini 按钮现已在 Gmail、Google 云端硬盘、文档、表格和幻灯片中隐藏。无需重新加载已打开的标签页。",
+        "description": "Onboarding lead line under the title."
     },
-    "onboarding_how_heading": {
-        "message": "工作原理",
-        "description": "Onboarding section heading: what the extension does."
+    "onboarding_before": {
+        "message": "之前",
+        "description": "Onboarding illustration label above the Google header with the buttons still shown."
     },
-    "onboarding_how_text": {
-        "message": "本扩展程序会隐藏 Gmail、Google 云端硬盘以及 Google 文档、表格和幻灯片顶部栏中的 Upgrade 和 Ask Gemini 按钮。相邻图标会自动填补空位，已打开的标签页无需重新加载即可更新。",
-        "description": "Onboarding: what is hidden and where."
+    "onboarding_after": {
+        "message": "之后",
+        "description": "Onboarding illustration label above the Google header with the buttons hidden."
     },
     "onboarding_how_image_alt": {
-        "message": "Gmail 顶部栏前后对比：Upgrade 和 Ask Gemini 按钮已消失",
-        "description": "Alt text of the before/after illustration."
+        "message": "Google 顶部栏前后对比：Upgrade 和 Ask Gemini 按钮已消失",
+        "description": "Accessible description of the before/after illustration."
     },
     "onboarding_calendar_heading": {
         "message": "Google 日历",
-        "description": "Onboarding section heading about optional Google Calendar support."
+        "description": "Onboarding card heading about optional Google Calendar support."
     },
     "onboarding_calendar_text": {
-        "message": "本扩展程序还可以隐藏 Google 日历中的 Upgrade 按钮。此功能默认关闭：请在此处或弹出窗口中开启，然后在浏览器询问时允许访问 calendar.google.com。",
-        "description": "Onboarding: how to enable Google Calendar support."
+        "message": "也隐藏其中的 Upgrade 按钮。浏览器会请求您允许访问 calendar.google.com。",
+        "description": "Onboarding Calendar card text while Calendar access is off."
+    },
+    "onboarding_calendar_text_on": {
+        "message": "其中的 Upgrade 按钮也已隐藏。",
+        "description": "Onboarding Calendar card text once Calendar access is granted."
+    },
+    "onboarding_calendar_why_toggle": {
+        "message": "为什么是可选的？",
+        "description": "Onboarding disclosure toggle that reveals why Calendar access is optional."
     },
     "onboarding_calendar_why": {
-        "message": "为什么是可选的？日历访问权限只向需要的用户申请。如果将其设为必需，浏览器还会为所有已安装本扩展程序的用户停用它，直到他们批准新的访问权限。",
-        "description": "Onboarding: why Google Calendar access is optional instead of on by default."
+        "message": "日历访问权限只向需要的用户申请。如果将其设为必需，浏览器会为所有已安装本扩展程序的用户停用它，直到他们批准新的访问权限。",
+        "description": "Onboarding: text revealed by the 'Why is it optional?' toggle."
     },
     "onboarding_calendar_enabled": {
-        "message": "已在 Google 日历中启用",
+        "message": "已启用",
         "description": "Onboarding status shown when Google Calendar access is granted."
     },
     "onboarding_calendar_disable": {
         "message": "关闭",
         "description": "Onboarding button that removes Google Calendar access."
     },
+    "onboarding_calendar_denied": {
+        "message": "未获得访问权限。您可以随时重试。",
+        "description": "Onboarding hint shown after the user declined or closed the browser's Calendar access prompt."
+    },
     "onboarding_pin_heading": {
         "message": "固定扩展程序",
-        "description": "Onboarding section heading about pinning the extension to the toolbar."
+        "description": "Onboarding card heading about pinning the extension to the toolbar."
     },
     "onboarding_pin_text": {
-        "message": "所有设置都在扩展程序的弹出窗口中。固定之前，弹出窗口藏在工具栏中拼图形状的“扩展程序”图标后面：点击该图标并固定 Hide Upgrade Button，以后只需点击一下即可打开。",
+        "message": "打开工具栏中拼图形状的“扩展程序”菜单，固定 Hide Upgrade Button，以后只需点击一下即可打开其设置。",
         "description": "Onboarding: how to pin the extension icon. Keep 'Hide Upgrade Button' untranslated."
     },
-    "onboarding_settings_heading": {
-        "message": "设置",
-        "description": "Onboarding section heading about the popup settings."
+    "onboarding_pin_done": {
+        "message": "已固定",
+        "description": "Onboarding status shown when the extension icon is already pinned to the toolbar."
     },
-    "onboarding_settings_text": {
-        "message": "弹出窗口中每个按钮都有单独的开关，您可以恢复其中任意一个。更改会立即在已打开的标签页中生效，无需重新加载。",
-        "description": "Onboarding: per-button switches apply immediately."
-    },
-    "onboarding_returned_heading": {
-        "message": "如果按钮重新出现",
-        "description": "Onboarding section heading about a hidden button reappearing."
-    },
-    "onboarding_returned_text": {
-        "message": "说明 Google 更改了界面。修复将随扩展程序更新推出；报告问题有助于更快修复。",
-        "description": "Onboarding: a reappearing button means Google changed its interface."
-    },
-    "onboarding_report_heading": {
-        "message": "报告问题",
-        "description": "Onboarding section heading about reporting problems."
-    },
-    "onboarding_report_text": {
-        "message": "在 GitHub 上提交 issue，并附上：",
-        "description": "Onboarding: lead-in to the list of details to attach to a report."
-    },
-    "onboarding_report_item_service": {
-        "message": "服务：Gmail、云端硬盘、文档或日历",
-        "description": "Onboarding report checklist item."
-    },
-    "onboarding_report_item_language": {
-        "message": "您的 Google 界面语言",
-        "description": "Onboarding report checklist item."
-    },
-    "onboarding_report_item_screenshot": {
-        "message": "顶部栏的屏幕截图",
-        "description": "Onboarding report checklist item."
+    "onboarding_pin_done_text": {
+        "message": "点击工具栏中的扩展程序图标即可打开设置。",
+        "description": "Onboarding Pin card text once the extension icon is pinned."
     },
     "onboarding_report_link": {
-        "message": "打开 GitHub Issues",
-        "description": "Onboarding link to the issue tracker."
+        "message": "按钮又出现了？报告问题",
+        "description": "Onboarding footer link to report a hidden button that reappeared."
+    },
+    "onboarding_rate_link": {
+        "message": "觉得有用？请在应用商店中为本扩展程序评分",
+        "description": "Onboarding unobtrusive link to the extension's store page."
     },
     "onboarding_privacy_text": {
-        "message": "无数据分析，无网络请求：您的设置只保存在浏览器中。",
+        "message": "无数据分析，无网络请求。",
         "description": "Onboarding one-line privacy summary."
     },
     "onboarding_privacy_link": {
         "message": "隐私权政策",
         "description": "Onboarding link to the privacy policy."
-    },
-    "onboarding_rate_link": {
-        "message": "觉得有用？请在应用商店中为本扩展程序评分",
-        "description": "Onboarding unobtrusive link to the extension's store page."
     }
 }

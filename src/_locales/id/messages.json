@@ -40,99 +40,83 @@
         "description": "Onboarding page title and heading, shown after installation."
     },
     "onboarding_intro": {
-        "message": "Tombol Upgrade dan Ask Gemini kini disembunyikan. Berikut hal-hal yang perlu Anda ketahui.",
-        "description": "Onboarding page lead paragraph under the title."
+        "message": "Tombol Upgrade dan Ask Gemini kini disembunyikan di Gmail, Google Drive, Docs, Sheets, dan Slides. Tab yang terbuka tidak perlu dimuat ulang.",
+        "description": "Onboarding lead line under the title."
     },
-    "onboarding_how_heading": {
-        "message": "Cara kerjanya",
-        "description": "Onboarding section heading: what the extension does."
+    "onboarding_before": {
+        "message": "Sebelum",
+        "description": "Onboarding illustration label above the Google header with the buttons still shown."
     },
-    "onboarding_how_text": {
-        "message": "Ekstensi ini menyembunyikan tombol Upgrade dan Ask Gemini di header Gmail, Google Drive, serta Google Docs, Sheets, dan Slides. Ikon di sebelahnya bergeser mengisi ruang kosong, dan tab yang sudah terbuka diperbarui tanpa dimuat ulang.",
-        "description": "Onboarding: what is hidden and where."
+    "onboarding_after": {
+        "message": "Sesudah",
+        "description": "Onboarding illustration label above the Google header with the buttons hidden."
     },
     "onboarding_how_image_alt": {
-        "message": "Header Gmail sebelum dan sesudah: tombol Upgrade dan Ask Gemini sudah hilang",
-        "description": "Alt text of the before/after illustration."
+        "message": "Header Google sebelum dan sesudah: tombol Upgrade dan Ask Gemini sudah hilang",
+        "description": "Accessible description of the before/after illustration."
     },
     "onboarding_calendar_heading": {
         "message": "Google Kalender",
-        "description": "Onboarding section heading about optional Google Calendar support."
+        "description": "Onboarding card heading about optional Google Calendar support."
     },
     "onboarding_calendar_text": {
-        "message": "Ekstensi ini juga dapat menyembunyikan tombol Upgrade di Google Kalender. Fitur ini nonaktif secara default: aktifkan di sini atau di popup, lalu izinkan akses ke calendar.google.com saat browser memintanya.",
-        "description": "Onboarding: how to enable Google Calendar support."
+        "message": "Sembunyikan juga tombol Upgrade di sana. Browser akan meminta Anda mengizinkan akses ke calendar.google.com.",
+        "description": "Onboarding Calendar card text while Calendar access is off."
+    },
+    "onboarding_calendar_text_on": {
+        "message": "Tombol Upgrade juga disembunyikan di sana.",
+        "description": "Onboarding Calendar card text once Calendar access is granted."
+    },
+    "onboarding_calendar_why_toggle": {
+        "message": "Mengapa opsional?",
+        "description": "Onboarding disclosure toggle that reveals why Calendar access is optional."
     },
     "onboarding_calendar_why": {
-        "message": "Mengapa opsional? Akses ke Kalender hanya diminta dari orang yang membutuhkannya. Jika diwajibkan, browser juga akan menonaktifkan ekstensi bagi semua orang yang sudah memasangnya sampai mereka menyetujui akses baru tersebut.",
-        "description": "Onboarding: why Google Calendar access is optional instead of on by default."
+        "message": "Akses ke Kalender hanya diminta dari orang yang membutuhkannya. Jika diwajibkan, browser akan menonaktifkan ekstensi bagi semua orang yang sudah memasangnya sampai mereka menyetujui akses baru tersebut.",
+        "description": "Onboarding: text revealed by the 'Why is it optional?' toggle."
     },
     "onboarding_calendar_enabled": {
-        "message": "Aktif di Google Kalender",
+        "message": "Aktif",
         "description": "Onboarding status shown when Google Calendar access is granted."
     },
     "onboarding_calendar_disable": {
         "message": "Nonaktifkan",
         "description": "Onboarding button that removes Google Calendar access."
     },
+    "onboarding_calendar_denied": {
+        "message": "Akses tidak diizinkan. Anda bisa mencoba lagi kapan saja.",
+        "description": "Onboarding hint shown after the user declined or closed the browser's Calendar access prompt."
+    },
     "onboarding_pin_heading": {
         "message": "Sematkan ekstensi",
-        "description": "Onboarding section heading about pinning the extension to the toolbar."
+        "description": "Onboarding card heading about pinning the extension to the toolbar."
     },
     "onboarding_pin_text": {
-        "message": "Semua setelan ada di popup ekstensi. Sebelum Anda menyematkannya, popup tersembunyi di balik ikon Ekstensi berbentuk kepingan puzzle di toolbar: klik ikon tersebut dan sematkan Hide Upgrade Button agar selalu bisa dibuka dengan sekali klik.",
+        "message": "Buka menu Ekstensi berbentuk kepingan puzzle di toolbar dan sematkan Hide Upgrade Button agar setelannya selalu bisa dibuka dengan sekali klik.",
         "description": "Onboarding: how to pin the extension icon. Keep 'Hide Upgrade Button' untranslated."
     },
-    "onboarding_settings_heading": {
-        "message": "Setelan",
-        "description": "Onboarding section heading about the popup settings."
+    "onboarding_pin_done": {
+        "message": "Disematkan",
+        "description": "Onboarding status shown when the extension icon is already pinned to the toolbar."
     },
-    "onboarding_settings_text": {
-        "message": "Setiap tombol memiliki sakelarnya sendiri di popup, sehingga Anda bisa memunculkan kembali salah satunya. Perubahan langsung berlaku di tab yang terbuka, tanpa perlu memuat ulang.",
-        "description": "Onboarding: per-button switches apply immediately."
-    },
-    "onboarding_returned_heading": {
-        "message": "Jika tombol muncul kembali",
-        "description": "Onboarding section heading about a hidden button reappearing."
-    },
-    "onboarding_returned_text": {
-        "message": "Google telah mengubah antarmukanya. Perbaikan akan hadir lewat pembaruan ekstensi; melaporkannya membantu perbaikan hadir lebih cepat.",
-        "description": "Onboarding: a reappearing button means Google changed its interface."
-    },
-    "onboarding_report_heading": {
-        "message": "Laporkan masalah",
-        "description": "Onboarding section heading about reporting problems."
-    },
-    "onboarding_report_text": {
-        "message": "Buka issue di GitHub dan sertakan:",
-        "description": "Onboarding: lead-in to the list of details to attach to a report."
-    },
-    "onboarding_report_item_service": {
-        "message": "layanannya: Gmail, Drive, Docs, atau Kalender",
-        "description": "Onboarding report checklist item."
-    },
-    "onboarding_report_item_language": {
-        "message": "bahasa antarmuka Google Anda",
-        "description": "Onboarding report checklist item."
-    },
-    "onboarding_report_item_screenshot": {
-        "message": "tangkapan layar header",
-        "description": "Onboarding report checklist item."
+    "onboarding_pin_done_text": {
+        "message": "Setelannya terbuka dari ikonnya di toolbar.",
+        "description": "Onboarding Pin card text once the extension icon is pinned."
     },
     "onboarding_report_link": {
-        "message": "Buka GitHub Issues",
-        "description": "Onboarding link to the issue tracker."
+        "message": "Tombol muncul lagi? Laporkan",
+        "description": "Onboarding footer link to report a hidden button that reappeared."
+    },
+    "onboarding_rate_link": {
+        "message": "Bermanfaat? Beri rating ekstensi ini di toko",
+        "description": "Onboarding unobtrusive link to the extension's store page."
     },
     "onboarding_privacy_text": {
-        "message": "Tanpa analitik dan tanpa permintaan jaringan: setelan Anda tetap tersimpan di browser Anda.",
+        "message": "Tanpa analitik, tanpa permintaan jaringan.",
         "description": "Onboarding one-line privacy summary."
     },
     "onboarding_privacy_link": {
         "message": "Kebijakan privasi",
         "description": "Onboarding link to the privacy policy."
-    },
-    "onboarding_rate_link": {
-        "message": "Bermanfaat? Beri rating ekstensi ini di toko",
-        "description": "Onboarding unobtrusive link to the extension's store page."
     }
 }

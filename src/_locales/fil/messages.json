@@ -40,99 +40,83 @@
         "description": "Onboarding page title and heading, shown after installation."
     },
     "onboarding_intro": {
-        "message": "Nakatago na ngayon ang mga button na Upgrade at Ask Gemini. Narito ang mga dapat mong malaman.",
-        "description": "Onboarding page lead paragraph under the title."
+        "message": "Nakatago na ngayon ang mga button na Upgrade at Ask Gemini sa Gmail, Google Drive, Docs, Sheets, at Slides. Hindi na kailangang i-reload ang mga bukas na tab.",
+        "description": "Onboarding lead line under the title."
     },
-    "onboarding_how_heading": {
-        "message": "Paano ito gumagana",
-        "description": "Onboarding section heading: what the extension does."
+    "onboarding_before": {
+        "message": "Bago",
+        "description": "Onboarding illustration label above the Google header with the buttons still shown."
     },
-    "onboarding_how_text": {
-        "message": "Itinatago ng extension ang mga button na Upgrade at Ask Gemini sa header ng Gmail, Google Drive, at Google Docs, Sheets, at Slides. Umuusog ang mga katabing icon para punan ang puwang, at naa-update ang mga tab na bukas na nang hindi nire-reload.",
-        "description": "Onboarding: what is hidden and where."
+    "onboarding_after": {
+        "message": "Pagkatapos",
+        "description": "Onboarding illustration label above the Google header with the buttons hidden."
     },
     "onboarding_how_image_alt": {
-        "message": "Header ng Gmail bago at pagkatapos: wala na ang mga button na Upgrade at Ask Gemini",
-        "description": "Alt text of the before/after illustration."
+        "message": "Header ng Google bago at pagkatapos: wala na ang mga button na Upgrade at Ask Gemini",
+        "description": "Accessible description of the before/after illustration."
     },
     "onboarding_calendar_heading": {
         "message": "Google Calendar",
-        "description": "Onboarding section heading about optional Google Calendar support."
+        "description": "Onboarding card heading about optional Google Calendar support."
     },
     "onboarding_calendar_text": {
-        "message": "Kaya ring itago ng extension ang button na Upgrade sa Google Calendar. Naka-off ito bilang default: i-on ito rito o sa popup, pagkatapos ay payagan ang access sa calendar.google.com kapag nagtanong ang browser.",
-        "description": "Onboarding: how to enable Google Calendar support."
+        "message": "Itago rin doon ang button na Upgrade. Hihilingin ng browser mo na payagan ang access sa calendar.google.com.",
+        "description": "Onboarding Calendar card text while Calendar access is off."
+    },
+    "onboarding_calendar_text_on": {
+        "message": "Nakatago na rin doon ang button na Upgrade.",
+        "description": "Onboarding Calendar card text once Calendar access is granted."
+    },
+    "onboarding_calendar_why_toggle": {
+        "message": "Bakit ito opsyonal?",
+        "description": "Onboarding disclosure toggle that reveals why Calendar access is optional."
     },
     "onboarding_calendar_why": {
-        "message": "Bakit ito opsyonal? Hinihingi lang ang access sa Calendar sa mga taong nangangailangan nito. Kung gagawin itong required, idi-disable din ng browser ang extension para sa lahat ng may naka-install na nito hanggang aprubahan nila ang bagong access.",
-        "description": "Onboarding: why Google Calendar access is optional instead of on by default."
+        "message": "Hinihingi lang ang access sa Calendar sa mga taong nangangailangan nito. Kung gagawin itong required, idi-disable ng browser ang extension para sa lahat ng may naka-install na nito hanggang aprubahan nila ang bagong access.",
+        "description": "Onboarding: text revealed by the 'Why is it optional?' toggle."
     },
     "onboarding_calendar_enabled": {
-        "message": "Naka-enable sa Google Calendar",
+        "message": "Naka-enable",
         "description": "Onboarding status shown when Google Calendar access is granted."
     },
     "onboarding_calendar_disable": {
         "message": "I-off",
         "description": "Onboarding button that removes Google Calendar access."
     },
+    "onboarding_calendar_denied": {
+        "message": "Hindi pinayagan ang access. Puwede mong subukan ulit anumang oras.",
+        "description": "Onboarding hint shown after the user declined or closed the browser's Calendar access prompt."
+    },
     "onboarding_pin_heading": {
         "message": "I-pin ang extension",
-        "description": "Onboarding section heading about pinning the extension to the toolbar."
+        "description": "Onboarding card heading about pinning the extension to the toolbar."
     },
     "onboarding_pin_text": {
-        "message": "Nasa popup ng extension ang lahat ng setting. Hangga't hindi mo ito naipi-pin, nakatago ang popup sa likod ng Extensions icon na hugis puzzle piece sa toolbar: i-click ang icon na iyon at i-pin ang Hide Upgrade Button para isang click na lang ito.",
+        "message": "Buksan ang Extensions menu na hugis puzzle piece sa toolbar at i-pin ang Hide Upgrade Button para isang click na lang ang mga setting nito.",
         "description": "Onboarding: how to pin the extension icon. Keep 'Hide Upgrade Button' untranslated."
     },
-    "onboarding_settings_heading": {
-        "message": "Mga Setting",
-        "description": "Onboarding section heading about the popup settings."
+    "onboarding_pin_done": {
+        "message": "Naka-pin",
+        "description": "Onboarding status shown when the extension icon is already pinned to the toolbar."
     },
-    "onboarding_settings_text": {
-        "message": "May sariling switch sa popup ang bawat button, kaya maibabalik mo ang alinman sa dalawa. Agad na nalalapat ang mga pagbabago sa mga bukas na tab, nang hindi nire-reload.",
-        "description": "Onboarding: per-button switches apply immediately."
-    },
-    "onboarding_returned_heading": {
-        "message": "Kung bumalik ang isang button",
-        "description": "Onboarding section heading about a hidden button reappearing."
-    },
-    "onboarding_returned_text": {
-        "message": "Binago ng Google ang interface nito. Darating ang ayos sa update ng extension; kapag iniulat mo ito, mas mabilis itong darating.",
-        "description": "Onboarding: a reappearing button means Google changed its interface."
-    },
-    "onboarding_report_heading": {
-        "message": "Mag-ulat ng problema",
-        "description": "Onboarding section heading about reporting problems."
-    },
-    "onboarding_report_text": {
-        "message": "Magbukas ng issue sa GitHub at isama ang:",
-        "description": "Onboarding: lead-in to the list of details to attach to a report."
-    },
-    "onboarding_report_item_service": {
-        "message": "ang serbisyo: Gmail, Drive, Docs o Calendar",
-        "description": "Onboarding report checklist item."
-    },
-    "onboarding_report_item_language": {
-        "message": "ang wika ng iyong Google interface",
-        "description": "Onboarding report checklist item."
-    },
-    "onboarding_report_item_screenshot": {
-        "message": "screenshot ng header",
-        "description": "Onboarding report checklist item."
+    "onboarding_pin_done_text": {
+        "message": "Nabubuksan ang mga setting nito mula sa icon nito sa toolbar.",
+        "description": "Onboarding Pin card text once the extension icon is pinned."
     },
     "onboarding_report_link": {
-        "message": "Buksan ang GitHub Issues",
-        "description": "Onboarding link to the issue tracker."
+        "message": "May bumalik na button? Iulat ito",
+        "description": "Onboarding footer link to report a hidden button that reappeared."
+    },
+    "onboarding_rate_link": {
+        "message": "Nakatulong ba ito? I-rate ang extension sa store",
+        "description": "Onboarding unobtrusive link to the extension's store page."
     },
     "onboarding_privacy_text": {
-        "message": "Walang analytics at walang network request: nananatili sa iyong browser ang mga setting mo.",
+        "message": "Walang analytics, walang network request.",
         "description": "Onboarding one-line privacy summary."
     },
     "onboarding_privacy_link": {
         "message": "Patakaran sa privacy",
         "description": "Onboarding link to the privacy policy."
-    },
-    "onboarding_rate_link": {
-        "message": "Nakatulong ba ito? I-rate ang extension sa store",
-        "description": "Onboarding unobtrusive link to the extension's store page."
     }
 }

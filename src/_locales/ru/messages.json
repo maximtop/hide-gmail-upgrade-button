@@ -40,99 +40,83 @@
         "description": "Onboarding page title and heading, shown after installation."
     },
     "onboarding_intro": {
-        "message": "Кнопки Upgrade и Ask Gemini теперь скрыты. Вот что полезно знать.",
-        "description": "Onboarding page lead paragraph under the title."
+        "message": "Кнопки Upgrade и Ask Gemini теперь скрыты в Gmail, Google Диске, Документах, Таблицах и Презентациях. Перезагружать открытые вкладки не нужно.",
+        "description": "Onboarding lead line under the title."
     },
-    "onboarding_how_heading": {
-        "message": "Как это работает",
-        "description": "Onboarding section heading: what the extension does."
+    "onboarding_before": {
+        "message": "До",
+        "description": "Onboarding illustration label above the Google header with the buttons still shown."
     },
-    "onboarding_how_text": {
-        "message": "Расширение скрывает кнопки Upgrade и Ask Gemini в шапке Gmail, Google Диска и Google Документов, Таблиц и Презентаций. Соседние значки сдвигаются, закрывая пустое место, а уже открытые вкладки обновляются без перезагрузки.",
-        "description": "Onboarding: what is hidden and where."
+    "onboarding_after": {
+        "message": "После",
+        "description": "Onboarding illustration label above the Google header with the buttons hidden."
     },
     "onboarding_how_image_alt": {
-        "message": "Шапка Gmail до и после: кнопок Upgrade и Ask Gemini больше нет",
-        "description": "Alt text of the before/after illustration."
+        "message": "Шапка Google до и после: кнопок Upgrade и Ask Gemini больше нет",
+        "description": "Accessible description of the before/after illustration."
     },
     "onboarding_calendar_heading": {
         "message": "Google Календарь",
-        "description": "Onboarding section heading about optional Google Calendar support."
+        "description": "Onboarding card heading about optional Google Calendar support."
     },
     "onboarding_calendar_text": {
-        "message": "Расширение может скрывать кнопку Upgrade и в Google Календаре. По умолчанию это выключено: включите здесь или во всплывающем окне расширения, а затем разрешите доступ к calendar.google.com, когда браузер спросит.",
-        "description": "Onboarding: how to enable Google Calendar support."
+        "message": "Скройте кнопку Upgrade и в Календаре. Браузер попросит разрешить доступ к calendar.google.com.",
+        "description": "Onboarding Calendar card text while Calendar access is off."
+    },
+    "onboarding_calendar_text_on": {
+        "message": "Кнопка Upgrade скрыта и в Календаре.",
+        "description": "Onboarding Calendar card text once Calendar access is granted."
+    },
+    "onboarding_calendar_why_toggle": {
+        "message": "Почему это необязательно?",
+        "description": "Onboarding disclosure toggle that reveals why Calendar access is optional."
     },
     "onboarding_calendar_why": {
-        "message": "Почему это необязательно? Доступ к Календарю запрашивается только у тех, кому он нужен. Если сделать его обязательным, браузер отключит расширение у всех, кто его уже установил, пока они не одобрят новый доступ.",
-        "description": "Onboarding: why Google Calendar access is optional instead of on by default."
+        "message": "Доступ к Календарю запрашивается только у тех, кому он нужен. Если сделать его обязательным, браузер отключит расширение у всех, кто его уже установил, пока они не одобрят новый доступ.",
+        "description": "Onboarding: text revealed by the 'Why is it optional?' toggle."
     },
     "onboarding_calendar_enabled": {
-        "message": "Включено в Google Календаре",
+        "message": "Включено",
         "description": "Onboarding status shown when Google Calendar access is granted."
     },
     "onboarding_calendar_disable": {
         "message": "Выключить",
         "description": "Onboarding button that removes Google Calendar access."
     },
+    "onboarding_calendar_denied": {
+        "message": "Доступ не предоставлен. Попробовать снова можно в любой момент.",
+        "description": "Onboarding hint shown after the user declined or closed the browser's Calendar access prompt."
+    },
     "onboarding_pin_heading": {
         "message": "Закрепите расширение",
-        "description": "Onboarding section heading about pinning the extension to the toolbar."
+        "description": "Onboarding card heading about pinning the extension to the toolbar."
     },
     "onboarding_pin_text": {
-        "message": "Все настройки находятся во всплывающем окне расширения. Пока вы не закрепите расширение, оно спрятано за значком «Расширения» в виде пазла на панели инструментов: нажмите на этот значок и закрепите Hide Upgrade Button, чтобы открывать его в один клик.",
+        "message": "Откройте меню «Расширения» со значком пазла на панели инструментов и закрепите Hide Upgrade Button, чтобы открывать настройки в один клик.",
         "description": "Onboarding: how to pin the extension icon. Keep 'Hide Upgrade Button' untranslated."
     },
-    "onboarding_settings_heading": {
-        "message": "Настройки",
-        "description": "Onboarding section heading about the popup settings."
+    "onboarding_pin_done": {
+        "message": "Закреплено",
+        "description": "Onboarding status shown when the extension icon is already pinned to the toolbar."
     },
-    "onboarding_settings_text": {
-        "message": "У каждой кнопки есть свой переключатель во всплывающем окне, так что любую из них можно вернуть. Изменения сразу применяются в открытых вкладках, без перезагрузки.",
-        "description": "Onboarding: per-button switches apply immediately."
-    },
-    "onboarding_returned_heading": {
-        "message": "Если кнопка вернулась",
-        "description": "Onboarding section heading about a hidden button reappearing."
-    },
-    "onboarding_returned_text": {
-        "message": "Значит, Google изменил интерфейс. Исправление выйдет в обновлении расширения; ваше сообщение о проблеме поможет выпустить его быстрее.",
-        "description": "Onboarding: a reappearing button means Google changed its interface."
-    },
-    "onboarding_report_heading": {
-        "message": "Сообщить о проблеме",
-        "description": "Onboarding section heading about reporting problems."
-    },
-    "onboarding_report_text": {
-        "message": "Создайте issue на GitHub и укажите:",
-        "description": "Onboarding: lead-in to the list of details to attach to a report."
-    },
-    "onboarding_report_item_service": {
-        "message": "сервис: Gmail, Диск, Документы или Календарь",
-        "description": "Onboarding report checklist item."
-    },
-    "onboarding_report_item_language": {
-        "message": "язык интерфейса Google",
-        "description": "Onboarding report checklist item."
-    },
-    "onboarding_report_item_screenshot": {
-        "message": "скриншот шапки",
-        "description": "Onboarding report checklist item."
+    "onboarding_pin_done_text": {
+        "message": "Настройки открываются по значку расширения на панели инструментов.",
+        "description": "Onboarding Pin card text once the extension icon is pinned."
     },
     "onboarding_report_link": {
-        "message": "Открыть GitHub Issues",
-        "description": "Onboarding link to the issue tracker."
+        "message": "Кнопка вернулась? Сообщите об этом",
+        "description": "Onboarding footer link to report a hidden button that reappeared."
+    },
+    "onboarding_rate_link": {
+        "message": "Пригодилось? Оцените расширение в магазине",
+        "description": "Onboarding unobtrusive link to the extension's store page."
     },
     "onboarding_privacy_text": {
-        "message": "Никакой аналитики и сетевых запросов: ваши настройки остаются в браузере.",
+        "message": "Никакой аналитики и сетевых запросов.",
         "description": "Onboarding one-line privacy summary."
     },
     "onboarding_privacy_link": {
         "message": "Политика конфиденциальности",
         "description": "Onboarding link to the privacy policy."
-    },
-    "onboarding_rate_link": {
-        "message": "Пригодилось? Оцените расширение в магазине",
-        "description": "Onboarding unobtrusive link to the extension's store page."
     }
 }
