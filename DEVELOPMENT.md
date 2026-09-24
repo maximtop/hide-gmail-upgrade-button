@@ -27,7 +27,7 @@ Safari is not a supported target on this branch.
 ## Prerequisites
 
 - Node.js 24 (see `.nvmrc`; `engines` enforces `>=24 <25`)
-- pnpm 10.33.4 installed separately (the expected version is pinned in the
+- pnpm 11.18.0 installed separately (the expected version is pinned in the
   `packageManager` field)
 
 ## Commands
