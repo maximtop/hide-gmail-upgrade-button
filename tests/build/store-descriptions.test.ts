@@ -63,6 +63,20 @@ describe('real store descriptions', () => {
         }
     });
 
+    it('name the Google Calendar toggle as the popup does and its optional access in every language', () => {
+        for (const [locale, body] of Object.entries(sections)) {
+            const messages = JSON.parse(fs.readFileSync(
+                path.join(import.meta.dirname, `../../src/_locales/${locale}/messages.json`),
+                'utf-8',
+            )) as Record<string, { message: string }>;
+            const toggleLabel = messages.popup_calendar_access_label.message;
+
+            expect(body.split(toggleLabel).length - 1, locale).toBeGreaterThanOrEqual(2);
+            expect(body, locale).toContain('calendar.google.com');
+            expect(body, locale).toContain('Google Calendar');
+        }
+    });
+
     it('mention permissions, privacy and the non-affiliation disclaimer in every language', () => {
         expect(sections.en).toContain('Permissions');
         expect(sections.en).toContain('PRIVACY.md');
