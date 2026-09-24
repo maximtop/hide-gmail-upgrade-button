@@ -6,15 +6,16 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 import rspack from '@rspack/core';
-import type { Configuration } from '@rspack/core';
 
-import { CHANNEL_ENVS, STORE_LISTING_URLS } from './scripts/constants';
-import type { BrowserTarget, ChannelEnv } from './scripts/constants';
 import { ArchivePlugin } from './scripts/build/archive-plugin';
 import { GeneratedFilePlugin } from './scripts/build/generated-file-plugin';
 import { updateLocalesName, updateManifest } from './scripts/build/helpers';
+import { CHANNEL_ENVS, STORE_LISTING_URLS } from './scripts/constants';
 import { ONBOARDING_PAGE_FILE } from './src/common/constants';
 import { buildPrehideCss } from './src/content-script/prehide';
+
+import type { BrowserTarget, ChannelEnv } from './scripts/constants';
+import type { Configuration } from '@rspack/core';
 
 const ROOT_DIR = import.meta.dirname;
 

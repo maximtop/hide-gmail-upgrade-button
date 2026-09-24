@@ -20,7 +20,7 @@
  */
 
 import { DEFAULT_SETTINGS } from '../common/settings';
-import type { Settings } from '../common/settings';
+
 import { findHideTarget } from './detector';
 import { HIDE_FEATURES } from './features';
 import { syncPrehideOverrides } from './prehide';
@@ -30,6 +30,8 @@ import {
     isHiddenByExtension,
     restoreAllHidden,
 } from './visibility';
+
+import type { Settings } from '../common/settings';
 
 /**
  * Lifecycle handle of the hiding watcher.

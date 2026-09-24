@@ -2,7 +2,7 @@
  * @file Typed contracts for messages exchanged between extension contexts.
  */
 
-import { CALENDAR_DISABLE_MESSAGE_TYPE } from './constants';
+import type { CALENDAR_DISABLE_MESSAGE_TYPE } from './constants';
 
 /**
  * Requests that a Calendar content script stop and restore the page after

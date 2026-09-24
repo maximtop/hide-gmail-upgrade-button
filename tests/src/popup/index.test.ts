@@ -4,7 +4,9 @@
  * @vitest-environment happy-dom
  */
 
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import {
+    beforeEach, describe, expect, it, vi,
+} from 'vitest';
 
 import { CALENDAR_URL_PATTERN } from '../../../src/common/constants';
 
@@ -46,7 +48,7 @@ const renderPopupFixture = (): void => {
 };
 
 const loadPopup = async (): Promise<void> => {
-    await import('../../../src/popup/index');
+    await import('../../../src/popup');
     await vi.waitFor(() => {
         expect(document.getElementById('calendar-access-row')?.hasAttribute('data-pending')).toBe(false);
         expect(document.body.classList.contains('ready')).toBe(true);
@@ -139,7 +141,7 @@ describe('popup Calendar access', () => {
             resolveAccess = resolve;
         }));
 
-        await import('../../../src/popup/index');
+        await import('../../../src/popup');
 
         const row = document.getElementById('calendar-access-row') as HTMLElement;
         const toggle = document.getElementById('calendar-access') as HTMLInputElement;
@@ -178,7 +180,7 @@ describe('popup Calendar access', () => {
     it('keeps async access pending when the authoritative state is unavailable', async () => {
         containsMock.mockRejectedValue(new Error('permission state unavailable'));
 
-        await import('../../../src/popup/index');
+        await import('../../../src/popup');
         await vi.waitFor(() => {
             expect(containsMock).toHaveBeenCalledTimes(1);
         });
@@ -250,11 +252,17 @@ describe('popup Calendar access', () => {
     });
 
     it.each([
-        { initial: false, requested: true, authoritative: true, operation: 'request' },
-        { initial: true, requested: false, authoritative: false, operation: 'remove' },
+        {
+            initial: false, requested: true, authoritative: true, operation: 'request',
+        },
+        {
+            initial: true, requested: false, authoritative: false, operation: 'remove',
+        },
     ])(
         'renders authoritative access when $operation rejects',
-        async ({ initial, requested, authoritative, operation }) => {
+        async ({
+            initial, requested, authoritative, operation,
+        }) => {
             containsMock.mockResolvedValue(initial);
             await loadPopup();
             const operationMock = operation === 'request' ? requestMock : removeMock;

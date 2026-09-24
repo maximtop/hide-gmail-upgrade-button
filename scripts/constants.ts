@@ -28,7 +28,6 @@ export type ChannelEnv = typeof CHANNEL_ENVS[keyof typeof CHANNEL_ENVS];
 
 export const ALL_CHANNEL_ENVS: ChannelEnv[] = Object.values(CHANNEL_ENVS);
 
-
 export const FIREFOX_STRICT_MIN_VERSION = '128.0';
 
 export const CHROMIUM_STRICT_MIN_VERSION = '102';
@@ -46,7 +45,6 @@ export const STORE_LISTING_URLS: Record<BrowserTarget, string> = {
     [BROWSER_TARGETS.EDGE]: 'https://microsoftedge.microsoft.com/addons/detail/oifpjlhikjiifjlcihandpghdiechhik',
     [BROWSER_TARGETS.FIREFOX]: 'https://addons.mozilla.org/firefox/addon/hide-upgrade-gmail-drive-docs/',
 };
-
 
 // The store deployment code (scripts/deploy) is shared with the other extension repositories
 // and owns the release constants; the build keeps importing them from here.
