@@ -21,17 +21,15 @@ export const injectIntoOpenTabs = async (
     const tabs = await chrome.tabs.query({ url: [...urlPatterns] });
 
     for (const tab of tabs) {
-        if (typeof tab.id !== 'number') {
-            continue;
-        }
-
-        try {
-            await chrome.scripting.executeScript({
-                target: { tabId: tab.id },
-                files: [CONTENT_SCRIPT_FILE],
-            });
-        } catch (error) {
-            console.debug(`Could not inject into tab ${tab.id}:`, error);
+        if (typeof tab.id === 'number') {
+            try {
+                await chrome.scripting.executeScript({
+                    target: { tabId: tab.id },
+                    files: [CONTENT_SCRIPT_FILE],
+                });
+            } catch (error) {
+                console.debug(`Could not inject into tab ${tab.id}:`, error);
+            }
         }
     }
 };

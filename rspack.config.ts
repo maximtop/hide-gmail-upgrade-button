@@ -28,7 +28,9 @@ const BUILD_DIR = 'build';
  * @returns Version string, e.g. "0.1.0".
  */
 const readPackageVersion = (): string => {
-    const packageJson = JSON.parse(fs.readFileSync(path.join(ROOT_DIR, 'package.json'), 'utf-8'));
+    const packageJson = JSON.parse(
+        fs.readFileSync(path.join(ROOT_DIR, 'package.json'), 'utf-8'),
+    ) as { version: string };
     return packageJson.version;
 };
 
