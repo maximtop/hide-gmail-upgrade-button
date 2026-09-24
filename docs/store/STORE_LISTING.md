@@ -48,7 +48,7 @@ fields; keep them identical to the localized package strings.
   `browser_specific_settings.gecko.data_collection_permissions.required = ["none"]`.
 - Upload the matching `*-source.zip` from the same GitHub Release: Rspack
   bundles the TypeScript sources even though production output is not minified.
-- Reviewer build: Node 24.x, pnpm 10.33.4,
+- Reviewer build: Node 24.x, pnpm 11.18.0,
   `pnpm install --frozen-lockfile`, then `pnpm release firefox`; expected output
   is `build/release/firefox.zip`.
 - Use the four English 1280×800 screenshots as AMO's one shared image set and

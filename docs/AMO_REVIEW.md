@@ -12,10 +12,10 @@ the Google websites.
 
 The attached source ZIP is the committed repository state from the same GitHub
 Release as the submitted Firefox ZIP, lockfile included. Use Ubuntu 24.04 or
-macOS, Node.js 24.x and pnpm 10.33.4:
+macOS, Node.js 24.x and pnpm 11.18.0:
 
 ```sh
-npm install --global pnpm@10.33.4
+npm install --global pnpm@11.18.0
 pnpm install --frozen-lockfile
 pnpm release firefox
 ```
