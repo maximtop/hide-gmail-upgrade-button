@@ -18,7 +18,7 @@ import {
     AMO_REVIEW_NOTES_PATH,
     RELEASE_ASSET_PREFIX,
     RELEASE_TAG_PATTERN,
-    STORE,
+    Store,
     STORE_TARGETS,
     STORE_UPLOAD_DIRECTORY,
 } from './constants';
@@ -38,15 +38,15 @@ import type { PublishedRelease } from './release';
  * Store identifiers and credentials each target needs before any asset is downloaded.
  */
 const STORE_CONFIGURATION: Record<string, string[]> = {
-    [STORE.Chrome]: [
+    [Store.Chrome]: [
         'CHROME_APP_ID',
         'CHROME_PUBLISHER_ID',
         'CHROME_CLIENT_ID',
         'CHROME_CLIENT_SECRET',
         'CHROME_REFRESH_TOKEN',
     ],
-    [STORE.Edge]: ['EDGE_PRODUCT_ID', 'EDGE_CLIENT_ID', 'EDGE_API_KEY'],
-    [STORE.Firefox]: ['FIREFOX_AMO_ID', 'FIREFOX_CLIENT_ID', 'FIREFOX_CLIENT_SECRET'],
+    [Store.Edge]: ['EDGE_PRODUCT_ID', 'EDGE_CLIENT_ID', 'EDGE_API_KEY'],
+    [Store.Firefox]: ['FIREFOX_AMO_ID', 'FIREFOX_CLIENT_ID', 'FIREFOX_CLIENT_SECRET'],
 };
 
 /**
@@ -54,7 +54,7 @@ const STORE_CONFIGURATION: Record<string, string[]> = {
  * resolves and verifies the release without touching the store; Edge `Upload` only fills the
  * draft and Firefox `Status` only reports the review state.
  */
-export const DEPLOY_MODE = {
+export const DeployMode = {
     Submit: 'submit',
     Upload: 'upload',
     Status: 'status',
@@ -65,9 +65,9 @@ export const DEPLOY_MODE = {
  * Deployment modes each store workflow offers.
  */
 const STORE_MODES: Record<string, string[]> = {
-    [STORE.Chrome]: [DEPLOY_MODE.Submit, DEPLOY_MODE.Validate],
-    [STORE.Edge]: [DEPLOY_MODE.Submit, DEPLOY_MODE.Upload, DEPLOY_MODE.Validate],
-    [STORE.Firefox]: [DEPLOY_MODE.Submit, DEPLOY_MODE.Status, DEPLOY_MODE.Validate],
+    [Store.Chrome]: [DeployMode.Submit, DeployMode.Validate],
+    [Store.Edge]: [DeployMode.Submit, DeployMode.Upload, DeployMode.Validate],
+    [Store.Firefox]: [DeployMode.Submit, DeployMode.Status, DeployMode.Validate],
 };
 
 const CHECKSUMS_FILE = 'SHA256SUMS.txt';
@@ -108,7 +108,7 @@ const approvalNotes = (repository: string, tag: string): string => [
  */
 export const prepare = (env: NodeJS.ProcessEnv = process.env): void => {
     const browser = env.STORE_TARGET;
-    const mode = env.DEPLOY_MODE || DEPLOY_MODE.Submit;
+    const mode = env.DEPLOY_MODE || DeployMode.Submit;
     if (!isStoreTarget(browser) || !STORE_MODES[browser]?.includes(mode)) {
         throw new Error('Invalid store target or deployment mode');
     }
@@ -145,7 +145,7 @@ export const prepare = (env: NodeJS.ProcessEnv = process.env): void => {
     mkdirSync(STORE_UPLOAD_DIRECTORY, { recursive: true });
     const archive = `${RELEASE_ASSET_PREFIX}-${version}-${browser}.zip`;
     const source = `${RELEASE_ASSET_PREFIX}-${version}-source.zip`;
-    const assets = [archive, ...(store === STORE.Firefox ? [source] : [])];
+    const assets = [archive, ...(store === Store.Firefox ? [source] : [])];
     const patterns = [...assets, CHECKSUMS_FILE].flatMap((name) => ['--pattern', name]);
     execFileSync('gh', [
         'release', 'download', release.tagName,
@@ -156,14 +156,14 @@ export const prepare = (env: NodeJS.ProcessEnv = process.env): void => {
         verifyChecksum(asset, readFileSync(path.join(STORE_UPLOAD_DIRECTORY, asset)), checksums);
     });
     verifyManifest(readFileSync(path.join(STORE_UPLOAD_DIRECTORY, archive)), version, browser);
-    if (store === STORE.Firefox) {
+    if (store === Store.Firefox) {
         const sourceBytes = readFileSync(path.join(STORE_UPLOAD_DIRECTORY, source));
         const instructions = verifySource(sourceBytes, version, false);
         // Empty notes mark a release source without reviewer instructions; preflight refuses to
         // submit a new version with them.
         const notes = instructions.trim() ? approvalNotes(repository, release.tagName) : '';
         // `status` only reads AMO, so it must not depend on notes that are never sent.
-        if (mode !== DEPLOY_MODE.Status) {
+        if (mode !== DeployMode.Status) {
             verifyAmoNotes(notes);
         }
         writeFileSync(path.join(STORE_UPLOAD_DIRECTORY, AMO_APPROVAL_NOTES_FILENAME), notes);
