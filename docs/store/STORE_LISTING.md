@@ -102,6 +102,10 @@ The privacy, certification and market confirmations are the account owner's
 declarations: fill the forms with the texts below, but never tick those boxes
 on the owner's behalf.
 
+### Submission form: credentials question
+
+The Edge "Submit for certification" form asks **"Do reviewers need credentials to test your extension?"** Always select **No**: the extension has no account system. Google sign-in is only for Google's own sites (Gmail, Drive, Docs, Calendar), which accept any consumer account. Partner Center remembers the previous answer, so check this on every submission and correct it if needed — the No selection must also remain selected if the form already shows it.
+
 ### Privacy answers (copy-ready)
 
 Single purpose:
@@ -111,6 +115,8 @@ Single purpose:
 > optional access on the onboarding page or in the popup — the "Upgrade"
 > button in Google Calendar.
 > Each button has its own local on/off toggle.
+
+**Before every Edge or CWS submission, compare this text with the single-purpose statement in the Partner Center dashboard and the Chrome Web Store developer listing. If they differ, update the dashboard to match the text above.**
 
 `storage`:
 

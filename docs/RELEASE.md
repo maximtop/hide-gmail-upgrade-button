@@ -124,7 +124,7 @@ submission, not approval.
 Descriptions, screenshots and promo images are not part of the API: the store
 only accepts them through the Developer Dashboard. Sources and sizes live in
 [docs/store/STORE_LISTING.md](store/STORE_LISTING.md); regenerate the
-plain-text descriptions with `pnpm store:descriptions`.
+plain-text descriptions with `pnpm store:descriptions`. **Before every submission, verify the single-purpose / privacy text in the Chrome Web Store developer listing matches STORE_LISTING.md.**
 
 ### Edge Add-ons
 
@@ -134,7 +134,7 @@ listing metadata, so the first submission, and every later change to
 Availability, Properties, Privacy or Store listings, is done by hand in Partner
 Center. The first-submission checklist and the copy-ready privacy answers and
 certification notes live in
-[docs/store/STORE_LISTING.md](store/STORE_LISTING.md).
+[docs/store/STORE_LISTING.md](store/STORE_LISTING.md). **Before every submission, check the submission form's credentials question is set to "No" and verify the single-purpose / privacy text matches STORE_LISTING.md.**
 
 Modes:
 
