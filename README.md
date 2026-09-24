@@ -12,6 +12,7 @@ A tiny browser extension (Manifest V3) that hides the **Upgrade** and **Ask Gemi
 - Neighboring header icons **shift to fill the space** — no empty gap is left behind.
 - Applies to **already open tabs** right after install, no reload needed.
 - Toggling a setting applies **live** to every open tab.
+- After installation, a short **onboarding page** shows what was hidden, lets you enable Google Calendar in one click and shows how to pin the extension. Reopen it any time from **How it works** in the popup.
 
 ## How it stays safe
 
@@ -19,9 +20,9 @@ Google's markup is obfuscated and changes often, so the extension never relies o
 
 ## Install
 
-Install the extension from the [Chrome Web Store](https://chromewebstore.google.com/detail/hide-upgrade-button-for-g/flakajdfnklpgiefoffmecgbfbckmpcb) or from [Microsoft Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/hide-upgrade-button-for-g/oifpjlhikjiifjlcihandpghdiechhik).
+Install the extension from the [Chrome Web Store](https://chromewebstore.google.com/detail/hide-upgrade-button-for-g/flakajdfnklpgiefoffmecgbfbckmpcb), [Microsoft Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/hide-upgrade-button-for-g/oifpjlhikjiifjlcihandpghdiechhik) or [Firefox Add-ons](https://addons.mozilla.org/firefox/addon/hide-upgrade-gmail-drive-docs/).
 
-The Firefox Add-ons listing is on the way. For local development, install from source:
+For local development, install from source:
 
 ```bash
 make install
@@ -37,7 +38,7 @@ Then open `chrome://extensions`, enable **Developer mode**, click **Load unpacke
 | `storage` | Persist the two toggles locally |
 | `scripting` | Apply the extension to supported tabs that were already open when access was granted |
 | `mail.google.com`, `drive.google.com`, `docs.google.com` | Required access for the extension's original supported sites |
-| `calendar.google.com` (optional) | Works automatically after you enable Calendar once in the popup |
+| `calendar.google.com` (optional) | Works automatically after you enable Calendar once on the onboarding page or in the popup |
 
 Nothing else. The extension makes no network requests and collects no data of any kind — see the [privacy policy](PRIVACY.md).
 

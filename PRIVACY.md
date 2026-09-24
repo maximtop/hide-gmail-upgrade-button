@@ -43,7 +43,7 @@ any server — there is no server.
 | `storage` | Keep your two toggle values on your device |
 | `scripting` | Apply the extension to supported tabs that were already open when access was granted |
 | `mail.google.com`, `drive.google.com`, `docs.google.com` | Required access for the extension's original supported sites |
-| `calendar.google.com` (optional) | Works automatically after you enable Calendar once in the popup |
+| `calendar.google.com` (optional) | Works automatically after you enable Calendar once on the onboarding page or in the popup |
 
 ## Removing your data
 

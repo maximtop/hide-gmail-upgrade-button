@@ -2,7 +2,7 @@
 
 Purpose: hide Upgrade and Ask Gemini promotional controls in Gmail, Google
 Drive and Google Docs. Also hide Upgrade in Google Calendar after the user
-explicitly grants optional access through the popup.
+explicitly grants optional access on the onboarding page or in the popup.
 
 No extension account, payment, analytics, telemetry, remote code or network
 requests. Settings are stored locally. Google account sign-in is needed only
@@ -29,20 +29,27 @@ Rspack. Production output is not minified. No Git checkout is needed to build.
 `storage` persists local preferences; `scripting` injects into matching tabs
 that were already open when installed or when optional access is granted.
 Required hosts cover only Gmail, Drive and Docs. Calendar host access is
-optional and requested only after clicking the popup's access button.
+optional and requested only after clicking the access button on the
+onboarding page or the popup's access switch. The onboarding page is a
+packaged extension page that opens in a new tab once after installation (not
+after updates) and loads nothing remote; `tabs.create` and `action.getUserSettings`
+(used only to show whether the toolbar icon is pinned) need no permission.
 
 1. In Firefox Desktop, open Gmail, Google Drive and Google Docs with a consumer
-   Google account, then install the extension. Existing tabs should be handled
-   without reloading once Firefox has granted access to those sites.
+   Google account, then install the extension. The onboarding page opens.
+   Existing tabs should be handled without reloading once Firefox has granted
+   access to those sites.
 2. Where Google shows Upgrade or Ask Gemini, confirm those controls are hidden.
 3. Turn each popup toggle off: its control returns immediately. Turn it on:
    the control disappears. Other header controls remain available.
 4. Reload or navigate within a Google app; the settings persist and the
    mutation watcher handles re-rendered controls.
 5. In Calendar, confirm nothing changes before optional access is granted.
-   Grant Calendar access using the popup button, then confirm Upgrade is hidden
-   without reloading. Revoke that access through the popup and confirm it
-   returns. Calendar does not have an Ask Gemini hiding feature.
+   Grant Calendar access with "Enable in Google Calendar" on the onboarding
+   page (reopen it from "How it works" in the popup) or the popup switch, then
+   confirm Upgrade is hidden without reloading and both places show access as
+   on. Revoke it with "Turn off" on the page or the popup switch and confirm
+   Upgrade returns. Calendar does not have an Ask Gemini hiding feature.
 
 Google varies promotional controls by account, region and rollout. If a
 control is absent or ambiguous, the extension deliberately does nothing.

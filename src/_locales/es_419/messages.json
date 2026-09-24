@@ -21,7 +21,7 @@
     },
     "popup_calendar_access_label": {
         "message": "Activar en Google Calendar",
-        "description": "Label of the optional Google Calendar access toggle."
+        "description": "Label of the optional Google Calendar access toggle in the popup; also the enable button on the onboarding page."
     },
     "popup_markup_note": {
         "message": "Si un botón reaparece, Google cambió la interfaz — la corrección llegará con una actualización de la extensión.",
@@ -30,5 +30,101 @@
     "popup_report_link": {
         "message": "Informar un problema",
         "description": "Popup link to the issue tracker."
+    },
+    "popup_onboarding_link": {
+        "message": "Cómo funciona",
+        "description": "Popup link that opens the onboarding page."
+    },
+    "onboarding_title": {
+        "message": "Hide Upgrade Button está instalado",
+        "description": "Onboarding page title and heading, shown after installation."
+    },
+    "onboarding_intro": {
+        "message": "Los botones Upgrade y Ask Gemini ya están ocultos en Gmail, Google Drive, Docs, Sheets y Slides. No es necesario volver a cargar las pestañas abiertas.",
+        "description": "Onboarding lead line under the title."
+    },
+    "onboarding_before": {
+        "message": "Antes",
+        "description": "Onboarding illustration label above the Google header with the buttons still shown."
+    },
+    "onboarding_after": {
+        "message": "Después",
+        "description": "Onboarding illustration label above the Google header with the buttons hidden."
+    },
+    "onboarding_how_image_alt": {
+        "message": "Encabezado de Google antes y después: los botones Upgrade y Ask Gemini desaparecieron",
+        "description": "Accessible description of the before/after illustration."
+    },
+    "onboarding_calendar_heading": {
+        "message": "Google Calendar",
+        "description": "Onboarding card heading about optional Google Calendar support."
+    },
+    "onboarding_calendar_text": {
+        "message": "Oculta también ahí el botón Upgrade. El navegador te pedirá que permitas el acceso a calendar.google.com.",
+        "description": "Onboarding Calendar card text while Calendar access is off."
+    },
+    "onboarding_calendar_text_on": {
+        "message": "El botón Upgrade también está oculto ahí.",
+        "description": "Onboarding Calendar card text once Calendar access is granted."
+    },
+    "onboarding_calendar_why_toggle": {
+        "message": "¿Por qué es opcional?",
+        "description": "Onboarding disclosure toggle that reveals why Calendar access is optional."
+    },
+    "onboarding_calendar_why": {
+        "message": "El acceso a Calendar solo se pide a quienes lo necesitan. Si fuera obligatorio, el navegador desactivaría la extensión para todos los que ya la tienen hasta que aprobaran el nuevo acceso.",
+        "description": "Onboarding: text revealed by the 'Why is it optional?' toggle."
+    },
+    "onboarding_calendar_enabled": {
+        "message": "Activado",
+        "description": "Onboarding status shown when Google Calendar access is granted."
+    },
+    "onboarding_calendar_disable": {
+        "message": "Desactivar",
+        "description": "Onboarding button that removes Google Calendar access."
+    },
+    "onboarding_calendar_denied": {
+        "message": "No se permitió el acceso. Puedes volver a intentarlo cuando quieras.",
+        "description": "Onboarding hint shown after the user declined or closed the browser's Calendar access prompt."
+    },
+    "onboarding_pin_heading": {
+        "message": "Fija la extensión",
+        "description": "Onboarding card heading about pinning the extension to the toolbar."
+    },
+    "onboarding_pin_text": {
+        "message": "Abre el menú de Extensiones (la pieza de rompecabezas) de la barra de herramientas y fija Hide Upgrade Button para tener su configuración a un solo clic.",
+        "description": "Onboarding: how to pin the extension icon. Keep 'Hide Upgrade Button' untranslated."
+    },
+    "onboarding_pin_done": {
+        "message": "Fijada",
+        "description": "Onboarding status shown when the extension icon is already pinned to the toolbar."
+    },
+    "onboarding_pin_done_text": {
+        "message": "Su configuración se abre desde su ícono en la barra de herramientas.",
+        "description": "Onboarding Pin card text once the extension icon is pinned."
+    },
+    "onboarding_report_link": {
+        "message": "¿Volvió a aparecer un botón? Repórtalo",
+        "description": "Onboarding footer link to report a hidden button that reappeared."
+    },
+    "onboarding_rate_link": {
+        "message": "¿Te resulta útil? Califica la extensión en la tienda",
+        "description": "Onboarding unobtrusive link to the extension's store page."
+    },
+    "onboarding_privacy_text": {
+        "message": "Sin análisis de uso ni solicitudes de red.",
+        "description": "Onboarding one-line privacy summary."
+    },
+    "onboarding_privacy_link": {
+        "message": "Política de privacidad",
+        "description": "Onboarding link to the privacy policy."
+    },
+    "locale_code": {
+        "message": "es-419",
+        "description": "Do not translate: this catalog's BCP 47 language tag, used as the page lang attribute."
+    },
+    "locale_dir": {
+        "message": "ltr",
+        "description": "Do not translate: this catalog's text direction, ltr or rtl."
     }
 }
