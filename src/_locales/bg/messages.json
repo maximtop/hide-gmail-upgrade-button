@@ -30,5 +30,109 @@
     "popup_report_link": {
         "message": "Съобщете за проблем",
         "description": "Popup link to the issue tracker."
+    },
+    "popup_onboarding_link": {
+        "message": "Как работи",
+        "description": "Popup link that opens the onboarding page."
+    },
+    "onboarding_title": {
+        "message": "Разширението Hide Upgrade Button е инсталирано",
+        "description": "Onboarding page title and heading, shown after installation."
+    },
+    "onboarding_intro": {
+        "message": "Бутоните Upgrade и Ask Gemini вече са скрити. Ето какво е добре да знаете.",
+        "description": "Onboarding page lead paragraph under the title."
+    },
+    "onboarding_how_heading": {
+        "message": "Как работи",
+        "description": "Onboarding section heading: what the extension does."
+    },
+    "onboarding_how_text": {
+        "message": "Разширението скрива бутоните Upgrade и Ask Gemini в заглавната лента на Gmail, Google Drive и Google Docs, Sheets и Slides. Съседните икони запълват празното място, а вече отворените раздели се обновяват без презареждане.",
+        "description": "Onboarding: what is hidden and where."
+    },
+    "onboarding_how_image_alt": {
+        "message": "Заглавната лента на Gmail преди и след: бутоните Upgrade и Ask Gemini ги няма",
+        "description": "Alt text of the before/after illustration."
+    },
+    "onboarding_calendar_heading": {
+        "message": "Google Календар",
+        "description": "Onboarding section heading about optional Google Calendar support."
+    },
+    "onboarding_calendar_text": {
+        "message": "Разширението може да скрие и бутона Upgrade в Google Календар. По подразбиране това е изключено: включете го тук или в изскачащия прозорец, след което разрешете достъпа до calendar.google.com, когато браузърът поиска.",
+        "description": "Onboarding: how to enable Google Calendar support."
+    },
+    "onboarding_calendar_why": {
+        "message": "Защо е по избор? Достъп до Календар се иска само от хората, които имат нужда от него. Ако беше задължителен, браузърът щеше да деактивира разширението и за всички, които вече са го инсталирали, докато не одобрят новия достъп.",
+        "description": "Onboarding: why Google Calendar access is optional instead of on by default."
+    },
+    "onboarding_calendar_enabled": {
+        "message": "Включено в Google Календар",
+        "description": "Onboarding status shown when Google Calendar access is granted."
+    },
+    "onboarding_calendar_disable": {
+        "message": "Изключване",
+        "description": "Onboarding button that removes Google Calendar access."
+    },
+    "onboarding_pin_heading": {
+        "message": "Фиксирайте разширението",
+        "description": "Onboarding section heading about pinning the extension to the toolbar."
+    },
+    "onboarding_pin_text": {
+        "message": "Всички настройки са в изскачащия прозорец на разширението. Докато не го фиксирате, той е скрит зад иконата „Разширения“ (парчето от пъзел) в лентата с инструменти: кликнете върху нея и фиксирайте Hide Upgrade Button, за да е винаги на едно кликване разстояние.",
+        "description": "Onboarding: how to pin the extension icon. Keep 'Hide Upgrade Button' untranslated."
+    },
+    "onboarding_settings_heading": {
+        "message": "Настройки",
+        "description": "Onboarding section heading about the popup settings."
+    },
+    "onboarding_settings_text": {
+        "message": "Всеки бутон има собствен превключвател в изскачащия прозорец, така че можете да върнете всеки от тях. Промените се прилагат веднага в отворените раздели, без презареждане.",
+        "description": "Onboarding: per-button switches apply immediately."
+    },
+    "onboarding_returned_heading": {
+        "message": "Ако бутон се появи отново",
+        "description": "Onboarding section heading about a hidden button reappearing."
+    },
+    "onboarding_returned_text": {
+        "message": "Google е променил интерфейса. Поправката ще дойде с обновление на разширението, а ако съобщите за проблема, ще дойде по-бързо.",
+        "description": "Onboarding: a reappearing button means Google changed its interface."
+    },
+    "onboarding_report_heading": {
+        "message": "Съобщете за проблем",
+        "description": "Onboarding section heading about reporting problems."
+    },
+    "onboarding_report_text": {
+        "message": "Създайте issue в GitHub и посочете:",
+        "description": "Onboarding: lead-in to the list of details to attach to a report."
+    },
+    "onboarding_report_item_service": {
+        "message": "услугата: Gmail, Drive, Docs или Календар",
+        "description": "Onboarding report checklist item."
+    },
+    "onboarding_report_item_language": {
+        "message": "езика на интерфейса на Google, който използвате",
+        "description": "Onboarding report checklist item."
+    },
+    "onboarding_report_item_screenshot": {
+        "message": "екранна снимка на заглавната лента",
+        "description": "Onboarding report checklist item."
+    },
+    "onboarding_report_link": {
+        "message": "Отваряне на GitHub Issues",
+        "description": "Onboarding link to the issue tracker."
+    },
+    "onboarding_privacy_text": {
+        "message": "Без анализи и без мрежови заявки: настройките ви остават във вашия браузър.",
+        "description": "Onboarding one-line privacy summary."
+    },
+    "onboarding_privacy_link": {
+        "message": "Политика за поверителност",
+        "description": "Onboarding link to the privacy policy."
+    },
+    "onboarding_rate_link": {
+        "message": "Полезно ли ви е? Оценете разширението в магазина",
+        "description": "Onboarding unobtrusive link to the extension's store page."
     }
 }

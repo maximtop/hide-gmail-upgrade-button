@@ -30,5 +30,109 @@
     "popup_report_link": {
         "message": "समस्या की रिपोर्ट करें",
         "description": "Popup link to the issue tracker."
+    },
+    "popup_onboarding_link": {
+        "message": "यह कैसे काम करता है",
+        "description": "Popup link that opens the onboarding page."
+    },
+    "onboarding_title": {
+        "message": "Hide Upgrade Button इंस्टॉल हो गया है",
+        "description": "Onboarding page title and heading, shown after installation."
+    },
+    "onboarding_intro": {
+        "message": "Upgrade और Ask Gemini बटन अब छिपे हुए हैं. ये बातें जानना उपयोगी है.",
+        "description": "Onboarding page lead paragraph under the title."
+    },
+    "onboarding_how_heading": {
+        "message": "यह कैसे काम करता है",
+        "description": "Onboarding section heading: what the extension does."
+    },
+    "onboarding_how_text": {
+        "message": "एक्सटेंशन Gmail, Google Drive और Google Docs, Sheets व Slides के हेडर में Upgrade और Ask Gemini बटन छिपाता है. आस-पास के आइकन खाली जगह भर देते हैं, और पहले से खुले टैब बिना रीलोड किए अपडेट हो जाते हैं.",
+        "description": "Onboarding: what is hidden and where."
+    },
+    "onboarding_how_image_alt": {
+        "message": "Gmail का हेडर पहले और बाद में: Upgrade और Ask Gemini बटन हट गए हैं",
+        "description": "Alt text of the before/after illustration."
+    },
+    "onboarding_calendar_heading": {
+        "message": "Google Calendar",
+        "description": "Onboarding section heading about optional Google Calendar support."
+    },
+    "onboarding_calendar_text": {
+        "message": "एक्सटेंशन Google Calendar में भी Upgrade बटन छिपा सकता है. यह डिफ़ॉल्ट रूप से बंद है: इसे यहाँ या पॉप-अप में चालू करें, फिर ब्राउज़र के पूछने पर calendar.google.com की ऐक्सेस की अनुमति दें.",
+        "description": "Onboarding: how to enable Google Calendar support."
+    },
+    "onboarding_calendar_why": {
+        "message": "यह वैकल्पिक क्यों है? Calendar की ऐक्सेस सिर्फ़ उन्हीं लोगों से माँगी जाती है जिन्हें इसकी ज़रूरत है. इसे अनिवार्य बनाने पर ब्राउज़र उन सभी के लिए एक्सटेंशन बंद कर देता जिन्होंने इसे पहले से इंस्टॉल किया है, जब तक वे नई ऐक्सेस को मंज़ूरी न दें.",
+        "description": "Onboarding: why Google Calendar access is optional instead of on by default."
+    },
+    "onboarding_calendar_enabled": {
+        "message": "Google Calendar में चालू है",
+        "description": "Onboarding status shown when Google Calendar access is granted."
+    },
+    "onboarding_calendar_disable": {
+        "message": "बंद करें",
+        "description": "Onboarding button that removes Google Calendar access."
+    },
+    "onboarding_pin_heading": {
+        "message": "एक्सटेंशन को पिन करें",
+        "description": "Onboarding section heading about pinning the extension to the toolbar."
+    },
+    "onboarding_pin_text": {
+        "message": "सभी सेटिंग एक्सटेंशन के पॉप-अप में हैं. जब तक आप इसे पिन नहीं करते, पॉप-अप टूलबार में पज़ल के टुकड़े वाले एक्सटेंशन आइकन के पीछे छिपा रहता है: उस आइकन पर क्लिक करें और Hide Upgrade Button को पिन करें, ताकि यह हमेशा एक क्लिक की दूरी पर रहे.",
+        "description": "Onboarding: how to pin the extension icon. Keep 'Hide Upgrade Button' untranslated."
+    },
+    "onboarding_settings_heading": {
+        "message": "सेटिंग",
+        "description": "Onboarding section heading about the popup settings."
+    },
+    "onboarding_settings_text": {
+        "message": "पॉप-अप में हर बटन का अपना स्विच है, इसलिए आप किसी भी बटन को वापस ला सकते हैं. बदलाव खुले टैब में तुरंत लागू होते हैं, बिना रीलोड किए.",
+        "description": "Onboarding: per-button switches apply immediately."
+    },
+    "onboarding_returned_heading": {
+        "message": "अगर कोई बटन वापस आ जाए",
+        "description": "Onboarding section heading about a hidden button reappearing."
+    },
+    "onboarding_returned_text": {
+        "message": "Google ने अपना इंटरफ़ेस बदल दिया है. सुधार एक्सटेंशन के अपडेट में आएगा; इसकी रिपोर्ट करने से यह जल्दी आता है.",
+        "description": "Onboarding: a reappearing button means Google changed its interface."
+    },
+    "onboarding_report_heading": {
+        "message": "समस्या की रिपोर्ट करें",
+        "description": "Onboarding section heading about reporting problems."
+    },
+    "onboarding_report_text": {
+        "message": "GitHub पर issue खोलें और इनकी जानकारी दें:",
+        "description": "Onboarding: lead-in to the list of details to attach to a report."
+    },
+    "onboarding_report_item_service": {
+        "message": "सेवा: Gmail, Drive, Docs या Calendar",
+        "description": "Onboarding report checklist item."
+    },
+    "onboarding_report_item_language": {
+        "message": "आपके Google इंटरफ़ेस की भाषा",
+        "description": "Onboarding report checklist item."
+    },
+    "onboarding_report_item_screenshot": {
+        "message": "हेडर का स्क्रीनशॉट",
+        "description": "Onboarding report checklist item."
+    },
+    "onboarding_report_link": {
+        "message": "GitHub Issues खोलें",
+        "description": "Onboarding link to the issue tracker."
+    },
+    "onboarding_privacy_text": {
+        "message": "न कोई एनालिटिक्स, न कोई नेटवर्क अनुरोध: आपकी सेटिंग आपके ब्राउज़र में ही रहती हैं.",
+        "description": "Onboarding one-line privacy summary."
+    },
+    "onboarding_privacy_link": {
+        "message": "निजता नीति",
+        "description": "Onboarding link to the privacy policy."
+    },
+    "onboarding_rate_link": {
+        "message": "क्या यह उपयोगी लगा? स्टोर में एक्सटेंशन को रेटिंग दें",
+        "description": "Onboarding unobtrusive link to the extension's store page."
     }
 }

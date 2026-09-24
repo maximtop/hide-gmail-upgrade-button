@@ -30,5 +30,109 @@
     "popup_report_link": {
         "message": "Een probleem melden",
         "description": "Popup link to the issue tracker."
+    },
+    "popup_onboarding_link": {
+        "message": "Hoe het werkt",
+        "description": "Popup link that opens the onboarding page."
+    },
+    "onboarding_title": {
+        "message": "Hide Upgrade Button is geïnstalleerd",
+        "description": "Onboarding page title and heading, shown after installation."
+    },
+    "onboarding_intro": {
+        "message": "De knoppen Upgrade en Ask Gemini zijn nu verborgen. Dit is goed om te weten.",
+        "description": "Onboarding page lead paragraph under the title."
+    },
+    "onboarding_how_heading": {
+        "message": "Hoe het werkt",
+        "description": "Onboarding section heading: what the extension does."
+    },
+    "onboarding_how_text": {
+        "message": "De extensie verbergt de knoppen Upgrade en Ask Gemini in de bovenbalk van Gmail, Google Drive en Google Documenten, Spreadsheets en Presentaties. De pictogrammen ernaast schuiven op, en tabbladen die al open zijn, worden bijgewerkt zonder opnieuw te laden.",
+        "description": "Onboarding: what is hidden and where."
+    },
+    "onboarding_how_image_alt": {
+        "message": "Bovenbalk van Gmail voor en na: de knoppen Upgrade en Ask Gemini zijn weg",
+        "description": "Alt text of the before/after illustration."
+    },
+    "onboarding_calendar_heading": {
+        "message": "Google Agenda",
+        "description": "Onboarding section heading about optional Google Calendar support."
+    },
+    "onboarding_calendar_text": {
+        "message": "De extensie kan ook de knop Upgrade in Google Agenda verbergen. Dit staat standaard uit: schakel het hier of in de pop-up in en sta daarna toegang tot calendar.google.com toe wanneer de browser erom vraagt.",
+        "description": "Onboarding: how to enable Google Calendar support."
+    },
+    "onboarding_calendar_why": {
+        "message": "Waarom is dit optioneel? Toegang tot Agenda wordt alleen gevraagd aan wie die nodig heeft. Als die verplicht zou zijn, zou de browser de extensie uitschakelen voor iedereen die hem al heeft geïnstalleerd, totdat die de nieuwe toegang goedkeurt.",
+        "description": "Onboarding: why Google Calendar access is optional instead of on by default."
+    },
+    "onboarding_calendar_enabled": {
+        "message": "Ingeschakeld in Google Agenda",
+        "description": "Onboarding status shown when Google Calendar access is granted."
+    },
+    "onboarding_calendar_disable": {
+        "message": "Uitschakelen",
+        "description": "Onboarding button that removes Google Calendar access."
+    },
+    "onboarding_pin_heading": {
+        "message": "Zet de extensie vast",
+        "description": "Onboarding section heading about pinning the extension to the toolbar."
+    },
+    "onboarding_pin_text": {
+        "message": "Alle instellingen staan in de pop-up van de extensie. Zolang je de extensie niet vastzet, zit de pop-up verstopt achter het puzzelstukje (het pictogram Extensies) in de werkbalk: klik op dat pictogram en zet Hide Upgrade Button vast, zodat de extensie altijd één klik verwijderd is.",
+        "description": "Onboarding: how to pin the extension icon. Keep 'Hide Upgrade Button' untranslated."
+    },
+    "onboarding_settings_heading": {
+        "message": "Instellingen",
+        "description": "Onboarding section heading about the popup settings."
+    },
+    "onboarding_settings_text": {
+        "message": "Elke knop heeft een eigen schakelaar in de pop-up, dus je kunt elk van beide terughalen. Wijzigingen worden meteen toegepast in open tabbladen, zonder opnieuw te laden.",
+        "description": "Onboarding: per-button switches apply immediately."
+    },
+    "onboarding_returned_heading": {
+        "message": "Als een knop terugkomt",
+        "description": "Onboarding section heading about a hidden button reappearing."
+    },
+    "onboarding_returned_text": {
+        "message": "Dan heeft Google de interface gewijzigd. De oplossing komt in een update van de extensie; als je het meldt, komt die sneller.",
+        "description": "Onboarding: a reappearing button means Google changed its interface."
+    },
+    "onboarding_report_heading": {
+        "message": "Een probleem melden",
+        "description": "Onboarding section heading about reporting problems."
+    },
+    "onboarding_report_text": {
+        "message": "Maak een issue aan op GitHub en vermeld:",
+        "description": "Onboarding: lead-in to the list of details to attach to a report."
+    },
+    "onboarding_report_item_service": {
+        "message": "de dienst: Gmail, Drive, Documenten of Agenda",
+        "description": "Onboarding report checklist item."
+    },
+    "onboarding_report_item_language": {
+        "message": "de taal van je Google-interface",
+        "description": "Onboarding report checklist item."
+    },
+    "onboarding_report_item_screenshot": {
+        "message": "een screenshot van de bovenbalk",
+        "description": "Onboarding report checklist item."
+    },
+    "onboarding_report_link": {
+        "message": "GitHub Issues openen",
+        "description": "Onboarding link to the issue tracker."
+    },
+    "onboarding_privacy_text": {
+        "message": "Geen analytics en geen netwerkverzoeken: je instellingen blijven in je browser.",
+        "description": "Onboarding one-line privacy summary."
+    },
+    "onboarding_privacy_link": {
+        "message": "Privacybeleid",
+        "description": "Onboarding link to the privacy policy."
+    },
+    "onboarding_rate_link": {
+        "message": "Vind je het handig? Beoordeel de extensie in de store",
+        "description": "Onboarding unobtrusive link to the extension's store page."
     }
 }

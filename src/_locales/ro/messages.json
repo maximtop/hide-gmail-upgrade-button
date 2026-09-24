@@ -30,5 +30,109 @@
     "popup_report_link": {
         "message": "Raportează o problemă",
         "description": "Popup link to the issue tracker."
+    },
+    "popup_onboarding_link": {
+        "message": "Cum funcționează",
+        "description": "Popup link that opens the onboarding page."
+    },
+    "onboarding_title": {
+        "message": "Extensia Hide Upgrade Button a fost instalată",
+        "description": "Onboarding page title and heading, shown after installation."
+    },
+    "onboarding_intro": {
+        "message": "Butoanele Upgrade și Ask Gemini sunt acum ascunse. Iată ce merită să știi.",
+        "description": "Onboarding page lead paragraph under the title."
+    },
+    "onboarding_how_heading": {
+        "message": "Cum funcționează",
+        "description": "Onboarding section heading: what the extension does."
+    },
+    "onboarding_how_text": {
+        "message": "Extensia ascunde butoanele Upgrade și Ask Gemini din antetul Gmail, Google Drive și Google Docs, Sheets și Slides. Pictogramele vecine ocupă spațiul liber, iar filele deja deschise se actualizează fără reîncărcare.",
+        "description": "Onboarding: what is hidden and where."
+    },
+    "onboarding_how_image_alt": {
+        "message": "Antetul Gmail înainte și după: butoanele Upgrade și Ask Gemini au dispărut",
+        "description": "Alt text of the before/after illustration."
+    },
+    "onboarding_calendar_heading": {
+        "message": "Google Calendar",
+        "description": "Onboarding section heading about optional Google Calendar support."
+    },
+    "onboarding_calendar_text": {
+        "message": "Extensia poate ascunde și butonul Upgrade din Google Calendar. Opțiunea este dezactivată implicit: activeaz-o aici sau în fereastra pop-up, apoi permite accesul la calendar.google.com când browserul îl solicită.",
+        "description": "Onboarding: how to enable Google Calendar support."
+    },
+    "onboarding_calendar_why": {
+        "message": "De ce este opțional? Accesul la Calendar este solicitat doar celor care au nevoie de el. Dacă ar fi obligatoriu, browserul ar dezactiva extensia pentru toți cei care o au deja instalată, până când aprobă noul acces.",
+        "description": "Onboarding: why Google Calendar access is optional instead of on by default."
+    },
+    "onboarding_calendar_enabled": {
+        "message": "Activat în Google Calendar",
+        "description": "Onboarding status shown when Google Calendar access is granted."
+    },
+    "onboarding_calendar_disable": {
+        "message": "Dezactivează",
+        "description": "Onboarding button that removes Google Calendar access."
+    },
+    "onboarding_pin_heading": {
+        "message": "Fixează extensia",
+        "description": "Onboarding section heading about pinning the extension to the toolbar."
+    },
+    "onboarding_pin_text": {
+        "message": "Toate setările se află în fereastra pop-up a extensiei. Până când o fixezi, fereastra este ascunsă în spatele pictogramei Extensii în formă de piesă de puzzle din bara de instrumente: dă clic pe această pictogramă și fixează Hide Upgrade Button ca s-o ai mereu la un clic distanță.",
+        "description": "Onboarding: how to pin the extension icon. Keep 'Hide Upgrade Button' untranslated."
+    },
+    "onboarding_settings_heading": {
+        "message": "Setări",
+        "description": "Onboarding section heading about the popup settings."
+    },
+    "onboarding_settings_text": {
+        "message": "Fiecare buton are propriul comutator în fereastra pop-up, deci poți readuce oricare dintre ele. Modificările se aplică imediat în filele deschise, fără reîncărcare.",
+        "description": "Onboarding: per-button switches apply immediately."
+    },
+    "onboarding_returned_heading": {
+        "message": "Dacă un buton revine",
+        "description": "Onboarding section heading about a hidden button reappearing."
+    },
+    "onboarding_returned_text": {
+        "message": "Google a schimbat interfața. Remedierea va veni printr-o actualizare a extensiei; dacă raportezi problema, va veni mai repede.",
+        "description": "Onboarding: a reappearing button means Google changed its interface."
+    },
+    "onboarding_report_heading": {
+        "message": "Raportează o problemă",
+        "description": "Onboarding section heading about reporting problems."
+    },
+    "onboarding_report_text": {
+        "message": "Deschide un issue pe GitHub și include:",
+        "description": "Onboarding: lead-in to the list of details to attach to a report."
+    },
+    "onboarding_report_item_service": {
+        "message": "serviciul: Gmail, Drive, Docs sau Calendar",
+        "description": "Onboarding report checklist item."
+    },
+    "onboarding_report_item_language": {
+        "message": "limba interfeței tale Google",
+        "description": "Onboarding report checklist item."
+    },
+    "onboarding_report_item_screenshot": {
+        "message": "o captură de ecran a antetului",
+        "description": "Onboarding report checklist item."
+    },
+    "onboarding_report_link": {
+        "message": "Deschide GitHub Issues",
+        "description": "Onboarding link to the issue tracker."
+    },
+    "onboarding_privacy_text": {
+        "message": "Fără analize și fără solicitări de rețea: setările tale rămân în browser.",
+        "description": "Onboarding one-line privacy summary."
+    },
+    "onboarding_privacy_link": {
+        "message": "Politica de confidențialitate",
+        "description": "Onboarding link to the privacy policy."
+    },
+    "onboarding_rate_link": {
+        "message": "Ți-a fost utilă? Evaluează extensia în magazin",
+        "description": "Onboarding unobtrusive link to the extension's store page."
     }
 }

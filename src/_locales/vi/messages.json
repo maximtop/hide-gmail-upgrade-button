@@ -30,5 +30,109 @@
     "popup_report_link": {
         "message": "Báo cáo sự cố",
         "description": "Popup link to the issue tracker."
+    },
+    "popup_onboarding_link": {
+        "message": "Cách hoạt động",
+        "description": "Popup link that opens the onboarding page."
+    },
+    "onboarding_title": {
+        "message": "Đã cài đặt Hide Upgrade Button",
+        "description": "Onboarding page title and heading, shown after installation."
+    },
+    "onboarding_intro": {
+        "message": "Các nút Upgrade và Ask Gemini giờ đã được ẩn. Dưới đây là những điều nên biết.",
+        "description": "Onboarding page lead paragraph under the title."
+    },
+    "onboarding_how_heading": {
+        "message": "Cách hoạt động",
+        "description": "Onboarding section heading: what the extension does."
+    },
+    "onboarding_how_text": {
+        "message": "Tiện ích ẩn các nút Upgrade và Ask Gemini trên thanh tiêu đề của Gmail, Google Drive cũng như Google Tài liệu, Trang tính và Trang trình bày. Các biểu tượng bên cạnh sẽ lấp khoảng trống, và các thẻ đang mở được cập nhật mà không cần tải lại.",
+        "description": "Onboarding: what is hidden and where."
+    },
+    "onboarding_how_image_alt": {
+        "message": "Thanh tiêu đề Gmail trước và sau: các nút Upgrade và Ask Gemini đã biến mất",
+        "description": "Alt text of the before/after illustration."
+    },
+    "onboarding_calendar_heading": {
+        "message": "Lịch Google",
+        "description": "Onboarding section heading about optional Google Calendar support."
+    },
+    "onboarding_calendar_text": {
+        "message": "Tiện ích cũng có thể ẩn nút Upgrade trong Lịch Google. Tính năng này tắt theo mặc định: hãy bật tại đây hoặc trong cửa sổ bật lên, rồi cho phép truy cập calendar.google.com khi trình duyệt hỏi.",
+        "description": "Onboarding: how to enable Google Calendar support."
+    },
+    "onboarding_calendar_why": {
+        "message": "Tại sao đây là tùy chọn? Quyền truy cập Lịch chỉ được yêu cầu từ những người cần đến. Nếu bắt buộc, trình duyệt sẽ tắt tiện ích đối với tất cả những ai đã cài đặt cho đến khi họ chấp thuận quyền truy cập mới.",
+        "description": "Onboarding: why Google Calendar access is optional instead of on by default."
+    },
+    "onboarding_calendar_enabled": {
+        "message": "Đã bật trong Lịch Google",
+        "description": "Onboarding status shown when Google Calendar access is granted."
+    },
+    "onboarding_calendar_disable": {
+        "message": "Tắt",
+        "description": "Onboarding button that removes Google Calendar access."
+    },
+    "onboarding_pin_heading": {
+        "message": "Ghim tiện ích",
+        "description": "Onboarding section heading about pinning the extension to the toolbar."
+    },
+    "onboarding_pin_text": {
+        "message": "Mọi cài đặt đều nằm trong cửa sổ bật lên của tiện ích. Cho đến khi bạn ghim tiện ích, cửa sổ này bị ẩn sau biểu tượng Tiện ích hình mảnh ghép trên thanh công cụ: hãy nhấp vào biểu tượng đó và ghim Hide Upgrade Button để luôn mở được chỉ với một cú nhấp.",
+        "description": "Onboarding: how to pin the extension icon. Keep 'Hide Upgrade Button' untranslated."
+    },
+    "onboarding_settings_heading": {
+        "message": "Cài đặt",
+        "description": "Onboarding section heading about the popup settings."
+    },
+    "onboarding_settings_text": {
+        "message": "Mỗi nút có công tắc riêng trong cửa sổ bật lên, nên bạn có thể hiện lại bất kỳ nút nào. Thay đổi được áp dụng ngay trong các thẻ đang mở, không cần tải lại.",
+        "description": "Onboarding: per-button switches apply immediately."
+    },
+    "onboarding_returned_heading": {
+        "message": "Nếu một nút xuất hiện lại",
+        "description": "Onboarding section heading about a hidden button reappearing."
+    },
+    "onboarding_returned_text": {
+        "message": "Google đã thay đổi giao diện. Bản sửa sẽ có trong bản cập nhật tiện ích; báo cáo sự cố sẽ giúp bản sửa đến sớm hơn.",
+        "description": "Onboarding: a reappearing button means Google changed its interface."
+    },
+    "onboarding_report_heading": {
+        "message": "Báo cáo sự cố",
+        "description": "Onboarding section heading about reporting problems."
+    },
+    "onboarding_report_text": {
+        "message": "Tạo một issue trên GitHub và cung cấp:",
+        "description": "Onboarding: lead-in to the list of details to attach to a report."
+    },
+    "onboarding_report_item_service": {
+        "message": "dịch vụ: Gmail, Drive, Tài liệu hoặc Lịch",
+        "description": "Onboarding report checklist item."
+    },
+    "onboarding_report_item_language": {
+        "message": "ngôn ngữ giao diện Google của bạn",
+        "description": "Onboarding report checklist item."
+    },
+    "onboarding_report_item_screenshot": {
+        "message": "ảnh chụp màn hình thanh tiêu đề",
+        "description": "Onboarding report checklist item."
+    },
+    "onboarding_report_link": {
+        "message": "Mở GitHub Issues",
+        "description": "Onboarding link to the issue tracker."
+    },
+    "onboarding_privacy_text": {
+        "message": "Không phân tích, không gửi yêu cầu mạng: cài đặt của bạn chỉ nằm trong trình duyệt.",
+        "description": "Onboarding one-line privacy summary."
+    },
+    "onboarding_privacy_link": {
+        "message": "Chính sách quyền riêng tư",
+        "description": "Onboarding link to the privacy policy."
+    },
+    "onboarding_rate_link": {
+        "message": "Thấy hữu ích? Hãy đánh giá tiện ích trên cửa hàng",
+        "description": "Onboarding unobtrusive link to the extension's store page."
     }
 }

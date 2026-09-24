@@ -30,5 +30,109 @@
     "popup_report_link": {
         "message": "Pranešti apie problemą",
         "description": "Popup link to the issue tracker."
+    },
+    "popup_onboarding_link": {
+        "message": "Kaip tai veikia",
+        "description": "Popup link that opens the onboarding page."
+    },
+    "onboarding_title": {
+        "message": "Plėtinys „Hide Upgrade Button“ įdiegtas",
+        "description": "Onboarding page title and heading, shown after installation."
+    },
+    "onboarding_intro": {
+        "message": "Mygtukai „Upgrade“ ir „Ask Gemini“ dabar paslėpti. Štai ką verta žinoti.",
+        "description": "Onboarding page lead paragraph under the title."
+    },
+    "onboarding_how_heading": {
+        "message": "Kaip tai veikia",
+        "description": "Onboarding section heading: what the extension does."
+    },
+    "onboarding_how_text": {
+        "message": "Plėtinys paslepia mygtukus „Upgrade“ ir „Ask Gemini“ „Gmail“, „Google“ disko ir „Google“ dokumentų, skaičiuoklių bei skaidrių antraštėje. Gretimos piktogramos užpildo tarpą, o jau atidaryti skirtukai atnaujinami be įkėlimo iš naujo.",
+        "description": "Onboarding: what is hidden and where."
+    },
+    "onboarding_how_image_alt": {
+        "message": "„Gmail“ antraštė prieš ir po: mygtukų „Upgrade“ ir „Ask Gemini“ nebėra",
+        "description": "Alt text of the before/after illustration."
+    },
+    "onboarding_calendar_heading": {
+        "message": "„Google“ kalendorius",
+        "description": "Onboarding section heading about optional Google Calendar support."
+    },
+    "onboarding_calendar_text": {
+        "message": "Plėtinys taip pat gali paslėpti mygtuką „Upgrade“ „Google“ kalendoriuje. Pagal numatytuosius nustatymus tai išjungta: įjunkite čia arba iššokančiajame lange, tada leiskite prieigą prie calendar.google.com, kai naršyklė paprašys.",
+        "description": "Onboarding: how to enable Google Calendar support."
+    },
+    "onboarding_calendar_why": {
+        "message": "Kodėl tai neprivaloma? Prieigos prie kalendoriaus prašoma tik tų, kuriems jos reikia. Jei ji būtų privaloma, naršyklė išjungtų plėtinį visiems, kurie jį jau įdiegė, kol jie nepatvirtintų naujos prieigos.",
+        "description": "Onboarding: why Google Calendar access is optional instead of on by default."
+    },
+    "onboarding_calendar_enabled": {
+        "message": "Įgalinta „Google“ kalendoriuje",
+        "description": "Onboarding status shown when Google Calendar access is granted."
+    },
+    "onboarding_calendar_disable": {
+        "message": "Išjungti",
+        "description": "Onboarding button that removes Google Calendar access."
+    },
+    "onboarding_pin_heading": {
+        "message": "Prisekite plėtinį",
+        "description": "Onboarding section heading about pinning the extension to the toolbar."
+    },
+    "onboarding_pin_text": {
+        "message": "Visi nustatymai yra plėtinio iššokančiajame lange. Kol plėtinio neprisegėte, šis langas paslėptas po dėlionės formos plėtinių piktograma įrankių juostoje: spustelėkite ją ir prisekite „Hide Upgrade Button“, kad plėtinys visada būtų pasiekiamas vienu spustelėjimu.",
+        "description": "Onboarding: how to pin the extension icon. Keep 'Hide Upgrade Button' untranslated."
+    },
+    "onboarding_settings_heading": {
+        "message": "Nustatymai",
+        "description": "Onboarding section heading about the popup settings."
+    },
+    "onboarding_settings_text": {
+        "message": "Kiekvienas mygtukas turi savo jungiklį iššokančiajame lange, todėl bet kurį iš jų galite grąžinti. Pakeitimai atidarytuose skirtukuose pritaikomi iš karto, be įkėlimo iš naujo.",
+        "description": "Onboarding: per-button switches apply immediately."
+    },
+    "onboarding_returned_heading": {
+        "message": "Jei mygtukas vėl pasirodė",
+        "description": "Onboarding section heading about a hidden button reappearing."
+    },
+    "onboarding_returned_text": {
+        "message": "„Google“ pakeitė sąsają. Pataisymas atkeliaus su plėtinio atnaujinimu; pranešę apie problemą padėsite jį išleisti greičiau.",
+        "description": "Onboarding: a reappearing button means Google changed its interface."
+    },
+    "onboarding_report_heading": {
+        "message": "Pranešti apie problemą",
+        "description": "Onboarding section heading about reporting problems."
+    },
+    "onboarding_report_text": {
+        "message": "Sukurkite pranešimą „GitHub“ svetainėje ir nurodykite:",
+        "description": "Onboarding: lead-in to the list of details to attach to a report."
+    },
+    "onboarding_report_item_service": {
+        "message": "paslaugą: „Gmail“, diską, dokumentus arba kalendorių",
+        "description": "Onboarding report checklist item."
+    },
+    "onboarding_report_item_language": {
+        "message": "„Google“ sąsajos kalbą",
+        "description": "Onboarding report checklist item."
+    },
+    "onboarding_report_item_screenshot": {
+        "message": "antraštės ekrano kopiją",
+        "description": "Onboarding report checklist item."
+    },
+    "onboarding_report_link": {
+        "message": "Atidaryti „GitHub Issues“",
+        "description": "Onboarding link to the issue tracker."
+    },
+    "onboarding_privacy_text": {
+        "message": "Jokios analitikos ir jokių tinklo užklausų: jūsų nustatymai lieka jūsų naršyklėje.",
+        "description": "Onboarding one-line privacy summary."
+    },
+    "onboarding_privacy_link": {
+        "message": "Privatumo politika",
+        "description": "Onboarding link to the privacy policy."
+    },
+    "onboarding_rate_link": {
+        "message": "Plėtinys naudingas? Įvertinkite jį parduotuvėje",
+        "description": "Onboarding unobtrusive link to the extension's store page."
     }
 }

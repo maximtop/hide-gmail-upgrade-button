@@ -30,5 +30,109 @@
     "popup_report_link": {
         "message": "Probléma jelentése",
         "description": "Popup link to the issue tracker."
+    },
+    "popup_onboarding_link": {
+        "message": "Hogyan működik",
+        "description": "Popup link that opens the onboarding page."
+    },
+    "onboarding_title": {
+        "message": "A Hide Upgrade Button telepítve",
+        "description": "Onboarding page title and heading, shown after installation."
+    },
+    "onboarding_intro": {
+        "message": "Az Upgrade és az Ask Gemini gomb mostantól rejtve van. Íme, amit érdemes tudni.",
+        "description": "Onboarding page lead paragraph under the title."
+    },
+    "onboarding_how_heading": {
+        "message": "Hogyan működik",
+        "description": "Onboarding section heading: what the extension does."
+    },
+    "onboarding_how_text": {
+        "message": "A bővítmény elrejti az Upgrade és az Ask Gemini gombot a Gmail, a Google Drive, valamint a Google Dokumentumok, Táblázatok és Diák fejlécében. A szomszédos ikonok kitöltik a helyet, a már megnyitott lapok pedig újratöltés nélkül frissülnek.",
+        "description": "Onboarding: what is hidden and where."
+    },
+    "onboarding_how_image_alt": {
+        "message": "A Gmail fejléce előtte és utána: az Upgrade és az Ask Gemini gomb eltűnt",
+        "description": "Alt text of the before/after illustration."
+    },
+    "onboarding_calendar_heading": {
+        "message": "Google Naptár",
+        "description": "Onboarding section heading about optional Google Calendar support."
+    },
+    "onboarding_calendar_text": {
+        "message": "A bővítmény a Google Naptárban is el tudja rejteni az Upgrade gombot. Ez alapértelmezés szerint ki van kapcsolva: kapcsolja be itt vagy a felugró ablakban, majd engedélyezze a hozzáférést a calendar.google.com oldalhoz, amikor a böngésző rákérdez.",
+        "description": "Onboarding: how to enable Google Calendar support."
+    },
+    "onboarding_calendar_why": {
+        "message": "Miért nem kötelező? A Naptárhoz való hozzáférést csak azoktól kérjük, akiknek szükségük van rá. Ha kötelező lenne, a böngésző mindenkinél letiltaná a bővítményt, akinél már telepítve van, amíg jóvá nem hagyja az új hozzáférést.",
+        "description": "Onboarding: why Google Calendar access is optional instead of on by default."
+    },
+    "onboarding_calendar_enabled": {
+        "message": "Bekapcsolva a Google Naptárban",
+        "description": "Onboarding status shown when Google Calendar access is granted."
+    },
+    "onboarding_calendar_disable": {
+        "message": "Kikapcsolás",
+        "description": "Onboarding button that removes Google Calendar access."
+    },
+    "onboarding_pin_heading": {
+        "message": "A bővítmény kitűzése",
+        "description": "Onboarding section heading about pinning the extension to the toolbar."
+    },
+    "onboarding_pin_text": {
+        "message": "Minden beállítás a bővítmény felugró ablakában található. Amíg nem tűzi ki, a felugró ablak az eszköztáron lévő, puzzle-darab alakú Bővítmények ikon mögött rejtőzik: kattintson erre az ikonra, és tűzze ki a Hide Upgrade Button bővítményt, hogy mindig egy kattintásnyira legyen.",
+        "description": "Onboarding: how to pin the extension icon. Keep 'Hide Upgrade Button' untranslated."
+    },
+    "onboarding_settings_heading": {
+        "message": "Beállítások",
+        "description": "Onboarding section heading about the popup settings."
+    },
+    "onboarding_settings_text": {
+        "message": "A felugró ablakban minden gombnak saját kapcsolója van, így bármelyiket visszahozhatja. A módosítások azonnal érvénybe lépnek a megnyitott lapokon, újratöltés nélkül.",
+        "description": "Onboarding: per-button switches apply immediately."
+    },
+    "onboarding_returned_heading": {
+        "message": "Ha egy gomb visszatér",
+        "description": "Onboarding section heading about a hidden button reappearing."
+    },
+    "onboarding_returned_text": {
+        "message": "A Google módosította a felületét. A javítás a bővítmény frissítésével érkezik; ha jelzi a hibát, hamarabb megérkezhet.",
+        "description": "Onboarding: a reappearing button means Google changed its interface."
+    },
+    "onboarding_report_heading": {
+        "message": "Probléma jelentése",
+        "description": "Onboarding section heading about reporting problems."
+    },
+    "onboarding_report_text": {
+        "message": "Nyisson egy issue-t a GitHubon, és adja meg:",
+        "description": "Onboarding: lead-in to the list of details to attach to a report."
+    },
+    "onboarding_report_item_service": {
+        "message": "a szolgáltatást: Gmail, Drive, Dokumentumok vagy Naptár",
+        "description": "Onboarding report checklist item."
+    },
+    "onboarding_report_item_language": {
+        "message": "a Google-felülete nyelvét",
+        "description": "Onboarding report checklist item."
+    },
+    "onboarding_report_item_screenshot": {
+        "message": "egy képernyőképet a fejlécről",
+        "description": "Onboarding report checklist item."
+    },
+    "onboarding_report_link": {
+        "message": "GitHub Issues megnyitása",
+        "description": "Onboarding link to the issue tracker."
+    },
+    "onboarding_privacy_text": {
+        "message": "Nincs analitika és nincsenek hálózati kérések: a beállításai a böngészőjében maradnak.",
+        "description": "Onboarding one-line privacy summary."
+    },
+    "onboarding_privacy_link": {
+        "message": "Adatvédelmi irányelvek",
+        "description": "Onboarding link to the privacy policy."
+    },
+    "onboarding_rate_link": {
+        "message": "Hasznosnak találja? Értékelje a bővítményt az áruházban",
+        "description": "Onboarding unobtrusive link to the extension's store page."
     }
 }

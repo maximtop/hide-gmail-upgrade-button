@@ -30,5 +30,109 @@
     "popup_report_link": {
         "message": "Αναφορά προβλήματος",
         "description": "Popup link to the issue tracker."
+    },
+    "popup_onboarding_link": {
+        "message": "Πώς λειτουργεί",
+        "description": "Popup link that opens the onboarding page."
+    },
+    "onboarding_title": {
+        "message": "Το Hide Upgrade Button εγκαταστάθηκε",
+        "description": "Onboarding page title and heading, shown after installation."
+    },
+    "onboarding_intro": {
+        "message": "Τα κουμπιά Upgrade και Ask Gemini είναι πλέον κρυφά. Δείτε τι αξίζει να γνωρίζετε.",
+        "description": "Onboarding page lead paragraph under the title."
+    },
+    "onboarding_how_heading": {
+        "message": "Πώς λειτουργεί",
+        "description": "Onboarding section heading: what the extension does."
+    },
+    "onboarding_how_text": {
+        "message": "Η επέκταση αποκρύπτει τα κουμπιά Upgrade και Ask Gemini στην κεφαλίδα του Gmail, του Google Drive και των Google Docs, Sheets και Slides. Τα διπλανά εικονίδια καλύπτουν το κενό και οι καρτέλες που είναι ήδη ανοιχτές ενημερώνονται χωρίς επαναφόρτωση.",
+        "description": "Onboarding: what is hidden and where."
+    },
+    "onboarding_how_image_alt": {
+        "message": "Η κεφαλίδα του Gmail πριν και μετά: τα κουμπιά Upgrade και Ask Gemini έχουν εξαφανιστεί",
+        "description": "Alt text of the before/after illustration."
+    },
+    "onboarding_calendar_heading": {
+        "message": "Ημερολόγιο Google",
+        "description": "Onboarding section heading about optional Google Calendar support."
+    },
+    "onboarding_calendar_text": {
+        "message": "Η επέκταση μπορεί επίσης να αποκρύψει το κουμπί Upgrade στο Ημερολόγιο Google. Είναι απενεργοποιημένο από προεπιλογή: ενεργοποιήστε το εδώ ή στο αναδυόμενο παράθυρο και, στη συνέχεια, επιτρέψτε την πρόσβαση στο calendar.google.com όταν σας το ζητήσει το πρόγραμμα περιήγησης.",
+        "description": "Onboarding: how to enable Google Calendar support."
+    },
+    "onboarding_calendar_why": {
+        "message": "Γιατί είναι προαιρετικό; Η πρόσβαση στο Ημερολόγιο ζητείται μόνο από όσους τη χρειάζονται. Αν ήταν υποχρεωτική, το πρόγραμμα περιήγησης θα απενεργοποιούσε επίσης την επέκταση για όλους όσοι την έχουν ήδη εγκαταστήσει, μέχρι να εγκρίνουν τη νέα πρόσβαση.",
+        "description": "Onboarding: why Google Calendar access is optional instead of on by default."
+    },
+    "onboarding_calendar_enabled": {
+        "message": "Ενεργοποιημένο στο Ημερολόγιο Google",
+        "description": "Onboarding status shown when Google Calendar access is granted."
+    },
+    "onboarding_calendar_disable": {
+        "message": "Απενεργοποίηση",
+        "description": "Onboarding button that removes Google Calendar access."
+    },
+    "onboarding_pin_heading": {
+        "message": "Καρφιτσώστε την επέκταση",
+        "description": "Onboarding section heading about pinning the extension to the toolbar."
+    },
+    "onboarding_pin_text": {
+        "message": "Όλες οι ρυθμίσεις βρίσκονται στο αναδυόμενο παράθυρο της επέκτασης. Μέχρι να την καρφιτσώσετε, είναι κρυμμένη πίσω από το εικονίδιο «Επεκτάσεις» (το κομμάτι παζλ) στη γραμμή εργαλείων: κάντε κλικ σε αυτό το εικονίδιο και καρφιτσώστε το Hide Upgrade Button, ώστε να απέχει μόνο ένα κλικ.",
+        "description": "Onboarding: how to pin the extension icon. Keep 'Hide Upgrade Button' untranslated."
+    },
+    "onboarding_settings_heading": {
+        "message": "Ρυθμίσεις",
+        "description": "Onboarding section heading about the popup settings."
+    },
+    "onboarding_settings_text": {
+        "message": "Κάθε κουμπί έχει τον δικό του διακόπτη στο αναδυόμενο παράθυρο, ώστε να μπορείτε να επαναφέρετε όποιο θέλετε. Οι αλλαγές εφαρμόζονται αμέσως στις ανοιχτές καρτέλες, χωρίς επαναφόρτωση.",
+        "description": "Onboarding: per-button switches apply immediately."
+    },
+    "onboarding_returned_heading": {
+        "message": "Αν ένα κουμπί εμφανιστεί ξανά",
+        "description": "Onboarding section heading about a hidden button reappearing."
+    },
+    "onboarding_returned_text": {
+        "message": "Η Google άλλαξε τη διεπαφή της. Η διόρθωση θα έρθει με ενημέρωση της επέκτασης — αν το αναφέρετε, θα έρθει νωρίτερα.",
+        "description": "Onboarding: a reappearing button means Google changed its interface."
+    },
+    "onboarding_report_heading": {
+        "message": "Αναφορά προβλήματος",
+        "description": "Onboarding section heading about reporting problems."
+    },
+    "onboarding_report_text": {
+        "message": "Ανοίξτε ένα issue στο GitHub και συμπεριλάβετε:",
+        "description": "Onboarding: lead-in to the list of details to attach to a report."
+    },
+    "onboarding_report_item_service": {
+        "message": "την υπηρεσία: Gmail, Drive, Docs ή Ημερολόγιο",
+        "description": "Onboarding report checklist item."
+    },
+    "onboarding_report_item_language": {
+        "message": "τη γλώσσα της διεπαφής Google που χρησιμοποιείτε",
+        "description": "Onboarding report checklist item."
+    },
+    "onboarding_report_item_screenshot": {
+        "message": "ένα στιγμιότυπο οθόνης της κεφαλίδας",
+        "description": "Onboarding report checklist item."
+    },
+    "onboarding_report_link": {
+        "message": "Άνοιγμα GitHub Issues",
+        "description": "Onboarding link to the issue tracker."
+    },
+    "onboarding_privacy_text": {
+        "message": "Χωρίς αναλυτικά στοιχεία και χωρίς αιτήματα δικτύου: οι ρυθμίσεις σας μένουν στο πρόγραμμα περιήγησής σας.",
+        "description": "Onboarding one-line privacy summary."
+    },
+    "onboarding_privacy_link": {
+        "message": "Πολιτική απορρήτου",
+        "description": "Onboarding link to the privacy policy."
+    },
+    "onboarding_rate_link": {
+        "message": "Σας φάνηκε χρήσιμη; Βαθμολογήστε την επέκταση στο κατάστημα",
+        "description": "Onboarding unobtrusive link to the extension's store page."
     }
 }

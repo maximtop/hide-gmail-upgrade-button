@@ -30,5 +30,109 @@
     "popup_report_link": {
         "message": "Nahlásit problém",
         "description": "Popup link to the issue tracker."
+    },
+    "popup_onboarding_link": {
+        "message": "Jak to funguje",
+        "description": "Popup link that opens the onboarding page."
+    },
+    "onboarding_title": {
+        "message": "Rozšíření Hide Upgrade Button je nainstalováno",
+        "description": "Onboarding page title and heading, shown after installation."
+    },
+    "onboarding_intro": {
+        "message": "Tlačítka Upgrade a Ask Gemini jsou nyní skrytá. Tady je to nejdůležitější.",
+        "description": "Onboarding page lead paragraph under the title."
+    },
+    "onboarding_how_heading": {
+        "message": "Jak to funguje",
+        "description": "Onboarding section heading: what the extension does."
+    },
+    "onboarding_how_text": {
+        "message": "Rozšíření skrývá tlačítka Upgrade a Ask Gemini v záhlaví Gmailu, Disku Google a Dokumentů, Tabulek a Prezentací Google. Sousední ikony zaplní mezeru a už otevřené karty se aktualizují bez opětovného načtení.",
+        "description": "Onboarding: what is hidden and where."
+    },
+    "onboarding_how_image_alt": {
+        "message": "Záhlaví Gmailu před a po: tlačítka Upgrade a Ask Gemini zmizela",
+        "description": "Alt text of the before/after illustration."
+    },
+    "onboarding_calendar_heading": {
+        "message": "Kalendář Google",
+        "description": "Onboarding section heading about optional Google Calendar support."
+    },
+    "onboarding_calendar_text": {
+        "message": "Rozšíření umí skrýt tlačítko Upgrade i v Kalendáři Google. Ve výchozím nastavení je to vypnuté: zapněte to zde nebo ve vyskakovacím okně a poté povolte přístup ke calendar.google.com, až o něj prohlížeč požádá.",
+        "description": "Onboarding: how to enable Google Calendar support."
+    },
+    "onboarding_calendar_why": {
+        "message": "Proč je to volitelné? O přístup ke Kalendáři se žádá jen u těch, kdo ho potřebují. Kdyby byl povinný, prohlížeč by navíc rozšíření vypnul všem, kdo ho už mají nainstalované, dokud nový přístup neschválí.",
+        "description": "Onboarding: why Google Calendar access is optional instead of on by default."
+    },
+    "onboarding_calendar_enabled": {
+        "message": "Zapnuto v Kalendáři Google",
+        "description": "Onboarding status shown when Google Calendar access is granted."
+    },
+    "onboarding_calendar_disable": {
+        "message": "Vypnout",
+        "description": "Onboarding button that removes Google Calendar access."
+    },
+    "onboarding_pin_heading": {
+        "message": "Připněte si rozšíření",
+        "description": "Onboarding section heading about pinning the extension to the toolbar."
+    },
+    "onboarding_pin_text": {
+        "message": "Všechna nastavení najdete ve vyskakovacím okně rozšíření. Dokud ho nepřipnete, je schované pod ikonou Rozšíření (dílek skládačky) na panelu nástrojů: klikněte na tuto ikonu a připněte Hide Upgrade Button, abyste ho měli vždy na jedno kliknutí.",
+        "description": "Onboarding: how to pin the extension icon. Keep 'Hide Upgrade Button' untranslated."
+    },
+    "onboarding_settings_heading": {
+        "message": "Nastavení",
+        "description": "Onboarding section heading about the popup settings."
+    },
+    "onboarding_settings_text": {
+        "message": "Každé tlačítko má ve vyskakovacím okně vlastní přepínač, takže kterékoli z nich můžete znovu zobrazit. Změny se v otevřených kartách projeví hned, bez opětovného načtení.",
+        "description": "Onboarding: per-button switches apply immediately."
+    },
+    "onboarding_returned_heading": {
+        "message": "Když se tlačítko vrátí",
+        "description": "Onboarding section heading about a hidden button reappearing."
+    },
+    "onboarding_returned_text": {
+        "message": "Google změnil rozhraní. Oprava přijde v aktualizaci rozšíření; když problém nahlásíte, přijde dřív.",
+        "description": "Onboarding: a reappearing button means Google changed its interface."
+    },
+    "onboarding_report_heading": {
+        "message": "Nahlásit problém",
+        "description": "Onboarding section heading about reporting problems."
+    },
+    "onboarding_report_text": {
+        "message": "Založte issue na GitHubu a uveďte:",
+        "description": "Onboarding: lead-in to the list of details to attach to a report."
+    },
+    "onboarding_report_item_service": {
+        "message": "službu: Gmail, Disk, Dokumenty nebo Kalendář",
+        "description": "Onboarding report checklist item."
+    },
+    "onboarding_report_item_language": {
+        "message": "jazyk vašeho rozhraní Google",
+        "description": "Onboarding report checklist item."
+    },
+    "onboarding_report_item_screenshot": {
+        "message": "snímek obrazovky záhlaví",
+        "description": "Onboarding report checklist item."
+    },
+    "onboarding_report_link": {
+        "message": "Otevřít GitHub Issues",
+        "description": "Onboarding link to the issue tracker."
+    },
+    "onboarding_privacy_text": {
+        "message": "Žádná analytika ani síťové požadavky: vaše nastavení zůstává ve vašem prohlížeči.",
+        "description": "Onboarding one-line privacy summary."
+    },
+    "onboarding_privacy_link": {
+        "message": "Zásady ochrany osobních údajů",
+        "description": "Onboarding link to the privacy policy."
+    },
+    "onboarding_rate_link": {
+        "message": "Je pro vás užitečné? Ohodnoťte rozšíření v obchodě",
+        "description": "Onboarding unobtrusive link to the extension's store page."
     }
 }

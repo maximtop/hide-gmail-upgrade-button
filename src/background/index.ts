@@ -1,16 +1,18 @@
 /**
  * @file Background entrypoint: injects required-host tabs after install or
- * update and keeps optional Google Calendar content-script registration in
- * sync with its runtime host permission.
+ * update, opens the onboarding page after a fresh install and keeps optional
+ * Google Calendar content-script registration in sync with its runtime host
+ * permission.
  */
 
-import { CALENDAR_URL_PATTERN } from '../common/constants';
+import { includesCalendarOrigin } from '../common/calendar-access';
 import {
     hasCalendarAccess,
     reconcileCalendarSupport,
     restoreOpenCalendarTabs,
 } from './calendar-support';
 import { injectIntoOpenTabs } from './inject-open-tabs';
+import { openOnboardingOnInstall } from './onboarding';
 
 let calendarMaintenance = Promise.resolve();
 
@@ -55,20 +57,12 @@ const scheduleCalendarRemoval = (): void => {
     });
 };
 
-/**
- * Checks whether a permissions event concerns the optional Calendar origin.
- *
- * @param permissions Permission delta emitted by the browser.
- *
- * @returns Whether the Calendar origin is present in the delta.
- */
-const includesCalendarOrigin = (permissions: chrome.permissions.Permissions): boolean => {
-    return permissions.origins?.includes(CALENDAR_URL_PATTERN) ?? false;
-};
-
-chrome.runtime.onInstalled.addListener(() => {
+chrome.runtime.onInstalled.addListener((details) => {
     injectIntoOpenTabs().catch((error: unknown) => {
         console.debug('Injection into open tabs failed:', error);
+    });
+    openOnboardingOnInstall(details).catch((error: unknown) => {
+        console.debug('Could not open the onboarding page:', error);
     });
     scheduleCalendarReconciliation();
 });

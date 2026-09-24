@@ -30,5 +30,109 @@
     "popup_report_link": {
         "message": "الإبلاغ عن مشكلة",
         "description": "Popup link to the issue tracker."
+    },
+    "popup_onboarding_link": {
+        "message": "طريقة العمل",
+        "description": "Popup link that opens the onboarding page."
+    },
+    "onboarding_title": {
+        "message": "تم تثبيت Hide Upgrade Button",
+        "description": "Onboarding page title and heading, shown after installation."
+    },
+    "onboarding_intro": {
+        "message": "أصبح زرّا Upgrade وAsk Gemini مخفيين الآن. إليك ما يجدر معرفته.",
+        "description": "Onboarding page lead paragraph under the title."
+    },
+    "onboarding_how_heading": {
+        "message": "طريقة العمل",
+        "description": "Onboarding section heading: what the extension does."
+    },
+    "onboarding_how_text": {
+        "message": "تُخفي الإضافة زرّي Upgrade وAsk Gemini في الشريط العلوي لـ Gmail وGoogle Drive وGoogle Docs وSheets وSlides. تنتقل الرموز المجاورة لتسدّ الفراغ، وتُحدَّث علامات التبويب المفتوحة مسبقًا دون إعادة تحميل.",
+        "description": "Onboarding: what is hidden and where."
+    },
+    "onboarding_how_image_alt": {
+        "message": "الشريط العلوي في Gmail قبل وبعد: اختفى زرّا Upgrade وAsk Gemini",
+        "description": "Alt text of the before/after illustration."
+    },
+    "onboarding_calendar_heading": {
+        "message": "تقويم Google",
+        "description": "Onboarding section heading about optional Google Calendar support."
+    },
+    "onboarding_calendar_text": {
+        "message": "يمكن للإضافة أيضًا إخفاء زر Upgrade في تقويم Google. هذا الخيار متوقف افتراضيًا: فعّله هنا أو في النافذة المنبثقة، ثم اسمح بالوصول إلى calendar.google.com عندما يطلب المتصفح ذلك.",
+        "description": "Onboarding: how to enable Google Calendar support."
+    },
+    "onboarding_calendar_why": {
+        "message": "لماذا هو اختياري؟ يُطلب الوصول إلى التقويم فقط ممن يحتاجون إليه. ولو كان إلزاميًا، لعطّل المتصفح الإضافة لدى كل من ثبّتها بالفعل إلى أن يوافق على الوصول الجديد.",
+        "description": "Onboarding: why Google Calendar access is optional instead of on by default."
+    },
+    "onboarding_calendar_enabled": {
+        "message": "مُفعّل في تقويم Google",
+        "description": "Onboarding status shown when Google Calendar access is granted."
+    },
+    "onboarding_calendar_disable": {
+        "message": "إيقاف",
+        "description": "Onboarding button that removes Google Calendar access."
+    },
+    "onboarding_pin_heading": {
+        "message": "ثبّت الإضافة",
+        "description": "Onboarding section heading about pinning the extension to the toolbar."
+    },
+    "onboarding_pin_text": {
+        "message": "توجد جميع الإعدادات في النافذة المنبثقة للإضافة. وإلى أن تثبّتها، تبقى النافذة مخفية خلف رمز الإضافات (قطعة الأحجية) في شريط الأدوات: انقر على هذا الرمز وثبّت Hide Upgrade Button لتصل إليها بنقرة واحدة.",
+        "description": "Onboarding: how to pin the extension icon. Keep 'Hide Upgrade Button' untranslated."
+    },
+    "onboarding_settings_heading": {
+        "message": "الإعدادات",
+        "description": "Onboarding section heading about the popup settings."
+    },
+    "onboarding_settings_text": {
+        "message": "لكل زر مفتاح تبديل خاص به في النافذة المنبثقة، لذا يمكنك إعادة إظهار أيٍّ منهما. تُطبَّق التغييرات فورًا في علامات التبويب المفتوحة دون إعادة تحميل.",
+        "description": "Onboarding: per-button switches apply immediately."
+    },
+    "onboarding_returned_heading": {
+        "message": "إذا عاد زر إلى الظهور",
+        "description": "Onboarding section heading about a hidden button reappearing."
+    },
+    "onboarding_returned_text": {
+        "message": "فهذا يعني أن Google غيّرت الواجهة. سيصل الإصلاح في تحديث للإضافة، والإبلاغ عن المشكلة يساعد على وصوله أسرع.",
+        "description": "Onboarding: a reappearing button means Google changed its interface."
+    },
+    "onboarding_report_heading": {
+        "message": "الإبلاغ عن مشكلة",
+        "description": "Onboarding section heading about reporting problems."
+    },
+    "onboarding_report_text": {
+        "message": "أنشئ بلاغًا (issue) على GitHub واذكر فيه:",
+        "description": "Onboarding: lead-in to the list of details to attach to a report."
+    },
+    "onboarding_report_item_service": {
+        "message": "الخدمة: Gmail أو Drive أو Docs أو التقويم",
+        "description": "Onboarding report checklist item."
+    },
+    "onboarding_report_item_language": {
+        "message": "لغة واجهة Google لديك",
+        "description": "Onboarding report checklist item."
+    },
+    "onboarding_report_item_screenshot": {
+        "message": "لقطة شاشة للشريط العلوي",
+        "description": "Onboarding report checklist item."
+    },
+    "onboarding_report_link": {
+        "message": "فتح GitHub Issues",
+        "description": "Onboarding link to the issue tracker."
+    },
+    "onboarding_privacy_text": {
+        "message": "لا تحليلات ولا طلبات شبكة: تبقى إعداداتك في متصفحك.",
+        "description": "Onboarding one-line privacy summary."
+    },
+    "onboarding_privacy_link": {
+        "message": "سياسة الخصوصية",
+        "description": "Onboarding link to the privacy policy."
+    },
+    "onboarding_rate_link": {
+        "message": "هل وجدتها مفيدة؟ قيّم الإضافة في المتجر",
+        "description": "Onboarding unobtrusive link to the extension's store page."
     }
 }
