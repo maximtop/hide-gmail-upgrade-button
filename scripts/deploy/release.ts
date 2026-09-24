@@ -13,7 +13,7 @@ import {
     GECKO_ID,
     RELEASE_TAG_PATTERN,
     SOURCE_REQUIRED_FILES,
-    STORE,
+    Store,
 } from './constants';
 
 /**
@@ -126,7 +126,7 @@ export const verifyManifest = (bytes: Buffer, version: string, browser: string):
         throw new Error('Package manifest version does not match the selected release');
     }
     const serviceWorker = read(manifest, 'background', 'service_worker');
-    if (browser === STORE.Firefox) {
+    if (browser === Store.Firefox) {
         const backgroundScripts = read(manifest, 'background', 'scripts');
         const hasValidBackground = backgroundScripts === undefined
             || Array.isArray(backgroundScripts);

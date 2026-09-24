@@ -11,7 +11,7 @@ export const RELEASE_ASSET_PREFIX = 'hide-gmail-upgrade-button';
 /**
  * Every store the shared deployment flow knows; the same in every extension repository.
  */
-export const STORE = {
+export const Store = {
     Chrome: 'chrome',
     Edge: 'edge',
     Firefox: 'firefox',
@@ -20,7 +20,7 @@ export const STORE = {
 /**
  * Stores this extension is deployed to; each one has a deploy workflow.
  */
-export const STORE_TARGETS = [STORE.Chrome, STORE.Edge, STORE.Firefox] as const;
+export const STORE_TARGETS = [Store.Chrome, Store.Edge, Store.Firefox] as const;
 
 /**
  * Store this repository can deploy to.

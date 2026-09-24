@@ -26,11 +26,11 @@ import {
     GECKO_ID,
     RELEASE_ASSET_PREFIX,
     SOURCE_REQUIRED_FILES,
-    STORE,
+    Store,
     STORE_TARGETS,
     STORE_UPLOAD_DIRECTORY,
 } from '../../scripts/deploy/constants';
-import { DEPLOY_MODE, prepare } from '../../scripts/deploy/prepare';
+import { DeployMode, prepare } from '../../scripts/deploy/prepare';
 import { amoNotesLength } from '../../scripts/deploy/release';
 
 const notesLimit = vi.hoisted(() => ({ override: undefined as number | undefined }));
@@ -229,8 +229,8 @@ describe.each(STORE_TARGETS)('release preparation protocol for %s', (target) => 
     });
     it('refuses a package built for another store even when its checksum matches', () => {
         const store: string = target;
-        assets[assetName(target)] = store === STORE.Firefox ? chromiumPackage : firefoxPackage;
-        const reason = store === STORE.Firefox ? 'Gecko' : 'service worker';
+        assets[assetName(target)] = store === Store.Firefox ? chromiumPackage : firefoxPackage;
+        const reason = store === Store.Firefox ? 'Gecko' : 'service worker';
         expect(() => {
             prepare(envFor(target));
         }).toThrow(reason);
@@ -249,7 +249,7 @@ describe('Firefox approval notes', () => {
         .find(([file]) => String(file) === NOTES_TARGET)?.[1] as string | undefined;
 
     it('send a short note that links the reviewer instructions pinned to the release tag', () => {
-        prepare(envFor(STORE.Firefox, DEPLOY_MODE.Submit));
+        prepare(envFor(Store.Firefox, DeployMode.Submit));
         const notes = writtenNotes() ?? '';
         expect(notes).toContain(`https://github.com/fixture/repository/blob/v1.2.3/${AMO_REVIEW_NOTES_PATH}`);
         expect(notes).toContain('no remote code');
@@ -258,15 +258,15 @@ describe('Firefox approval notes', () => {
     });
     it('stay empty for a release source without reviewer instructions', () => {
         assets[assetName('source')] = pack(sourceFiles);
-        prepare(envFor(STORE.Firefox, DEPLOY_MODE.Submit));
+        prepare(envFor(Store.Firefox, DeployMode.Submit));
         expect(writtenNotes()).toBe('');
     });
-    it.each([DEPLOY_MODE.Validate, DEPLOY_MODE.Submit])(
+    it.each([DeployMode.Validate, DeployMode.Submit])(
         'fail %s mode before writing notes that exceed the limit',
         (mode) => {
             notesLimit.override = 10;
             expect(() => {
-                prepare(envFor(STORE.Firefox, mode));
+                prepare(envFor(Store.Firefox, mode));
             }).toThrow('the limit is 10');
             expect(writeFileSync).not.toHaveBeenCalled();
             expect(appendFileSync).not.toHaveBeenCalled();
@@ -274,7 +274,7 @@ describe('Firefox approval notes', () => {
     );
     it('do not block status mode, which never sends them', () => {
         notesLimit.override = 10;
-        prepare(envFor(STORE.Firefox, DEPLOY_MODE.Status));
+        prepare(envFor(Store.Firefox, DeployMode.Status));
         expect(appendFileSync).toHaveBeenCalledTimes(1);
     });
 });
