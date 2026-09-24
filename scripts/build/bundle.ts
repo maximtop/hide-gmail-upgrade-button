@@ -4,7 +4,6 @@
  */
 
 import rspack from '@rspack/core';
-import type { MultiStats } from '@rspack/core';
 
 import { createRspackConfig } from '../../rspack.config';
 import {
@@ -13,7 +12,9 @@ import {
     CHANNEL_ENVS,
     BROWSER_TARGETS,
 } from '../constants';
+
 import type { BrowserTarget, ChannelEnv } from '../constants';
+import type { MultiStats } from '@rspack/core';
 
 const WATCH_FLAG = '--watch';
 

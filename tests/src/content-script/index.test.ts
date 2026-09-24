@@ -4,7 +4,9 @@
  * @vitest-environment happy-dom
  */
 
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import {
+    beforeEach, describe, expect, it, vi,
+} from 'vitest';
 
 import {
     CALENDAR_DISABLE_MESSAGE_TYPE,
@@ -55,7 +57,7 @@ describe('content-script lifecycle', () => {
     });
 
     it('restores hidden elements and permits clean reinjection when Calendar access is removed', async () => {
-        await import('../../../src/content-script/index');
+        await import('../../../src/content-script');
         const upgrade = document.getElementById('upgrade') as HTMLElement;
         expect(upgrade.style.display).toBe('none');
 
@@ -70,7 +72,7 @@ describe('content-script lifecycle', () => {
 
     it('ignores the broadcast cleanup message on required non-Calendar hosts', async () => {
         vi.stubGlobal('location', { hostname: 'mail.google.com' });
-        await import('../../../src/content-script/index');
+        await import('../../../src/content-script');
         const upgrade = document.getElementById('upgrade') as HTMLElement;
         const listener = addMessageListenerMock.mock.calls[0]?.[0] as RuntimeMessageListener;
 
@@ -98,7 +100,7 @@ describe('content-script lifecycle', () => {
             sender: { id: EXTENSION_ID },
         },
     ])('ignores cleanup when $caseName', async ({ message, sender }) => {
-        await import('../../../src/content-script/index');
+        await import('../../../src/content-script');
         const upgrade = document.getElementById('upgrade') as HTMLElement;
         const listener = addMessageListenerMock.mock.calls[0]?.[0] as RuntimeMessageListener;
 

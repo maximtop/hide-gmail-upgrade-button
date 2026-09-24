@@ -11,6 +11,7 @@ import {
     FIREFOX_STRICT_MIN_VERSION,
     GECKO_ID,
 } from '../constants';
+
 import type { BrowserTarget, ChannelEnv } from '../constants';
 
 const JSON_INDENT = 4;

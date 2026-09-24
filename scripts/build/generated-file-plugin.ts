@@ -4,6 +4,7 @@
  */
 
 import { Compilation, sources } from '@rspack/core';
+
 import type { Compiler } from '@rspack/core';
 
 /**

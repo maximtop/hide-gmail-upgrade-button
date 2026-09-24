@@ -6,6 +6,7 @@
  */
 
 import { includesCalendarOrigin } from '../common/calendar-access';
+
 import {
     hasCalendarAccess,
     reconcileCalendarSupport,

@@ -2,7 +2,9 @@
  * @vitest-environment happy-dom
  */
 
-import { beforeEach, describe, expect, it } from 'vitest';
+import {
+    beforeEach, describe, expect, it,
+} from 'vitest';
 
 import { findGeminiButton, findHideTarget, findUpgradeButton } from '../../../src/content-script/detector';
 

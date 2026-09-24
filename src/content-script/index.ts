@@ -15,10 +15,12 @@ import {
     CALENDAR_DISABLE_MESSAGE_TYPE,
     CALENDAR_HOSTNAME,
 } from '../common/constants';
-import type { ExtensionMessage } from '../common/messages';
 import { loadSettings, subscribeToSettings } from '../common/settings';
-import type { Settings } from '../common/settings';
+
 import { createHidingWatcher } from './watcher';
+
+import type { ExtensionMessage } from '../common/messages';
+import type { Settings } from '../common/settings';
 
 const SHOW_ALL_SETTINGS: Settings = {
     hideUpgrade: false,
