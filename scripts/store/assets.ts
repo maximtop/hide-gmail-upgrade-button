@@ -101,8 +101,8 @@ const esc = (text: string): string => {
  */
 const msg = (locale: Locale, key: string): string => {
     const file = path.join(ROOT_DIR, 'src/_locales', locale, 'messages.json');
-    const messages = JSON.parse(fs.readFileSync(file, 'utf-8'));
-    return messages[key].message;
+    const messages = JSON.parse(fs.readFileSync(file, 'utf-8')) as Record<string, { message: string }>;
+    return messages[key]!.message;
 };
 
 /**

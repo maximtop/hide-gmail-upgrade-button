@@ -33,11 +33,13 @@ import {
 import { DeployMode, prepare } from '../../scripts/deploy/prepare';
 import { amoNotesLength } from '../../scripts/deploy/release';
 
+import type * as DeployConstants from '../../scripts/deploy/constants';
+
 const notesLimit = vi.hoisted(() => ({ override: undefined as number | undefined }));
 
 vi.mock('node:child_process', () => ({ execFileSync: vi.fn() }));
 vi.mock('../../scripts/deploy/constants', async (original) => {
-    const actual = await original<typeof import('../../scripts/deploy/constants')>();
+    const actual = await original<typeof DeployConstants>();
     return {
         ...actual,
         // Lets a test shrink the limit below the generated notes; `undefined` keeps the real one.

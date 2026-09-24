@@ -69,7 +69,7 @@ describe('real store descriptions', () => {
                 path.join(import.meta.dirname, `../../src/_locales/${locale}/messages.json`),
                 'utf-8',
             )) as Record<string, { message: string }>;
-            const toggleLabel = messages.popup_calendar_access_label.message;
+            const toggleLabel = messages.popup_calendar_access_label!.message;
 
             expect(body.split(toggleLabel).length - 1, locale).toBeGreaterThanOrEqual(2);
             expect(body, locale).toContain('calendar.google.com');

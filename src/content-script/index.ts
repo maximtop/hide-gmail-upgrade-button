@@ -58,7 +58,6 @@ const cleanup = (): void => {
     unsubscribeFromSettings?.();
     watcher.stop();
     watcher.applySettings(SHOW_ALL_SETTINGS);
-    chrome.runtime.onMessage.removeListener(handleRuntimeMessage);
     window.hgubContentScriptLoaded = false;
 };
 
@@ -75,8 +74,9 @@ const handleRuntimeMessage = (
     if (
         sender.id === chrome.runtime.id
         && message?.type === CALENDAR_DISABLE_MESSAGE_TYPE
-        && location.hostname === CALENDAR_HOSTNAME
+        && window.location.hostname === CALENDAR_HOSTNAME
     ) {
+        chrome.runtime.onMessage.removeListener(handleRuntimeMessage);
         cleanup();
     }
 };

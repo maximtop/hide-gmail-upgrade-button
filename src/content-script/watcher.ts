@@ -80,22 +80,19 @@ export const createHidingWatcher = (doc: Document): HidingWatcher => {
      */
     const check = (): void => {
         for (const feature of HIDE_FEATURES) {
-            if (!settings[feature.settingKey]) {
-                continue;
-            }
-
-            const tracked = hiddenByFeature.get(feature.id);
-            if (tracked && tracked.isConnected && isHiddenByExtension(tracked)) {
-                ensureHidden(tracked);
-                continue;
-            }
-
-            hiddenByFeature.delete(feature.id);
-            const button = feature.findButton(doc);
-            if (button) {
-                const target = findHideTarget(button);
-                hideElement(target, feature.id);
-                hiddenByFeature.set(feature.id, target);
+            if (settings[feature.settingKey]) {
+                const tracked = hiddenByFeature.get(feature.id);
+                if (tracked && tracked.isConnected && isHiddenByExtension(tracked)) {
+                    ensureHidden(tracked);
+                } else {
+                    hiddenByFeature.delete(feature.id);
+                    const button = feature.findButton(doc);
+                    if (button) {
+                        const target = findHideTarget(button);
+                        hideElement(target, feature.id);
+                        hiddenByFeature.set(feature.id, target);
+                    }
+                }
             }
         }
     };

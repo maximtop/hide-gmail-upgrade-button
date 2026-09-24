@@ -42,7 +42,7 @@ interface UpdateManifestOptions {
  * @returns Serialized manifest JSON.
  */
 export const updateManifest = (content: Buffer | string, options: UpdateManifestOptions): string => {
-    const manifest = JSON.parse(content.toString());
+    const manifest = JSON.parse(content.toString()) as Record<string, unknown>;
 
     manifest.version = options.version;
 
@@ -82,7 +82,7 @@ export const updateManifest = (content: Buffer | string, options: UpdateManifest
  * @returns Serialized messages JSON.
  */
 export const updateLocalesName = (content: Buffer | string, buildEnv: ChannelEnv): string => {
-    const messages = JSON.parse(content.toString());
+    const messages = JSON.parse(content.toString()) as Record<string, { message: string }>;
 
     if (buildEnv === CHANNEL_ENVS.DEV && messages.name?.message) {
         messages.name.message += DEV_NAME_SUFFIX;

@@ -89,7 +89,7 @@ const renderCalendarAccess = (enabled: boolean): void => {
  */
 const updateCalendarAccess = async (toggle: HTMLInputElement): Promise<void> => {
     const requestedEnabled = toggle.checked;
-    toggle.disabled = true;
+    toggle.toggleAttribute('disabled', true);
     renderCalendarAccess(await changeCalendarAccess(requestedEnabled));
 };
 
@@ -127,7 +127,7 @@ const initSync = (): void => {
     for (const { elementId, settingKey } of TOGGLES) {
         getToggle(elementId)?.addEventListener('change', (event) => {
             const { checked } = (event.target as HTMLInputElement);
-            saveSettings({ [settingKey]: checked }).then(writeCachedSettings);
+            void saveSettings({ [settingKey]: checked }).then(writeCachedSettings);
         });
     }
 
