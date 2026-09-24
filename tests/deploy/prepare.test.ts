@@ -90,11 +90,12 @@ const firefoxPackage = pack({
         background: { scripts: ['background.js'] },
     }),
 });
-const sourcePackage = pack({
+const sourceWithNotes = (notes: string): Buffer => pack({
     ...Object.fromEntries(SOURCE_REQUIRED_FILES.map((file) => [file, 'fixture'])),
     'package.json': JSON.stringify({ version: '1.2.3' }),
-    [AMO_REVIEW_NOTES_PATH]: 'Reviewer instructions',
+    [AMO_REVIEW_NOTES_PATH]: notes,
 });
+const sourcePackage = sourceWithNotes('Reviewer instructions');
 const assetName = (kind: string): string => `${RELEASE_ASSET_PREFIX}-1.2.3-${kind}.zip`;
 const downloadArguments = (): string[] | undefined => vi.mocked(execFileSync).mock.calls
     .find(([file, args]) => file === 'gh' && args?.[1] === 'download')?.[1] as string[] | undefined;
@@ -226,16 +227,22 @@ describe.each(STORE_TARGETS)('release preparation protocol for %s', (target) => 
 });
 
 describe('Firefox reviewer notes', () => {
-    it('fail validate mode before writing notes when AMO would reject their length', () => {
-        assets[assetName('source')] = pack({
-            ...Object.fromEntries(SOURCE_REQUIRED_FILES.map((file) => [file, 'fixture'])),
-            'package.json': JSON.stringify({ version: '1.2.3' }),
-            [AMO_REVIEW_NOTES_PATH]: 'a'.repeat(AMO_APPROVAL_NOTES_MAX_LENGTH + 1),
-        });
-        expect(() => {
-            prepare(envFor('firefox', 'validate'));
-        }).toThrow(`is ${AMO_APPROVAL_NOTES_MAX_LENGTH + 1} characters; AMO accepts at most`);
-        expect(writeFileSync).not.toHaveBeenCalled();
-        expect(appendFileSync).not.toHaveBeenCalled();
+    const overLimit = 'a'.repeat(AMO_APPROVAL_NOTES_MAX_LENGTH + 1);
+
+    it.each(['validate', 'submit'])(
+        'fail %s mode before writing notes when AMO would reject their length',
+        (mode) => {
+            assets[assetName('source')] = sourceWithNotes(overLimit);
+            expect(() => {
+                prepare(envFor('firefox', mode));
+            }).toThrow(`is ${AMO_APPROVAL_NOTES_MAX_LENGTH + 1} characters; AMO accepts at most`);
+            expect(writeFileSync).not.toHaveBeenCalled();
+            expect(appendFileSync).not.toHaveBeenCalled();
+        },
+    );
+    it('do not block status mode, which only reads the review state', () => {
+        assets[assetName('source')] = sourceWithNotes(overLimit);
+        prepare(envFor('firefox', 'status'));
+        expect(appendFileSync).toHaveBeenCalledTimes(1);
     });
 });

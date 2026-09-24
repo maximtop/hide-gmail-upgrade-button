@@ -140,13 +140,41 @@ export const verifyManifest = (bytes: Buffer, version: string, browser: string):
 };
 
 /**
+ * Characters Python's `str.strip()` removes, which is how AMO trims `approval_notes`. Unlike
+ * `String.prototype.trim` it keeps U+FEFF (BOM) and also removes U+001C-U+001F and U+0085.
+ */
+const PYTHON_WHITESPACE = '\\t\\n\\v\\f\\r\\x1c-\\x1f \\x85\\xa0\\u1680\\u2000-\\u200a'
+    + '\\u2028\\u2029\\u202f\\u205f\\u3000';
+
+const PYTHON_STRIP = new RegExp(`^[${PYTHON_WHITESPACE}]+|[${PYTHON_WHITESPACE}]+$`, 'g');
+
+/**
  * Measure reviewer notes the way AMO validates `approval_notes`.
  *
  * @param notes Reviewer notes as submitted.
  *
  * @returns Unicode code points after trimming surrounding whitespace.
  */
-export const amoNotesLength = (notes: string): number => [...notes.trim()].length;
+export const amoNotesLength = (notes: string): number => {
+    return [...notes.replace(PYTHON_STRIP, '')].length;
+};
+
+/**
+ * Fail before upload if AMO would reject the reviewer notes for their length.
+ *
+ * @param notes Reviewer notes as they will be submitted.
+ *
+ * @throws If the notes exceed the AMO limit.
+ */
+export const verifyAmoNotes = (notes: string): void => {
+    const length = amoNotesLength(notes);
+    if (length > AMO_APPROVAL_NOTES_MAX_LENGTH) {
+        throw new Error(
+            `${AMO_REVIEW_NOTES_PATH} is ${length} characters; `
+            + `AMO accepts at most ${AMO_APPROVAL_NOTES_MAX_LENGTH}`,
+        );
+    }
+};
 
 /**
  * Check matching source metadata and obtain reviewer notes from that release.
@@ -157,8 +185,7 @@ export const amoNotesLength = (notes: string): number => [...notes.trim()].lengt
  *
  * @returns Reviewer notes, empty when the archive has none.
  *
- * @throws If the source is incomplete, belongs to another version or its notes exceed the
- * AMO limit.
+ * @throws If the source is incomplete or belongs to another version.
  */
 export const verifySource = (bytes: Buffer, version: string, requireNotes: boolean): string => {
     const zip = new AdmZip(bytes);
@@ -174,13 +201,6 @@ export const verifySource = (bytes: Buffer, version: string, requireNotes: boole
     if (requireNotes && !notes.trim()) {
         throw new Error(
             `Source has no ${AMO_REVIEW_NOTES_PATH}; use the Developer Hub for this release`,
-        );
-    }
-    const length = amoNotesLength(notes);
-    if (length > AMO_APPROVAL_NOTES_MAX_LENGTH) {
-        throw new Error(
-            `${AMO_REVIEW_NOTES_PATH} is ${length} characters; `
-            + `AMO accepts at most ${AMO_APPROVAL_NOTES_MAX_LENGTH}`,
         );
     }
     return notes;

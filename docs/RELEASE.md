@@ -198,7 +198,9 @@ attachment; it does not wait for signing.
 
 A new submission requires `docs/AMO_REVIEW.md` inside that same release's
 source archive. Update these [reviewer instructions](AMO_REVIEW.md) whenever
-build requirements change.
+build requirements change. AMO rejects notes longer than 3000 characters
+(surrounding whitespace trimmed, Unicode code points counted); CI and
+`validate` mode enforce that limit, `status` does not.
 
 The initial Firefox v0.2.0 was submitted through the Developer Hub on
 2026-09-05 with matching sources and is awaiting review. Its source archive

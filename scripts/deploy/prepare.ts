@@ -23,6 +23,7 @@ import {
     releaseVersion,
     requireConfiguration,
     verifyChecksum,
+    verifyAmoNotes,
     verifyManifest,
     verifySource,
 } from './release';
@@ -131,6 +132,11 @@ export const prepare = (env: NodeJS.ProcessEnv = process.env): void => {
     if (store === 'firefox') {
         const sourceBytes = readFileSync(path.join(STORE_UPLOAD_DIRECTORY, source));
         const notes = verifySource(sourceBytes, version, false);
+        // `status` only reads AMO, so over-limit notes of a version uploaded by hand must not
+        // block it.
+        if (mode !== 'status') {
+            verifyAmoNotes(notes);
+        }
         writeFileSync(path.join(STORE_UPLOAD_DIRECTORY, AMO_APPROVAL_NOTES_FILENAME), notes);
     }
     appendFileSync(
