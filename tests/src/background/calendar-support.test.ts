@@ -2,8 +2,15 @@
  * @file Tests for optional Calendar host-access reconciliation.
  */
 
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import {
+    beforeEach, describe, expect, it, vi,
+} from 'vitest';
 
+import {
+    hasCalendarAccess,
+    reconcileCalendarSupport,
+    restoreOpenCalendarTabs,
+} from '../../../src/background/calendar-support';
 import {
     CALENDAR_CONTENT_SCRIPT_ID,
     CALENDAR_DISABLE_MESSAGE_TYPE,
@@ -11,11 +18,6 @@ import {
     CONTENT_SCRIPT_FILE,
     PREHIDE_STYLESHEET_FILE,
 } from '../../../src/common/constants';
-import {
-    hasCalendarAccess,
-    reconcileCalendarSupport,
-    restoreOpenCalendarTabs,
-} from '../../../src/background/calendar-support';
 
 const injectIntoOpenTabsMock = vi.hoisted(() => {
     return vi.fn();

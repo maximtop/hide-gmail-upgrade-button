@@ -15,10 +15,12 @@ import {
     CALENDAR_DISABLE_MESSAGE_TYPE,
     CALENDAR_HOSTNAME,
 } from '../common/constants';
-import type { ExtensionMessage } from '../common/messages';
 import { loadSettings, subscribeToSettings } from '../common/settings';
-import type { Settings } from '../common/settings';
+
 import { createHidingWatcher } from './watcher';
+
+import type { ExtensionMessage } from '../common/messages';
+import type { Settings } from '../common/settings';
 
 const SHOW_ALL_SETTINGS: Settings = {
     hideUpgrade: false,
@@ -56,7 +58,6 @@ const cleanup = (): void => {
     unsubscribeFromSettings?.();
     watcher.stop();
     watcher.applySettings(SHOW_ALL_SETTINGS);
-    chrome.runtime.onMessage.removeListener(handleRuntimeMessage);
     window.hgubContentScriptLoaded = false;
 };
 
@@ -73,8 +74,9 @@ const handleRuntimeMessage = (
     if (
         sender.id === chrome.runtime.id
         && message?.type === CALENDAR_DISABLE_MESSAGE_TYPE
-        && location.hostname === CALENDAR_HOSTNAME
+        && window.location.hostname === CALENDAR_HOSTNAME
     ) {
+        chrome.runtime.onMessage.removeListener(handleRuntimeMessage);
         cleanup();
     }
 };

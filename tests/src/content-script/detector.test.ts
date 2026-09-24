@@ -2,7 +2,9 @@
  * @vitest-environment happy-dom
  */
 
-import { beforeEach, describe, expect, it } from 'vitest';
+import {
+    beforeEach, describe, expect, it, vi,
+} from 'vitest';
 
 import { findGeminiButton, findHideTarget, findUpgradeButton } from '../../../src/content-script/detector';
 
@@ -216,7 +218,7 @@ describe('findHideTarget', () => {
      * @param width Reported width in pixels.
      */
     const stubWidth = (element: HTMLElement, width: number): void => {
-        element.getBoundingClientRect = () => ({ width } as DOMRect);
+        vi.spyOn(element, 'getBoundingClientRect').mockReturnValue({ width } as DOMRect);
     };
 
     it('climbs single-purpose wrappers up to the row item, like the real Upgrade markup', () => {

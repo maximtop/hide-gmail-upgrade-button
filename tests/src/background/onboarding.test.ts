@@ -2,7 +2,9 @@
  * @file Tests for opening the onboarding page after installation.
  */
 
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import {
+    beforeEach, describe, expect, it, vi,
+} from 'vitest';
 
 import { openOnboardingOnInstall } from '../../../src/background/onboarding';
 

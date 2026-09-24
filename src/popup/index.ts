@@ -11,8 +11,10 @@
 import { changeCalendarAccess, readCalendarAccess, subscribeToCalendarAccess } from '../common/calendar-access';
 import { ONBOARDING_PAGE_FILE } from '../common/constants';
 import { DEFAULT_SETTINGS, loadSettings, saveSettings } from '../common/settings';
-import type { Settings } from '../common/settings';
+
 import { readCachedSettings, writeCachedSettings } from './settings-cache';
+
+import type { Settings } from '../common/settings';
 
 /**
  * Sets the localized text of an element.
@@ -39,7 +41,7 @@ const getToggle = (elementId: string): HTMLInputElement | null => {
     return element instanceof HTMLInputElement ? element : null;
 };
 
-const TOGGLES: ReadonlyArray<{ elementId: string; settingKey: keyof Settings }> = [
+const TOGGLES: readonly { elementId: string; settingKey: keyof Settings }[] = [
     { elementId: 'hide-upgrade', settingKey: 'hideUpgrade' },
     { elementId: 'hide-gemini', settingKey: 'hideGemini' },
 ];
@@ -87,7 +89,7 @@ const renderCalendarAccess = (enabled: boolean): void => {
  */
 const updateCalendarAccess = async (toggle: HTMLInputElement): Promise<void> => {
     const requestedEnabled = toggle.checked;
-    toggle.disabled = true;
+    toggle.toggleAttribute('disabled', true);
     renderCalendarAccess(await changeCalendarAccess(requestedEnabled));
 };
 
@@ -124,8 +126,8 @@ const initSync = (): void => {
 
     for (const { elementId, settingKey } of TOGGLES) {
         getToggle(elementId)?.addEventListener('change', (event) => {
-            const checked = (event.target as HTMLInputElement).checked;
-            saveSettings({ [settingKey]: checked }).then(writeCachedSettings);
+            const { checked } = (event.target as HTMLInputElement);
+            void saveSettings({ [settingKey]: checked }).then(writeCachedSettings);
         });
     }
 

@@ -37,7 +37,7 @@ export const hideElement = (element: HTMLElement, featureId: string): void => {
 
     element.setAttribute(ORIGINAL_DISPLAY_ATTRIBUTE, element.style.display);
     element.setAttribute(HIDDEN_MARKER_ATTRIBUTE, featureId);
-    element.style.display = 'none';
+    element.style.setProperty('display', 'none');
 };
 
 /**
@@ -49,7 +49,7 @@ export const hideElement = (element: HTMLElement, featureId: string): void => {
  */
 export const ensureHidden = (element: HTMLElement): void => {
     if (isHiddenByExtension(element) && element.style.display !== 'none') {
-        element.style.display = 'none';
+        element.style.setProperty('display', 'none');
     }
 };
 
@@ -69,7 +69,7 @@ export const restoreElement = (element: HTMLElement): void => {
     if (originalDisplay === '') {
         element.style.removeProperty('display');
     } else {
-        element.style.display = originalDisplay;
+        element.style.setProperty('display', originalDisplay);
     }
 
     element.removeAttribute(ORIGINAL_DISPLAY_ATTRIBUTE);
