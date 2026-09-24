@@ -9,9 +9,10 @@
  * injected stylesheet, so disabled buttons stay visible.
  */
 
-import type { Settings } from '../common/settings';
 import { HIDE_FEATURES } from './features';
+
 import type { HideFeature } from './features';
+import type { Settings } from '../common/settings';
 
 const OVERRIDE_ATTRIBUTE = 'data-hgub-prehide-override';
 

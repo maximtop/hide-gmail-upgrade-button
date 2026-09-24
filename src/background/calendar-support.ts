@@ -2,6 +2,7 @@
  * @file Optional Calendar host-access and dynamic content-script lifecycle.
  */
 
+import { readCalendarAccess } from '../common/calendar-access';
 import {
     CALENDAR_CONTENT_SCRIPT_ID,
     CALENDAR_DISABLE_MESSAGE_TYPE,
@@ -9,9 +10,10 @@ import {
     CONTENT_SCRIPT_FILE,
     PREHIDE_STYLESHEET_FILE,
 } from '../common/constants';
-import { readCalendarAccess } from '../common/calendar-access';
-import type { ExtensionMessage } from '../common/messages';
+
 import { injectIntoOpenTabs } from './inject-open-tabs';
+
+import type { ExtensionMessage } from '../common/messages';
 
 const CALENDAR_CONTENT_SCRIPT: chrome.scripting.RegisteredContentScript = {
     id: CALENDAR_CONTENT_SCRIPT_ID,

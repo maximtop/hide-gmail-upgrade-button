@@ -9,7 +9,9 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import {
+    beforeEach, describe, expect, it, vi,
+} from 'vitest';
 
 import { CALENDAR_URL_PATTERN } from '../../../src/common/constants';
 
@@ -25,7 +27,7 @@ const removeMock = vi.fn();
 const getUserSettingsMock = vi.fn();
 let addedListeners: PermissionsListener[] = [];
 let removedListeners: PermissionsListener[] = [];
-let userSettingsListeners: Array<() => void> = [];
+let userSettingsListeners: (() => void)[] = [];
 
 const byId = <T extends HTMLElement = HTMLElement>(id: string): T => {
     return document.getElementById(id) as T;
@@ -55,7 +57,9 @@ const pin = () => {
 };
 
 const expectCalendarState = (enabled: boolean): void => {
-    const { card, textOff, textOn, why, enableButton, enabledStatus, disableButton } = calendar();
+    const {
+        card, textOff, textOn, why, enableButton, enabledStatus, disableButton,
+    } = calendar();
     expect(card.hasAttribute('data-pending')).toBe(false);
     expect(textOff.hidden).toBe(enabled);
     expect(why.hidden).toBe(enabled);
@@ -68,7 +72,9 @@ const expectCalendarState = (enabled: boolean): void => {
 };
 
 const expectPinnedState = (pinned: boolean): void => {
-    const { card, text, doneText, art, done } = pin();
+    const {
+        card, text, doneText, art, done,
+    } = pin();
     expect(card.hasAttribute('data-pending')).toBe(false);
     expect(text.hidden).toBe(pinned);
     expect(art.hidden).toBe(pinned);
@@ -83,7 +89,7 @@ const renderPage = (): void => {
 };
 
 const loadPage = async (): Promise<void> => {
-    await import('../../../src/onboarding/index');
+    await import('../../../src/onboarding');
     await vi.waitFor(() => {
         expect(calendar().card.hasAttribute('data-pending')).toBe(false);
         expect(pin().card.hasAttribute('data-pending')).toBe(false);
@@ -125,7 +131,7 @@ describe('onboarding page', () => {
     });
 
     it('localizes every text, the illustration and the document from the served catalog', async () => {
-        await import('../../../src/onboarding/index');
+        await import('../../../src/onboarding');
 
         expect(document.title).toBe('msg:onboarding_title');
         expect(document.documentElement.lang).toBe('he');
@@ -145,7 +151,7 @@ describe('onboarding page', () => {
                 resolveAccess = resolve;
             }));
 
-            await import('../../../src/onboarding/index');
+            await import('../../../src/onboarding');
 
             expect(calendar().card.hasAttribute('data-pending')).toBe(true);
             expect(calendar().enableButton.disabled).toBe(true);
@@ -161,7 +167,7 @@ describe('onboarding page', () => {
         it('stays pending when the permission state is unavailable', async () => {
             containsMock.mockRejectedValue(new Error('permission state unavailable'));
 
-            await import('../../../src/onboarding/index');
+            await import('../../../src/onboarding');
             await new Promise((resolve) => {
                 setTimeout(resolve, 0);
             });
@@ -265,7 +271,7 @@ describe('onboarding page', () => {
                 resolveSettings = resolve;
             }));
 
-            await import('../../../src/onboarding/index');
+            await import('../../../src/onboarding');
             expect(pin().card.hasAttribute('data-pending')).toBe(true);
 
             resolveSettings?.({ isOnToolbar: true });

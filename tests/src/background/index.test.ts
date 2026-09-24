@@ -2,7 +2,9 @@
  * @file Background lifecycle wiring tests for optional Calendar support.
  */
 
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import {
+    beforeEach, describe, expect, it, vi,
+} from 'vitest';
 
 import { CALENDAR_URL_PATTERN } from '../../../src/common/constants';
 
@@ -62,7 +64,7 @@ describe('background entrypoint', () => {
         });
         vi.spyOn(console, 'debug').mockImplementation(() => {});
 
-        await import('../../../src/background/index');
+        await import('../../../src/background');
     });
 
     it('injects required hosts and reconciles Calendar after install or update', async () => {

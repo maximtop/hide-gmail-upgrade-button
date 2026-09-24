@@ -11,6 +11,8 @@ import path from 'node:path';
 
 import sharp from 'sharp';
 
+import captionsJson from './screenshot-captions.json';
+
 const ROOT_DIR = path.resolve(import.meta.dirname, '../..');
 
 const OUTPUT_DIR = path.join(ROOT_DIR, 'assets/store');
@@ -28,8 +30,6 @@ const CARD_BORDER = '#E2E5EA';
 const BG = '#F2F6F5';
 
 const FONT = 'Helvetica, Arial, sans-serif';
-
-import captionsJson from './screenshot-captions.json';
 
 /**
  * Screenshot texts for one locale.
@@ -101,8 +101,8 @@ const esc = (text: string): string => {
  */
 const msg = (locale: Locale, key: string): string => {
     const file = path.join(ROOT_DIR, 'src/_locales', locale, 'messages.json');
-    const messages = JSON.parse(fs.readFileSync(file, 'utf-8'));
-    return messages[key].message;
+    const messages = JSON.parse(fs.readFileSync(file, 'utf-8')) as Record<string, { message: string }>;
+    return messages[key]!.message;
 };
 
 /**
@@ -299,7 +299,7 @@ const buildScreenshots = (locale: Locale): string[] => {
         appCard(490, appNames[1] ?? '', folder),
         appCard(868, appNames[2] ?? '', doc),
     ].join('');
-    const bullets = captions.bullets;
+    const { bullets } = captions;
     const bulletRow = (by: number, text: string): string => `
         <g transform="translate(240 ${by})">
             <rect width="800" height="104" rx="20" fill="#ffffff" stroke="${CARD_BORDER}" stroke-width="2"/>

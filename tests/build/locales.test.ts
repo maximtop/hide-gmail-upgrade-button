@@ -39,16 +39,16 @@ describe('locale files', () => {
     it('keep every name within the strictest store limit of 45 characters (Edge Add-ons)', () => {
         for (const locale of locales) {
             const filePath = path.join(localesDir, locale, 'messages.json');
-            const messages = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
-            expect(messages.name.message.length).toBeLessThanOrEqual(45);
+            const catalog = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+            expect(catalog.name.message.length).toBeLessThanOrEqual(45);
         }
     });
 
     it('keep every description within the Chrome Web Store limit of 132 characters', () => {
         for (const locale of locales) {
             const filePath = path.join(localesDir, locale, 'messages.json');
-            const messages = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
-            expect(messages.description.message.length).toBeLessThanOrEqual(132);
+            const catalog = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+            expect(catalog.description.message.length).toBeLessThanOrEqual(132);
         }
     });
 
@@ -57,9 +57,9 @@ describe('locale files', () => {
 
         for (const locale of locales) {
             const filePath = path.join(localesDir, locale, 'messages.json');
-            const messages = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
-            expect(messages.locale_code.message).toBe(locale.replace('_', '-'));
-            expect(messages.locale_dir.message).toBe(rtlLocales.includes(locale) ? 'rtl' : 'ltr');
+            const catalog = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+            expect(catalog.locale_code.message).toBe(locale.replace('_', '-'));
+            expect(catalog.locale_dir.message).toBe(rtlLocales.includes(locale) ? 'rtl' : 'ltr');
         }
     });
 

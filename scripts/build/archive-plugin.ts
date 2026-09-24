@@ -7,6 +7,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 import AdmZip from 'adm-zip';
+
 import type { Compiler } from '@rspack/core';
 
 /**

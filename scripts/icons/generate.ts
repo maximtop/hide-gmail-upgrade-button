@@ -27,7 +27,7 @@ const SVG_DENSITY = 300;
  * Icon sizes required by the manifest, mapped to their master file — 16 px
  * uses the thick-slash variant so the white line survives downscaling.
  */
-const EXPORTS: ReadonlyArray<{ size: number; source: string }> = [
+const EXPORTS: readonly { size: number; source: string }[] = [
     { size: 16, source: MASTER_SVG_16 },
     { size: 32, source: MASTER_SVG },
     { size: 48, source: MASTER_SVG },

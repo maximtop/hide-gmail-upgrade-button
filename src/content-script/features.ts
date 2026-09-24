@@ -3,8 +3,9 @@
  * extension can hide, wiring a settings key to its detector.
  */
 
-import type { Settings } from '../common/settings';
 import { findGeminiButton, findUpgradeButton } from './detector';
+
+import type { Settings } from '../common/settings';
 
 /**
  * A hideable header feature.

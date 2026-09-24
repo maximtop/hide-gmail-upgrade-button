@@ -109,8 +109,7 @@ The onboarding page's store link is resolved per build target (`STORE_LISTING_UR
 - **Deploy Chrome Web Store**, **Deploy Edge Add-ons** and **Deploy Firefox
   Add-ons** run only when manually dispatched in GitHub Actions. A GitHub
   Release never submits to any store. All three validate the release with the
-  shared `scripts/deploy` code (also used by the other extension
-  repositories) and use existing release assets with matching checksums; the
+  `scripts/deploy` code and use existing release assets with matching checksums; the
   package is not rebuilt. Every workflow offers a `validate` mode that stops
   before the store. Chrome requires manual publication after approval. Edge
   is published by Microsoft after certification and offers an upload-only

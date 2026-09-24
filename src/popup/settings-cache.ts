@@ -10,6 +10,7 @@
  */
 
 import { validateSettings } from '../common/settings';
+
 import type { Settings } from '../common/settings';
 
 const CACHE_KEY = 'settings-cache';
