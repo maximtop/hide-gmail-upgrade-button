@@ -21,7 +21,7 @@
     },
     "popup_calendar_access_label": {
         "message": "Google Calendar에서 사용 설정하기",
-        "description": "Label of the optional Google Calendar access toggle."
+        "description": "Label of the optional Google Calendar access toggle in the popup; also the enable button on the onboarding page."
     },
     "popup_markup_note": {
         "message": "버튼이 다시 나타나면 Google이 인터페이스를 변경한 것입니다. 확장 프로그램 업데이트로 수정됩니다.",
@@ -30,5 +30,101 @@
     "popup_report_link": {
         "message": "문제 신고",
         "description": "Popup link to the issue tracker."
+    },
+    "popup_onboarding_link": {
+        "message": "작동 방식",
+        "description": "Popup link that opens the onboarding page."
+    },
+    "onboarding_title": {
+        "message": "Hide Upgrade Button이 설치되었습니다",
+        "description": "Onboarding page title and heading, shown after installation."
+    },
+    "onboarding_intro": {
+        "message": "이제 Gmail, Google Drive, Docs, Sheets, Slides에서 Upgrade 및 Ask Gemini 버튼이 숨겨집니다. 열려 있는 탭을 새로고침할 필요가 없습니다.",
+        "description": "Onboarding lead line under the title."
+    },
+    "onboarding_before": {
+        "message": "변경 전",
+        "description": "Onboarding illustration label above the Google header with the buttons still shown."
+    },
+    "onboarding_after": {
+        "message": "변경 후",
+        "description": "Onboarding illustration label above the Google header with the buttons hidden."
+    },
+    "onboarding_how_image_alt": {
+        "message": "변경 전후의 Google 헤더: Upgrade 및 Ask Gemini 버튼이 사라졌습니다",
+        "description": "Accessible description of the before/after illustration."
+    },
+    "onboarding_calendar_heading": {
+        "message": "Google Calendar",
+        "description": "Onboarding card heading about optional Google Calendar support."
+    },
+    "onboarding_calendar_text": {
+        "message": "Calendar에서도 Upgrade 버튼을 숨기세요. 브라우저에서 calendar.google.com에 대한 액세스를 허용할지 묻습니다.",
+        "description": "Onboarding Calendar card text while Calendar access is off."
+    },
+    "onboarding_calendar_text_on": {
+        "message": "Calendar에서도 Upgrade 버튼이 숨겨집니다.",
+        "description": "Onboarding Calendar card text once Calendar access is granted."
+    },
+    "onboarding_calendar_why_toggle": {
+        "message": "왜 선택 사항인가요?",
+        "description": "Onboarding disclosure toggle that reveals why Calendar access is optional."
+    },
+    "onboarding_calendar_why": {
+        "message": "Calendar 액세스는 필요한 사용자에게만 요청합니다. 필수로 설정하면 브라우저가 이미 설치한 모든 사용자의 확장 프로그램을 새 액세스를 승인할 때까지 사용 중지하게 됩니다.",
+        "description": "Onboarding: text revealed by the 'Why is it optional?' toggle."
+    },
+    "onboarding_calendar_enabled": {
+        "message": "사용 설정됨",
+        "description": "Onboarding status shown when Google Calendar access is granted."
+    },
+    "onboarding_calendar_disable": {
+        "message": "끄기",
+        "description": "Onboarding button that removes Google Calendar access."
+    },
+    "onboarding_calendar_denied": {
+        "message": "액세스가 허용되지 않았습니다. 언제든지 다시 시도할 수 있습니다.",
+        "description": "Onboarding hint shown after the user declined or closed the browser's Calendar access prompt."
+    },
+    "onboarding_pin_heading": {
+        "message": "확장 프로그램 고정하기",
+        "description": "Onboarding card heading about pinning the extension to the toolbar."
+    },
+    "onboarding_pin_text": {
+        "message": "도구 모음에서 퍼즐 조각 모양의 확장 프로그램 메뉴를 열고 Hide Upgrade Button을 고정하면 클릭 한 번으로 설정을 열 수 있습니다.",
+        "description": "Onboarding: how to pin the extension icon. Keep 'Hide Upgrade Button' untranslated."
+    },
+    "onboarding_pin_done": {
+        "message": "고정됨",
+        "description": "Onboarding status shown when the extension icon is already pinned to the toolbar."
+    },
+    "onboarding_pin_done_text": {
+        "message": "도구 모음의 확장 프로그램 아이콘에서 설정을 열 수 있습니다.",
+        "description": "Onboarding Pin card text once the extension icon is pinned."
+    },
+    "onboarding_report_link": {
+        "message": "버튼이 다시 나타났나요? 신고하기",
+        "description": "Onboarding footer link to report a hidden button that reappeared."
+    },
+    "onboarding_rate_link": {
+        "message": "유용하셨나요? 스토어에서 확장 프로그램을 평가해 주세요",
+        "description": "Onboarding unobtrusive link to the extension's store page."
+    },
+    "onboarding_privacy_text": {
+        "message": "분석 도구도 네트워크 요청도 없습니다.",
+        "description": "Onboarding one-line privacy summary."
+    },
+    "onboarding_privacy_link": {
+        "message": "개인정보처리방침",
+        "description": "Onboarding link to the privacy policy."
+    },
+    "locale_code": {
+        "message": "ko",
+        "description": "Do not translate: this catalog's BCP 47 language tag, used as the page lang attribute."
+    },
+    "locale_dir": {
+        "message": "ltr",
+        "description": "Do not translate: this catalog's text direction, ltr or rtl."
     }
 }

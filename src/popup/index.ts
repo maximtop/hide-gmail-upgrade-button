@@ -8,7 +8,8 @@
  * storage subscription.
  */
 
-import { CALENDAR_URL_PATTERN } from '../common/constants';
+import { changeCalendarAccess, readCalendarAccess, subscribeToCalendarAccess } from '../common/calendar-access';
+import { ONBOARDING_PAGE_FILE } from '../common/constants';
 import { DEFAULT_SETTINGS, loadSettings, saveSettings } from '../common/settings';
 import type { Settings } from '../common/settings';
 import { readCachedSettings, writeCachedSettings } from './settings-cache';
@@ -62,15 +63,6 @@ const revealPopup = (): void => {
 };
 
 /**
- * Creates the exact optional host request declared in the manifest.
- *
- * @returns Calendar host permission request.
- */
-const getCalendarPermission = (): chrome.permissions.Permissions => {
-    return { origins: [CALENDAR_URL_PATTERN] };
-};
-
-/**
  * Renders the authoritative Calendar permission state and reveals its row.
  *
  * @param enabled Whether Calendar access is granted.
@@ -95,23 +87,8 @@ const renderCalendarAccess = (enabled: boolean): void => {
  */
 const updateCalendarAccess = async (toggle: HTMLInputElement): Promise<void> => {
     const requestedEnabled = toggle.checked;
-    const previousEnabled = !requestedEnabled;
     toggle.disabled = true;
-
-    try {
-        await (requestedEnabled
-            ? chrome.permissions.request(getCalendarPermission())
-            : chrome.permissions.remove(getCalendarPermission()));
-    } catch {
-        // The operation may still have changed browser state before failing,
-        // so the authoritative check below remains necessary.
-    }
-
-    try {
-        renderCalendarAccess(await chrome.permissions.contains(getCalendarPermission()));
-    } catch {
-        renderCalendarAccess(previousEnabled);
-    }
+    renderCalendarAccess(await changeCalendarAccess(requestedEnabled));
 };
 
 /**
@@ -140,6 +117,8 @@ const initSync = (): void => {
     localize('calendar-access-label', 'popup_calendar_access_label');
     localize('markup-note', 'popup_markup_note');
     localize('report-link', 'popup_report_link');
+    localize('onboarding-link', 'popup_onboarding_link');
+    document.getElementById('onboarding-link')?.setAttribute('href', chrome.runtime.getURL(ONBOARDING_PAGE_FILE));
 
     renderSettings(readCachedSettings() ?? DEFAULT_SETTINGS);
 
@@ -153,6 +132,9 @@ const initSync = (): void => {
     getToggle(CALENDAR_ACCESS_TOGGLE_ID)?.addEventListener('change', (event) => {
         void updateCalendarAccess(event.target as HTMLInputElement);
     });
+
+    // Access may also change on the onboarding page while the popup is open.
+    subscribeToCalendarAccess(renderCalendarAccess);
 };
 
 /**
@@ -162,7 +144,7 @@ const initSync = (): void => {
 const reconcile = async (): Promise<void> => {
     const [settingsResult, calendarAccessResult] = await Promise.allSettled([
         loadSettings(),
-        chrome.permissions.contains(getCalendarPermission()),
+        readCalendarAccess(),
     ]);
 
     if (settingsResult.status === 'fulfilled') {

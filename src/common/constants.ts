@@ -72,6 +72,11 @@ export const CALENDAR_CONTENT_SCRIPT_ID = 'google-calendar';
 export const CALENDAR_DISABLE_MESSAGE_TYPE = 'disable-google-calendar';
 
 /**
+ * Onboarding page file name, as emitted by the build.
+ */
+export const ONBOARDING_PAGE_FILE = 'onboarding.html';
+
+/**
  * Bundled content script file name, as emitted by the build.
  */
 export const CONTENT_SCRIPT_FILE = 'content-script.js';

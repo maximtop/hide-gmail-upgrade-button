@@ -4,7 +4,7 @@ Build commands, structure and environment setup live in [DEVELOPMENT.md](DEVELOP
 
 ## Scope boundary
 
-The content script hides two header buttons (Upgrade, Ask Gemini) behind popup toggles stored in `chrome.storage.local`, on Gmail, Google Drive and Google Docs, plus Upgrade in Google Calendar after an optional runtime host grant. The mutation watcher keeps them hidden across re-renders, and the background re-injects into tabs already open when access is granted. Still separate tasks — do not add them "while you are here": icons and store assets.
+The content script hides two header buttons (Upgrade, Ask Gemini) behind popup toggles stored in `chrome.storage.local`, on Gmail, Google Drive and Google Docs, plus Upgrade in Google Calendar after an optional runtime host grant. The mutation watcher keeps them hidden across re-renders, and the background re-injects into tabs already open when access is granted. A static onboarding page opens once after a fresh install (never on updates) and is linked from the popup: it shows what is hidden, offers the same optional Calendar grant as the popup, shows how to pin the extension (reading the pinned state via `action.getUserSettings`) and links to support, the privacy policy and the store listing of the build target. Still separate tasks — do not add them "while you are here": icons and store assets.
 
 ## Code style
 

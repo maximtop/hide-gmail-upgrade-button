@@ -8,11 +8,12 @@ import path from 'node:path';
 import rspack from '@rspack/core';
 import type { Configuration } from '@rspack/core';
 
-import { CHANNEL_ENVS } from './scripts/constants';
+import { CHANNEL_ENVS, STORE_LISTING_URLS } from './scripts/constants';
 import type { BrowserTarget, ChannelEnv } from './scripts/constants';
 import { ArchivePlugin } from './scripts/build/archive-plugin';
 import { GeneratedFilePlugin } from './scripts/build/generated-file-plugin';
 import { updateLocalesName, updateManifest } from './scripts/build/helpers';
+import { ONBOARDING_PAGE_FILE } from './src/common/constants';
 import { buildPrehideCss } from './src/content-script/prehide';
 
 const ROOT_DIR = import.meta.dirname;
@@ -55,6 +56,7 @@ export const createRspackConfig = (browser: BrowserTarget, buildEnv: ChannelEnv)
             background: './src/background/index.ts',
             'content-script': './src/content-script/index.ts',
             popup: './src/popup/index.ts',
+            onboarding: './src/onboarding/index.ts',
         },
         output: {
             path: outputPath,
@@ -114,6 +116,18 @@ export const createRspackConfig = (browser: BrowserTarget, buildEnv: ChannelEnv)
                 // state flip on open).
                 inject: 'body',
                 scriptLoading: 'blocking',
+            }),
+            new rspack.HtmlRspackPlugin({
+                template: 'src/onboarding/index.html',
+                filename: ONBOARDING_PAGE_FILE,
+                chunks: ['onboarding'],
+                // Same as the popup: localized copy is applied before the
+                // first paint, so the page never shows empty headings.
+                inject: 'body',
+                scriptLoading: 'blocking',
+                templateParameters: {
+                    storeListingUrl: STORE_LISTING_URLS[browser],
+                },
             }),
             new ArchivePlugin(outputPath, `${outputPath}.zip`),
         ],

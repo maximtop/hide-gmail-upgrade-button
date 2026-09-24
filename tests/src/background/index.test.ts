@@ -10,6 +10,7 @@ const reconcileCalendarSupportMock = vi.hoisted(() => vi.fn());
 const restoreOpenCalendarTabsMock = vi.hoisted(() => vi.fn());
 const hasCalendarAccessMock = vi.hoisted(() => vi.fn());
 const injectIntoOpenTabsMock = vi.hoisted(() => vi.fn());
+const openOnboardingOnInstallMock = vi.hoisted(() => vi.fn());
 
 vi.mock('../../../src/background/calendar-support', () => {
     return {
@@ -23,12 +24,18 @@ vi.mock('../../../src/background/inject-open-tabs', () => {
     return { injectIntoOpenTabs: injectIntoOpenTabsMock };
 });
 
+vi.mock('../../../src/background/onboarding', () => {
+    return { openOnboardingOnInstall: openOnboardingOnInstallMock };
+});
+
 const onInstalledAddListenerMock = vi.fn();
 const onStartupAddListenerMock = vi.fn();
 const onAddedAddListenerMock = vi.fn();
 const onRemovedAddListenerMock = vi.fn();
 
 type PermissionsListener = (permissions: chrome.permissions.Permissions) => void;
+
+type InstalledListener = (details: chrome.runtime.InstalledDetails) => void;
 
 describe('background entrypoint', () => {
     beforeEach(async () => {
@@ -37,6 +44,7 @@ describe('background entrypoint', () => {
         restoreOpenCalendarTabsMock.mockReset().mockResolvedValue(undefined);
         hasCalendarAccessMock.mockReset().mockResolvedValue(false);
         injectIntoOpenTabsMock.mockReset().mockResolvedValue(undefined);
+        openOnboardingOnInstallMock.mockReset().mockResolvedValue(undefined);
         onInstalledAddListenerMock.mockReset();
         onStartupAddListenerMock.mockReset();
         onAddedAddListenerMock.mockReset();
@@ -58,11 +66,13 @@ describe('background entrypoint', () => {
     });
 
     it('injects required hosts and reconciles Calendar after install or update', async () => {
-        const listener = onInstalledAddListenerMock.mock.calls[0]?.[0] as () => void;
+        const listener = onInstalledAddListenerMock.mock.calls[0]?.[0] as InstalledListener;
+        const details: chrome.runtime.InstalledDetails = { reason: 'update', previousVersion: '0.2.0' };
 
-        listener();
+        listener(details);
 
         expect(injectIntoOpenTabsMock).toHaveBeenCalledWith();
+        expect(openOnboardingOnInstallMock).toHaveBeenCalledWith(details);
         await vi.waitFor(() => {
             expect(reconcileCalendarSupportMock).toHaveBeenCalledOnce();
         });

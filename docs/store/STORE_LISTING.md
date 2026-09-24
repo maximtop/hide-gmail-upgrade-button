@@ -37,7 +37,7 @@ fields; keep them identical to the localized package strings.
   `scripting` — inject into already open Gmail/Drive/Docs tabs on install;
   host permissions for the three Google domains — the only sites the
   extension operates on by default. Calendar host access is optional and
-  can be granted or revoked through the popup.
+  can be granted or revoked through the onboarding page or the popup.
 - **Data collection:** none. No data is collected, transmitted or sold; no
   remote code; no network requests (see PRIVACY.md).
 
@@ -108,7 +108,8 @@ Single purpose:
 
 > Hides the promotional "Upgrade" and "Ask Gemini" buttons in the headers of
 > Gmail, Google Drive and Google Docs, and — only after the user grants
-> optional access from the popup — the "Upgrade" button in Google Calendar.
+> optional access on the onboarding page or in the popup — the "Upgrade"
+> button in Google Calendar.
 > Each button has its own local on/off toggle.
 
 `storage`:
@@ -134,10 +135,10 @@ and `docs.google.com`:
 
 Optional host permission `calendar.google.com` (if listed):
 
-> Optional and off by default. Requested only when the user turns on "Enable
-> in Google Calendar" in the popup, to hide the Upgrade button in the
-> Calendar header; the user can revoke it from the popup at any time. The
-> extension does not read calendar contents.
+> Optional and off by default. Requested only when the user clicks "Enable
+> in Google Calendar" on the onboarding page or turns it on in the popup, to
+> hide the Upgrade button in the Calendar header; the user can revoke it from
+> either place at any time. The extension does not read calendar contents.
 
 Remote code: **No, I am not using remote code.**
 
@@ -154,11 +155,11 @@ locally and nothing leaves the browser.
 No extension account, payment or paid feature is required. Any consumer Google account works for the Google websites.
 
 Test steps:
-1. Open Gmail, Google Drive and Google Docs, then install the extension. Tabs that were already open are handled without a reload.
+1. Open Gmail, Google Drive and Google Docs, then install the extension. Tabs that were already open are handled without a reload. A local onboarding page opens in a new tab once, after installation only; it is packaged with the extension and loads nothing remote. It can be reopened from "How it works" in the popup.
 2. Where Google shows the Upgrade or Ask Gemini controls in the header, confirm they are hidden and the neighbouring icons close the gap.
 3. Open the extension popup and turn either toggle off: the corresponding control returns immediately. Turn it on again: the control is hidden immediately.
 4. Reload or navigate inside a Google app: the settings persist and re-rendered controls stay hidden.
-5. Google Calendar is optional. Before access is granted, nothing changes there. Turn on "Enable in Google Calendar" in the popup and accept the browser prompt: the Upgrade button in the Calendar header is hidden without a reload. Turn it off: the button returns and the optional access is removed.
+5. Google Calendar is optional. Before access is granted, nothing changes there. Click "Enable in Google Calendar" on the onboarding page (or turn on the same switch in the popup) and accept the browser prompt: the Upgrade button in the Calendar header is hidden without a reload, and the popup switch shows it as on. Click "Turn off" on the page or turn the popup switch off: the button returns and the optional access is removed.
 
 Google varies promotional controls by account, region and rollout, so their absence is expected. When a match is ambiguous, the extension deliberately does nothing.
 

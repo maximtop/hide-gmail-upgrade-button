@@ -8,9 +8,13 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { CALENDAR_URL_PATTERN } from '../../../src/common/constants';
 
+type PermissionsListener = (permissions: chrome.permissions.Permissions) => void;
+
 const containsMock = vi.fn();
 const requestMock = vi.fn();
 const removeMock = vi.fn();
+let addedListeners: PermissionsListener[] = [];
+let removedListeners: PermissionsListener[] = [];
 let animationFrameCallbacks: FrameRequestCallback[] = [];
 
 const flushAnimationFrame = (): void => {
@@ -35,6 +39,7 @@ const renderPopupFixture = (): void => {
                 <input type="checkbox" id="calendar-access" disabled>
             </label>
             <span id="markup-note"></span>
+            <a id="onboarding-link"></a>
             <a id="report-link"></a>
         </main>
     `;
@@ -62,13 +67,18 @@ describe('popup Calendar access', () => {
         containsMock.mockReset().mockResolvedValue(false);
         requestMock.mockReset().mockResolvedValue(false);
         removeMock.mockReset().mockResolvedValue(false);
+        addedListeners = [];
+        removedListeners = [];
 
         vi.stubGlobal('chrome', {
             i18n: { getMessage: (key: string) => key },
+            runtime: { getURL: (path: string) => `chrome-extension://test-id/${path}` },
             permissions: {
                 contains: containsMock,
                 request: requestMock,
                 remove: removeMock,
+                onAdded: { addListener: (listener: PermissionsListener) => addedListeners.push(listener) },
+                onRemoved: { addListener: (listener: PermissionsListener) => removedListeners.push(listener) },
             },
             storage: {
                 local: {
@@ -93,6 +103,34 @@ describe('popup Calendar access', () => {
         expect(document.getElementById('calendar-access-label')?.textContent)
             .toBe('popup_calendar_access_label');
         expect(containsMock).toHaveBeenCalledWith({ origins: [CALENDAR_URL_PATTERN] });
+    });
+
+    it('links to the onboarding page', async () => {
+        await loadPopup();
+
+        const link = document.getElementById('onboarding-link');
+        expect(link?.textContent).toBe('popup_onboarding_link');
+        expect(link?.getAttribute('href')).toBe('chrome-extension://test-id/onboarding.html');
+    });
+
+    it('follows Calendar access changed on the onboarding page', async () => {
+        await loadPopup();
+        const toggle = document.getElementById('calendar-access') as HTMLInputElement;
+
+        for (const listener of addedListeners) {
+            listener({ origins: [CALENDAR_URL_PATTERN] });
+        }
+        expect(toggle.checked).toBe(true);
+
+        for (const listener of removedListeners) {
+            listener({ origins: ['https://example.com/*'] });
+        }
+        expect(toggle.checked).toBe(true);
+
+        for (const listener of removedListeners) {
+            listener({ origins: [CALENDAR_URL_PATTERN] });
+        }
+        expect(toggle.checked).toBe(false);
     });
 
     it('reveals async access only after applying its authoritative state', async () => {

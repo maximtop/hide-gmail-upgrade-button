@@ -21,7 +21,7 @@
     },
     "popup_calendar_access_label": {
         "message": "Google カレンダーで有効にする",
-        "description": "Label of the optional Google Calendar access toggle."
+        "description": "Label of the optional Google Calendar access toggle in the popup; also the enable button on the onboarding page."
     },
     "popup_markup_note": {
         "message": "ボタンが再び表示された場合は、Google が UI を変更したためです。拡張機能のアップデートで修正されます。",
@@ -30,5 +30,101 @@
     "popup_report_link": {
         "message": "問題を報告",
         "description": "Popup link to the issue tracker."
+    },
+    "popup_onboarding_link": {
+        "message": "使い方",
+        "description": "Popup link that opens the onboarding page."
+    },
+    "onboarding_title": {
+        "message": "Hide Upgrade Button をインストールしました",
+        "description": "Onboarding page title and heading, shown after installation."
+    },
+    "onboarding_intro": {
+        "message": "Gmail、Google ドライブ、ドキュメント、スプレッドシート、スライドの Upgrade ボタンと Ask Gemini ボタンが非表示になりました。開いているタブを再読み込みする必要はありません。",
+        "description": "Onboarding lead line under the title."
+    },
+    "onboarding_before": {
+        "message": "変更前",
+        "description": "Onboarding illustration label above the Google header with the buttons still shown."
+    },
+    "onboarding_after": {
+        "message": "変更後",
+        "description": "Onboarding illustration label above the Google header with the buttons hidden."
+    },
+    "onboarding_how_image_alt": {
+        "message": "Google のヘッダーの変更前と変更後：Upgrade ボタンと Ask Gemini ボタンが消えています",
+        "description": "Accessible description of the before/after illustration."
+    },
+    "onboarding_calendar_heading": {
+        "message": "Google カレンダー",
+        "description": "Onboarding card heading about optional Google Calendar support."
+    },
+    "onboarding_calendar_text": {
+        "message": "カレンダーでも Upgrade ボタンを非表示にできます。ブラウザから calendar.google.com へのアクセスを許可するよう求められます。",
+        "description": "Onboarding Calendar card text while Calendar access is off."
+    },
+    "onboarding_calendar_text_on": {
+        "message": "カレンダーでも Upgrade ボタンが非表示になっています。",
+        "description": "Onboarding Calendar card text once Calendar access is granted."
+    },
+    "onboarding_calendar_why_toggle": {
+        "message": "なぜオプションなのでしょうか？",
+        "description": "Onboarding disclosure toggle that reveals why Calendar access is optional."
+    },
+    "onboarding_calendar_why": {
+        "message": "カレンダーへのアクセスは、必要な方にだけリクエストしています。必須にすると、すでにインストールしているすべてのユーザーに対して、新しいアクセスを承認するまでブラウザが拡張機能を無効にしてしまいます。",
+        "description": "Onboarding: text revealed by the 'Why is it optional?' toggle."
+    },
+    "onboarding_calendar_enabled": {
+        "message": "有効",
+        "description": "Onboarding status shown when Google Calendar access is granted."
+    },
+    "onboarding_calendar_disable": {
+        "message": "オフにする",
+        "description": "Onboarding button that removes Google Calendar access."
+    },
+    "onboarding_calendar_denied": {
+        "message": "アクセスが許可されませんでした。いつでもやり直せます。",
+        "description": "Onboarding hint shown after the user declined or closed the browser's Calendar access prompt."
+    },
+    "onboarding_pin_heading": {
+        "message": "拡張機能を固定する",
+        "description": "Onboarding card heading about pinning the extension to the toolbar."
+    },
+    "onboarding_pin_text": {
+        "message": "ツールバーにあるパズルピース型の拡張機能メニューを開き、Hide Upgrade Button を固定すると、ワンクリックで設定を開けるようになります。",
+        "description": "Onboarding: how to pin the extension icon. Keep 'Hide Upgrade Button' untranslated."
+    },
+    "onboarding_pin_done": {
+        "message": "固定済み",
+        "description": "Onboarding status shown when the extension icon is already pinned to the toolbar."
+    },
+    "onboarding_pin_done_text": {
+        "message": "ツールバーのアイコンから設定を開けます。",
+        "description": "Onboarding Pin card text once the extension icon is pinned."
+    },
+    "onboarding_report_link": {
+        "message": "ボタンが再び表示されましたか？報告する",
+        "description": "Onboarding footer link to report a hidden button that reappeared."
+    },
+    "onboarding_rate_link": {
+        "message": "お役に立ちましたか？ストアで拡張機能を評価してください",
+        "description": "Onboarding unobtrusive link to the extension's store page."
+    },
+    "onboarding_privacy_text": {
+        "message": "アナリティクスもネットワーク リクエストもありません。",
+        "description": "Onboarding one-line privacy summary."
+    },
+    "onboarding_privacy_link": {
+        "message": "プライバシー ポリシー",
+        "description": "Onboarding link to the privacy policy."
+    },
+    "locale_code": {
+        "message": "ja",
+        "description": "Do not translate: this catalog's BCP 47 language tag, used as the page lang attribute."
+    },
+    "locale_dir": {
+        "message": "ltr",
+        "description": "Do not translate: this catalog's text direction, ltr or rtl."
     }
 }

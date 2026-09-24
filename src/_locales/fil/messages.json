@@ -21,7 +21,7 @@
     },
     "popup_calendar_access_label": {
         "message": "I-enable sa Google Calendar",
-        "description": "Label of the optional Google Calendar access toggle."
+        "description": "Label of the optional Google Calendar access toggle in the popup; also the enable button on the onboarding page."
     },
     "popup_markup_note": {
         "message": "Kung muling lumitaw ang isang button, binago ng Google ang interface — darating ang ayos sa update ng extension.",
@@ -30,5 +30,101 @@
     "popup_report_link": {
         "message": "Mag-ulat ng problema",
         "description": "Popup link to the issue tracker."
+    },
+    "popup_onboarding_link": {
+        "message": "Paano ito gumagana",
+        "description": "Popup link that opens the onboarding page."
+    },
+    "onboarding_title": {
+        "message": "Na-install na ang Hide Upgrade Button",
+        "description": "Onboarding page title and heading, shown after installation."
+    },
+    "onboarding_intro": {
+        "message": "Nakatago na ngayon ang mga button na Upgrade at Ask Gemini sa Gmail, Google Drive, Docs, Sheets, at Slides. Hindi na kailangang i-reload ang mga bukas na tab.",
+        "description": "Onboarding lead line under the title."
+    },
+    "onboarding_before": {
+        "message": "Bago",
+        "description": "Onboarding illustration label above the Google header with the buttons still shown."
+    },
+    "onboarding_after": {
+        "message": "Pagkatapos",
+        "description": "Onboarding illustration label above the Google header with the buttons hidden."
+    },
+    "onboarding_how_image_alt": {
+        "message": "Header ng Google bago at pagkatapos: wala na ang mga button na Upgrade at Ask Gemini",
+        "description": "Accessible description of the before/after illustration."
+    },
+    "onboarding_calendar_heading": {
+        "message": "Google Calendar",
+        "description": "Onboarding card heading about optional Google Calendar support."
+    },
+    "onboarding_calendar_text": {
+        "message": "Itago rin doon ang button na Upgrade. Hihilingin ng browser mo na payagan ang access sa calendar.google.com.",
+        "description": "Onboarding Calendar card text while Calendar access is off."
+    },
+    "onboarding_calendar_text_on": {
+        "message": "Nakatago na rin doon ang button na Upgrade.",
+        "description": "Onboarding Calendar card text once Calendar access is granted."
+    },
+    "onboarding_calendar_why_toggle": {
+        "message": "Bakit ito opsyonal?",
+        "description": "Onboarding disclosure toggle that reveals why Calendar access is optional."
+    },
+    "onboarding_calendar_why": {
+        "message": "Hinihingi lang ang access sa Calendar sa mga taong nangangailangan nito. Kung gagawin itong required, idi-disable ng browser ang extension para sa lahat ng may naka-install na nito hanggang aprubahan nila ang bagong access.",
+        "description": "Onboarding: text revealed by the 'Why is it optional?' toggle."
+    },
+    "onboarding_calendar_enabled": {
+        "message": "Naka-enable",
+        "description": "Onboarding status shown when Google Calendar access is granted."
+    },
+    "onboarding_calendar_disable": {
+        "message": "I-off",
+        "description": "Onboarding button that removes Google Calendar access."
+    },
+    "onboarding_calendar_denied": {
+        "message": "Hindi pinayagan ang access. Puwede mong subukan ulit anumang oras.",
+        "description": "Onboarding hint shown after the user declined or closed the browser's Calendar access prompt."
+    },
+    "onboarding_pin_heading": {
+        "message": "I-pin ang extension",
+        "description": "Onboarding card heading about pinning the extension to the toolbar."
+    },
+    "onboarding_pin_text": {
+        "message": "Buksan ang Extensions menu na hugis puzzle piece sa toolbar at i-pin ang Hide Upgrade Button para isang click na lang ang mga setting nito.",
+        "description": "Onboarding: how to pin the extension icon. Keep 'Hide Upgrade Button' untranslated."
+    },
+    "onboarding_pin_done": {
+        "message": "Naka-pin",
+        "description": "Onboarding status shown when the extension icon is already pinned to the toolbar."
+    },
+    "onboarding_pin_done_text": {
+        "message": "Nabubuksan ang mga setting nito mula sa icon nito sa toolbar.",
+        "description": "Onboarding Pin card text once the extension icon is pinned."
+    },
+    "onboarding_report_link": {
+        "message": "May bumalik na button? Iulat ito",
+        "description": "Onboarding footer link to report a hidden button that reappeared."
+    },
+    "onboarding_rate_link": {
+        "message": "Nakatulong ba ito? I-rate ang extension sa store",
+        "description": "Onboarding unobtrusive link to the extension's store page."
+    },
+    "onboarding_privacy_text": {
+        "message": "Walang analytics, walang network request.",
+        "description": "Onboarding one-line privacy summary."
+    },
+    "onboarding_privacy_link": {
+        "message": "Patakaran sa privacy",
+        "description": "Onboarding link to the privacy policy."
+    },
+    "locale_code": {
+        "message": "fil",
+        "description": "Do not translate: this catalog's BCP 47 language tag, used as the page lang attribute."
+    },
+    "locale_dir": {
+        "message": "ltr",
+        "description": "Do not translate: this catalog's text direction, ltr or rtl."
     }
 }

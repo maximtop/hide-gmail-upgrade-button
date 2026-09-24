@@ -35,6 +35,18 @@ export const CHROMIUM_STRICT_MIN_VERSION = '102';
 
 export const DEV_NAME_SUFFIX = ' (Dev)';
 
+/**
+ * Public store listing each browser package is published to. The onboarding
+ * page links to the listing of the package it ships in, since that is where
+ * the user installed it from (Chrome Web Store packages installed in Edge
+ * still come from the Chrome build).
+ */
+export const STORE_LISTING_URLS: Record<BrowserTarget, string> = {
+    [BROWSER_TARGETS.CHROME]: 'https://chromewebstore.google.com/detail/flakajdfnklpgiefoffmecgbfbckmpcb',
+    [BROWSER_TARGETS.EDGE]: 'https://microsoftedge.microsoft.com/addons/detail/oifpjlhikjiifjlcihandpghdiechhik',
+    [BROWSER_TARGETS.FIREFOX]: 'https://addons.mozilla.org/firefox/addon/hide-upgrade-gmail-drive-docs/',
+};
+
 
 // The store deployment code (scripts/deploy) is shared with the other extension repositories
 // and owns the release constants; the build keeps importing them from here.
