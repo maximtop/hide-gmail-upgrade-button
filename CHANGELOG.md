@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.1](https://github.com/maximtop/hide-gmail-upgrade-button/compare/v0.3.0...v0.3.1) (2026-09-24)
+
+
+### Bug Fixes
+
+* keep AMO reviewer notes within the 3000-character limit ([#23](https://github.com/maximtop/hide-gmail-upgrade-button/issues/23)) ([ecdf606](https://github.com/maximtop/hide-gmail-upgrade-button/commit/ecdf606a375c9561f2bb33b854b7296f399ff8a9))
+
 ## [0.3.0](https://github.com/maximtop/hide-gmail-upgrade-button/compare/v0.2.0...v0.3.0) (2026-09-24)
 
 
