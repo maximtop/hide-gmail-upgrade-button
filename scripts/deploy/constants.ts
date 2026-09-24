@@ -9,9 +9,18 @@
 export const RELEASE_ASSET_PREFIX = 'hide-gmail-upgrade-button';
 
 /**
+ * Every store the shared deployment flow knows; the same in every extension repository.
+ */
+export const STORE = {
+    Chrome: 'chrome',
+    Edge: 'edge',
+    Firefox: 'firefox',
+} as const;
+
+/**
  * Stores this extension is deployed to; each one has a deploy workflow.
  */
-export const STORE_TARGETS = ['chrome', 'edge', 'firefox'] as const;
+export const STORE_TARGETS = [STORE.Chrome, STORE.Edge, STORE.Firefox] as const;
 
 /**
  * Store this repository can deploy to.
@@ -35,25 +44,34 @@ export const SOURCE_REQUIRED_FILES = [
 ];
 
 /**
- * Reviewer notes submitted to AMO with every new Firefox version.
+ * Full reviewer instructions. They ship in the release source archive and are linked, pinned to
+ * the release tag, from the notes sent to AMO.
  */
 export const AMO_REVIEW_NOTES_PATH = 'docs/AMO_REVIEW.md';
 
 /**
- * Filename of the extracted reviewer notes consumed by preflight and upload.
+ * Filename of the generated approval notes consumed by preflight and upload; empty when the
+ * release source archive has no reviewer instructions.
  */
 export const AMO_APPROVAL_NOTES_FILENAME = 'approval-notes.txt';
 
 /**
- * Maximum length of AMO `approval_notes`; longer notes fail the submission with HTTP 400.
- * The limit is `max_length=3000` on `Version.approval_notes` in addons-server,
- * https://github.com/mozilla/addons-server/blob/5e222bdab92d/src/olympia/versions/models.py#L311-L313
- * The API serializer's `CharField(trim_whitespace=True)` strips surrounding whitespace with
- * Python `str.strip()` first, https://www.django-rest-framework.org/api-guide/fields/#charfield
- * and Django's `MaxLengthValidator` then compares `len()`, i.e. Unicode code points,
- * https://docs.djangoproject.com/en/stable/ref/validators/#maxlengthvalidator
+ * Opening of the approval notes sent to AMO: what the extension does and what it does not do.
+ * The full reviewer instructions are linked after it, so the notes stay short.
  */
-export const AMO_APPROVAL_NOTES_MAX_LENGTH = 3000;
+export const AMO_APPROVAL_NOTES_SUMMARY = 'Hides the Upgrade and Ask Gemini promotional controls in '
+    + 'Gmail, Google Drive and Google Docs, and Upgrade in Google Calendar once the user grants '
+    + 'optional access. No extension account, no remote code, no network requests.';
+
+/**
+ * Our own limit for the length of AMO `approval_notes`, in Unicode code points after trimming.
+ * AMO itself rejects notes over 3000 characters with HTTP 400 (`max_length=3000` on
+ * `Version.approval_notes` in addons-server,
+ * https://github.com/mozilla/addons-server/blob/5e222bdab92d/src/olympia/versions/models.py#L311-L313).
+ * The margin absorbs any difference between how we count and how AMO counts, so the check does
+ * not have to replicate AMO's whitespace trimming.
+ */
+export const AMO_APPROVAL_NOTES_OWN_LIMIT = 2500;
 
 /**
  * Shape of a release tag; the version is the tag without the `v` prefix.

@@ -14,16 +14,19 @@ import path from 'node:path';
 
 import {
     AMO_APPROVAL_NOTES_FILENAME,
+    AMO_APPROVAL_NOTES_SUMMARY,
+    AMO_REVIEW_NOTES_PATH,
     RELEASE_ASSET_PREFIX,
     RELEASE_TAG_PATTERN,
+    STORE,
     STORE_TARGETS,
     STORE_UPLOAD_DIRECTORY,
 } from './constants';
 import {
     releaseVersion,
     requireConfiguration,
-    verifyChecksum,
     verifyAmoNotes,
+    verifyChecksum,
     verifyManifest,
     verifySource,
 } from './release';
@@ -35,29 +38,37 @@ import type { PublishedRelease } from './release';
  * Store identifiers and credentials each target needs before any asset is downloaded.
  */
 const STORE_CONFIGURATION: Record<string, string[]> = {
-    chrome: [
+    [STORE.Chrome]: [
         'CHROME_APP_ID',
         'CHROME_PUBLISHER_ID',
         'CHROME_CLIENT_ID',
         'CHROME_CLIENT_SECRET',
         'CHROME_REFRESH_TOKEN',
     ],
-    edge: ['EDGE_PRODUCT_ID', 'EDGE_CLIENT_ID', 'EDGE_API_KEY'],
-    firefox: ['FIREFOX_AMO_ID', 'FIREFOX_CLIENT_ID', 'FIREFOX_CLIENT_SECRET'],
+    [STORE.Edge]: ['EDGE_PRODUCT_ID', 'EDGE_CLIENT_ID', 'EDGE_API_KEY'],
+    [STORE.Firefox]: ['FIREFOX_AMO_ID', 'FIREFOX_CLIENT_ID', 'FIREFOX_CLIENT_SECRET'],
 };
 
 /**
- * Deployment modes each store workflow offers. `submit` is the default everywhere; `validate`
- * resolves and verifies the release without touching the store; Edge `upload` only fills the
- * draft and Firefox `status` only reports the review state.
+ * Deployment modes of the store workflows. `Submit` is the default everywhere; `Validate`
+ * resolves and verifies the release without touching the store; Edge `Upload` only fills the
+ * draft and Firefox `Status` only reports the review state.
+ */
+export const DEPLOY_MODE = {
+    Submit: 'submit',
+    Upload: 'upload',
+    Status: 'status',
+    Validate: 'validate',
+} as const;
+
+/**
+ * Deployment modes each store workflow offers.
  */
 const STORE_MODES: Record<string, string[]> = {
-    chrome: ['submit', 'validate'],
-    edge: ['submit', 'upload', 'validate'],
-    firefox: ['submit', 'status', 'validate'],
+    [STORE.Chrome]: [DEPLOY_MODE.Submit, DEPLOY_MODE.Validate],
+    [STORE.Edge]: [DEPLOY_MODE.Submit, DEPLOY_MODE.Upload, DEPLOY_MODE.Validate],
+    [STORE.Firefox]: [DEPLOY_MODE.Submit, DEPLOY_MODE.Status, DEPLOY_MODE.Validate],
 };
-
-const DEFAULT_MODE = 'submit';
 
 const CHECKSUMS_FILE = 'SHA256SUMS.txt';
 
@@ -73,6 +84,22 @@ const isStoreTarget = (value: string | undefined): value is StoreTarget => {
 };
 
 /**
+ * Build the approval notes sent to AMO: a short summary and a link to the full reviewer
+ * instructions pinned to the release tag, so the notes fit the limit however long those grow.
+ *
+ * @param repository GitHub repository holding the release, as `owner/name`.
+ * @param tag Release tag.
+ *
+ * @returns Approval notes for the release.
+ */
+const approvalNotes = (repository: string, tag: string): string => [
+    AMO_APPROVAL_NOTES_SUMMARY,
+    '',
+    `Build and test instructions: https://github.com/${repository}/blob/${tag}/${AMO_REVIEW_NOTES_PATH}`,
+    `The same file is ${AMO_REVIEW_NOTES_PATH} in the attached source ZIP.`,
+].join('\n');
+
+/**
  * Prepare store assets and GitHub outputs without executing code from the release tag.
  *
  * @param env Deployment configuration; credential values are never logged.
@@ -81,7 +108,7 @@ const isStoreTarget = (value: string | undefined): value is StoreTarget => {
  */
 export const prepare = (env: NodeJS.ProcessEnv = process.env): void => {
     const browser = env.STORE_TARGET;
-    const mode = env.DEPLOY_MODE || DEFAULT_MODE;
+    const mode = env.DEPLOY_MODE || DEPLOY_MODE.Submit;
     if (!isStoreTarget(browser) || !STORE_MODES[browser]?.includes(mode)) {
         throw new Error('Invalid store target or deployment mode');
     }
@@ -118,7 +145,7 @@ export const prepare = (env: NodeJS.ProcessEnv = process.env): void => {
     mkdirSync(STORE_UPLOAD_DIRECTORY, { recursive: true });
     const archive = `${RELEASE_ASSET_PREFIX}-${version}-${browser}.zip`;
     const source = `${RELEASE_ASSET_PREFIX}-${version}-source.zip`;
-    const assets = [archive, ...(store === 'firefox' ? [source] : [])];
+    const assets = [archive, ...(store === STORE.Firefox ? [source] : [])];
     const patterns = [...assets, CHECKSUMS_FILE].flatMap((name) => ['--pattern', name]);
     execFileSync('gh', [
         'release', 'download', release.tagName,
@@ -129,12 +156,14 @@ export const prepare = (env: NodeJS.ProcessEnv = process.env): void => {
         verifyChecksum(asset, readFileSync(path.join(STORE_UPLOAD_DIRECTORY, asset)), checksums);
     });
     verifyManifest(readFileSync(path.join(STORE_UPLOAD_DIRECTORY, archive)), version, browser);
-    if (store === 'firefox') {
+    if (store === STORE.Firefox) {
         const sourceBytes = readFileSync(path.join(STORE_UPLOAD_DIRECTORY, source));
-        const notes = verifySource(sourceBytes, version, false);
-        // `status` only reads AMO, so over-limit notes of a version uploaded by hand must not
-        // block it.
-        if (mode !== 'status') {
+        const instructions = verifySource(sourceBytes, version, false);
+        // Empty notes mark a release source without reviewer instructions; preflight refuses to
+        // submit a new version with them.
+        const notes = instructions.trim() ? approvalNotes(repository, release.tagName) : '';
+        // `status` only reads AMO, so it must not depend on notes that are never sent.
+        if (mode !== DEPLOY_MODE.Status) {
             verifyAmoNotes(notes);
         }
         writeFileSync(path.join(STORE_UPLOAD_DIRECTORY, AMO_APPROVAL_NOTES_FILENAME), notes);

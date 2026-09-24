@@ -11,7 +11,7 @@ import AdmZip from 'adm-zip';
 import { describe, expect, it } from 'vitest';
 
 import {
-    AMO_APPROVAL_NOTES_MAX_LENGTH,
+    AMO_APPROVAL_NOTES_OWN_LIMIT,
     AMO_REVIEW_NOTES_PATH,
     GECKO_ID,
     RELEASE_TAG_PATTERN,
@@ -170,30 +170,17 @@ describe('published release contract', () => {
             verifySource(pack(incomplete), '1.2.3', false);
         }).toThrow('missing');
     });
-    it('counts reviewer notes as AMO does: trimmed like Python, in code points', () => {
+    it('counts approval notes trimmed, in code points', () => {
         expect(amoNotesLength('\n  abc  \n')).toBe(3);
         expect(amoNotesLength('🦊é')).toBe(2);
-        expect(amoNotesLength('\u3000\u0085abc\u001f')).toBe(3);
-        expect(amoNotesLength('\uFEFFabc')).toBe(4);
     });
-    it('rejects reviewer notes longer than AMO accepts, naming both lengths', () => {
-        const atLimit = `${'🦊'.repeat(AMO_APPROVAL_NOTES_MAX_LENGTH)}\n`;
+    it('rejects approval notes over our limit, naming their length', () => {
+        const atLimit = `${'🦊'.repeat(AMO_APPROVAL_NOTES_OWN_LIMIT)}\n`;
         expect(() => {
             verifyAmoNotes(atLimit);
         }).not.toThrow();
-        [
-            'a'.repeat(AMO_APPROVAL_NOTES_MAX_LENGTH + 1),
-            `\uFEFF${'a'.repeat(AMO_APPROVAL_NOTES_MAX_LENGTH)}`,
-        ].forEach((tooLong) => {
-            expect(() => {
-                verifyAmoNotes(tooLong);
-            }).toThrow(`${AMO_REVIEW_NOTES_PATH} is ${AMO_APPROVAL_NOTES_MAX_LENGTH + 1} characters; `
-                + `AMO accepts at most ${AMO_APPROVAL_NOTES_MAX_LENGTH}`);
-        });
-    });
-    it('returns over-limit reviewer notes from the source without judging their length', () => {
-        const tooLong = 'a'.repeat(AMO_APPROVAL_NOTES_MAX_LENGTH + 1);
-        expect(verifySource(pack({ ...sourceFiles, [AMO_REVIEW_NOTES_PATH]: tooLong }), '1.2.3', true))
-            .toBe(tooLong);
+        expect(() => {
+            verifyAmoNotes('a'.repeat(AMO_APPROVAL_NOTES_OWN_LIMIT + 1));
+        }).toThrow(`${AMO_APPROVAL_NOTES_OWN_LIMIT + 1} characters; the limit is ${AMO_APPROVAL_NOTES_OWN_LIMIT}`);
     });
 });
