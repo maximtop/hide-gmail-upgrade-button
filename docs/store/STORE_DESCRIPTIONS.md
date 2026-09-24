@@ -19,6 +19,7 @@ Install, and both buttons are gone — cleanly, with the neighboring icons closi
 #### Key features
 
 - Hides the Upgrade button and the Ask Gemini button in Gmail, Google Drive and Google Docs
+- Also hides the Upgrade button in Google Calendar: turn on "Enable in Google Calendar" in the popup
 - Each button has its own toggle in the popup; both are on by default
 - No flashing: hiding applies before the page is painted and survives Google's dynamic re-renders and in-app navigation
 - Works immediately in tabs that were already open when you installed it
@@ -34,6 +35,7 @@ Google's markup is obfuscated and changes without notice, so the extension never
 - Storage — keeps your two toggle values on your device
 - Scripting — applies the extension to Gmail/Drive/Docs tabs that were already open at install time
 - Access to mail.google.com, drive.google.com and docs.google.com — the only sites it runs on; it cannot read any other page
+- Access to calendar.google.com (optional) — requested only when you turn on "Enable in Google Calendar" and removed when you turn it off; it is optional so the extension does not ask for Calendar access from people who don't need it
 
 #### Privacy
 
@@ -41,7 +43,7 @@ No account, no analytics, no servers, no network requests. The only data the ext
 
 Free and open source: https://github.com/maximtop/hide-gmail-upgrade-button
 
-This extension is not affiliated with, endorsed by, or sponsored by Google. Gmail, Google Drive, Google Docs and Gemini are trademarks of Google LLC, referenced only to describe compatibility.
+This extension is not affiliated with, endorsed by, or sponsored by Google. Gmail, Google Drive, Google Docs, Google Calendar and Gemini are trademarks of Google LLC, referenced only to describe compatibility.
 
 ================================================================================
 
@@ -54,6 +56,7 @@ Google держит в шапке Gmail, Google Диска и Google Докум�
 #### Основные возможности
 
 - Скрывает кнопки Upgrade и Ask Gemini в Gmail, Google Диске и Google Документах
+- Также скрывает кнопку Upgrade в Google Календаре: включите в попапе «Включить в Google Календаре»
 - У каждой кнопки — свой переключатель в попапе; по умолчанию оба включены
 - Без мелькания: скрытие применяется до отрисовки страницы и переживает динамические перерисовки и навигацию внутри приложений Google
 - Сразу работает во вкладках, которые были открыты до установки
@@ -69,6 +72,7 @@ Google держит в шапке Gmail, Google Диска и Google Докум�
 - Хранилище — хранит два значения переключателей на вашем устройстве
 - Скрипты — применяет расширение к вкладкам Gmail/Диска/Документов, открытым до установки
 - Доступ к mail.google.com, drive.google.com и docs.google.com — единственные сайты, где расширение работает; другие страницы ему недоступны
+- Доступ к calendar.google.com (необязательный) — запрашивается, только когда вы включаете «Включить в Google Календаре», и снимается, когда выключаете; он необязательный, чтобы расширение не просило доступ к календарю у тех, кому это не нужно
 
 #### Приватность
 
@@ -76,7 +80,7 @@ Google держит в шапке Gmail, Google Диска и Google Докум�
 
 Бесплатно и с открытым кодом: https://github.com/maximtop/hide-gmail-upgrade-button
 
-Расширение не аффилировано с Google и не одобрено ею. Gmail, Google Drive, Google Docs и Gemini — товарные знаки Google LLC, упомянутые только для описания совместимости.
+Расширение не аффилировано с Google и не одобрено ею. Gmail, Google Drive, Google Docs, Google Calendar и Gemini — товарные знаки Google LLC, упомянутые только для описания совместимости.
 
 ================================================================================
 
@@ -89,6 +93,7 @@ Installieren — und beide Schaltflächen sind weg: sauber, die benachbarten Sym
 #### Hauptfunktionen
 
 - Blendet die Schaltflächen Upgrade und Ask Gemini in Gmail, Google Drive und Google Docs aus
+- Blendet auch die Upgrade-Schaltfläche in Google Kalender aus: dazu im Popup „In Google Kalender aktivieren" einschalten
 - Jede Schaltfläche hat einen eigenen Schalter im Popup; beide sind standardmäßig aktiv
 - Kein Aufblitzen: Das Ausblenden greift vor dem ersten Rendern und übersteht Googles dynamische Neuaufbauten und die Navigation in der App
 - Wirkt sofort auch in Tabs, die bei der Installation bereits offen waren
@@ -104,6 +109,7 @@ Googles Markup ist verschleiert und ändert sich ohne Ankündigung, daher verlä
 - Speicher — bewahrt Ihre zwei Schalterwerte auf Ihrem Gerät auf
 - Skripte — wendet die Erweiterung auf Gmail/Drive/Docs-Tabs an, die bei der Installation bereits offen waren
 - Zugriff auf mail.google.com, drive.google.com und docs.google.com — die einzigen Websites, auf denen sie läuft; andere Seiten kann sie nicht lesen
+- Zugriff auf calendar.google.com (optional) — wird nur angefragt, wenn Sie „In Google Kalender aktivieren" einschalten, und beim Ausschalten wieder entzogen; optional, damit die Erweiterung niemanden um Kalenderzugriff bittet, der ihn nicht braucht
 
 #### Datenschutz
 
@@ -111,7 +117,7 @@ Kein Konto, keine Analyse, keine Server, keine Netzwerkanfragen. Die einzigen ge
 
 Kostenlos und Open Source: https://github.com/maximtop/hide-gmail-upgrade-button
 
-Diese Erweiterung ist nicht mit Google verbunden und wird nicht von Google unterstützt. Gmail, Google Drive, Google Docs und Gemini sind Marken von Google LLC und werden nur zur Beschreibung der Kompatibilität genannt.
+Diese Erweiterung ist nicht mit Google verbunden und wird nicht von Google unterstützt. Gmail, Google Drive, Google Docs, Google Calendar und Gemini sind Marken von Google LLC und werden nur zur Beschreibung der Kompatibilität genannt.
 
 ================================================================================
 
@@ -124,6 +130,7 @@ Installez-la : les deux boutons disparaissent proprement, les icônes voisines s
 #### Fonctionnalités principales
 
 - Masque les boutons Upgrade et Ask Gemini dans Gmail, Google Drive et Google Docs
+- Masque aussi le bouton Upgrade dans Google Agenda : activez « Activer dans Google Agenda » dans le popup
 - Chaque bouton a son propre interrupteur dans le popup ; les deux sont activés par défaut
 - Aucun clignotement : le masquage s'applique avant le premier affichage et résiste aux re-rendus dynamiques et à la navigation interne de Google
 - Fonctionne immédiatement dans les onglets déjà ouverts au moment de l'installation
@@ -139,6 +146,7 @@ Le balisage de Google est obscurci et change sans préavis ; l'extension ne s'ap
 - Stockage — conserve vos deux réglages sur votre appareil
 - Scripts — applique l'extension aux onglets Gmail/Drive/Docs déjà ouverts lors de l'installation
 - Accès à mail.google.com, drive.google.com et docs.google.com — les seuls sites où elle s'exécute ; elle ne peut lire aucune autre page
+- Accès à calendar.google.com (facultatif) — demandé uniquement quand vous activez « Activer dans Google Agenda » et retiré quand vous le désactivez ; il est facultatif pour que l'extension ne demande pas l'accès à l'agenda à ceux qui n'en ont pas besoin
 
 #### Confidentialité
 
@@ -146,7 +154,7 @@ Pas de compte, pas d'analytique, pas de serveurs, pas de requêtes réseau. Les 
 
 Gratuit et open source : https://github.com/maximtop/hide-gmail-upgrade-button
 
-Cette extension n'est ni affiliée à Google, ni approuvée par Google. Gmail, Google Drive, Google Docs et Gemini sont des marques de Google LLC, citées uniquement pour décrire la compatibilité.
+Cette extension n'est ni affiliée à Google, ni approuvée par Google. Gmail, Google Drive, Google Docs, Google Calendar et Gemini sont des marques de Google LLC, citées uniquement pour décrire la compatibilité.
 
 ================================================================================
 
@@ -159,6 +167,7 @@ Instálala y ambos botones desaparecen limpiamente: los iconos vecinos se juntan
 #### Funciones principales
 
 - Oculta los botones Upgrade y Ask Gemini en Gmail, Google Drive y Google Docs
+- También oculta el botón Upgrade en Google Calendar: activa «Activar en Google Calendar» en el popup
 - Cada botón tiene su propio interruptor en el popup; ambos vienen activados por defecto
 - Sin parpadeos: la ocultación se aplica antes del primer renderizado y sobrevive a los re-renderizados dinámicos y a la navegación interna de Google
 - Funciona de inmediato en las pestañas que ya estaban abiertas al instalar
@@ -174,6 +183,7 @@ El marcado de Google está ofuscado y cambia sin aviso, así que la extensión n
 - Almacenamiento — guarda tus dos ajustes en tu dispositivo
 - Scripts — aplica la extensión a las pestañas de Gmail/Drive/Docs ya abiertas al instalarla
 - Acceso a mail.google.com, drive.google.com y docs.google.com — los únicos sitios donde funciona; no puede leer ninguna otra página
+- Acceso a calendar.google.com (opcional) — se solicita solo cuando activas «Activar en Google Calendar» y se retira al desactivarlo; es opcional para que la extensión no pida acceso al calendario a quien no lo necesita
 
 #### Privacidad
 
@@ -181,7 +191,7 @@ Sin cuentas, sin analítica, sin servidores, sin peticiones de red. Los únicos 
 
 Gratuita y de código abierto: https://github.com/maximtop/hide-gmail-upgrade-button
 
-Esta extensión no está afiliada a Google ni cuenta con su respaldo. Gmail, Google Drive, Google Docs y Gemini son marcas de Google LLC, mencionadas solo para describir compatibilidad.
+Esta extensión no está afiliada a Google ni cuenta con su respaldo. Gmail, Google Drive, Google Docs, Google Calendar y Gemini son marcas de Google LLC, mencionadas solo para describir compatibilidad.
 
 ================================================================================
 
@@ -194,6 +204,7 @@ Instálala y ambos botones desaparecen limpiamente: los íconos vecinos se junta
 #### Funciones principales
 
 - Oculta los botones Upgrade y Ask Gemini en Gmail, Google Drive y Google Docs
+- También oculta el botón Upgrade en Google Calendar: activa «Activar en Google Calendar» en el popup
 - Cada botón tiene su propio interruptor en el popup; ambos vienen activados por defecto
 - Sin parpadeos: la ocultación se aplica antes del primer renderizado y sobrevive a los re-renderizados dinámicos y a la navegación interna de Google
 - Funciona de inmediato en las pestañas que ya estaban abiertas al instalar
@@ -209,6 +220,7 @@ El marcado de Google está ofuscado y cambia sin aviso, así que la extensión n
 - Almacenamiento — guarda tus dos ajustes en tu dispositivo
 - Scripts — aplica la extensión a las pestañas de Gmail/Drive/Docs ya abiertas al instalarla
 - Acceso a mail.google.com, drive.google.com y docs.google.com — los únicos sitios donde funciona; no puede leer ninguna otra página
+- Acceso a calendar.google.com (opcional) — se solicita solo cuando activas «Activar en Google Calendar» y se retira al desactivarlo; es opcional para que la extensión no pida acceso al calendario a quien no lo necesita
 
 #### Privacidad
 
@@ -216,7 +228,7 @@ Sin cuentas, sin analítica, sin servidores, sin solicitudes de red. Los únicos
 
 Gratuita y de código abierto: https://github.com/maximtop/hide-gmail-upgrade-button
 
-Esta extensión no está afiliada a Google ni cuenta con su respaldo. Gmail, Google Drive, Google Docs y Gemini son marcas de Google LLC, mencionadas solo para describir compatibilidad.
+Esta extensión no está afiliada a Google ni cuenta con su respaldo. Gmail, Google Drive, Google Docs, Google Calendar y Gemini son marcas de Google LLC, mencionadas solo para describir compatibilidad.
 
 ================================================================================
 
@@ -229,6 +241,7 @@ Installala: entrambi i pulsanti spariscono in modo pulito, le icone vicine si co
 #### Funzionalità principali
 
 - Nasconde i pulsanti Upgrade e Ask Gemini in Gmail, Google Drive e Google Docs
+- Nasconde anche il pulsante Upgrade in Google Calendar: attiva «Attiva in Google Calendar» nel popup
 - Ogni pulsante ha il proprio interruttore nel popup; entrambi attivi per impostazione predefinita
 - Nessun lampeggio: l'occultamento si applica prima del primo rendering e resiste ai re-render dinamici e alla navigazione interna di Google
 - Funziona subito anche nelle schede già aperte al momento dell'installazione
@@ -244,6 +257,7 @@ Il markup di Google è offuscato e cambia senza preavviso, quindi l'estensione n
 - Archiviazione — conserva i tuoi due interruttori sul tuo dispositivo
 - Script — applica l'estensione alle schede Gmail/Drive/Docs già aperte al momento dell'installazione
 - Accesso a mail.google.com, drive.google.com e docs.google.com — gli unici siti su cui funziona; non può leggere altre pagine
+- Accesso a calendar.google.com (facoltativo) — richiesto solo quando attivi «Attiva in Google Calendar» e revocato quando lo disattivi; è facoltativo perché l'estensione non chieda l'accesso al calendario a chi non ne ha bisogno
 
 #### Privacy
 
@@ -251,7 +265,7 @@ Nessun account, nessuna analisi, nessun server, nessuna richiesta di rete. Gli u
 
 Gratuita e open source: https://github.com/maximtop/hide-gmail-upgrade-button
 
-Questa estensione non è affiliata a Google né da essa approvata. Gmail, Google Drive, Google Docs e Gemini sono marchi di Google LLC, citati solo per descrivere la compatibilità.
+Questa estensione non è affiliata a Google né da essa approvata. Gmail, Google Drive, Google Docs, Google Calendar e Gemini sono marchi di Google LLC, citati solo per descrivere la compatibilità.
 
 ================================================================================
 
@@ -264,6 +278,7 @@ Instale e os dois botões somem de forma limpa: os ícones vizinhos se aproximam
 #### Principais recursos
 
 - Oculta os botões Upgrade e Ask Gemini no Gmail, Google Drive e Google Docs
+- Também oculta o botão Upgrade no Google Agenda: ative «Ativar no Google Agenda» no popup
 - Cada botão tem seu próprio interruptor no popup; ambos vêm ativados por padrão
 - Sem piscadas: a ocultação é aplicada antes da primeira renderização e sobrevive às re-renderizações dinâmicas e à navegação interna do Google
 - Funciona imediatamente nas abas que já estavam abertas na instalação
@@ -279,6 +294,7 @@ A marcação do Google é ofuscada e muda sem aviso, então a extensão nunca de
 - Armazenamento — guarda seus dois ajustes no seu dispositivo
 - Scripts — aplica a extensão às abas do Gmail/Drive/Docs já abertas na instalação
 - Acesso a mail.google.com, drive.google.com e docs.google.com — os únicos sites onde funciona; nenhuma outra página pode ser lida
+- Acesso a calendar.google.com (opcional) — solicitado só quando você ativa «Ativar no Google Agenda» e removido quando você desativa; é opcional para que a extensão não peça acesso à agenda a quem não precisa
 
 #### Privacidade
 
@@ -286,7 +302,7 @@ Sem conta, sem análise, sem servidores, sem solicitações de rede. Os únicos 
 
 Gratuita e de código aberto: https://github.com/maximtop/hide-gmail-upgrade-button
 
-Esta extensão não é afiliada ao Google nem endossada por ele. Gmail, Google Drive, Google Docs e Gemini são marcas do Google LLC, citadas apenas para descrever compatibilidade.
+Esta extensão não é afiliada ao Google nem endossada por ele. Gmail, Google Drive, Google Docs, Google Calendar e Gemini são marcas do Google LLC, citadas apenas para descrever compatibilidade.
 
 ================================================================================
 
@@ -299,6 +315,7 @@ Instale e ambos os botões desaparecem de forma limpa: os ícones vizinhos aprox
 #### Funcionalidades principais
 
 - Oculta os botões Upgrade e Ask Gemini no Gmail, Google Drive e Google Docs
+- Também oculta o botão Upgrade no Calendário Google: ative «Ativar no Calendário Google» no popup
 - Cada botão tem o seu próprio interruptor no popup; ambos ativados por predefinição
 - Sem intermitências: a ocultação aplica-se antes da primeira renderização e sobrevive às re-renderizações dinâmicas e à navegação interna da Google
 - Funciona de imediato nos separadores já abertos no momento da instalação
@@ -314,6 +331,7 @@ A marcação da Google é ofuscada e muda sem aviso, pelo que a extensão nunca 
 - Armazenamento — guarda as suas duas definições no seu dispositivo
 - Scripts — aplica a extensão aos separadores do Gmail/Drive/Docs já abertos na instalação
 - Acesso a mail.google.com, drive.google.com e docs.google.com — os únicos sites onde funciona; não consegue ler outras páginas
+- Acesso a calendar.google.com (opcional) — pedido apenas quando ativa «Ativar no Calendário Google» e retirado quando o desativa; é opcional para que a extensão não peça acesso ao calendário a quem não precisa dele
 
 #### Privacidade
 
@@ -321,7 +339,7 @@ Sem conta, sem análises, sem servidores, sem pedidos de rede. Os únicos dados 
 
 Gratuita e de código aberto: https://github.com/maximtop/hide-gmail-upgrade-button
 
-Esta extensão não é afiliada da Google nem por ela aprovada. Gmail, Google Drive, Google Docs e Gemini são marcas da Google LLC, referidas apenas para descrever compatibilidade.
+Esta extensão não é afiliada da Google nem por ela aprovada. Gmail, Google Drive, Google Docs, Google Calendar e Gemini são marcas da Google LLC, referidas apenas para descrever compatibilidade.
 
 ================================================================================
 
@@ -334,6 +352,7 @@ Installeer, en beide knoppen zijn weg — netjes, de omliggende pictogrammen sch
 #### Belangrijkste functies
 
 - Verbergt de knoppen Upgrade en Ask Gemini in Gmail, Google Drive en Google Docs
+- Verbergt ook de Upgrade-knop in Google Agenda: zet «Inschakelen in Google Agenda» aan in de popup
 - Elke knop heeft een eigen schakelaar in de popup; beide staan standaard aan
 - Geen flikkering: het verbergen gebeurt vóór de eerste weergave en overleeft Googles dynamische her-renders en interne navigatie
 - Werkt direct in tabbladen die al open waren bij de installatie
@@ -349,6 +368,7 @@ De opmaak van Google is versluierd en verandert zonder aankondiging; de extensie
 - Opslag — bewaart uw twee instellingen op uw apparaat
 - Scripts — past de extensie toe op Gmail/Drive/Docs-tabbladen die bij installatie al open waren
 - Toegang tot mail.google.com, drive.google.com en docs.google.com — de enige sites waarop ze draait; andere pagina's kan ze niet lezen
+- Toegang tot calendar.google.com (optioneel) — wordt alleen gevraagd als u «Inschakelen in Google Agenda» aanzet en ingetrokken als u het uitzet; optioneel, zodat de extensie geen agendatoegang vraagt aan wie die niet nodig heeft
 
 #### Privacy
 
@@ -356,7 +376,7 @@ Geen account, geen analyse, geen servers, geen netwerkverzoeken. De enige opgesl
 
 Gratis en open source: https://github.com/maximtop/hide-gmail-upgrade-button
 
-Deze extensie is niet gelieerd aan Google en wordt niet door Google ondersteund. Gmail, Google Drive, Google Docs en Gemini zijn handelsmerken van Google LLC, alleen genoemd om compatibiliteit te beschrijven.
+Deze extensie is niet gelieerd aan Google en wordt niet door Google ondersteund. Gmail, Google Drive, Google Docs, Google Calendar en Gemini zijn handelsmerken van Google LLC, alleen genoemd om compatibiliteit te beschrijven.
 
 ================================================================================
 
@@ -369,6 +389,7 @@ Installer, og begge knapper er væk — pænt og rent, naboikonerne rykker samme
 #### Vigtigste funktioner
 
 - Skjuler knapperne Upgrade og Ask Gemini i Gmail, Google Drev og Google Docs
+- Skjuler også Upgrade-knappen i Google Kalender: slå «Aktivér i Google Kalender» til i popup'en
 - Hver knap har sin egen kontakt i popup'en; begge er slået til som standard
 - Ingen blinken: skjulningen sker før første optegning og overlever Googles dynamiske gen-optegninger og interne navigation
 - Virker med det samme i faner, der allerede var åbne ved installationen
@@ -384,6 +405,7 @@ Googles opmærkning er sløret og ændrer sig uden varsel, så udvidelsen stoler
 - Lagring — gemmer dine to indstillinger på din enhed
 - Scripts — anvender udvidelsen på Gmail/Drev/Docs-faner, der allerede var åbne ved installationen
 - Adgang til mail.google.com, drive.google.com og docs.google.com — de eneste sider, den kører på; andre sider kan den ikke læse
+- Adgang til calendar.google.com (valgfri) — anmodes der kun om, når du slår «Aktivér i Google Kalender» til, og fjernes, når du slår den fra; den er valgfri, så udvidelsen ikke beder om adgang til kalenderen hos dem, der ikke har brug for det
 
 #### Privatliv
 
@@ -391,7 +413,7 @@ Ingen konto, ingen analyse, ingen servere, ingen netværksforespørgsler. De ene
 
 Gratis og open source: https://github.com/maximtop/hide-gmail-upgrade-button
 
-Denne udvidelse er ikke tilknyttet Google og er ikke godkendt af Google. Gmail, Google Drive, Google Docs og Gemini er varemærker tilhørende Google LLC og nævnes kun for at beskrive kompatibilitet.
+Denne udvidelse er ikke tilknyttet Google og er ikke godkendt af Google. Gmail, Google Drive, Google Docs, Google Calendar og Gemini er varemærker tilhørende Google LLC og nævnes kun for at beskrive kompatibilitet.
 
 ================================================================================
 
@@ -404,6 +426,7 @@ Installera, så är båda knapparna borta — snyggt, grannikonerna sluter lucka
 #### Viktigaste funktionerna
 
 - Döljer knapparna Upgrade och Ask Gemini i Gmail, Google Drive och Google Dokument
+- Döljer även Upgrade-knappen i Google Kalender: slå på «Aktivera i Google Kalender» i popup-fönstret
 - Varje knapp har sin egen omkopplare i popup-fönstret; båda är på som standard
 - Inget blinkande: döljandet sker före första uppritningen och överlever Googles dynamiska omritningar och interna navigering
 - Fungerar direkt i flikar som redan var öppna vid installationen
@@ -419,6 +442,7 @@ Googles markup är obfuskerad och ändras utan förvarning, så tillägget litar
 - Lagring — sparar dina två inställningar på din enhet
 - Skript — tillämpar tillägget på Gmail/Drive/Dokument-flikar som redan var öppna vid installationen
 - Åtkomst till mail.google.com, drive.google.com och docs.google.com — de enda webbplatser det körs på; andra sidor kan det inte läsa
+- Åtkomst till calendar.google.com (valfri) — begärs bara när du slår på «Aktivera i Google Kalender» och tas bort när du stänger av den; den är valfri så att tillägget inte ber om kalenderåtkomst från dem som inte behöver det
 
 #### Integritet
 
@@ -426,7 +450,7 @@ Inget konto, ingen analys, inga servrar, inga nätverksanrop. Det enda som lagra
 
 Gratis och öppen källkod: https://github.com/maximtop/hide-gmail-upgrade-button
 
-Det här tillägget är inte anslutet till Google och stöds inte av Google. Gmail, Google Drive, Google Docs och Gemini är varumärken som tillhör Google LLC och nämns endast för att beskriva kompatibilitet.
+Det här tillägget är inte anslutet till Google och stöds inte av Google. Gmail, Google Drive, Google Docs, Google Calendar och Gemini är varumärken som tillhör Google LLC och nämns endast för att beskriva kompatibilitet.
 
 ================================================================================
 
@@ -439,6 +463,7 @@ Installer, og begge knappene er borte — pent og ryddig, naboikonene rykker sam
 #### Hovedfunksjoner
 
 - Skjuler knappene Upgrade og Ask Gemini i Gmail, Google Disk og Google Dokumenter
+- Skjuler også Upgrade-knappen i Google Kalender: slå på «Aktiver i Google Kalender» i popupen
 - Hver knapp har sin egen bryter i popupen; begge er på som standard
 - Ingen blinking: skjulingen skjer før første opptegning og overlever Googles dynamiske omtegninger og interne navigasjon
 - Virker umiddelbart i faner som allerede var åpne ved installasjonen
@@ -454,6 +479,7 @@ Googles oppmerking er tilslørt og endres uten varsel, så utvidelsen stoler ald
 - Lagring — beholder de to innstillingene dine på enheten din
 - Skript — bruker utvidelsen på Gmail/Disk/Dokumenter-faner som allerede var åpne ved installasjonen
 - Tilgang til mail.google.com, drive.google.com og docs.google.com — de eneste nettstedene den kjører på; andre sider kan den ikke lese
+- Tilgang til calendar.google.com (valgfri) — bes om bare når du slår på «Aktiver i Google Kalender», og fjernes når du slår den av; den er valgfri slik at utvidelsen ikke ber om kalendertilgang fra dem som ikke trenger det
 
 #### Personvern
 
@@ -461,7 +487,7 @@ Ingen konto, ingen analyse, ingen servere, ingen nettverksforespørsler. Det ene
 
 Gratis og åpen kildekode: https://github.com/maximtop/hide-gmail-upgrade-button
 
-Denne utvidelsen er ikke tilknyttet Google og er ikke godkjent av Google. Gmail, Google Drive, Google Docs og Gemini er varemerker for Google LLC og nevnes kun for å beskrive kompatibilitet.
+Denne utvidelsen er ikke tilknyttet Google og er ikke godkjent av Google. Gmail, Google Drive, Google Docs, Google Calendar og Gemini er varemerker for Google LLC og nevnes kun for å beskrive kompatibilitet.
 
 ================================================================================
 
@@ -474,6 +500,7 @@ Asenna, ja molemmat painikkeet katoavat siististi: viereiset kuvakkeet siirtyvä
 #### Tärkeimmät ominaisuudet
 
 - Piilottaa Upgrade- ja Ask Gemini -painikkeet Gmailissa, Google Drivessa ja Google Docsissa
+- Piilottaa myös Upgrade-painikkeen Google Kalenterissa: kytke ponnahdusikkunassa päälle «Ota käyttöön Google Kalenterissa»
 - Kummallakin painikkeella on oma kytkin ponnahdusikkunassa; molemmat ovat oletuksena päällä
 - Ei välkkymistä: piilotus tapahtuu ennen ensimmäistä piirtoa ja kestää Googlen dynaamiset uudelleenpiirrot ja sovelluksen sisäisen navigoinnin
 - Toimii heti välilehdissä, jotka olivat auki jo asennushetkellä
@@ -489,6 +516,7 @@ Googlen merkintäkoodi on sekoitettu ja muuttuu ilman varoitusta, joten laajennu
 - Tallennus — säilyttää kaksi asetustasi laitteellasi
 - Komentosarjat — ottaa laajennuksen käyttöön Gmail/Drive/Docs-välilehdissä, jotka olivat auki jo asennettaessa
 - Pääsy osoitteisiin mail.google.com, drive.google.com ja docs.google.com — ainoat sivustot, joilla se toimii; muita sivuja se ei voi lukea
+- Pääsy osoitteeseen calendar.google.com (valinnainen) — pyydetään vain, kun kytket päälle «Ota käyttöön Google Kalenterissa», ja poistetaan, kun kytket sen pois; valinnainen, jotta laajennus ei pyydä kalenterin käyttöoikeutta niiltä, jotka eivät sitä tarvitse
 
 #### Yksityisyys
 
@@ -496,7 +524,7 @@ Ei tiliä, ei analytiikkaa, ei palvelimia, ei verkkopyyntöjä. Ainoat tallennet
 
 Ilmainen ja avoin lähdekoodi: https://github.com/maximtop/hide-gmail-upgrade-button
 
-Tämä laajennus ei ole Googlen tytäryhtiö eikä Googlen hyväksymä. Gmail, Google Drive, Google Docs ja Gemini ovat Google LLC:n tavaramerkkejä, jotka mainitaan vain yhteensopivuuden kuvaamiseksi.
+Tämä laajennus ei ole Googlen tytäryhtiö eikä Googlen hyväksymä. Gmail, Google Drive, Google Docs, Google Calendar ja Gemini ovat Google LLC:n tavaramerkkejä, jotka mainitaan vain yhteensopivuuden kuvaamiseksi.
 
 ================================================================================
 
@@ -509,6 +537,7 @@ Zainstaluj, a oba przyciski znikną — czysto, sąsiednie ikony się zsuną, ja
 #### Najważniejsze funkcje
 
 - Ukrywa przyciski Upgrade i Ask Gemini w Gmailu, na Dysku Google i w Dokumentach Google
+- Ukrywa też przycisk Upgrade w Kalendarzu Google: włącz «Włącz w Kalendarzu Google» w wyskakującym okienku
 - Każdy przycisk ma własny przełącznik w wyskakującym okienku; oba są domyślnie włączone
 - Bez migotania: ukrywanie działa przed pierwszym wyrenderowaniem strony i przeżywa dynamiczne przerysowania oraz nawigację wewnątrz aplikacji Google
 - Działa od razu w kartach otwartych jeszcze przed instalacją
@@ -524,6 +553,7 @@ Znaczniki Google są zaciemnione i zmieniają się bez ostrzeżenia, więc rozsz
 - Pamięć — przechowuje dwa ustawienia na Twoim urządzeniu
 - Skrypty — stosuje rozszerzenie do kart Gmail/Dysk/Dokumenty otwartych przed instalacją
 - Dostęp do mail.google.com, drive.google.com i docs.google.com — jedyne strony, na których działa; innych stron nie może czytać
+- Dostęp do calendar.google.com (opcjonalny) — rozszerzenie prosi o niego dopiero po włączeniu «Włącz w Kalendarzu Google», a wyłączenie go odbiera; jest opcjonalny, żeby rozszerzenie nie prosiło o dostęp do kalendarza osób, które go nie potrzebują
 
 #### Prywatność
 
@@ -531,7 +561,7 @@ Bez kont, analityki, serwerów i żądań sieciowych. Jedyne przechowywane dane 
 
 Bezpłatne i open source: https://github.com/maximtop/hide-gmail-upgrade-button
 
-To rozszerzenie nie jest powiązane z Google ani przez Google wspierane. Gmail, Google Drive, Google Docs i Gemini to znaki towarowe Google LLC, wymienione wyłącznie w celu opisania zgodności.
+To rozszerzenie nie jest powiązane z Google ani przez Google wspierane. Gmail, Google Drive, Google Docs, Google Calendar i Gemini to znaki towarowe Google LLC, wymienione wyłącznie w celu opisania zgodności.
 
 ================================================================================
 
@@ -544,6 +574,7 @@ Nainstalujte — a obě tlačítka zmizí: čistě, sousední ikony se srazí k 
 #### Hlavní funkce
 
 - Skryje tlačítka Upgrade a Ask Gemini v Gmailu, na Disku Google a v Dokumentech Google
+- Skryje také tlačítko Upgrade v Kalendáři Google: ve vyskakovacím okně zapněte «Zapnout v Kalendáři Google»
 - Každé tlačítko má ve vyskakovacím okně vlastní přepínač; oba jsou ve výchozím stavu zapnuté
 - Žádné problikávání: skrytí se použije před prvním vykreslením a přežije dynamická překreslení i navigaci uvnitř aplikací Google
 - Funguje okamžitě i na kartách otevřených ještě před instalací
@@ -559,6 +590,7 @@ Značky Google jsou obfuskované a mění se bez varování, takže rozšířen�
 - Úložiště — uchovává dvě nastavení na vašem zařízení
 - Skripty — aplikuje rozšíření na karty Gmail/Disk/Dokumenty otevřené před instalací
 - Přístup k mail.google.com, drive.google.com a docs.google.com — jediné weby, na kterých běží; jiné stránky číst nemůže
+- Přístup k calendar.google.com (volitelný) — vyžádá se jen po zapnutí «Zapnout v Kalendáři Google» a vypnutím se odebere; je volitelný, aby rozšíření nežádalo o přístup ke kalendáři ty, kdo ho nepotřebují
 
 #### Soukromí
 
@@ -566,7 +598,7 @@ Značky Google jsou obfuskované a mění se bez varování, takže rozšířen�
 
 Zdarma a open source: https://github.com/maximtop/hide-gmail-upgrade-button
 
-Toto rozšíření není spojeno s Googlem ani jím není schváleno. Gmail, Google Drive, Google Docs a Gemini jsou ochranné známky Google LLC, zmíněné pouze pro popis kompatibility.
+Toto rozšíření není spojeno s Googlem ani jím není schváleno. Gmail, Google Drive, Google Docs, Google Calendar a Gemini jsou ochranné známky Google LLC, zmíněné pouze pro popis kompatibility.
 
 ================================================================================
 
@@ -579,6 +611,7 @@ Nainštalujte — a obe tlačidlá zmiznú: čisto, susedné ikony sa zomknú, a
 #### Hlavné funkcie
 
 - Skryje tlačidlá Upgrade a Ask Gemini v Gmaile, na Disku Google a v Dokumentoch Google
+- Skryje aj tlačidlo Upgrade v Kalendári Google: vo vyskakovacom okne zapnite «Zapnúť v Kalendári Google»
 - Každé tlačidlo má vo vyskakovacom okne vlastný prepínač; oba sú predvolene zapnuté
 - Žiadne blikanie: skrytie sa aplikuje pred prvým vykreslením a prežije dynamické prekreslenia aj navigáciu vnútri aplikácií Google
 - Funguje okamžite aj na kartách otvorených ešte pred inštaláciou
@@ -594,6 +627,7 @@ Značky Google sú obfuskované a menia sa bez varovania, takže rozšírenie sa
 - Úložisko — uchováva dve nastavenia na vašom zariadení
 - Skripty — aplikuje rozšírenie na karty Gmail/Disk/Dokumenty otvorené pred inštaláciou
 - Prístup k mail.google.com, drive.google.com a docs.google.com — jediné weby, na ktorých beží; iné stránky čítať nemôže
+- Prístup k calendar.google.com (voliteľný) — vyžiada sa len po zapnutí «Zapnúť v Kalendári Google» a vypnutím sa odoberie; je voliteľný, aby rozšírenie nežiadalo o prístup ku kalendáru tých, ktorí ho nepotrebujú
 
 #### Súkromie
 
@@ -601,7 +635,7 @@ Značky Google sú obfuskované a menia sa bez varovania, takže rozšírenie sa
 
 Zadarmo a open source: https://github.com/maximtop/hide-gmail-upgrade-button
 
-Toto rozšírenie nie je spojené s Googlom ani ním nie je schválené. Gmail, Google Drive, Google Docs a Gemini sú ochranné známky Google LLC, uvedené len na opis kompatibility.
+Toto rozšírenie nie je spojené s Googlom ani ním nie je schválené. Gmail, Google Drive, Google Docs, Google Calendar a Gemini sú ochranné známky Google LLC, uvedené len na opis kompatibility.
 
 ================================================================================
 
@@ -614,6 +648,7 @@ Telepítse, és mindkét gomb eltűnik — tisztán, a szomszédos ikonok össze
 #### Fő funkciók
 
 - Elrejti az Upgrade és az Ask Gemini gombokat a Gmailben, a Google Drive-ban és a Google Dokumentumokban
+- A Google Naptárban is elrejti az Upgrade gombot: kapcsolja be a felugró ablakban a «Bekapcsolás a Google Naptárban» kapcsolót
 - Mindkét gombhoz saját kapcsoló tartozik a felugró ablakban; alapértelmezetten mindkettő be van kapcsolva
 - Nincs villanás: az elrejtés az első kirajzolás előtt érvényesül, és túléli a Google dinamikus újrarajzolásait és az alkalmazáson belüli navigációt
 - Azonnal működik a telepítéskor már nyitva lévő lapokon is
@@ -629,6 +664,7 @@ A Google jelölése obfuszkált és figyelmeztetés nélkül változik, ezért a
 - Tárhely — a két beállítást az eszközén őrzi
 - Parancsfájlok — a bővítményt a telepítéskor már nyitott Gmail/Drive/Dokumentumok lapokra alkalmazza
 - Hozzáférés a mail.google.com, drive.google.com és docs.google.com címekhez — csak ezeken az oldalakon fut; más oldalakat nem tud olvasni
+- Hozzáférés a calendar.google.com címhez (nem kötelező) — csak akkor kéri, amikor bekapcsolja a «Bekapcsolás a Google Naptárban» kapcsolót, és kikapcsoláskor visszavonja; azért nem kötelező, hogy a bővítmény ne kérjen naptár-hozzáférést azoktól, akiknek nincs rá szükségük
 
 #### Adatvédelem
 
@@ -636,7 +672,7 @@ Nincs fiók, nincs analitika, nincsenek szerverek, nincsenek hálózati kérése
 
 Ingyenes és nyílt forráskódú: https://github.com/maximtop/hide-gmail-upgrade-button
 
-Ez a bővítmény nem áll kapcsolatban a Google-lal, és a Google nem támogatja. A Gmail, a Google Drive, a Google Docs és a Gemini a Google LLC védjegyei, említésük csak a kompatibilitás leírását szolgálja.
+Ez a bővítmény nem áll kapcsolatban a Google-lal, és a Google nem támogatja. A Gmail, a Google Drive, a Google Docs, a Google Calendar és a Gemini a Google LLC védjegyei, említésük csak a kompatibilitás leírását szolgálja.
 
 ================================================================================
 
@@ -649,6 +685,7 @@ Instalați — și ambele butoane dispar: curat, pictogramele vecine se strâng,
 #### Funcții principale
 
 - Ascunde butoanele Upgrade și Ask Gemini din Gmail, Google Drive și Google Docs
+- Ascunde și butonul Upgrade din Google Calendar: activați «Activează în Google Calendar» în fereastra pop-up
 - Fiecare buton are propriul comutator în fereastra pop-up; ambele sunt activate implicit
 - Fără pâlpâit: ascunderea se aplică înainte de prima redare și supraviețuiește re-redărilor dinamice și navigării în aplicațiile Google
 - Funcționează imediat și în filele deja deschise la instalare
@@ -664,6 +701,7 @@ Marcajul Google este obfuscat și se schimbă fără avertisment, așa că exten
 - Stocare — păstrează cele două setări pe dispozitivul dvs.
 - Scripturi — aplică extensia filelor Gmail/Drive/Docs deja deschise la instalare
 - Acces la mail.google.com, drive.google.com și docs.google.com — singurele site-uri pe care rulează; alte pagini nu poate citi
+- Acces la calendar.google.com (opțional) — cerut doar când activați «Activează în Google Calendar» și retras când îl dezactivați; este opțional ca extensia să nu ceară acces la calendar celor care nu au nevoie de el
 
 #### Confidențialitate
 
@@ -671,7 +709,7 @@ Fără cont, fără analitice, fără servere, fără cereri de rețea. Singurel
 
 Gratuită și open source: https://github.com/maximtop/hide-gmail-upgrade-button
 
-Această extensie nu este afiliată cu Google și nu este aprobată de Google. Gmail, Google Drive, Google Docs și Gemini sunt mărci ale Google LLC, menționate doar pentru a descrie compatibilitatea.
+Această extensie nu este afiliată cu Google și nu este aprobată de Google. Gmail, Google Drive, Google Docs, Google Calendar și Gemini sunt mărci ale Google LLC, menționate doar pentru a descrie compatibilitatea.
 
 ================================================================================
 
@@ -684,6 +722,7 @@ Google държи постоянен бутон «Upgrade» в заглавна�
 #### Основни функции
 
 - Скрива бутоните Upgrade и Ask Gemini в Gmail, Google Drive и Google Docs
+- Скрива и бутона Upgrade в Google Календар: включете «Включване в Google Календар» в изскачащия прозорец
 - Всеки бутон има собствен превключвател в изскачащия прозорец; и двата са включени по подразбиране
 - Без премигване: скриването се прилага преди първото изчертаване и издържа динамичните пречертавания и навигацията в приложенията на Google
 - Работи веднага и в раздели, отворени още преди инсталацията
@@ -699,6 +738,7 @@ Google държи постоянен бутон «Upgrade» в заглавна�
 - Хранилище — пази двете ви настройки на вашето устройство
 - Скриптове — прилага разширението към раздели Gmail/Drive/Docs, отворени преди инсталацията
 - Достъп до mail.google.com, drive.google.com и docs.google.com — единствените сайтове, на които работи; други страници не може да чете
+- Достъп до calendar.google.com (незадължителен) — иска се само когато включите «Включване в Google Календар», и се премахва, когато го изключите; незадължителен е, за да не иска разширението достъп до календара от хора, на които не им трябва
 
 #### Поверителност
 
@@ -706,7 +746,7 @@ Google държи постоянен бутон «Upgrade» в заглавна�
 
 Безплатно и с отворен код: https://github.com/maximtop/hide-gmail-upgrade-button
 
-Това разширение не е свързано с Google и не е одобрено от Google. Gmail, Google Drive, Google Docs и Gemini са търговски марки на Google LLC, споменати само за описание на съвместимостта.
+Това разширение не е свързано с Google и не е одобрено от Google. Gmail, Google Drive, Google Docs, Google Calendar и Gemini са търговски марки на Google LLC, споменати само за описание на съвместимостта.
 
 ================================================================================
 
@@ -719,6 +759,7 @@ Google държи постоянен бутон «Upgrade» в заглавна�
 #### Κύριες λειτουργίες
 
 - Αποκρύπτει τα κουμπιά Upgrade και Ask Gemini σε Gmail, Google Drive και Google Docs
+- Αποκρύπτει επίσης το κουμπί Upgrade στο Ημερολόγιο Google: ενεργοποιήστε το «Ενεργοποίηση στο Ημερολόγιο Google» στο αναδυόμενο παράθυρο
 - Κάθε κουμπί έχει τον δικό του διακόπτη στο αναδυόμενο παράθυρο· και οι δύο είναι ενεργοί από προεπιλογή
 - Χωρίς τρεμόπαιγμα: η απόκρυψη εφαρμόζεται πριν από την πρώτη σχεδίαση και αντέχει τις δυναμικές επανασχεδιάσεις και την εσωτερική πλοήγηση της Google
 - Λειτουργεί αμέσως και σε καρτέλες που ήταν ήδη ανοιχτές κατά την εγκατάσταση
@@ -734,6 +775,7 @@ Google държи постоянен бутон «Upgrade» в заглавна�
 - Αποθήκευση — κρατά τις δύο ρυθμίσεις σας στη συσκευή σας
 - Δέσμες ενεργειών — εφαρμόζει την επέκταση σε καρτέλες Gmail/Drive/Docs που ήταν ήδη ανοιχτές κατά την εγκατάσταση
 - Πρόσβαση σε mail.google.com, drive.google.com και docs.google.com — οι μόνοι ιστότοποι όπου τρέχει· άλλες σελίδες δεν μπορεί να διαβάσει
+- Πρόσβαση στο calendar.google.com (προαιρετική) — ζητείται μόνο όταν ενεργοποιείτε το «Ενεργοποίηση στο Ημερολόγιο Google» και αφαιρείται όταν το απενεργοποιείτε· είναι προαιρετική ώστε η επέκταση να μη ζητά πρόσβαση στο ημερολόγιο από όσους δεν τη χρειάζονται
 
 #### Απόρρητο
 
@@ -741,7 +783,7 @@ Google държи постоянен бутон «Upgrade» в заглавна�
 
 Δωρεάν και ανοιχτού κώδικα: https://github.com/maximtop/hide-gmail-upgrade-button
 
-Αυτή η επέκταση δεν σχετίζεται με την Google ούτε εγκρίνεται από αυτήν. Τα Gmail, Google Drive, Google Docs και Gemini είναι εμπορικά σήματα της Google LLC και αναφέρονται μόνο για την περιγραφή συμβατότητας.
+Αυτή η επέκταση δεν σχετίζεται με την Google ούτε εγκρίνεται από αυτήν. Τα Gmail, Google Drive, Google Docs, Google Calendar και Gemini είναι εμπορικά σήματα της Google LLC και αναφέρονται μόνο για την περιγραφή συμβατότητας.
 
 ================================================================================
 
@@ -754,6 +796,7 @@ Google тримає в шапці Gmail, Google Диска та Google Доку�
 #### Основні можливості
 
 - Приховує кнопки Upgrade і Ask Gemini у Gmail, Google Диску та Google Документах
+- Також приховує кнопку Upgrade у Google Календарі: увімкніть «Увімкнути в Google Календарі» у спливному вікні
 - У кожної кнопки — власний перемикач у спливному вікні; обидва ввімкнені за замовчуванням
 - Без мерехтіння: приховування застосовується до першого малювання сторінки й переживає динамічні перемальовування та навігацію всередині застосунків Google
 - Одразу працює у вкладках, відкритих ще до встановлення
@@ -769,6 +812,7 @@ Google тримає в шапці Gmail, Google Диска та Google Доку�
 - Сховище — зберігає два значення перемикачів на вашому пристрої
 - Скрипти — застосовує розширення до вкладок Gmail/Диска/Документів, відкритих до встановлення
 - Доступ до mail.google.com, drive.google.com і docs.google.com — єдині сайти, де розширення працює; інші сторінки йому недоступні
+- Доступ до calendar.google.com (необов’язковий) — запитується, лише коли ви вмикаєте «Увімкнути в Google Календарі», і знімається, коли вимикаєте; він необов’язковий, щоб розширення не просило доступ до календаря в тих, кому це не потрібно
 
 #### Приватність
 
@@ -776,7 +820,7 @@ Google тримає в шапці Gmail, Google Диска та Google Доку�
 
 Безкоштовно і з відкритим кодом: https://github.com/maximtop/hide-gmail-upgrade-button
 
-Розширення не афілійоване з Google і не схвалене нею. Gmail, Google Drive, Google Docs і Gemini — торговельні марки Google LLC, згадані лише для опису сумісності.
+Розширення не афілійоване з Google і не схвалене нею. Gmail, Google Drive, Google Docs, Google Calendar і Gemini — торговельні марки Google LLC, згадані лише для опису сумісності.
 
 ================================================================================
 
@@ -789,6 +833,7 @@ Instalirajte — i oba gumba nestaju: uredno, susjedne se ikone primaknu, kao da
 #### Glavne značajke
 
 - Skriva gumbe Upgrade i Ask Gemini u Gmailu, Google Driveu i Google dokumentima
+- Skriva i gumb Upgrade u Google kalendaru: uključite «Uključi u Google kalendaru» u skočnom prozoru
 - Svaki gumb ima vlastiti prekidač u skočnom prozoru; oba su uključena prema zadanim postavkama
 - Bez treperenja: skrivanje se primjenjuje prije prvog iscrtavanja i preživljava dinamička ponovna iscrtavanja te navigaciju unutar Googleovih aplikacija
 - Radi odmah i u karticama otvorenima prije instalacije
@@ -804,6 +849,7 @@ Googleove su oznake obfuscirane i mijenjaju se bez najave, pa se proširenje nik
 - Pohrana — čuva vaše dvije postavke na vašem uređaju
 - Skripte — primjenjuje proširenje na kartice Gmail/Drive/Dokumenti otvorene prije instalacije
 - Pristup na mail.google.com, drive.google.com i docs.google.com — jedine stranice na kojima radi; druge stranice ne može čitati
+- Pristup na calendar.google.com (neobavezan) — traži se samo kad uključite «Uključi u Google kalendaru», a uklanja se kad ga isključite; neobavezan je kako proširenje ne bi tražilo pristup kalendaru od onih kojima to ne treba
 
 #### Privatnost
 
@@ -811,7 +857,7 @@ Bez računa, bez analitike, bez poslužitelja, bez mrežnih zahtjeva. Jedini poh
 
 Besplatno i otvorenog koda: https://github.com/maximtop/hide-gmail-upgrade-button
 
-Ovo proširenje nije povezano s Googleom niti ga Google podržava. Gmail, Google Drive, Google Docs i Gemini zaštitni su znakovi tvrtke Google LLC, spomenuti samo radi opisa kompatibilnosti.
+Ovo proširenje nije povezano s Googleom niti ga Google podržava. Gmail, Google Drive, Google Docs, Google Calendar i Gemini zaštitni su znakovi tvrtke Google LLC, spomenuti samo radi opisa kompatibilnosti.
 
 ================================================================================
 
@@ -824,6 +870,7 @@ Namestite — in oba gumba izgineta: čisto, sosednje ikone se strnejo, kot da g
 #### Glavne funkcije
 
 - Skrije gumba Upgrade in Ask Gemini v Gmailu, Google Driveu in Google Dokumentih
+- Skrije tudi gumb Upgrade v Google Koledarju: v pojavnem oknu vklopite «Vklopi v Google Koledarju»
 - Vsak gumb ima svoje stikalo v pojavnem oknu; obe sta privzeto vklopljeni
 - Brez utripanja: skrivanje se uveljavi pred prvim izrisom in preživi dinamične ponovne izrise ter navigacijo znotraj Googlovih aplikacij
 - Deluje takoj tudi v zavihkih, odprtih pred namestitvijo
@@ -839,6 +886,7 @@ Googlove oznake so zakrite in se spreminjajo brez opozorila, zato se razširitev
 - Shramba — hrani vaši dve nastavitvi na vaši napravi
 - Skripti — razširitev uporabi na zavihkih Gmail/Drive/Dokumenti, odprtih pred namestitvijo
 - Dostop do mail.google.com, drive.google.com in docs.google.com — edine strani, na katerih teče; drugih strani ne more brati
+- Dostop do calendar.google.com (neobvezen) — zahteva se le, ko vklopite «Vklopi v Google Koledarju», in odvzame, ko ga izklopite; neobvezen je zato, da razširitev ne prosi za dostop do koledarja tistih, ki ga ne potrebujejo
 
 #### Zasebnost
 
@@ -846,7 +894,7 @@ Brez računa, brez analitike, brez strežnikov, brez omrežnih zahtev. Edina shr
 
 Brezplačno in odprtokodno: https://github.com/maximtop/hide-gmail-upgrade-button
 
-Ta razširitev ni povezana z Googlom in je Google ne podpira. Gmail, Google Drive, Google Docs in Gemini so blagovne znamke družbe Google LLC, omenjene le za opis združljivosti.
+Ta razširitev ni povezana z Googlom in je Google ne podpira. Gmail, Google Drive, Google Docs, Google Calendar in Gemini so blagovne znamke družbe Google LLC, omenjene le za opis združljivosti.
 
 ================================================================================
 
@@ -859,6 +907,7 @@ Google држи стално дугме «Upgrade» у заглављу Gmail-а
 #### Главне функције
 
 - Скрива дугмад Upgrade и Ask Gemini у Gmail-у, Google диску и Google документима
+- Скрива и дугме Upgrade у Google календару: укључите «Укључи у Google календару» у искачућем прозору
 - Свако дугме има свој прекидач у искачућем прозору; оба су подразумевано укључена
 - Без треперења: скривање се примењује пре првог исцртавања и преживљава динамична поновна исцртавања и навигацију унутар Google апликација
 - Ради одмах и у картицама отвореним пре инсталације
@@ -874,6 +923,7 @@ Google-ове ознаке су обфусковане и мењају се бе
 - Складиште — чува ваша два подешавања на вашем уређају
 - Скрипте — примењује проширење на картице Gmail/Диск/Документи отворене пре инсталације
 - Приступ на mail.google.com, drive.google.com и docs.google.com — једини сајтови на којима ради; друге странице не може да чита
+- Приступ на calendar.google.com (опциони) — тражи се само када укључите «Укључи у Google календару», а уклања се када га искључите; опциони је да проширење не би тражило приступ календару од оних којима то не треба
 
 #### Приватност
 
@@ -881,7 +931,7 @@ Google-ове ознаке су обфусковане и мењају се бе
 
 Бесплатно и отвореног кода: https://github.com/maximtop/hide-gmail-upgrade-button
 
-Ово проширење није повезано са Google-ом нити га Google подржава. Gmail, Google Drive, Google Docs и Gemini су заштитни знакови компаније Google LLC, поменути само ради описа компатибилности.
+Ово проширење није повезано са Google-ом нити га Google подржава. Gmail, Google Drive, Google Docs, Google Calendar и Gemini су заштитни знакови компаније Google LLC, поменути само ради описа компатибилности.
 
 ================================================================================
 
@@ -894,6 +944,7 @@ Google-ове ознаке су обфусковане и мењају се бе
 #### Pagrindinės funkcijos
 
 - Paslepia mygtukus „Upgrade" ir „Ask Gemini" sistemose „Gmail", „Google" diske ir „Google" dokumentuose
+- Taip pat paslepia mygtuką „Upgrade" „Google" kalendoriuje: iškylančiajame lange įjunkite «Įgalinti „Google“ kalendoriuje»
 - Kiekvienas mygtukas turi savo jungiklį iškylančiajame lange; abu įjungti pagal numatytuosius nustatymus
 - Jokio mirksėjimo: slėpimas pritaikomas prieš pirmą atvaizdavimą ir atlaiko dinaminius peratvaizdavimus bei naršymą programų viduje
 - Veikia iš karto ir skirtukuose, atvertuose dar prieš diegimą
@@ -909,6 +960,7 @@ Google-ове ознаке су обфусковане и мењају се бе
 - Saugykla — laiko du jūsų nustatymus jūsų įrenginyje
 - Scenarijai — pritaiko plėtinį Gmail/Disko/Dokumentų skirtukams, atvertiems prieš diegimą
 - Prieiga prie mail.google.com, drive.google.com ir docs.google.com — vienintelės svetainės, kuriose jis veikia; kitų puslapių skaityti negali
+- Prieiga prie calendar.google.com (neprivaloma) — prašoma tik įjungus «Įgalinti „Google“ kalendoriuje» ir atšaukiama išjungus; ji neprivaloma, kad plėtinys neprašytų prieigos prie kalendoriaus tų, kuriems jos nereikia
 
 #### Privatumas
 
@@ -916,7 +968,7 @@ Jokių paskyrų, analitikos, serverių ar tinklo užklausų. Vieninteliai saugom
 
 Nemokamas ir atviro kodo: https://github.com/maximtop/hide-gmail-upgrade-button
 
-Šis plėtinys nėra susijęs su „Google" ir nėra jos remiamas. „Gmail", „Google Drive", „Google Docs" ir „Gemini" yra „Google LLC" prekių ženklai, minimi tik suderinamumui apibūdinti.
+Šis plėtinys nėra susijęs su „Google" ir nėra jos remiamas. „Gmail", „Google Drive", „Google Docs", „Google Calendar" ir „Gemini" yra „Google LLC" prekių ženklai, minimi tik suderinamumui apibūdinti.
 
 ================================================================================
 
@@ -929,6 +981,7 @@ Yükleyin — iki düğme de temizce kaybolur: komşu simgeler aradaki boşluğu
 #### Başlıca özellikler
 
 - Gmail, Google Drive ve Google Dokümanlar'daki Upgrade ve Ask Gemini düğmelerini gizler
+- Google Takvim'deki Upgrade düğmesini de gizler: açılır pencerede «Google Takvim’de etkinleştir» anahtarını açın
 - Her düğmenin açılır penceredeki kendi anahtarı vardır; ikisi de varsayılan olarak açıktır
 - Titreme yok: gizleme, sayfanın ilk çiziminden önce uygulanır ve Google'ın dinamik yeniden çizimlerine ve uygulama içi gezinmeye dayanır
 - Yükleme sırasında zaten açık olan sekmelerde anında çalışır
@@ -944,6 +997,7 @@ Google'ın işaretlemesi gizlenmiştir ve haber vermeden değişir; bu yüzden u
 - Depolama — iki ayarınızı cihazınızda saklar
 - Komut dosyaları — uzantıyı, yükleme sırasında zaten açık olan Gmail/Drive/Dokümanlar sekmelerine uygular
 - mail.google.com, drive.google.com ve docs.google.com erişimi — çalıştığı tek siteler; başka sayfaları okuyamaz
+- calendar.google.com erişimi (isteğe bağlı) — yalnızca «Google Takvim’de etkinleştir» anahtarını açtığınızda istenir, kapattığınızda kaldırılır; isteğe bağlıdır, böylece uzantı takvim erişimini ihtiyacı olmayanlardan istemez
 
 #### Gizlilik
 
@@ -951,7 +1005,7 @@ Hesap yok, analiz yok, sunucu yok, ağ isteği yok. Saklanan tek veri, tarayıc�
 
 Ücretsiz ve açık kaynak: https://github.com/maximtop/hide-gmail-upgrade-button
 
-Bu uzantı Google ile bağlantılı değildir ve Google tarafından desteklenmemektedir. Gmail, Google Drive, Google Docs ve Gemini, Google LLC'nin ticari markalarıdır ve yalnızca uyumluluğu tanımlamak için anılmıştır.
+Bu uzantı Google ile bağlantılı değildir ve Google tarafından desteklenmemektedir. Gmail, Google Drive, Google Docs, Google Calendar ve Gemini, Google LLC'nin ticari markalarıdır ve yalnızca uyumluluğu tanımlamak için anılmıştır.
 
 ================================================================================
 
@@ -964,6 +1018,7 @@ Bu uzantı Google ile bağlantılı değildir ve Google tarafından desteklenmem
 #### الميزات الرئيسية
 
 - تخفي زرّي Upgrade وAsk Gemini في Gmail وGoogle Drive وGoogle Docs
+- تخفي أيضًا زر Upgrade في تقويم Google: فعِّل «التفعيل في تقويم Google» في النافذة المنبثقة
 - لكل زرّ مفتاح مستقل في النافذة المنبثقة؛ وكلاهما مفعّل افتراضيًا
 - بلا وميض: يُطبَّق الإخفاء قبل أول رسم للصفحة ويصمد أمام إعادة الرسم الديناميكية والتنقّل داخل تطبيقات Google
 - تعمل فورًا في علامات التبويب التي كانت مفتوحة قبل التثبيت
@@ -979,6 +1034,7 @@ Bu uzantı Google ile bağlantılı değildir ve Google tarafından desteklenmem
 - التخزين — يحفظ إعداديك على جهازك
 - البرمجة النصية — تُطبِّق الإضافة على علامات تبويب Gmail/Drive/Docs المفتوحة قبل التثبيت
 - الوصول إلى mail.google.com وdrive.google.com وdocs.google.com — المواقع الوحيدة التي تعمل عليها؛ ولا يمكنها قراءة أي صفحة أخرى
+- الوصول إلى calendar.google.com (اختياري) — يُطلب فقط عند تفعيل «التفعيل في تقويم Google» ويُزال عند إيقافه؛ وهو اختياري كي لا تطلب الإضافة الوصول إلى التقويم ممن لا يحتاجون إليه
 
 #### الخصوصية
 
@@ -986,7 +1042,7 @@ Bu uzantı Google ile bağlantılı değildir ve Google tarafından desteklenmem
 
 مجانية ومفتوحة المصدر: https://github.com/maximtop/hide-gmail-upgrade-button
 
-هذه الإضافة غير تابعة لـ Google وغير معتمدة منها. Gmail وGoogle Drive وGoogle Docs وGemini علامات تجارية لشركة Google LLC، وذُكرت فقط لوصف التوافق.
+هذه الإضافة غير تابعة لـ Google وغير معتمدة منها. Gmail وGoogle Drive وGoogle Docs وGoogle Calendar وGemini علامات تجارية لشركة Google LLC، وذُكرت فقط لوصف التوافق.
 
 ================================================================================
 
@@ -999,6 +1055,7 @@ Google מחזיקה כפתור «Upgrade» קבוע בכותרת של Gmail, Goo
 #### תכונות עיקריות
 
 - מסתיר את הכפתורים Upgrade ו-Ask Gemini ב-Gmail, ב-Google Drive וב-Google Docs
+- מסתיר גם את כפתור Upgrade ביומן Google: הפעילו את «הפעלה ביומן Google» בחלון הקופץ
 - לכל כפתור מתג משלו בחלון הקופץ; שניהם פעילים כברירת מחדל
 - ללא הבהוב: ההסתרה מוחלת לפני הציור הראשון ושורדת רינדורים מחדש דינמיים וניווט בתוך אפליקציות Google
 - עובד מיד גם בכרטיסיות שהיו פתוחות לפני ההתקנה
@@ -1014,6 +1071,7 @@ Google מחזיקה כפתור «Upgrade» קבוע בכותרת של Gmail, Goo
 - אחסון — שומר את שתי ההגדרות שלכם במכשירכם
 - סקריפטים — מחיל את התוסף על כרטיסיות Gmail/Drive/Docs שהיו פתוחות לפני ההתקנה
 - גישה אל mail.google.com, drive.google.com ו-docs.google.com — האתרים היחידים שבהם הוא פועל; דפים אחרים אינו יכול לקרוא
+- גישה אל calendar.google.com (אופציונלית) — מתבקשת רק כשמפעילים את «הפעלה ביומן Google» ומוסרת כשמכבים אותו; היא אופציונלית כדי שהתוסף לא יבקש גישה ליומן ממי שלא צריך אותה
 
 #### פרטיות
 
@@ -1021,7 +1079,7 @@ Google מחזיקה כפתור «Upgrade» קבוע בכותרת של Gmail, Goo
 
 חינמי ובקוד פתוח: https://github.com/maximtop/hide-gmail-upgrade-button
 
-התוסף אינו קשור ל-Google ואינו נתמך על ידה. Gmail, Google Drive, Google Docs ו-Gemini הם סימנים מסחריים של Google LLC, המוזכרים רק לתיאור תאימות.
+התוסף אינו קשור ל-Google ואינו נתמך על ידה. Gmail, Google Drive, Google Docs, Google Calendar ו-Gemini הם סימנים מסחריים של Google LLC, המוזכרים רק לתיאור תאימות.
 
 ================================================================================
 
@@ -1034,6 +1092,7 @@ Google در سربرگ Gmail، Google Drive و Google Docs دکمهٔ دائمی
 #### ویژگی‌های اصلی
 
 - دکمه‌های Upgrade و Ask Gemini را در Gmail، Google Drive و Google Docs پنهان می‌کند
+- دکمهٔ Upgrade را در تقویم Google هم پنهان می‌کند: در پنجرهٔ بازشو «فعال کردن در تقویم Google» را روشن کنید
 - هر دکمه کلید مستقل خود را در پنجرهٔ بازشو دارد؛ هر دو به‌طور پیش‌فرض روشن‌اند
 - بدون سوسوزدن: پنهان‌سازی پیش از نخستین ترسیم صفحه اعمال می‌شود و در برابر بازترسیم‌های پویا و پیمایش درون برنامه‌های Google دوام می‌آورد
 - بلافاصله در برگه‌هایی که پیش از نصب باز بوده‌اند نیز کار می‌کند
@@ -1049,6 +1108,7 @@ Google در سربرگ Gmail، Google Drive و Google Docs دکمهٔ دائمی
 - ذخیره‌سازی — دو تنظیم شما را روی دستگاهتان نگه می‌دارد
 - اسکریپت‌نویسی — افزونه را روی برگه‌های Gmail/Drive/Docs که پیش از نصب باز بوده‌اند اعمال می‌کند
 - دسترسی به mail.google.com، drive.google.com و docs.google.com — تنها سایت‌هایی که در آن‌ها اجرا می‌شود؛ صفحات دیگر را نمی‌تواند بخواند
+- دسترسی به calendar.google.com (اختیاری) — فقط وقتی «فعال کردن در تقویم Google» را روشن می‌کنید درخواست می‌شود و با خاموش کردن آن برداشته می‌شود؛ اختیاری است تا افزونه از کسانی که به آن نیاز ندارند دسترسی به تقویم نخواهد
 
 #### حریم خصوصی
 
@@ -1056,7 +1116,7 @@ Google در سربرگ Gmail، Google Drive و Google Docs دکمهٔ دائمی
 
 رایگان و متن‌باز: https://github.com/maximtop/hide-gmail-upgrade-button
 
-این افزونه به Google وابسته نیست و از سوی آن تأیید نشده است. Gmail، Google Drive، Google Docs و Gemini علائم تجاری Google LLC هستند و تنها برای توصیف سازگاری ذکر شده‌اند.
+این افزونه به Google وابسته نیست و از سوی آن تأیید نشده است. Gmail، Google Drive، Google Docs، Google Calendar و Gemini علائم تجاری Google LLC هستند و تنها برای توصیف سازگاری ذکر شده‌اند.
 
 ================================================================================
 
@@ -1069,6 +1129,7 @@ Google, Gmail, Google Drive और Google Docs के हेडर में ए
 #### मुख्य विशेषताएँ
 
 - Gmail, Google Drive और Google Docs में Upgrade और Ask Gemini बटन छिपाता है
+- Google Calendar में भी Upgrade बटन छिपाता है: पॉपअप में «Google Calendar में चालू करें» चालू करें
 - हर बटन का पॉपअप में अपना टॉगल है; दोनों डिफ़ॉल्ट रूप से चालू हैं
 - कोई झिलमिलाहट नहीं: छिपाना पेज के पहले रेंडर से पहले लागू होता है और Google के डायनामिक री-रेंडर तथा ऐप के भीतर नेविगेशन में बना रहता है
 - इंस्टॉल के समय पहले से खुले टैब में तुरंत काम करता है
@@ -1084,6 +1145,7 @@ Google का मार्कअप अस्पष्ट है और बि�
 - स्टोरेज — आपकी दो सेटिंग्स आपके डिवाइस पर रखता है
 - स्क्रिप्टिंग — इंस्टॉल के समय पहले से खुले Gmail/Drive/Docs टैब पर एक्सटेंशन लागू करता है
 - mail.google.com, drive.google.com और docs.google.com तक पहुँच — केवल यही साइटें जहाँ यह चलता है; कोई और पेज नहीं पढ़ सकता
+- calendar.google.com तक पहुँच (वैकल्पिक) — केवल तब माँगी जाती है जब आप «Google Calendar में चालू करें» चालू करते हैं, और बंद करने पर हटा दी जाती है; यह वैकल्पिक है ताकि एक्सटेंशन उन लोगों से कैलेंडर की पहुँच न माँगे जिन्हें इसकी ज़रूरत नहीं
 
 #### निजता
 
@@ -1091,7 +1153,7 @@ Google का मार्कअप अस्पष्ट है और बि�
 
 मुफ़्त और ओपन सोर्स: https://github.com/maximtop/hide-gmail-upgrade-button
 
-यह एक्सटेंशन Google से संबद्ध नहीं है और न ही Google द्वारा समर्थित है। Gmail, Google Drive, Google Docs और Gemini, Google LLC के ट्रेडमार्क हैं, जिनका उल्लेख केवल संगतता बताने के लिए किया गया है।
+यह एक्सटेंशन Google से संबद्ध नहीं है और न ही Google द्वारा समर्थित है। Gmail, Google Drive, Google Docs, Google Calendar और Gemini, Google LLC के ट्रेडमार्क हैं, जिनका उल्लेख केवल संगतता बताने के लिए किया गया है।
 
 ================================================================================
 
@@ -1104,6 +1166,7 @@ Google วางปุ่ม «Upgrade» ถาวรไว้ในส่วน
 #### คุณสมบัติหลัก
 
 - ซ่อนปุ่ม Upgrade และ Ask Gemini ใน Gmail, Google ไดรฟ์ และ Google เอกสาร
+- ซ่อนปุ่ม Upgrade ใน Google ปฏิทิน ได้ด้วย: เปิด «เปิดใช้ใน Google ปฏิทิน» ในป๊อปอัป
 - แต่ละปุ่มมีสวิตช์ของตัวเองในหน้าต่างป๊อปอัป โดยค่าเริ่มต้นเปิดทั้งคู่
 - ไม่มีการกะพริบ: การซ่อนมีผลก่อนการวาดหน้าครั้งแรก และคงอยู่แม้ Google จะวาดหน้าใหม่แบบไดนามิกหรือมีการนำทางภายในแอป
 - ทำงานทันทีในแท็บที่เปิดอยู่ก่อนการติดตั้ง
@@ -1119,6 +1182,7 @@ Google วางปุ่ม «Upgrade» ถาวรไว้ในส่วน
 - พื้นที่จัดเก็บ — เก็บการตั้งค่าสองรายการไว้บนอุปกรณ์ของคุณ
 - สคริปต์ — ใช้ส่วนขยายกับแท็บ Gmail/ไดรฟ์/เอกสารที่เปิดอยู่ก่อนติดตั้ง
 - การเข้าถึง mail.google.com, drive.google.com และ docs.google.com — เว็บไซต์เดียวที่มันทำงาน อ่านหน้าอื่นไม่ได้
+- การเข้าถึง calendar.google.com (ไม่บังคับ) — ขอสิทธิ์เฉพาะเมื่อคุณเปิด «เปิดใช้ใน Google ปฏิทิน» และถอนสิทธิ์เมื่อปิด ที่เป็นแบบไม่บังคับก็เพื่อไม่ให้ส่วนขยายขอสิทธิ์เข้าถึงปฏิทินจากผู้ที่ไม่ต้องการ
 
 #### ความเป็นส่วนตัว
 
@@ -1126,7 +1190,7 @@ Google วางปุ่ม «Upgrade» ถาวรไว้ในส่วน
 
 ฟรีและโอเพนซอร์ส: https://github.com/maximtop/hide-gmail-upgrade-button
 
-ส่วนขยายนี้ไม่ได้เกี่ยวข้องหรือได้รับการรับรองจาก Google Gmail, Google Drive, Google Docs และ Gemini เป็นเครื่องหมายการค้าของ Google LLC ซึ่งกล่าวถึงเพื่ออธิบายความเข้ากันได้เท่านั้น
+ส่วนขยายนี้ไม่ได้เกี่ยวข้องหรือได้รับการรับรองจาก Google Gmail, Google Drive, Google Docs, Google Calendar และ Gemini เป็นเครื่องหมายการค้าของ Google LLC ซึ่งกล่าวถึงเพื่ออธิบายความเข้ากันได้เท่านั้น
 
 ================================================================================
 
@@ -1139,6 +1203,7 @@ Pasang, dan kedua tombol hilang dengan rapi: ikon-ikon di sebelahnya merapat, se
 #### Fitur utama
 
 - Menyembunyikan tombol Upgrade dan Ask Gemini di Gmail, Google Drive, dan Google Docs
+- Juga menyembunyikan tombol Upgrade di Google Kalender: aktifkan «Aktifkan di Google Kalender» di popup
 - Setiap tombol punya sakelar sendiri di popup; keduanya aktif secara bawaan
 - Tanpa kedipan: penyembunyian diterapkan sebelum halaman pertama kali digambar dan bertahan terhadap render ulang dinamis serta navigasi di dalam aplikasi Google
 - Langsung bekerja di tab yang sudah terbuka saat pemasangan
@@ -1154,6 +1219,7 @@ Markup Google dikaburkan dan berubah tanpa pemberitahuan, jadi ekstensi ini tida
 - Penyimpanan — menyimpan dua pengaturan Anda di perangkat Anda
 - Skrip — menerapkan ekstensi ke tab Gmail/Drive/Docs yang sudah terbuka saat pemasangan
 - Akses ke mail.google.com, drive.google.com, dan docs.google.com — satu-satunya situs tempat ia berjalan; halaman lain tidak bisa dibacanya
+- Akses ke calendar.google.com (opsional) — hanya diminta saat Anda mengaktifkan «Aktifkan di Google Kalender» dan dicabut saat Anda menonaktifkannya; opsional agar ekstensi tidak meminta akses kalender dari orang yang tidak membutuhkannya
 
 #### Privasi
 
@@ -1161,7 +1227,7 @@ Tanpa akun, tanpa analitik, tanpa server, tanpa permintaan jaringan. Satu-satuny
 
 Gratis dan open source: https://github.com/maximtop/hide-gmail-upgrade-button
 
-Ekstensi ini tidak berafiliasi dengan Google dan tidak didukung oleh Google. Gmail, Google Drive, Google Docs, dan Gemini adalah merek dagang Google LLC, disebut hanya untuk menjelaskan kompatibilitas.
+Ekstensi ini tidak berafiliasi dengan Google dan tidak didukung oleh Google. Gmail, Google Drive, Google Docs, Google Calendar, dan Gemini adalah merek dagang Google LLC, disebut hanya untuk menjelaskan kompatibilitas.
 
 ================================================================================
 
@@ -1174,6 +1240,7 @@ I-install — at parehong nawawala nang malinis ang dalawang button: nagdidikit 
 #### Mga pangunahing tampok
 
 - Itinatago ang mga button na Upgrade at Ask Gemini sa Gmail, Google Drive, at Google Docs
+- Itinatago rin ang button na Upgrade sa Google Calendar: i-on ang «I-enable sa Google Calendar» sa popup
 - Bawat button ay may sariling switch sa popup; parehong naka-on bilang default
 - Walang pagkurap: ang pagtatago ay nailalapat bago ang unang pag-render at nakakaligtas sa mga dynamic na muling pag-render at nabigasyon sa loob ng mga app ng Google
 - Gumagana agad sa mga tab na bukas na bago pa ang pag-install
@@ -1189,6 +1256,7 @@ Ang markup ng Google ay obfuscated at nagbabago nang walang abiso, kaya hindi ka
 - Storage — iniingatan ang dalawang setting mo sa iyong device
 - Scripting — inilalapat ang extension sa mga tab ng Gmail/Drive/Docs na bukas na noong i-install
 - Access sa mail.google.com, drive.google.com, at docs.google.com — ang tanging mga site kung saan ito tumatakbo; hindi nito mababasa ang ibang pahina
+- Access sa calendar.google.com (opsyonal) — hinihingi lang kapag in-on mo ang «I-enable sa Google Calendar» at inaalis kapag in-off mo; opsyonal ito para hindi humingi ang extension ng access sa calendar sa mga hindi nangangailangan nito
 
 #### Privacy
 
@@ -1196,7 +1264,7 @@ Walang account, walang analytics, walang server, walang network request. Ang tan
 
 Libre at open source: https://github.com/maximtop/hide-gmail-upgrade-button
 
-Ang extension na ito ay hindi kaakibat ng Google at hindi inendorso ng Google. Ang Gmail, Google Drive, Google Docs, at Gemini ay mga trademark ng Google LLC, binanggit lamang upang ilarawan ang compatibility.
+Ang extension na ito ay hindi kaakibat ng Google at hindi inendorso ng Google. Ang Gmail, Google Drive, Google Docs, Google Calendar, at Gemini ay mga trademark ng Google LLC, binanggit lamang upang ilarawan ang compatibility.
 
 ================================================================================
 
@@ -1209,6 +1277,7 @@ Cài đặt — và cả hai nút biến mất gọn gàng: các biểu tượng
 #### Tính năng chính
 
 - Ẩn các nút Upgrade và Ask Gemini trong Gmail, Google Drive và Google Tài liệu
+- Cũng ẩn nút Upgrade trong Lịch Google: bật «Bật trong Lịch Google» trong cửa sổ bật lên
 - Mỗi nút có công tắc riêng trong cửa sổ bật lên; cả hai bật sẵn theo mặc định
 - Không nhấp nháy: việc ẩn được áp dụng trước lần vẽ trang đầu tiên và trụ vững qua các lần vẽ lại động cũng như điều hướng bên trong ứng dụng Google
 - Hoạt động ngay trong các thẻ đã mở trước khi cài đặt
@@ -1224,6 +1293,7 @@ Mã đánh dấu của Google bị làm rối và thay đổi không báo trư�
 - Bộ nhớ — giữ hai cài đặt của bạn trên thiết bị của bạn
 - Tập lệnh — áp dụng tiện ích cho các thẻ Gmail/Drive/Tài liệu đã mở khi cài đặt
 - Truy cập mail.google.com, drive.google.com và docs.google.com — những trang duy nhất nó chạy; các trang khác nó không thể đọc
+- Truy cập calendar.google.com (tùy chọn) — chỉ được yêu cầu khi bạn bật «Bật trong Lịch Google» và bị gỡ khi bạn tắt; đây là quyền tùy chọn để tiện ích không xin quyền truy cập lịch từ những người không cần
 
 #### Quyền riêng tư
 
@@ -1231,7 +1301,7 @@ Không tài khoản, không phân tích, không máy chủ, không yêu cầu m�
 
 Miễn phí và mã nguồn mở: https://github.com/maximtop/hide-gmail-upgrade-button
 
-Tiện ích này không liên kết với Google và không được Google chứng thực. Gmail, Google Drive, Google Docs và Gemini là thương hiệu của Google LLC, chỉ được nhắc đến để mô tả khả năng tương thích.
+Tiện ích này không liên kết với Google và không được Google chứng thực. Gmail, Google Drive, Google Docs, Google Calendar và Gemini là thương hiệu của Google LLC, chỉ được nhắc đến để mô tả khả năng tương thích.
 
 ================================================================================
 
@@ -1244,6 +1314,7 @@ Google は Gmail、Google ドライブ、Google ドキュメントのヘッダ�
 #### 主な機能
 
 - Gmail、Google ドライブ、Google ドキュメントの Upgrade ボタンと Ask Gemini ボタンを非表示にします
+- Google カレンダーの Upgrade ボタンも非表示にできます。ポップアップで「Google カレンダーで有効にする」をオンにしてください
 - 各ボタンにはポップアップ内に個別のスイッチがあり、既定でどちらもオンです
 - ちらつきなし：非表示は最初の描画前に適用され、Google の動的な再描画やアプリ内ナビゲーションでも維持されます
 - インストール時にすでに開いていたタブでも即座に機能します
@@ -1259,6 +1330,7 @@ Google のマークアップは難読化されており予告なく変わるた�
 - ストレージ — 2 つの設定値をお使いの端末に保存します
 - スクリプト — インストール時にすでに開いていた Gmail／ドライブ／ドキュメントのタブに拡張機能を適用します
 - mail.google.com、drive.google.com、docs.google.com へのアクセス — 動作するのはこの 3 サイトのみで、他のページは読み取れません
+- calendar.google.com へのアクセス（任意） — 「Google カレンダーで有効にする」をオンにしたときだけ要求され、オフにすると解除されます。必要としない人にカレンダーへのアクセスを求めないよう、任意にしています
 
 #### プライバシー
 
@@ -1266,7 +1338,7 @@ Google のマークアップは難読化されており予告なく変わるた�
 
 無料でオープンソース: https://github.com/maximtop/hide-gmail-upgrade-button
 
-この拡張機能は Google と提携しておらず、Google の承認も受けていません。Gmail、Google Drive、Google Docs、Gemini は Google LLC の商標であり、互換性の説明のためにのみ言及しています。
+この拡張機能は Google と提携しておらず、Google の承認も受けていません。Gmail、Google Drive、Google Docs、Google Calendar、Gemini は Google LLC の商標であり、互換性の説明のためにのみ言及しています。
 
 ================================================================================
 
@@ -1279,6 +1351,7 @@ Google은 Gmail, Google Drive, Google Docs의 헤더에 «Upgrade» 버튼을 �
 #### 주요 기능
 
 - Gmail, Google Drive, Google Docs에서 Upgrade 버튼과 Ask Gemini 버튼을 숨깁니다
+- Google Calendar에서도 Upgrade 버튼을 숨깁니다. 팝업에서 «Google Calendar에서 사용 설정하기»를 켜세요
 - 각 버튼마다 팝업에 개별 스위치가 있으며 기본적으로 둘 다 켜져 있습니다
 - 깜빡임 없음: 숨김은 첫 렌더링 전에 적용되며 Google의 동적 재렌더링과 앱 내 탐색에도 유지됩니다
 - 설치 시 이미 열려 있던 탭에서도 즉시 작동합니다
@@ -1294,6 +1367,7 @@ Google의 마크업은 난독화되어 있고 예고 없이 바뀌므로, 이 �
 - 저장소 — 두 가지 설정값을 사용자의 기기에 보관합니다
 - 스크립팅 — 설치 시 이미 열려 있던 Gmail/Drive/Docs 탭에 확장 프로그램을 적용합니다
 - mail.google.com, drive.google.com, docs.google.com 접근 — 실행되는 유일한 사이트이며 다른 페이지는 읽을 수 없습니다
+- calendar.google.com 접근(선택) — «Google Calendar에서 사용 설정하기»를 켤 때만 요청하고 끄면 해제합니다. 필요 없는 사용자에게 캘린더 접근을 요청하지 않도록 선택 권한으로 두었습니다
 
 #### 개인정보 보호
 
@@ -1301,7 +1375,7 @@ Google의 마크업은 난독화되어 있고 예고 없이 바뀌므로, 이 �
 
 무료 오픈 소스: https://github.com/maximtop/hide-gmail-upgrade-button
 
-이 확장 프로그램은 Google과 제휴하지 않았으며 Google의 승인을 받지 않았습니다. Gmail, Google Drive, Google Docs, Gemini는 Google LLC의 상표이며 호환성 설명을 위해서만 언급됩니다.
+이 확장 프로그램은 Google과 제휴하지 않았으며 Google의 승인을 받지 않았습니다. Gmail, Google Drive, Google Docs, Google Calendar, Gemini는 Google LLC의 상표이며 호환성 설명을 위해서만 언급됩니다.
 
 ================================================================================
 
@@ -1314,6 +1388,7 @@ Google 在 Gmail、Google 云端硬盘和 Google 文档的顶栏中常驻一个�
 #### 主要功能
 
 - 隐藏 Gmail、Google 云端硬盘和 Google 文档中的 Upgrade 和 Ask Gemini 按钮
+- 也可隐藏 Google 日历中的 Upgrade 按钮：在弹窗中开启「在 Google 日历中启用」
 - 每个按钮在弹窗中都有独立开关；默认均为开启
 - 无闪烁：隐藏在页面首次绘制前生效，并能挺过 Google 的动态重绘和应用内导航
 - 对安装时已打开的标签页立即生效
@@ -1329,6 +1404,7 @@ Google 的标记经过混淆且随时变化，因此扩展从不依赖脆弱的�
 - 存储 — 在你的设备上保存两个开关的状态
 - 脚本 — 将扩展应用到安装时已打开的 Gmail/云端硬盘/文档标签页
 - 访问 mail.google.com、drive.google.com 和 docs.google.com — 它仅在这三个网站运行；无法读取其他任何页面
+- 访问 calendar.google.com（可选） — 仅在你开启「在 Google 日历中启用」时请求，关闭后即撤销；设为可选，是为了不向不需要的人索取日历访问权限
 
 #### 隐私
 
@@ -1336,7 +1412,7 @@ Google 的标记经过混淆且随时变化，因此扩展从不依赖脆弱的�
 
 免费且开源: https://github.com/maximtop/hide-gmail-upgrade-button
 
-本扩展与 Google 无关联，也未获其认可。Gmail、Google Drive、Google Docs 和 Gemini 是 Google LLC 的商标，提及仅为说明兼容性。
+本扩展与 Google 无关联，也未获其认可。Gmail、Google Drive、Google Docs、Google Calendar 和 Gemini 是 Google LLC 的商标，提及仅为说明兼容性。
 
 ================================================================================
 
@@ -1349,6 +1425,7 @@ Google 在 Gmail、Google 雲端硬碟和 Google 文件的頂欄常駐一個「U
 #### 主要功能
 
 - 隱藏 Gmail、Google 雲端硬碟和 Google 文件中的 Upgrade 和 Ask Gemini 按鈕
+- 也可隱藏 Google 日曆中的 Upgrade 按鈕：在彈出視窗中開啟「在 Google 日曆中啟用」
 - 每個按鈕在彈出視窗中都有獨立開關；預設皆為開啟
 - 無閃爍：隱藏在頁面首次繪製前生效，並能撐過 Google 的動態重繪與應用內導覽
 - 對安裝時已開啟的分頁立即生效
@@ -1364,6 +1441,7 @@ Google 的標記經過混淆且隨時變動，因此擴充功能從不依賴脆�
 - 儲存空間 — 在你的裝置上保存兩個開關的狀態
 - 指令碼 — 將擴充功能套用到安裝時已開啟的 Gmail/雲端硬碟/文件分頁
 - 存取 mail.google.com、drive.google.com 和 docs.google.com — 它僅在這三個網站執行；無法讀取其他任何頁面
+- 存取 calendar.google.com（選用） — 僅在你開啟「在 Google 日曆中啟用」時要求，關閉後即撤銷；設為選用，是為了不向不需要的人索取日曆存取權限
 
 #### 隱私
 
@@ -1371,7 +1449,7 @@ Google 的標記經過混淆且隨時變動，因此擴充功能從不依賴脆�
 
 免費且開源: https://github.com/maximtop/hide-gmail-upgrade-button
 
-本擴充功能與 Google 無關聯，也未獲其認可。Gmail、Google Drive、Google Docs 和 Gemini 是 Google LLC 的商標，提及僅為說明相容性。
+本擴充功能與 Google 無關聯，也未獲其認可。Gmail、Google Drive、Google Docs、Google Calendar 和 Gemini 是 Google LLC 的商標，提及僅為說明相容性。
 
 ================================================================================
 
@@ -1384,6 +1462,7 @@ Instal·leu-la i tots dos botons desapareixen netament: les icones veïnes s'aju
 #### Funcions principals
 
 - Amaga els botons Upgrade i Ask Gemini a Gmail, Google Drive i Google Docs
+- També amaga el botó Upgrade a Google Calendar: activeu «Activa a Google Calendar» a la finestra emergent
 - Cada botó té el seu propi interruptor a la finestra emergent; tots dos activats per defecte
 - Sense parpelleig: l'ocultació s'aplica abans del primer renderitzat i sobreviu als re-renderitzats dinàmics i a la navegació interna de Google
 - Funciona immediatament a les pestanyes ja obertes en instal·lar
@@ -1399,6 +1478,7 @@ El marcatge de Google està ofuscat i canvia sense avís, així que l'extensió 
 - Emmagatzematge — guarda els vostres dos ajustos al vostre dispositiu
 - Scripts — aplica l'extensió a les pestanyes de Gmail/Drive/Docs ja obertes en instal·lar
 - Accés a mail.google.com, drive.google.com i docs.google.com — els únics llocs on funciona; no pot llegir cap altra pàgina
+- Accés a calendar.google.com (opcional) — només es demana quan activeu «Activa a Google Calendar» i es retira quan el desactiveu; és opcional perquè l'extensió no demani accés al calendari a qui no el necessita
 
 #### Privadesa
 
@@ -1406,4 +1486,4 @@ Sense comptes, sense analítica, sense servidors, sense peticions de xarxa. Les 
 
 Gratuïta i de codi obert: https://github.com/maximtop/hide-gmail-upgrade-button
 
-Aquesta extensió no està afiliada a Google ni compta amb el seu suport. Gmail, Google Drive, Google Docs i Gemini són marques de Google LLC, esmentades només per descriure compatibilitat.
+Aquesta extensió no està afiliada a Google ni compta amb el seu suport. Gmail, Google Drive, Google Docs, Google Calendar i Gemini són marques de Google LLC, esmentades només per descriure compatibilitat.
