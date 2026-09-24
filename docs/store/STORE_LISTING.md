@@ -108,7 +108,8 @@ Single purpose:
 
 > Hides the promotional "Upgrade" and "Ask Gemini" buttons in the headers of
 > Gmail, Google Drive and Google Docs, and — only after the user grants
-> optional access from the popup — the "Upgrade" button in Google Calendar.
+> optional access on the onboarding page or in the popup — the "Upgrade"
+> button in Google Calendar.
 > Each button has its own local on/off toggle.
 
 `storage`:

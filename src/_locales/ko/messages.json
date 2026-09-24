@@ -21,7 +21,7 @@
     },
     "popup_calendar_access_label": {
         "message": "Google Calendar에서 사용 설정하기",
-        "description": "Label of the optional Google Calendar access toggle."
+        "description": "Label of the optional Google Calendar access toggle in the popup; also the enable button on the onboarding page."
     },
     "popup_markup_note": {
         "message": "버튼이 다시 나타나면 Google이 인터페이스를 변경한 것입니다. 확장 프로그램 업데이트로 수정됩니다.",
@@ -118,5 +118,13 @@
     "onboarding_privacy_link": {
         "message": "개인정보처리방침",
         "description": "Onboarding link to the privacy policy."
+    },
+    "locale_code": {
+        "message": "ko",
+        "description": "Do not translate: this catalog's BCP 47 language tag, used as the page lang attribute."
+    },
+    "locale_dir": {
+        "message": "ltr",
+        "description": "Do not translate: this catalog's text direction, ltr or rtl."
     }
 }

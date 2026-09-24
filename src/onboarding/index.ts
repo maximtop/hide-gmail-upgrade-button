@@ -33,8 +33,11 @@ const pinDone = document.getElementById('pin-done') as HTMLElement;
  * text direction.
  */
 const localizePage = (): void => {
-    document.documentElement.lang = chrome.i18n.getUILanguage();
-    document.documentElement.dir = chrome.i18n.getMessage('@@bidi_dir');
+    // Taken from the catalog that served the strings, not from the browser
+    // UI language: a UI locale without a catalog falls back to English and
+    // must not be mirrored.
+    document.documentElement.lang = chrome.i18n.getMessage('locale_code');
+    document.documentElement.dir = chrome.i18n.getMessage('locale_dir');
     document.title = chrome.i18n.getMessage('onboarding_title');
 
     for (const element of document.querySelectorAll<HTMLElement>('[data-i18n]')) {
@@ -81,7 +84,7 @@ const updateCalendarAccess = async (enabled: boolean): Promise<void> => {
     disableButton.disabled = true;
     calendarDenied.hidden = true;
 
-    const granted = await changeCalendarAccess(enabled, !enabled);
+    const granted = await changeCalendarAccess(enabled);
     renderCalendarAccess(granted);
     calendarDenied.hidden = !enabled || granted;
     if (hadFocus) {

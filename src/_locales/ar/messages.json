@@ -21,7 +21,7 @@
     },
     "popup_calendar_access_label": {
         "message": "التفعيل في تقويم Google",
-        "description": "Label of the optional Google Calendar access toggle."
+        "description": "Label of the optional Google Calendar access toggle in the popup; also the enable button on the onboarding page."
     },
     "popup_markup_note": {
         "message": "إذا ظهر الزر من جديد فذلك لأن Google غيّرت الواجهة — سيصل الإصلاح في تحديث قادم للإضافة.",
@@ -118,5 +118,13 @@
     "onboarding_privacy_link": {
         "message": "سياسة الخصوصية",
         "description": "Onboarding link to the privacy policy."
+    },
+    "locale_code": {
+        "message": "ar",
+        "description": "Do not translate: this catalog's BCP 47 language tag, used as the page lang attribute."
+    },
+    "locale_dir": {
+        "message": "rtl",
+        "description": "Do not translate: this catalog's text direction, ltr or rtl."
     }
 }

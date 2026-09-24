@@ -52,6 +52,17 @@ describe('locale files', () => {
         }
     });
 
+    it('declare their own language tag and text direction for the pages they localize', () => {
+        const rtlLocales = ['ar', 'fa', 'he'];
+
+        for (const locale of locales) {
+            const filePath = path.join(localesDir, locale, 'messages.json');
+            const messages = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+            expect(messages.locale_code.message).toBe(locale.replace('_', '-'));
+            expect(messages.locale_dir.message).toBe(rtlLocales.includes(locale) ? 'rtl' : 'ltr');
+        }
+    });
+
     it('all locales have the same keys, including required name and description', () => {
         const keySets = locales.map((locale) => {
             const filePath = path.join(localesDir, locale, 'messages.json');

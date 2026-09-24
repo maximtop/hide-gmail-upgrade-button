@@ -21,7 +21,7 @@
     },
     "popup_calendar_access_label": {
         "message": "Ativar no Calendário Google",
-        "description": "Label of the optional Google Calendar access toggle."
+        "description": "Label of the optional Google Calendar access toggle in the popup; also the enable button on the onboarding page."
     },
     "popup_markup_note": {
         "message": "Se um botão reaparecer, a Google mudou a interface — a correção chegará numa atualização da extensão.",
@@ -118,5 +118,13 @@
     "onboarding_privacy_link": {
         "message": "Política de privacidade",
         "description": "Onboarding link to the privacy policy."
+    },
+    "locale_code": {
+        "message": "pt-PT",
+        "description": "Do not translate: this catalog's BCP 47 language tag, used as the page lang attribute."
+    },
+    "locale_dir": {
+        "message": "ltr",
+        "description": "Do not translate: this catalog's text direction, ltr or rtl."
     }
 }

@@ -15,6 +15,8 @@ import { CALENDAR_URL_PATTERN } from '../../../src/common/constants';
 
 type PermissionsListener = (permissions: chrome.permissions.Permissions) => void;
 
+const CATALOG_METADATA: Record<string, string> = { locale_code: 'he', locale_dir: 'rtl' };
+
 const PAGE_HTML = fs.readFileSync(path.join(import.meta.dirname, '../../../src/onboarding/index.html'), 'utf-8');
 
 const containsMock = vi.fn();
@@ -25,7 +27,9 @@ let addedListeners: PermissionsListener[] = [];
 let removedListeners: PermissionsListener[] = [];
 let userSettingsListeners: Array<() => void> = [];
 
-const byId = <T extends HTMLElement = HTMLElement>(id: string): T => document.getElementById(id) as T;
+const byId = <T extends HTMLElement = HTMLElement>(id: string): T => {
+    return document.getElementById(id) as T;
+};
 
 const calendar = () => {
     return {
@@ -89,8 +93,7 @@ const loadPage = async (): Promise<void> => {
 const stubChrome = (action: object): void => {
     vi.stubGlobal('chrome', {
         i18n: {
-            getMessage: (key: string) => (key === '@@bidi_dir' ? 'rtl' : `msg:${key}`),
-            getUILanguage: () => 'he',
+            getMessage: (key: string) => CATALOG_METADATA[key] ?? `msg:${key}`,
         },
         permissions: {
             contains: containsMock,
@@ -121,7 +124,7 @@ describe('onboarding page', () => {
         });
     });
 
-    it('localizes every text, the illustration and the document before the first paint', async () => {
+    it('localizes every text, the illustration and the document from the served catalog', async () => {
         await import('../../../src/onboarding/index');
 
         expect(document.title).toBe('msg:onboarding_title');

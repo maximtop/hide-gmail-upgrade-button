@@ -9,6 +9,7 @@
  */
 
 import { changeCalendarAccess, readCalendarAccess, subscribeToCalendarAccess } from '../common/calendar-access';
+import { ONBOARDING_PAGE_FILE } from '../common/constants';
 import { DEFAULT_SETTINGS, loadSettings, saveSettings } from '../common/settings';
 import type { Settings } from '../common/settings';
 import { readCachedSettings, writeCachedSettings } from './settings-cache';
@@ -87,7 +88,7 @@ const renderCalendarAccess = (enabled: boolean): void => {
 const updateCalendarAccess = async (toggle: HTMLInputElement): Promise<void> => {
     const requestedEnabled = toggle.checked;
     toggle.disabled = true;
-    renderCalendarAccess(await changeCalendarAccess(requestedEnabled, !requestedEnabled));
+    renderCalendarAccess(await changeCalendarAccess(requestedEnabled));
 };
 
 /**
@@ -117,6 +118,7 @@ const initSync = (): void => {
     localize('markup-note', 'popup_markup_note');
     localize('report-link', 'popup_report_link');
     localize('onboarding-link', 'popup_onboarding_link');
+    document.getElementById('onboarding-link')?.setAttribute('href', chrome.runtime.getURL(ONBOARDING_PAGE_FILE));
 
     renderSettings(readCachedSettings() ?? DEFAULT_SETTINGS);
 

@@ -9,6 +9,7 @@ import {
     CONTENT_SCRIPT_FILE,
     PREHIDE_STYLESHEET_FILE,
 } from '../common/constants';
+import { readCalendarAccess } from '../common/calendar-access';
 import type { ExtensionMessage } from '../common/messages';
 import { injectIntoOpenTabs } from './inject-open-tabs';
 
@@ -31,7 +32,7 @@ const CALENDAR_DISABLE_MESSAGE = {
  * @returns Whether the optional Calendar origin is currently granted.
  */
 export const hasCalendarAccess = async (): Promise<boolean> => {
-    return chrome.permissions.contains({ origins: [CALENDAR_URL_PATTERN] });
+    return readCalendarAccess();
 };
 
 /**
