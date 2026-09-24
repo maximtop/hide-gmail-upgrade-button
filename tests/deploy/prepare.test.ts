@@ -7,7 +7,7 @@
 
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
-import { appendFileSync, readFileSync } from 'node:fs';
+import { appendFileSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 
 import AdmZip from 'adm-zip';
@@ -20,6 +20,7 @@ import {
 } from 'vitest';
 
 import {
+    AMO_APPROVAL_NOTES_MAX_LENGTH,
     AMO_REVIEW_NOTES_PATH,
     GECKO_ID,
     RELEASE_ASSET_PREFIX,
@@ -221,5 +222,20 @@ describe.each(STORE_TARGETS)('release preparation protocol for %s', (target) => 
         prepare(envFor(target, 'validate'));
         expect(downloadArguments()).toContain(assetName(target));
         expect(appendFileSync).toHaveBeenCalledTimes(1);
+    });
+});
+
+describe('Firefox reviewer notes', () => {
+    it('fail validate mode before writing notes when AMO would reject their length', () => {
+        assets[assetName('source')] = pack({
+            ...Object.fromEntries(SOURCE_REQUIRED_FILES.map((file) => [file, 'fixture'])),
+            'package.json': JSON.stringify({ version: '1.2.3' }),
+            [AMO_REVIEW_NOTES_PATH]: 'a'.repeat(AMO_APPROVAL_NOTES_MAX_LENGTH + 1),
+        });
+        expect(() => {
+            prepare(envFor('firefox', 'validate'));
+        }).toThrow(`is ${AMO_APPROVAL_NOTES_MAX_LENGTH + 1} characters; AMO accepts at most`);
+        expect(writeFileSync).not.toHaveBeenCalled();
+        expect(appendFileSync).not.toHaveBeenCalled();
     });
 });

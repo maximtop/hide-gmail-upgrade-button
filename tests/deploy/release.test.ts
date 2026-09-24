@@ -11,12 +11,14 @@ import AdmZip from 'adm-zip';
 import { describe, expect, it } from 'vitest';
 
 import {
+    AMO_APPROVAL_NOTES_MAX_LENGTH,
     AMO_REVIEW_NOTES_PATH,
     GECKO_ID,
     RELEASE_TAG_PATTERN,
     SOURCE_REQUIRED_FILES,
 } from '../../scripts/deploy/constants';
 import {
+    amoNotesLength,
     releaseVersion,
     requireConfiguration,
     verifyChecksum,
@@ -166,5 +168,22 @@ describe('published release contract', () => {
         expect(() => {
             verifySource(pack(incomplete), '1.2.3', false);
         }).toThrow('missing');
+    });
+    it('counts reviewer notes as AMO does: trimmed, in code points', () => {
+        expect(amoNotesLength('\n  abc  \n')).toBe(3);
+        expect(amoNotesLength('🦊é')).toBe(2);
+    });
+    it('rejects reviewer notes longer than AMO accepts, naming both lengths', () => {
+        const atLimit = `${'🦊'.repeat(AMO_APPROVAL_NOTES_MAX_LENGTH)}\n`;
+        expect(() => {
+            verifySource(pack({ ...sourceFiles, [AMO_REVIEW_NOTES_PATH]: atLimit }), '1.2.3', false);
+        }).not.toThrow();
+        const tooLong = 'a'.repeat(AMO_APPROVAL_NOTES_MAX_LENGTH + 1);
+        [true, false].forEach((requireNotes) => {
+            expect(() => {
+                verifySource(pack({ ...sourceFiles, [AMO_REVIEW_NOTES_PATH]: tooLong }), '1.2.3', requireNotes);
+            }).toThrow(`${AMO_REVIEW_NOTES_PATH} is ${AMO_APPROVAL_NOTES_MAX_LENGTH + 1} characters; `
+                + `AMO accepts at most ${AMO_APPROVAL_NOTES_MAX_LENGTH}`);
+        });
     });
 });

@@ -8,6 +8,7 @@ import { createHash } from 'node:crypto';
 import AdmZip from 'adm-zip';
 
 import {
+    AMO_APPROVAL_NOTES_MAX_LENGTH,
     AMO_REVIEW_NOTES_PATH,
     GECKO_ID,
     RELEASE_TAG_PATTERN,
@@ -139,6 +140,15 @@ export const verifyManifest = (bytes: Buffer, version: string, browser: string):
 };
 
 /**
+ * Measure reviewer notes the way AMO validates `approval_notes`.
+ *
+ * @param notes Reviewer notes as submitted.
+ *
+ * @returns Unicode code points after trimming surrounding whitespace.
+ */
+export const amoNotesLength = (notes: string): number => [...notes.trim()].length;
+
+/**
  * Check matching source metadata and obtain reviewer notes from that release.
  *
  * @param bytes Source ZIP from the same release.
@@ -147,7 +157,8 @@ export const verifyManifest = (bytes: Buffer, version: string, browser: string):
  *
  * @returns Reviewer notes, empty when the archive has none.
  *
- * @throws If the source is incomplete or belongs to another version.
+ * @throws If the source is incomplete, belongs to another version or its notes exceed the
+ * AMO limit.
  */
 export const verifySource = (bytes: Buffer, version: string, requireNotes: boolean): string => {
     const zip = new AdmZip(bytes);
@@ -163,6 +174,13 @@ export const verifySource = (bytes: Buffer, version: string, requireNotes: boole
     if (requireNotes && !notes.trim()) {
         throw new Error(
             `Source has no ${AMO_REVIEW_NOTES_PATH}; use the Developer Hub for this release`,
+        );
+    }
+    const length = amoNotesLength(notes);
+    if (length > AMO_APPROVAL_NOTES_MAX_LENGTH) {
+        throw new Error(
+            `${AMO_REVIEW_NOTES_PATH} is ${length} characters; `
+            + `AMO accepts at most ${AMO_APPROVAL_NOTES_MAX_LENGTH}`,
         );
     }
     return notes;
