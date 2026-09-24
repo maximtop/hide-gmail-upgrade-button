@@ -46,8 +46,8 @@ export const STORE_LISTING_URLS: Record<BrowserTarget, string> = {
     [BROWSER_TARGETS.FIREFOX]: 'https://addons.mozilla.org/firefox/addon/hide-upgrade-gmail-drive-docs/',
 };
 
-// The store deployment code (scripts/deploy) is shared with the other extension repositories
-// and owns the release constants; the build keeps importing them from here.
+// The store deployment code (scripts/deploy) owns the release constants; the build keeps
+// importing them from here.
 export {
     GECKO_ID,
     RELEASE_ASSET_PREFIX,
