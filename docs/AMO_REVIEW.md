@@ -39,15 +39,16 @@ no permission.
    account, then install the extension. The onboarding page opens; existing
    tabs are handled without reloading once Firefox grants access to them.
 2. Where Google shows Upgrade or Ask Gemini, confirm they are hidden.
-3. Turn a popup toggle off: its control returns immediately. Turn it on: the
+3. Turn each popup toggle off: its control returns immediately. Turn it on: the
    control disappears. Other header controls stay available.
 4. Reload or navigate within a Google app: settings persist and re-rendered
    controls stay hidden.
 5. In Calendar, nothing changes before optional access is granted. Grant it
    with "Enable in Google Calendar" on the onboarding page (reopen it from
    "How it works" in the popup) or the popup switch: Upgrade hides without
-   reloading and both places show access as on. Revoke it with "Turn off" or
-   the popup switch: Upgrade returns. Ask Gemini is not hidden in Calendar.
+   reloading and both places show access as on. Revoke it with "Turn off" on
+   the page or the popup switch: Upgrade returns. Ask Gemini is not hidden in
+   Calendar.
 
 Google varies promotional controls by account, region and rollout; if a
 control is absent or ambiguous, the extension does nothing. No reviewer
