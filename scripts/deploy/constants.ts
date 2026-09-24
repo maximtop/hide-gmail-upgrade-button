@@ -45,6 +45,14 @@ export const AMO_REVIEW_NOTES_PATH = 'docs/AMO_REVIEW.md';
 export const AMO_APPROVAL_NOTES_FILENAME = 'approval-notes.txt';
 
 /**
+ * Maximum length of AMO `approval_notes`. AMO trims surrounding whitespace and counts Unicode
+ * code points; longer notes fail the submission with HTTP 400. Source: `Version.approval_notes`
+ * in addons-server,
+ * https://github.com/mozilla/addons-server/blob/5e222bdab92d/src/olympia/versions/models.py#L311-L313
+ */
+export const AMO_APPROVAL_NOTES_MAX_LENGTH = 3000;
+
+/**
  * Shape of a release tag; the version is the tag without the `v` prefix.
  */
 export const RELEASE_TAG_PATTERN = /^v[0-9]+\.[0-9]+\.[0-9]+$/;
