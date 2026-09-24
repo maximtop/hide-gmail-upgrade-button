@@ -42,3 +42,7 @@ Every dependency must have a clear, explainable need for this small extension. N
 
 - Test observable behavior. Do not write tests that read source files and compare strings against constants.
 - Run `pnpm validate` before committing.
+
+## Hand-off
+
+- In the final report, give the build command `cd <checkout-or-worktree> && make install && make dev chrome` and say whether you ran it.
