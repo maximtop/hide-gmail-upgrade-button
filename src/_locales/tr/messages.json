@@ -40,99 +40,83 @@
         "description": "Onboarding page title and heading, shown after installation."
     },
     "onboarding_intro": {
-        "message": "Upgrade ve Ask Gemini düğmeleri artık gizli. Bilmeniz gerekenler burada.",
-        "description": "Onboarding page lead paragraph under the title."
+        "message": "Upgrade ve Ask Gemini düğmeleri artık Gmail, Google Drive, Dokümanlar, E-Tablolar ve Slaytlar’da gizli. Açık sekmeleri yeniden yüklemenize gerek yok.",
+        "description": "Onboarding lead line under the title."
     },
-    "onboarding_how_heading": {
-        "message": "Nasıl çalışır",
-        "description": "Onboarding section heading: what the extension does."
+    "onboarding_before": {
+        "message": "Öncesi",
+        "description": "Onboarding illustration label above the Google header with the buttons still shown."
     },
-    "onboarding_how_text": {
-        "message": "Uzantı; Gmail, Google Drive ile Google Dokümanlar, E-Tablolar ve Slaytlar’ın üst çubuğundaki Upgrade ve Ask Gemini düğmelerini gizler. Yandaki simgeler boşluğu kapatır; zaten açık olan sekmeler de yeniden yüklenmeden güncellenir.",
-        "description": "Onboarding: what is hidden and where."
+    "onboarding_after": {
+        "message": "Sonrası",
+        "description": "Onboarding illustration label above the Google header with the buttons hidden."
     },
     "onboarding_how_image_alt": {
-        "message": "Gmail üst çubuğu öncesi ve sonrası: Upgrade ve Ask Gemini düğmeleri artık yok",
-        "description": "Alt text of the before/after illustration."
+        "message": "Google üst çubuğu öncesi ve sonrası: Upgrade ve Ask Gemini düğmeleri artık yok",
+        "description": "Accessible description of the before/after illustration."
     },
     "onboarding_calendar_heading": {
         "message": "Google Takvim",
-        "description": "Onboarding section heading about optional Google Calendar support."
+        "description": "Onboarding card heading about optional Google Calendar support."
     },
     "onboarding_calendar_text": {
-        "message": "Uzantı, Google Takvim’deki Upgrade düğmesini de gizleyebilir. Bu özellik varsayılan olarak kapalıdır: buradan veya açılır pencereden açın, ardından tarayıcı sorduğunda calendar.google.com erişimine izin verin.",
-        "description": "Onboarding: how to enable Google Calendar support."
+        "message": "Upgrade düğmesini orada da gizleyin. Tarayıcınız calendar.google.com erişimine izin vermenizi isteyecek.",
+        "description": "Onboarding Calendar card text while Calendar access is off."
+    },
+    "onboarding_calendar_text_on": {
+        "message": "Upgrade düğmesi orada da gizli.",
+        "description": "Onboarding Calendar card text once Calendar access is granted."
+    },
+    "onboarding_calendar_why_toggle": {
+        "message": "Neden isteğe bağlı?",
+        "description": "Onboarding disclosure toggle that reveals why Calendar access is optional."
     },
     "onboarding_calendar_why": {
-        "message": "Neden isteğe bağlı? Takvim erişimi yalnızca buna ihtiyacı olanlardan istenir. Zorunlu olsaydı tarayıcı, uzantıyı zaten yüklemiş olan herkes için yeni erişimi onaylayana kadar uzantıyı devre dışı bırakırdı.",
-        "description": "Onboarding: why Google Calendar access is optional instead of on by default."
+        "message": "Takvim erişimi yalnızca buna ihtiyacı olanlardan istenir. Zorunlu olsaydı tarayıcı, uzantıya zaten sahip olan herkes için yeni erişimi onaylayana kadar uzantıyı devre dışı bırakırdı.",
+        "description": "Onboarding: text revealed by the 'Why is it optional?' toggle."
     },
     "onboarding_calendar_enabled": {
-        "message": "Google Takvim’de etkin",
+        "message": "Etkin",
         "description": "Onboarding status shown when Google Calendar access is granted."
     },
     "onboarding_calendar_disable": {
         "message": "Kapat",
         "description": "Onboarding button that removes Google Calendar access."
     },
+    "onboarding_calendar_denied": {
+        "message": "Erişime izin verilmedi. İstediğiniz zaman yeniden deneyebilirsiniz.",
+        "description": "Onboarding hint shown after the user declined or closed the browser's Calendar access prompt."
+    },
     "onboarding_pin_heading": {
         "message": "Uzantıyı sabitleyin",
-        "description": "Onboarding section heading about pinning the extension to the toolbar."
+        "description": "Onboarding card heading about pinning the extension to the toolbar."
     },
     "onboarding_pin_text": {
-        "message": "Tüm ayarlar uzantının açılır penceresindedir. Uzantıyı sabitleyene kadar açılır pencere, araç çubuğundaki yapboz parçası şeklindeki Uzantılar simgesinin arkasında kalır: bu simgeye tıklayın ve Hide Upgrade Button uzantısını sabitleyerek tek tıkla ulaşılabilir hâle getirin.",
+        "message": "Araç çubuğundaki yapboz parçası şeklindeki Uzantılar menüsünü açın ve ayarlarına tek tıkla ulaşmak için Hide Upgrade Button uzantısını sabitleyin.",
         "description": "Onboarding: how to pin the extension icon. Keep 'Hide Upgrade Button' untranslated."
     },
-    "onboarding_settings_heading": {
-        "message": "Ayarlar",
-        "description": "Onboarding section heading about the popup settings."
+    "onboarding_pin_done": {
+        "message": "Sabitlendi",
+        "description": "Onboarding status shown when the extension icon is already pinned to the toolbar."
     },
-    "onboarding_settings_text": {
-        "message": "Açılır pencerede her düğmenin kendi anahtarı vardır; böylece istediğinizi geri getirebilirsiniz. Değişiklikler açık sekmelerde, yeniden yükleme gerekmeden hemen uygulanır.",
-        "description": "Onboarding: per-button switches apply immediately."
-    },
-    "onboarding_returned_heading": {
-        "message": "Bir düğme geri gelirse",
-        "description": "Onboarding section heading about a hidden button reappearing."
-    },
-    "onboarding_returned_text": {
-        "message": "Google arayüzünü değiştirmiştir. Düzeltme, uzantı güncellemesiyle gelecektir; sorunu bildirmeniz daha erken gelmesine yardımcı olur.",
-        "description": "Onboarding: a reappearing button means Google changed its interface."
-    },
-    "onboarding_report_heading": {
-        "message": "Sorun bildir",
-        "description": "Onboarding section heading about reporting problems."
-    },
-    "onboarding_report_text": {
-        "message": "GitHub’da bir sorun kaydı (issue) açın ve şunları ekleyin:",
-        "description": "Onboarding: lead-in to the list of details to attach to a report."
-    },
-    "onboarding_report_item_service": {
-        "message": "hizmet: Gmail, Drive, Dokümanlar veya Takvim",
-        "description": "Onboarding report checklist item."
-    },
-    "onboarding_report_item_language": {
-        "message": "Google arayüzünüzün dili",
-        "description": "Onboarding report checklist item."
-    },
-    "onboarding_report_item_screenshot": {
-        "message": "üst çubuğun ekran görüntüsü",
-        "description": "Onboarding report checklist item."
+    "onboarding_pin_done_text": {
+        "message": "Ayarları, araç çubuğundaki simgesinden açılır.",
+        "description": "Onboarding Pin card text once the extension icon is pinned."
     },
     "onboarding_report_link": {
-        "message": "GitHub Issues sayfasını aç",
-        "description": "Onboarding link to the issue tracker."
+        "message": "Bir düğme geri mi geldi? Bildirin",
+        "description": "Onboarding footer link to report a hidden button that reappeared."
+    },
+    "onboarding_rate_link": {
+        "message": "Faydalı buldunuz mu? Uzantıyı mağazada değerlendirin",
+        "description": "Onboarding unobtrusive link to the extension's store page."
     },
     "onboarding_privacy_text": {
-        "message": "Analiz yok, ağ isteği yok: ayarlarınız tarayıcınızda kalır.",
+        "message": "Analiz yok, ağ isteği yok.",
         "description": "Onboarding one-line privacy summary."
     },
     "onboarding_privacy_link": {
         "message": "Gizlilik politikası",
         "description": "Onboarding link to the privacy policy."
-    },
-    "onboarding_rate_link": {
-        "message": "Faydalı buldunuz mu? Uzantıyı mağazada değerlendirin",
-        "description": "Onboarding unobtrusive link to the extension's store page."
     }
 }

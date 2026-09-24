@@ -40,99 +40,83 @@
         "description": "Onboarding page title and heading, shown after installation."
     },
     "onboarding_intro": {
-        "message": "Upgrade- ja Ask Gemini -painikkeet on nyt piilotettu. Tässä on, mitä kannattaa tietää.",
-        "description": "Onboarding page lead paragraph under the title."
+        "message": "Upgrade- ja Ask Gemini -painikkeet on nyt piilotettu Gmailissa, Google Drivessa, Docsissa, Sheetsissä ja Slidesissa. Avoimia välilehtiä ei tarvitse ladata uudelleen.",
+        "description": "Onboarding lead line under the title."
     },
-    "onboarding_how_heading": {
-        "message": "Näin se toimii",
-        "description": "Onboarding section heading: what the extension does."
+    "onboarding_before": {
+        "message": "Ennen",
+        "description": "Onboarding illustration label above the Google header with the buttons still shown."
     },
-    "onboarding_how_text": {
-        "message": "Laajennus piilottaa Upgrade- ja Ask Gemini -painikkeet Gmailin, Google Driven sekä Google Docsin, Sheetsin ja Slidesin yläpalkista. Viereiset kuvakkeet siirtyvät täyttämään tyhjän tilan, ja jo avoimet välilehdet päivittyvät ilman uudelleenlatausta.",
-        "description": "Onboarding: what is hidden and where."
+    "onboarding_after": {
+        "message": "Jälkeen",
+        "description": "Onboarding illustration label above the Google header with the buttons hidden."
     },
     "onboarding_how_image_alt": {
-        "message": "Gmailin yläpalkki ennen ja jälkeen: Upgrade- ja Ask Gemini -painikkeet ovat poissa",
-        "description": "Alt text of the before/after illustration."
+        "message": "Googlen yläpalkki ennen ja jälkeen: Upgrade- ja Ask Gemini -painikkeet ovat poissa",
+        "description": "Accessible description of the before/after illustration."
     },
     "onboarding_calendar_heading": {
         "message": "Google Kalenteri",
-        "description": "Onboarding section heading about optional Google Calendar support."
+        "description": "Onboarding card heading about optional Google Calendar support."
     },
     "onboarding_calendar_text": {
-        "message": "Laajennus voi piilottaa Upgrade-painikkeen myös Google Kalenterista. Tämä on oletuksena pois päältä: ota se käyttöön tästä tai ponnahdusikkunasta ja salli sitten pääsy sivustoon calendar.google.com, kun selain kysyy.",
-        "description": "Onboarding: how to enable Google Calendar support."
+        "message": "Piilota Upgrade-painike myös siellä. Selain pyytää sallimaan pääsyn sivustoon calendar.google.com.",
+        "description": "Onboarding Calendar card text while Calendar access is off."
+    },
+    "onboarding_calendar_text_on": {
+        "message": "Upgrade-painike on piilotettu myös siellä.",
+        "description": "Onboarding Calendar card text once Calendar access is granted."
+    },
+    "onboarding_calendar_why_toggle": {
+        "message": "Miksi tämä on valinnainen?",
+        "description": "Onboarding disclosure toggle that reveals why Calendar access is optional."
     },
     "onboarding_calendar_why": {
-        "message": "Miksi tämä on valinnainen? Kalenterin käyttöoikeutta pyydetään vain niiltä, jotka sitä tarvitsevat. Jos se olisi pakollinen, selain poistaisi laajennuksen käytöstä kaikilta, joilla se on jo asennettuna, kunnes he hyväksyvät uuden käyttöoikeuden.",
-        "description": "Onboarding: why Google Calendar access is optional instead of on by default."
+        "message": "Kalenterin käyttöoikeutta pyydetään vain niiltä, jotka sitä tarvitsevat. Jos se olisi pakollinen, selain poistaisi laajennuksen käytöstä kaikilta, joilla se on jo asennettuna, kunnes he hyväksyvät uuden käyttöoikeuden.",
+        "description": "Onboarding: text revealed by the 'Why is it optional?' toggle."
     },
     "onboarding_calendar_enabled": {
-        "message": "Käytössä Google Kalenterissa",
+        "message": "Käytössä",
         "description": "Onboarding status shown when Google Calendar access is granted."
     },
     "onboarding_calendar_disable": {
         "message": "Poista käytöstä",
         "description": "Onboarding button that removes Google Calendar access."
     },
+    "onboarding_calendar_denied": {
+        "message": "Käyttöoikeutta ei sallittu. Voit yrittää uudelleen milloin tahansa.",
+        "description": "Onboarding hint shown after the user declined or closed the browser's Calendar access prompt."
+    },
     "onboarding_pin_heading": {
         "message": "Kiinnitä laajennus",
-        "description": "Onboarding section heading about pinning the extension to the toolbar."
+        "description": "Onboarding card heading about pinning the extension to the toolbar."
     },
     "onboarding_pin_text": {
-        "message": "Kaikki asetukset ovat laajennuksen ponnahdusikkunassa. Ennen kuin kiinnität laajennuksen, ponnahdusikkuna on piilossa työkalupalkin palapelin palan muotoisen Laajennukset-kuvakkeen takana: napsauta kuvaketta ja kiinnitä Hide Upgrade Button, niin se on aina yhden napsautuksen päässä.",
+        "message": "Avaa työkalupalkista palapelin palan muotoinen Laajennukset-valikko ja kiinnitä Hide Upgrade Button, niin sen asetukset ovat aina yhden napsautuksen päässä.",
         "description": "Onboarding: how to pin the extension icon. Keep 'Hide Upgrade Button' untranslated."
     },
-    "onboarding_settings_heading": {
-        "message": "Asetukset",
-        "description": "Onboarding section heading about the popup settings."
+    "onboarding_pin_done": {
+        "message": "Kiinnitetty",
+        "description": "Onboarding status shown when the extension icon is already pinned to the toolbar."
     },
-    "onboarding_settings_text": {
-        "message": "Jokaisella painikkeella on oma kytkimensä ponnahdusikkunassa, joten voit palauttaa kumman tahansa näkyviin. Muutokset tulevat voimaan heti avoimissa välilehdissä ilman uudelleenlatausta.",
-        "description": "Onboarding: per-button switches apply immediately."
-    },
-    "onboarding_returned_heading": {
-        "message": "Jos painike palaa",
-        "description": "Onboarding section heading about a hidden button reappearing."
-    },
-    "onboarding_returned_text": {
-        "message": "Google on muuttanut käyttöliittymäänsä. Korjaus tulee laajennuksen päivityksessä; ilmoittamalla asiasta autat saamaan sen nopeammin.",
-        "description": "Onboarding: a reappearing button means Google changed its interface."
-    },
-    "onboarding_report_heading": {
-        "message": "Ilmoita ongelmasta",
-        "description": "Onboarding section heading about reporting problems."
-    },
-    "onboarding_report_text": {
-        "message": "Avaa GitHubissa uusi issue ja kerro siinä:",
-        "description": "Onboarding: lead-in to the list of details to attach to a report."
-    },
-    "onboarding_report_item_service": {
-        "message": "palvelu: Gmail, Drive, Docs tai Kalenteri",
-        "description": "Onboarding report checklist item."
-    },
-    "onboarding_report_item_language": {
-        "message": "Google-käyttöliittymäsi kieli",
-        "description": "Onboarding report checklist item."
-    },
-    "onboarding_report_item_screenshot": {
-        "message": "kuvakaappaus yläpalkista",
-        "description": "Onboarding report checklist item."
+    "onboarding_pin_done_text": {
+        "message": "Asetukset avautuvat laajennuksen kuvakkeesta työkalupalkissa.",
+        "description": "Onboarding Pin card text once the extension icon is pinned."
     },
     "onboarding_report_link": {
-        "message": "Avaa GitHub Issues",
-        "description": "Onboarding link to the issue tracker."
+        "message": "Palasiko painike? Ilmoita siitä",
+        "description": "Onboarding footer link to report a hidden button that reappeared."
+    },
+    "onboarding_rate_link": {
+        "message": "Onko laajennuksesta hyötyä? Arvioi se kaupassa",
+        "description": "Onboarding unobtrusive link to the extension's store page."
     },
     "onboarding_privacy_text": {
-        "message": "Ei analytiikkaa eikä verkkopyyntöjä: asetuksesi pysyvät selaimessasi.",
+        "message": "Ei analytiikkaa, ei verkkopyyntöjä.",
         "description": "Onboarding one-line privacy summary."
     },
     "onboarding_privacy_link": {
         "message": "Tietosuojakäytäntö",
         "description": "Onboarding link to the privacy policy."
-    },
-    "onboarding_rate_link": {
-        "message": "Onko laajennuksesta hyötyä? Arvioi se kaupassa",
-        "description": "Onboarding unobtrusive link to the extension's store page."
     }
 }

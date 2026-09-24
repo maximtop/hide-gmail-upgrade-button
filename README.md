@@ -12,7 +12,7 @@ A tiny browser extension (Manifest V3) that hides the **Upgrade** and **Ask Gemi
 - Neighboring header icons **shift to fill the space** — no empty gap is left behind.
 - Applies to **already open tabs** right after install, no reload needed.
 - Toggling a setting applies **live** to every open tab.
-- After installation, a short **onboarding page** explains how the extension works, lets you enable Google Calendar in one click and shows how to report a problem. Reopen it any time from **How it works** in the popup.
+- After installation, a short **onboarding page** shows what was hidden, lets you enable Google Calendar in one click and shows how to pin the extension. Reopen it any time from **How it works** in the popup.
 
 ## How it stays safe
 

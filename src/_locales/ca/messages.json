@@ -40,99 +40,83 @@
         "description": "Onboarding page title and heading, shown after installation."
     },
     "onboarding_intro": {
-        "message": "Els botons Upgrade i Ask Gemini ja estan amagats. Això és el que cal saber.",
-        "description": "Onboarding page lead paragraph under the title."
+        "message": "Els botons Upgrade i Ask Gemini ja estan amagats a Gmail, Google Drive, Docs, Sheets i Slides. No cal recarregar les pestanyes obertes.",
+        "description": "Onboarding lead line under the title."
     },
-    "onboarding_how_heading": {
-        "message": "Com funciona",
-        "description": "Onboarding section heading: what the extension does."
+    "onboarding_before": {
+        "message": "Abans",
+        "description": "Onboarding illustration label above the Google header with the buttons still shown."
     },
-    "onboarding_how_text": {
-        "message": "L’extensió amaga els botons Upgrade i Ask Gemini a la capçalera de Gmail, Google Drive i Google Docs, Sheets i Slides. Les icones veïnes omplen l’espai buit, i les pestanyes que ja estan obertes s’actualitzen sense recarregar-les.",
-        "description": "Onboarding: what is hidden and where."
+    "onboarding_after": {
+        "message": "Després",
+        "description": "Onboarding illustration label above the Google header with the buttons hidden."
     },
     "onboarding_how_image_alt": {
-        "message": "Capçalera de Gmail abans i després: els botons Upgrade i Ask Gemini han desaparegut",
-        "description": "Alt text of the before/after illustration."
+        "message": "Capçalera de Google abans i després: els botons Upgrade i Ask Gemini han desaparegut",
+        "description": "Accessible description of the before/after illustration."
     },
     "onboarding_calendar_heading": {
         "message": "Google Calendar",
-        "description": "Onboarding section heading about optional Google Calendar support."
+        "description": "Onboarding card heading about optional Google Calendar support."
     },
     "onboarding_calendar_text": {
-        "message": "L’extensió també pot amagar el botó Upgrade a Google Calendar. Està desactivat per defecte: activa’l aquí o a la finestra emergent i, després, permet l’accés a calendar.google.com quan el navegador t’ho demani.",
-        "description": "Onboarding: how to enable Google Calendar support."
+        "message": "Amaga-hi també el botó Upgrade. El navegador et demanarà que permetis l’accés a calendar.google.com.",
+        "description": "Onboarding Calendar card text while Calendar access is off."
+    },
+    "onboarding_calendar_text_on": {
+        "message": "El botó Upgrade també hi està amagat.",
+        "description": "Onboarding Calendar card text once Calendar access is granted."
+    },
+    "onboarding_calendar_why_toggle": {
+        "message": "Per què és opcional?",
+        "description": "Onboarding disclosure toggle that reveals why Calendar access is optional."
     },
     "onboarding_calendar_why": {
-        "message": "Per què és opcional? L’accés a Calendar només es demana a qui el necessita. Si fos obligatori, el navegador també desactivaria l’extensió a tothom que ja la té instal·lada fins que no aprovés el nou accés.",
-        "description": "Onboarding: why Google Calendar access is optional instead of on by default."
+        "message": "L’accés a Calendar només es demana a qui el necessita. Si fos obligatori, el navegador desactivaria l’extensió a tothom que ja la té fins que no aprovés el nou accés.",
+        "description": "Onboarding: text revealed by the 'Why is it optional?' toggle."
     },
     "onboarding_calendar_enabled": {
-        "message": "Activat a Google Calendar",
+        "message": "Activat",
         "description": "Onboarding status shown when Google Calendar access is granted."
     },
     "onboarding_calendar_disable": {
         "message": "Desactiva",
         "description": "Onboarding button that removes Google Calendar access."
     },
+    "onboarding_calendar_denied": {
+        "message": "No s’ha permès l’accés. Pots tornar-ho a provar quan vulguis.",
+        "description": "Onboarding hint shown after the user declined or closed the browser's Calendar access prompt."
+    },
     "onboarding_pin_heading": {
         "message": "Fixa l’extensió",
-        "description": "Onboarding section heading about pinning the extension to the toolbar."
+        "description": "Onboarding card heading about pinning the extension to the toolbar."
     },
     "onboarding_pin_text": {
-        "message": "Tots els paràmetres són a la finestra emergent de l’extensió. Mentre no la fixis, queda amagada darrere la icona d’Extensions (la peça de trencaclosques) de la barra d’eines: fes clic en aquesta icona i fixa Hide Upgrade Button per tenir-la a un sol clic.",
+        "message": "Obre el menú d’Extensions (la peça de trencaclosques) de la barra d’eines i fixa Hide Upgrade Button per tenir-ne la configuració a un sol clic.",
         "description": "Onboarding: how to pin the extension icon. Keep 'Hide Upgrade Button' untranslated."
     },
-    "onboarding_settings_heading": {
-        "message": "Configuració",
-        "description": "Onboarding section heading about the popup settings."
+    "onboarding_pin_done": {
+        "message": "Fixada",
+        "description": "Onboarding status shown when the extension icon is already pinned to the toolbar."
     },
-    "onboarding_settings_text": {
-        "message": "Cada botó té el seu propi interruptor a la finestra emergent, de manera que pots tornar a mostrar qualsevol dels dos. Els canvis s’apliquen immediatament a les pestanyes obertes, sense recarregar.",
-        "description": "Onboarding: per-button switches apply immediately."
-    },
-    "onboarding_returned_heading": {
-        "message": "Si un botó torna a aparèixer",
-        "description": "Onboarding section heading about a hidden button reappearing."
-    },
-    "onboarding_returned_text": {
-        "message": "Google ha canviat la interfície. La solució arribarà amb una actualització de l’extensió; si ho informes, arribarà abans.",
-        "description": "Onboarding: a reappearing button means Google changed its interface."
-    },
-    "onboarding_report_heading": {
-        "message": "Informa d’un problema",
-        "description": "Onboarding section heading about reporting problems."
-    },
-    "onboarding_report_text": {
-        "message": "Obre una incidència a GitHub i inclou-hi:",
-        "description": "Onboarding: lead-in to the list of details to attach to a report."
-    },
-    "onboarding_report_item_service": {
-        "message": "el servei: Gmail, Drive, Docs o Calendar",
-        "description": "Onboarding report checklist item."
-    },
-    "onboarding_report_item_language": {
-        "message": "l’idioma de la teva interfície de Google",
-        "description": "Onboarding report checklist item."
-    },
-    "onboarding_report_item_screenshot": {
-        "message": "una captura de pantalla de la capçalera",
-        "description": "Onboarding report checklist item."
+    "onboarding_pin_done_text": {
+        "message": "La configuració s’obre des de la seva icona a la barra d’eines.",
+        "description": "Onboarding Pin card text once the extension icon is pinned."
     },
     "onboarding_report_link": {
-        "message": "Obre GitHub Issues",
-        "description": "Onboarding link to the issue tracker."
+        "message": "Ha tornat a aparèixer un botó? Informa’n",
+        "description": "Onboarding footer link to report a hidden button that reappeared."
+    },
+    "onboarding_rate_link": {
+        "message": "Et resulta útil? Valora l’extensió a la botiga",
+        "description": "Onboarding unobtrusive link to the extension's store page."
     },
     "onboarding_privacy_text": {
-        "message": "Sense analítiques ni sol·licituds de xarxa: la configuració es queda al teu navegador.",
+        "message": "Sense analítiques ni sol·licituds de xarxa.",
         "description": "Onboarding one-line privacy summary."
     },
     "onboarding_privacy_link": {
         "message": "Política de privadesa",
         "description": "Onboarding link to the privacy policy."
-    },
-    "onboarding_rate_link": {
-        "message": "Et resulta útil? Valora l’extensió a la botiga",
-        "description": "Onboarding unobtrusive link to the extension's store page."
     }
 }

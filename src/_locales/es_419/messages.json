@@ -40,99 +40,83 @@
         "description": "Onboarding page title and heading, shown after installation."
     },
     "onboarding_intro": {
-        "message": "Los botones Upgrade y Ask Gemini ya están ocultos. Esto es lo que conviene saber.",
-        "description": "Onboarding page lead paragraph under the title."
+        "message": "Los botones Upgrade y Ask Gemini ya están ocultos en Gmail, Google Drive, Docs, Sheets y Slides. No es necesario volver a cargar las pestañas abiertas.",
+        "description": "Onboarding lead line under the title."
     },
-    "onboarding_how_heading": {
-        "message": "Cómo funciona",
-        "description": "Onboarding section heading: what the extension does."
+    "onboarding_before": {
+        "message": "Antes",
+        "description": "Onboarding illustration label above the Google header with the buttons still shown."
     },
-    "onboarding_how_text": {
-        "message": "La extensión oculta los botones Upgrade y Ask Gemini en el encabezado de Gmail, Google Drive y Google Docs, Sheets y Slides. Los íconos contiguos ocupan el espacio, y las pestañas que ya están abiertas se actualizan sin volver a cargarlas.",
-        "description": "Onboarding: what is hidden and where."
+    "onboarding_after": {
+        "message": "Después",
+        "description": "Onboarding illustration label above the Google header with the buttons hidden."
     },
     "onboarding_how_image_alt": {
-        "message": "Encabezado de Gmail antes y después: los botones Upgrade y Ask Gemini desaparecieron",
-        "description": "Alt text of the before/after illustration."
+        "message": "Encabezado de Google antes y después: los botones Upgrade y Ask Gemini desaparecieron",
+        "description": "Accessible description of the before/after illustration."
     },
     "onboarding_calendar_heading": {
         "message": "Google Calendar",
-        "description": "Onboarding section heading about optional Google Calendar support."
+        "description": "Onboarding card heading about optional Google Calendar support."
     },
     "onboarding_calendar_text": {
-        "message": "La extensión también puede ocultar el botón Upgrade en Google Calendar. Está desactivado de forma predeterminada: actívalo aquí o en la ventana emergente y, luego, permite el acceso a calendar.google.com cuando el navegador lo pida.",
-        "description": "Onboarding: how to enable Google Calendar support."
+        "message": "Oculta también ahí el botón Upgrade. El navegador te pedirá que permitas el acceso a calendar.google.com.",
+        "description": "Onboarding Calendar card text while Calendar access is off."
+    },
+    "onboarding_calendar_text_on": {
+        "message": "El botón Upgrade también está oculto ahí.",
+        "description": "Onboarding Calendar card text once Calendar access is granted."
+    },
+    "onboarding_calendar_why_toggle": {
+        "message": "¿Por qué es opcional?",
+        "description": "Onboarding disclosure toggle that reveals why Calendar access is optional."
     },
     "onboarding_calendar_why": {
-        "message": "¿Por qué es opcional? El acceso a Calendar solo se pide a quienes lo necesitan. Si fuera obligatorio, el navegador también desactivaría la extensión para todos los que ya la tienen instalada hasta que aprobaran el nuevo acceso.",
-        "description": "Onboarding: why Google Calendar access is optional instead of on by default."
+        "message": "El acceso a Calendar solo se pide a quienes lo necesitan. Si fuera obligatorio, el navegador desactivaría la extensión para todos los que ya la tienen hasta que aprobaran el nuevo acceso.",
+        "description": "Onboarding: text revealed by the 'Why is it optional?' toggle."
     },
     "onboarding_calendar_enabled": {
-        "message": "Activado en Google Calendar",
+        "message": "Activado",
         "description": "Onboarding status shown when Google Calendar access is granted."
     },
     "onboarding_calendar_disable": {
         "message": "Desactivar",
         "description": "Onboarding button that removes Google Calendar access."
     },
+    "onboarding_calendar_denied": {
+        "message": "No se permitió el acceso. Puedes volver a intentarlo cuando quieras.",
+        "description": "Onboarding hint shown after the user declined or closed the browser's Calendar access prompt."
+    },
     "onboarding_pin_heading": {
         "message": "Fija la extensión",
-        "description": "Onboarding section heading about pinning the extension to the toolbar."
+        "description": "Onboarding card heading about pinning the extension to the toolbar."
     },
     "onboarding_pin_text": {
-        "message": "Toda la configuración está en la ventana emergente de la extensión. Mientras no la fijes, queda escondida detrás del ícono de Extensiones (la pieza de rompecabezas) de la barra de herramientas: haz clic en ese ícono y fija Hide Upgrade Button para tenerla a un solo clic.",
+        "message": "Abre el menú de Extensiones (la pieza de rompecabezas) de la barra de herramientas y fija Hide Upgrade Button para tener su configuración a un solo clic.",
         "description": "Onboarding: how to pin the extension icon. Keep 'Hide Upgrade Button' untranslated."
     },
-    "onboarding_settings_heading": {
-        "message": "Configuración",
-        "description": "Onboarding section heading about the popup settings."
+    "onboarding_pin_done": {
+        "message": "Fijada",
+        "description": "Onboarding status shown when the extension icon is already pinned to the toolbar."
     },
-    "onboarding_settings_text": {
-        "message": "Cada botón tiene su propio interruptor en la ventana emergente, así que puedes volver a mostrar cualquiera de ellos. Los cambios se aplican de inmediato en las pestañas abiertas, sin volver a cargarlas.",
-        "description": "Onboarding: per-button switches apply immediately."
-    },
-    "onboarding_returned_heading": {
-        "message": "Si un botón vuelve a aparecer",
-        "description": "Onboarding section heading about a hidden button reappearing."
-    },
-    "onboarding_returned_text": {
-        "message": "Google cambió su interfaz. La corrección llegará con una actualización de la extensión, y si reportas el problema, llegará antes.",
-        "description": "Onboarding: a reappearing button means Google changed its interface."
-    },
-    "onboarding_report_heading": {
-        "message": "Informar un problema",
-        "description": "Onboarding section heading about reporting problems."
-    },
-    "onboarding_report_text": {
-        "message": "Crea un reporte en GitHub e incluye:",
-        "description": "Onboarding: lead-in to the list of details to attach to a report."
-    },
-    "onboarding_report_item_service": {
-        "message": "el servicio: Gmail, Drive, Docs o Calendar",
-        "description": "Onboarding report checklist item."
-    },
-    "onboarding_report_item_language": {
-        "message": "el idioma de tu interfaz de Google",
-        "description": "Onboarding report checklist item."
-    },
-    "onboarding_report_item_screenshot": {
-        "message": "una captura de pantalla del encabezado",
-        "description": "Onboarding report checklist item."
+    "onboarding_pin_done_text": {
+        "message": "Su configuración se abre desde su ícono en la barra de herramientas.",
+        "description": "Onboarding Pin card text once the extension icon is pinned."
     },
     "onboarding_report_link": {
-        "message": "Abrir GitHub Issues",
-        "description": "Onboarding link to the issue tracker."
+        "message": "¿Volvió a aparecer un botón? Repórtalo",
+        "description": "Onboarding footer link to report a hidden button that reappeared."
+    },
+    "onboarding_rate_link": {
+        "message": "¿Te resulta útil? Califica la extensión en la tienda",
+        "description": "Onboarding unobtrusive link to the extension's store page."
     },
     "onboarding_privacy_text": {
-        "message": "Sin análisis de uso ni solicitudes de red: tu configuración se queda en tu navegador.",
+        "message": "Sin análisis de uso ni solicitudes de red.",
         "description": "Onboarding one-line privacy summary."
     },
     "onboarding_privacy_link": {
         "message": "Política de privacidad",
         "description": "Onboarding link to the privacy policy."
-    },
-    "onboarding_rate_link": {
-        "message": "¿Te resulta útil? Califica la extensión en la tienda",
-        "description": "Onboarding unobtrusive link to the extension's store page."
     }
 }

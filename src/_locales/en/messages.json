@@ -40,99 +40,83 @@
         "description": "Onboarding page title and heading, shown after installation."
     },
     "onboarding_intro": {
-        "message": "The Upgrade and Ask Gemini buttons are now hidden. Here is what's worth knowing.",
-        "description": "Onboarding page lead paragraph under the title."
+        "message": "The Upgrade and Ask Gemini buttons are now hidden in Gmail, Google Drive, Docs, Sheets and Slides. No need to reload open tabs.",
+        "description": "Onboarding lead line under the title."
     },
-    "onboarding_how_heading": {
-        "message": "How it works",
-        "description": "Onboarding section heading: what the extension does."
+    "onboarding_before": {
+        "message": "Before",
+        "description": "Onboarding illustration label above the Google header with the buttons still shown."
     },
-    "onboarding_how_text": {
-        "message": "The extension hides the Upgrade and Ask Gemini buttons in the header of Gmail, Google Drive and Google Docs, Sheets and Slides. Neighboring icons close the gap, and tabs that are already open are updated without a reload.",
-        "description": "Onboarding: what is hidden and where."
+    "onboarding_after": {
+        "message": "After",
+        "description": "Onboarding illustration label above the Google header with the buttons hidden."
     },
     "onboarding_how_image_alt": {
-        "message": "Gmail header before and after: the Upgrade and Ask Gemini buttons are gone",
-        "description": "Alt text of the before/after illustration."
+        "message": "Google header before and after: the Upgrade and Ask Gemini buttons are gone",
+        "description": "Accessible description of the before/after illustration."
     },
     "onboarding_calendar_heading": {
         "message": "Google Calendar",
-        "description": "Onboarding section heading about optional Google Calendar support."
+        "description": "Onboarding card heading about optional Google Calendar support."
     },
     "onboarding_calendar_text": {
-        "message": "The extension can also hide the Upgrade button in Google Calendar. This is off by default: turn it on here or in the popup, then allow access to calendar.google.com when the browser asks.",
-        "description": "Onboarding: how to enable Google Calendar support."
+        "message": "Hide the Upgrade button there too. Your browser will ask to allow access to calendar.google.com.",
+        "description": "Onboarding Calendar card text while Calendar access is off."
+    },
+    "onboarding_calendar_text_on": {
+        "message": "The Upgrade button is hidden there too.",
+        "description": "Onboarding Calendar card text once Calendar access is granted."
+    },
+    "onboarding_calendar_why_toggle": {
+        "message": "Why is it optional?",
+        "description": "Onboarding disclosure toggle that reveals why Calendar access is optional."
     },
     "onboarding_calendar_why": {
-        "message": "Why is it optional? Calendar access is requested only from people who need it. Making it required would also make the browser disable the extension for everyone who already has it installed until they approve the new access.",
-        "description": "Onboarding: why Google Calendar access is optional instead of on by default."
+        "message": "Calendar access is requested only from people who need it. Making it required would make the browser disable the extension for everyone who already has it until they approve the new access.",
+        "description": "Onboarding: text revealed by the 'Why is it optional?' toggle."
     },
     "onboarding_calendar_enabled": {
-        "message": "Enabled in Google Calendar",
+        "message": "Enabled",
         "description": "Onboarding status shown when Google Calendar access is granted."
     },
     "onboarding_calendar_disable": {
         "message": "Turn off",
         "description": "Onboarding button that removes Google Calendar access."
     },
+    "onboarding_calendar_denied": {
+        "message": "Access wasn't allowed. You can try again anytime.",
+        "description": "Onboarding hint shown after the user declined or closed the browser's Calendar access prompt."
+    },
     "onboarding_pin_heading": {
         "message": "Pin the extension",
-        "description": "Onboarding section heading about pinning the extension to the toolbar."
+        "description": "Onboarding card heading about pinning the extension to the toolbar."
     },
     "onboarding_pin_text": {
-        "message": "All settings live in the extension's popup. Until you pin it, the popup is tucked away behind the puzzle-piece Extensions icon in the toolbar: click that icon and pin Hide Upgrade Button to keep it one click away.",
+        "message": "Open the puzzle-piece menu in the toolbar and pin Hide Upgrade Button to keep its settings one click away.",
         "description": "Onboarding: how to pin the extension icon. Keep 'Hide Upgrade Button' untranslated."
     },
-    "onboarding_settings_heading": {
-        "message": "Settings",
-        "description": "Onboarding section heading about the popup settings."
+    "onboarding_pin_done": {
+        "message": "Pinned",
+        "description": "Onboarding status shown when the extension icon is already pinned to the toolbar."
     },
-    "onboarding_settings_text": {
-        "message": "Each button has its own switch in the popup, so you can bring either one back. Changes apply at once in open tabs, without a reload.",
-        "description": "Onboarding: per-button switches apply immediately."
-    },
-    "onboarding_returned_heading": {
-        "message": "If a button comes back",
-        "description": "Onboarding section heading about a hidden button reappearing."
-    },
-    "onboarding_returned_text": {
-        "message": "Google has changed its interface. The fix will arrive in an extension update; reporting it helps it arrive sooner.",
-        "description": "Onboarding: a reappearing button means Google changed its interface."
-    },
-    "onboarding_report_heading": {
-        "message": "Report a problem",
-        "description": "Onboarding section heading about reporting problems."
-    },
-    "onboarding_report_text": {
-        "message": "Open an issue on GitHub and include:",
-        "description": "Onboarding: lead-in to the list of details to attach to a report."
-    },
-    "onboarding_report_item_service": {
-        "message": "the service: Gmail, Drive, Docs or Calendar",
-        "description": "Onboarding report checklist item."
-    },
-    "onboarding_report_item_language": {
-        "message": "the language of your Google interface",
-        "description": "Onboarding report checklist item."
-    },
-    "onboarding_report_item_screenshot": {
-        "message": "a screenshot of the header",
-        "description": "Onboarding report checklist item."
+    "onboarding_pin_done_text": {
+        "message": "Its settings open from its icon in the toolbar.",
+        "description": "Onboarding Pin card text once the extension icon is pinned."
     },
     "onboarding_report_link": {
-        "message": "Open GitHub Issues",
-        "description": "Onboarding link to the issue tracker."
+        "message": "A button came back? Report it",
+        "description": "Onboarding footer link to report a hidden button that reappeared."
+    },
+    "onboarding_rate_link": {
+        "message": "Find it useful? Rate the extension in the store",
+        "description": "Onboarding unobtrusive link to the extension's store page."
     },
     "onboarding_privacy_text": {
-        "message": "No analytics and no network requests: your settings stay in your browser.",
+        "message": "No analytics, no network requests.",
         "description": "Onboarding one-line privacy summary."
     },
     "onboarding_privacy_link": {
         "message": "Privacy policy",
         "description": "Onboarding link to the privacy policy."
-    },
-    "onboarding_rate_link": {
-        "message": "Find it useful? Rate the extension in the store",
-        "description": "Onboarding unobtrusive link to the extension's store page."
     }
 }

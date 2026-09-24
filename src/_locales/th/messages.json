@@ -40,99 +40,83 @@
         "description": "Onboarding page title and heading, shown after installation."
     },
     "onboarding_intro": {
-        "message": "ปุ่ม Upgrade และ Ask Gemini ถูกซ่อนแล้ว นี่คือสิ่งที่ควรรู้",
-        "description": "Onboarding page lead paragraph under the title."
+        "message": "ปุ่ม Upgrade และ Ask Gemini ถูกซ่อนแล้วใน Gmail, Google ไดรฟ์, เอกสาร, ชีต และสไลด์ ไม่ต้องโหลดแท็บที่เปิดอยู่ซ้ำ",
+        "description": "Onboarding lead line under the title."
     },
-    "onboarding_how_heading": {
-        "message": "วิธีการทำงาน",
-        "description": "Onboarding section heading: what the extension does."
+    "onboarding_before": {
+        "message": "ก่อน",
+        "description": "Onboarding illustration label above the Google header with the buttons still shown."
     },
-    "onboarding_how_text": {
-        "message": "ส่วนขยายจะซ่อนปุ่ม Upgrade และ Ask Gemini ในส่วนหัวของ Gmail, Google ไดรฟ์ รวมถึง Google เอกสาร ชีต และสไลด์ ไอคอนข้างเคียงจะเลื่อนมาปิดช่องว่าง และแท็บที่เปิดอยู่แล้วจะอัปเดตโดยไม่ต้องโหลดซ้ำ",
-        "description": "Onboarding: what is hidden and where."
+    "onboarding_after": {
+        "message": "หลัง",
+        "description": "Onboarding illustration label above the Google header with the buttons hidden."
     },
     "onboarding_how_image_alt": {
-        "message": "ส่วนหัวของ Gmail ก่อนและหลัง: ปุ่ม Upgrade และ Ask Gemini หายไปแล้ว",
-        "description": "Alt text of the before/after illustration."
+        "message": "ส่วนหัวของ Google ก่อนและหลัง: ปุ่ม Upgrade และ Ask Gemini หายไปแล้ว",
+        "description": "Accessible description of the before/after illustration."
     },
     "onboarding_calendar_heading": {
         "message": "Google ปฏิทิน",
-        "description": "Onboarding section heading about optional Google Calendar support."
+        "description": "Onboarding card heading about optional Google Calendar support."
     },
     "onboarding_calendar_text": {
-        "message": "ส่วนขยายยังซ่อนปุ่ม Upgrade ใน Google ปฏิทินได้ด้วย ฟีเจอร์นี้ปิดอยู่โดยค่าเริ่มต้น: เปิดได้ที่นี่หรือในป๊อปอัป จากนั้นอนุญาตให้เข้าถึง calendar.google.com เมื่อเบราว์เซอร์ถาม",
-        "description": "Onboarding: how to enable Google Calendar support."
+        "message": "ซ่อนปุ่ม Upgrade ที่นั่นด้วย เบราว์เซอร์จะขอให้คุณอนุญาตให้เข้าถึง calendar.google.com",
+        "description": "Onboarding Calendar card text while Calendar access is off."
+    },
+    "onboarding_calendar_text_on": {
+        "message": "ปุ่ม Upgrade ถูกซ่อนที่นั่นด้วยแล้ว",
+        "description": "Onboarding Calendar card text once Calendar access is granted."
+    },
+    "onboarding_calendar_why_toggle": {
+        "message": "ทำไมจึงเป็นตัวเลือก?",
+        "description": "Onboarding disclosure toggle that reveals why Calendar access is optional."
     },
     "onboarding_calendar_why": {
-        "message": "ทำไมจึงเป็นตัวเลือก? สิทธิ์เข้าถึงปฏิทินจะขอเฉพาะจากผู้ที่ต้องการใช้เท่านั้น หากบังคับให้ต้องมีสิทธิ์นี้ เบราว์เซอร์จะปิดใช้งานส่วนขยายสำหรับทุกคนที่ติดตั้งไว้แล้วจนกว่าจะอนุมัติสิทธิ์ใหม่",
-        "description": "Onboarding: why Google Calendar access is optional instead of on by default."
+        "message": "สิทธิ์เข้าถึงปฏิทินจะขอเฉพาะจากผู้ที่ต้องการใช้เท่านั้น หากบังคับให้ต้องมีสิทธิ์นี้ เบราว์เซอร์จะปิดใช้งานส่วนขยายสำหรับทุกคนที่มีส่วนขยายนี้อยู่แล้วจนกว่าจะอนุมัติสิทธิ์ใหม่",
+        "description": "Onboarding: text revealed by the 'Why is it optional?' toggle."
     },
     "onboarding_calendar_enabled": {
-        "message": "เปิดใช้ใน Google ปฏิทินแล้ว",
+        "message": "เปิดใช้แล้ว",
         "description": "Onboarding status shown when Google Calendar access is granted."
     },
     "onboarding_calendar_disable": {
         "message": "ปิด",
         "description": "Onboarding button that removes Google Calendar access."
     },
+    "onboarding_calendar_denied": {
+        "message": "ไม่ได้รับอนุญาตให้เข้าถึง คุณลองอีกครั้งได้ทุกเมื่อ",
+        "description": "Onboarding hint shown after the user declined or closed the browser's Calendar access prompt."
+    },
     "onboarding_pin_heading": {
         "message": "ปักหมุดส่วนขยาย",
-        "description": "Onboarding section heading about pinning the extension to the toolbar."
+        "description": "Onboarding card heading about pinning the extension to the toolbar."
     },
     "onboarding_pin_text": {
-        "message": "การตั้งค่าทั้งหมดอยู่ในป๊อปอัปของส่วนขยาย จนกว่าคุณจะปักหมุด ป๊อปอัปจะซ่อนอยู่หลังไอคอนส่วนขยายรูปจิ๊กซอว์ในแถบเครื่องมือ: คลิกไอคอนนั้นแล้วปักหมุด Hide Upgrade Button เพื่อให้เปิดได้ในคลิกเดียว",
+        "message": "เปิดเมนูส่วนขยายรูปจิ๊กซอว์ในแถบเครื่องมือ แล้วปักหมุด Hide Upgrade Button เพื่อให้เปิดการตั้งค่าได้ในคลิกเดียว",
         "description": "Onboarding: how to pin the extension icon. Keep 'Hide Upgrade Button' untranslated."
     },
-    "onboarding_settings_heading": {
-        "message": "การตั้งค่า",
-        "description": "Onboarding section heading about the popup settings."
+    "onboarding_pin_done": {
+        "message": "ปักหมุดแล้ว",
+        "description": "Onboarding status shown when the extension icon is already pinned to the toolbar."
     },
-    "onboarding_settings_text": {
-        "message": "แต่ละปุ่มมีสวิตช์ของตัวเองในป๊อปอัป คุณจึงนำปุ่มใดก็ได้กลับมาแสดง การเปลี่ยนแปลงจะมีผลทันทีในแท็บที่เปิดอยู่โดยไม่ต้องโหลดซ้ำ",
-        "description": "Onboarding: per-button switches apply immediately."
-    },
-    "onboarding_returned_heading": {
-        "message": "หากปุ่มกลับมาแสดง",
-        "description": "Onboarding section heading about a hidden button reappearing."
-    },
-    "onboarding_returned_text": {
-        "message": "แสดงว่า Google เปลี่ยนอินเทอร์เฟซ การแก้ไขจะมาพร้อมอัปเดตของส่วนขยาย และการรายงานปัญหาจะช่วยให้การแก้ไขมาถึงเร็วขึ้น",
-        "description": "Onboarding: a reappearing button means Google changed its interface."
-    },
-    "onboarding_report_heading": {
-        "message": "รายงานปัญหา",
-        "description": "Onboarding section heading about reporting problems."
-    },
-    "onboarding_report_text": {
-        "message": "เปิด issue บน GitHub และระบุข้อมูลต่อไปนี้:",
-        "description": "Onboarding: lead-in to the list of details to attach to a report."
-    },
-    "onboarding_report_item_service": {
-        "message": "บริการ: Gmail, ไดรฟ์, เอกสาร หรือปฏิทิน",
-        "description": "Onboarding report checklist item."
-    },
-    "onboarding_report_item_language": {
-        "message": "ภาษาของอินเทอร์เฟซ Google ที่คุณใช้",
-        "description": "Onboarding report checklist item."
-    },
-    "onboarding_report_item_screenshot": {
-        "message": "ภาพหน้าจอของส่วนหัว",
-        "description": "Onboarding report checklist item."
+    "onboarding_pin_done_text": {
+        "message": "เปิดการตั้งค่าได้จากไอคอนของส่วนขยายในแถบเครื่องมือ",
+        "description": "Onboarding Pin card text once the extension icon is pinned."
     },
     "onboarding_report_link": {
-        "message": "เปิด GitHub Issues",
-        "description": "Onboarding link to the issue tracker."
+        "message": "ปุ่มกลับมาแสดงอีก? รายงานปัญหา",
+        "description": "Onboarding footer link to report a hidden button that reappeared."
+    },
+    "onboarding_rate_link": {
+        "message": "มีประโยชน์ไหม? ให้คะแนนส่วนขยายในสโตร์",
+        "description": "Onboarding unobtrusive link to the extension's store page."
     },
     "onboarding_privacy_text": {
-        "message": "ไม่มีการวิเคราะห์ข้อมูลและไม่มีคำขอผ่านเครือข่าย: การตั้งค่าของคุณอยู่ในเบราว์เซอร์ของคุณเท่านั้น",
+        "message": "ไม่มีการวิเคราะห์ข้อมูล ไม่มีคำขอผ่านเครือข่าย",
         "description": "Onboarding one-line privacy summary."
     },
     "onboarding_privacy_link": {
         "message": "นโยบายความเป็นส่วนตัว",
         "description": "Onboarding link to the privacy policy."
-    },
-    "onboarding_rate_link": {
-        "message": "มีประโยชน์ไหม? ให้คะแนนส่วนขยายในสโตร์",
-        "description": "Onboarding unobtrusive link to the extension's store page."
     }
 }

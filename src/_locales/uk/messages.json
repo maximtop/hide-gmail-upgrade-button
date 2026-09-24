@@ -40,99 +40,83 @@
         "description": "Onboarding page title and heading, shown after installation."
     },
     "onboarding_intro": {
-        "message": "Кнопки Upgrade і Ask Gemini тепер приховано. Ось що варто знати.",
-        "description": "Onboarding page lead paragraph under the title."
+        "message": "Кнопки Upgrade і Ask Gemini тепер приховано в Gmail, Google Диску, Документах, Таблицях і Презентаціях. Відкриті вкладки не потрібно перезавантажувати.",
+        "description": "Onboarding lead line under the title."
     },
-    "onboarding_how_heading": {
-        "message": "Як це працює",
-        "description": "Onboarding section heading: what the extension does."
+    "onboarding_before": {
+        "message": "До",
+        "description": "Onboarding illustration label above the Google header with the buttons still shown."
     },
-    "onboarding_how_text": {
-        "message": "Розширення приховує кнопки Upgrade і Ask Gemini у верхній панелі Gmail, Google Диска та Google Документів, Таблиць і Презентацій. Сусідні значки заповнюють порожнє місце, а вже відкриті вкладки оновлюються без перезавантаження.",
-        "description": "Onboarding: what is hidden and where."
+    "onboarding_after": {
+        "message": "Після",
+        "description": "Onboarding illustration label above the Google header with the buttons hidden."
     },
     "onboarding_how_image_alt": {
-        "message": "Верхня панель Gmail до і після: кнопок Upgrade і Ask Gemini більше немає",
-        "description": "Alt text of the before/after illustration."
+        "message": "Верхня панель Google до і після: кнопок Upgrade і Ask Gemini більше немає",
+        "description": "Accessible description of the before/after illustration."
     },
     "onboarding_calendar_heading": {
         "message": "Google Календар",
-        "description": "Onboarding section heading about optional Google Calendar support."
+        "description": "Onboarding card heading about optional Google Calendar support."
     },
     "onboarding_calendar_text": {
-        "message": "Розширення також може приховувати кнопку Upgrade у Google Календарі. За замовчуванням це вимкнено: увімкніть тут або у спливаючому вікні, а потім дозвольте доступ до calendar.google.com, коли браузер запитає.",
-        "description": "Onboarding: how to enable Google Calendar support."
+        "message": "Приховайте кнопку Upgrade і там. Браузер попросить дозволити доступ до calendar.google.com.",
+        "description": "Onboarding Calendar card text while Calendar access is off."
+    },
+    "onboarding_calendar_text_on": {
+        "message": "Кнопку Upgrade приховано і там.",
+        "description": "Onboarding Calendar card text once Calendar access is granted."
+    },
+    "onboarding_calendar_why_toggle": {
+        "message": "Чому це необов’язково?",
+        "description": "Onboarding disclosure toggle that reveals why Calendar access is optional."
     },
     "onboarding_calendar_why": {
-        "message": "Чому це необов’язково? Доступ до Календаря запитується лише в тих, кому він потрібен. Якби він був обов’язковим, браузер вимкнув би розширення для всіх, у кого воно вже встановлене, доки вони не схвалять новий доступ.",
-        "description": "Onboarding: why Google Calendar access is optional instead of on by default."
+        "message": "Доступ до Календаря запитується лише в тих, кому він потрібен. Якби він був обов’язковим, браузер вимкнув би розширення для всіх, у кого воно вже є, доки вони не схвалять новий доступ.",
+        "description": "Onboarding: text revealed by the 'Why is it optional?' toggle."
     },
     "onboarding_calendar_enabled": {
-        "message": "Увімкнено в Google Календарі",
+        "message": "Увімкнено",
         "description": "Onboarding status shown when Google Calendar access is granted."
     },
     "onboarding_calendar_disable": {
         "message": "Вимкнути",
         "description": "Onboarding button that removes Google Calendar access."
     },
+    "onboarding_calendar_denied": {
+        "message": "Доступ не надано. Ви можете спробувати ще раз будь-коли.",
+        "description": "Onboarding hint shown after the user declined or closed the browser's Calendar access prompt."
+    },
     "onboarding_pin_heading": {
         "message": "Закріпіть розширення",
-        "description": "Onboarding section heading about pinning the extension to the toolbar."
+        "description": "Onboarding card heading about pinning the extension to the toolbar."
     },
     "onboarding_pin_text": {
-        "message": "Усі налаштування — у спливаючому вікні розширення. Поки ви не закріпите розширення, це вікно сховане за значком «Розширення» у вигляді пазла на панелі інструментів: натисніть цей значок і закріпіть Hide Upgrade Button, щоб розширення завжди було за один клік.",
+        "message": "Відкрийте меню «Розширення» у вигляді пазла на панелі інструментів і закріпіть Hide Upgrade Button, щоб його налаштування завжди були за один клік.",
         "description": "Onboarding: how to pin the extension icon. Keep 'Hide Upgrade Button' untranslated."
     },
-    "onboarding_settings_heading": {
-        "message": "Налаштування",
-        "description": "Onboarding section heading about the popup settings."
+    "onboarding_pin_done": {
+        "message": "Закріплено",
+        "description": "Onboarding status shown when the extension icon is already pinned to the toolbar."
     },
-    "onboarding_settings_text": {
-        "message": "Кожна кнопка має власний перемикач у спливаючому вікні, тож будь-яку з них можна повернути. Зміни одразу застосовуються у відкритих вкладках, без перезавантаження.",
-        "description": "Onboarding: per-button switches apply immediately."
-    },
-    "onboarding_returned_heading": {
-        "message": "Якщо кнопка повернулася",
-        "description": "Onboarding section heading about a hidden button reappearing."
-    },
-    "onboarding_returned_text": {
-        "message": "Google змінив інтерфейс. Виправлення надійде з оновленням розширення; ваше повідомлення допоможе випустити його швидше.",
-        "description": "Onboarding: a reappearing button means Google changed its interface."
-    },
-    "onboarding_report_heading": {
-        "message": "Повідомити про проблему",
-        "description": "Onboarding section heading about reporting problems."
-    },
-    "onboarding_report_text": {
-        "message": "Створіть issue на GitHub і вкажіть:",
-        "description": "Onboarding: lead-in to the list of details to attach to a report."
-    },
-    "onboarding_report_item_service": {
-        "message": "сервіс: Gmail, Диск, Документи або Календар",
-        "description": "Onboarding report checklist item."
-    },
-    "onboarding_report_item_language": {
-        "message": "мову вашого інтерфейсу Google",
-        "description": "Onboarding report checklist item."
-    },
-    "onboarding_report_item_screenshot": {
-        "message": "знімок екрана верхньої панелі",
-        "description": "Onboarding report checklist item."
+    "onboarding_pin_done_text": {
+        "message": "Налаштування відкриваються через значок розширення на панелі інструментів.",
+        "description": "Onboarding Pin card text once the extension icon is pinned."
     },
     "onboarding_report_link": {
-        "message": "Відкрити GitHub Issues",
-        "description": "Onboarding link to the issue tracker."
+        "message": "Кнопка повернулася? Повідомте про це",
+        "description": "Onboarding footer link to report a hidden button that reappeared."
+    },
+    "onboarding_rate_link": {
+        "message": "Розширення корисне? Оцініть його в магазині",
+        "description": "Onboarding unobtrusive link to the extension's store page."
     },
     "onboarding_privacy_text": {
-        "message": "Жодної аналітики й мережевих запитів: ваші налаштування залишаються у браузері.",
+        "message": "Жодної аналітики, жодних мережевих запитів.",
         "description": "Onboarding one-line privacy summary."
     },
     "onboarding_privacy_link": {
         "message": "Політика конфіденційності",
         "description": "Onboarding link to the privacy policy."
-    },
-    "onboarding_rate_link": {
-        "message": "Розширення корисне? Оцініть його в магазині",
-        "description": "Onboarding unobtrusive link to the extension's store page."
     }
 }
