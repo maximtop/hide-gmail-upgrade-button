@@ -45,10 +45,13 @@ export const AMO_REVIEW_NOTES_PATH = 'docs/AMO_REVIEW.md';
 export const AMO_APPROVAL_NOTES_FILENAME = 'approval-notes.txt';
 
 /**
- * Maximum length of AMO `approval_notes`. AMO trims surrounding whitespace and counts Unicode
- * code points; longer notes fail the submission with HTTP 400. Source: `Version.approval_notes`
- * in addons-server,
+ * Maximum length of AMO `approval_notes`; longer notes fail the submission with HTTP 400.
+ * The limit is `max_length=3000` on `Version.approval_notes` in addons-server,
  * https://github.com/mozilla/addons-server/blob/5e222bdab92d/src/olympia/versions/models.py#L311-L313
+ * The API serializer's `CharField(trim_whitespace=True)` strips surrounding whitespace with
+ * Python `str.strip()` first, https://www.django-rest-framework.org/api-guide/fields/#charfield
+ * and Django's `MaxLengthValidator` then compares `len()`, i.e. Unicode code points,
+ * https://docs.djangoproject.com/en/stable/ref/validators/#maxlengthvalidator
  */
 export const AMO_APPROVAL_NOTES_MAX_LENGTH = 3000;
 
