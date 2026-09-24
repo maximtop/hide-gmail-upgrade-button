@@ -21,7 +21,7 @@
     },
     "popup_calendar_access_label": {
         "message": "Google カレンダーで有効にする",
-        "description": "Label of the optional Google Calendar access toggle."
+        "description": "Label of the optional Google Calendar access toggle in the popup; also the enable button on the onboarding page."
     },
     "popup_markup_note": {
         "message": "ボタンが再び表示された場合は、Google が UI を変更したためです。拡張機能のアップデートで修正されます。",
@@ -118,5 +118,13 @@
     "onboarding_privacy_link": {
         "message": "プライバシー ポリシー",
         "description": "Onboarding link to the privacy policy."
+    },
+    "locale_code": {
+        "message": "ja",
+        "description": "Do not translate: this catalog's BCP 47 language tag, used as the page lang attribute."
+    },
+    "locale_dir": {
+        "message": "ltr",
+        "description": "Do not translate: this catalog's text direction, ltr or rtl."
     }
 }

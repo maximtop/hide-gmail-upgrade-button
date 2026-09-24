@@ -21,7 +21,7 @@
     },
     "popup_calendar_access_label": {
         "message": "Inschakelen in Google Agenda",
-        "description": "Label of the optional Google Calendar access toggle."
+        "description": "Label of the optional Google Calendar access toggle in the popup; also the enable button on the onboarding page."
     },
     "popup_markup_note": {
         "message": "Verschijnt een knop opnieuw, dan heeft Google de interface gewijzigd — een update van de extensie lost dit op.",
@@ -118,5 +118,13 @@
     "onboarding_privacy_link": {
         "message": "Privacybeleid",
         "description": "Onboarding link to the privacy policy."
+    },
+    "locale_code": {
+        "message": "nl",
+        "description": "Do not translate: this catalog's BCP 47 language tag, used as the page lang attribute."
+    },
+    "locale_dir": {
+        "message": "ltr",
+        "description": "Do not translate: this catalog's text direction, ltr or rtl."
     }
 }

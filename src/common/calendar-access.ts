@@ -1,8 +1,9 @@
 /**
- * @file Optional Google Calendar host access as seen by extension pages:
- * the popup toggle and the onboarding page button share one request/remove
- * flow and follow the browser's permission events, so both always show the
- * same authoritative state.
+ * @file Optional Google Calendar host access shared by all extension
+ * contexts: the popup toggle and the onboarding page button use one
+ * request/remove flow and follow the browser's permission events, so both
+ * always show the same authoritative state; the background reuses the
+ * permission check and the event filter.
  */
 
 import { CALENDAR_URL_PATTERN } from './constants';
@@ -43,11 +44,11 @@ export const readCalendarAccess = async (): Promise<boolean> => {
  * gesture is not lost (Firefox rejects requests made after it).
  *
  * @param enabled Requested state.
- * @param previousEnabled State to report when the result cannot be confirmed.
  *
- * @returns Calendar access state after the operation.
+ * @returns Calendar access state after the operation; the state before it
+ * when the result cannot be confirmed.
  */
-export const changeCalendarAccess = async (enabled: boolean, previousEnabled: boolean): Promise<boolean> => {
+export const changeCalendarAccess = async (enabled: boolean): Promise<boolean> => {
     try {
         await (enabled
             ? chrome.permissions.request(getCalendarPermission())
@@ -60,7 +61,7 @@ export const changeCalendarAccess = async (enabled: boolean, previousEnabled: bo
     try {
         return await readCalendarAccess();
     } catch {
-        return previousEnabled;
+        return !enabled;
     }
 };
 

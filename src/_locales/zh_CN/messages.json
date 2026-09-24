@@ -21,7 +21,7 @@
     },
     "popup_calendar_access_label": {
         "message": "在 Google 日历中启用",
-        "description": "Label of the optional Google Calendar access toggle."
+        "description": "Label of the optional Google Calendar access toggle in the popup; also the enable button on the onboarding page."
     },
     "popup_markup_note": {
         "message": "如果按钮再次出现，说明 Google 更改了界面——修复将随扩展程序更新推出。",
@@ -118,5 +118,13 @@
     "onboarding_privacy_link": {
         "message": "隐私权政策",
         "description": "Onboarding link to the privacy policy."
+    },
+    "locale_code": {
+        "message": "zh-CN",
+        "description": "Do not translate: this catalog's BCP 47 language tag, used as the page lang attribute."
+    },
+    "locale_dir": {
+        "message": "ltr",
+        "description": "Do not translate: this catalog's text direction, ltr or rtl."
     }
 }

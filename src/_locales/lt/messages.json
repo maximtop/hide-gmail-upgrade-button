@@ -21,7 +21,7 @@
     },
     "popup_calendar_access_label": {
         "message": "Įgalinti „Google“ kalendoriuje",
-        "description": "Label of the optional Google Calendar access toggle."
+        "description": "Label of the optional Google Calendar access toggle in the popup; also the enable button on the onboarding page."
     },
     "popup_markup_note": {
         "message": "Jei mygtukas vėl pasirodė, „Google“ pakeitė sąsają — pataisymas atkeliaus su plėtinio atnaujinimu.",
@@ -118,5 +118,13 @@
     "onboarding_privacy_link": {
         "message": "Privatumo politika",
         "description": "Onboarding link to the privacy policy."
+    },
+    "locale_code": {
+        "message": "lt",
+        "description": "Do not translate: this catalog's BCP 47 language tag, used as the page lang attribute."
+    },
+    "locale_dir": {
+        "message": "ltr",
+        "description": "Do not translate: this catalog's text direction, ltr or rtl."
     }
 }

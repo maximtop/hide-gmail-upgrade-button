@@ -21,7 +21,7 @@
     },
     "popup_calendar_access_label": {
         "message": "Activează în Google Calendar",
-        "description": "Label of the optional Google Calendar access toggle."
+        "description": "Label of the optional Google Calendar access toggle in the popup; also the enable button on the onboarding page."
     },
     "popup_markup_note": {
         "message": "Dacă un buton reapare, Google a schimbat interfața — remedierea va veni printr-o actualizare a extensiei.",
@@ -118,5 +118,13 @@
     "onboarding_privacy_link": {
         "message": "Politica de confidențialitate",
         "description": "Onboarding link to the privacy policy."
+    },
+    "locale_code": {
+        "message": "ro",
+        "description": "Do not translate: this catalog's BCP 47 language tag, used as the page lang attribute."
+    },
+    "locale_dir": {
+        "message": "ltr",
+        "description": "Do not translate: this catalog's text direction, ltr or rtl."
     }
 }

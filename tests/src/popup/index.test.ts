@@ -39,7 +39,7 @@ const renderPopupFixture = (): void => {
                 <input type="checkbox" id="calendar-access" disabled>
             </label>
             <span id="markup-note"></span>
-            <a id="onboarding-link" href="onboarding.html"></a>
+            <a id="onboarding-link"></a>
             <a id="report-link"></a>
         </main>
     `;
@@ -72,6 +72,7 @@ describe('popup Calendar access', () => {
 
         vi.stubGlobal('chrome', {
             i18n: { getMessage: (key: string) => key },
+            runtime: { getURL: (path: string) => `chrome-extension://test-id/${path}` },
             permissions: {
                 contains: containsMock,
                 request: requestMock,
@@ -107,7 +108,9 @@ describe('popup Calendar access', () => {
     it('links to the onboarding page', async () => {
         await loadPopup();
 
-        expect(document.getElementById('onboarding-link')?.textContent).toBe('popup_onboarding_link');
+        const link = document.getElementById('onboarding-link');
+        expect(link?.textContent).toBe('popup_onboarding_link');
+        expect(link?.getAttribute('href')).toBe('chrome-extension://test-id/onboarding.html');
     });
 
     it('follows Calendar access changed on the onboarding page', async () => {
