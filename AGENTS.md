@@ -42,6 +42,21 @@ Every dependency must have a clear, explainable need for this small extension. N
 
 - Test observable behavior. Do not write tests that read source files and compare strings against constants.
 - Run `pnpm validate` before committing.
+- Give every exported function its own direct test in that module's test file, even when a caller
+  already exercises it indirectly. `ensureHidden` (visibility.ts) and `buildPrehideCss`/
+  `buildOverrideCss` (prehide.ts) went untested this way — only reachable through `watcher.test.ts`
+  or by re-typing their literal selector strings elsewhere — so a broken template or a changed
+  selector wouldn't fail where the bug actually is.
+- When a file serves two independent features, test both, even if one already has thorough
+  coverage. `popup/index.ts`'s Calendar toggle had a full test file; the two feature checkboxes
+  (`hide-upgrade`, `hide-gemini`) — the extension's actual main function — had none.
+- A settings/storage adapter (`loadSettings`/`saveSettings`/`subscribeToSettings` style functions)
+  needs its own tests against a stubbed `chrome.storage`, not just tests of the pure validator it
+  wraps.
+- A script that branches on an external API's status field (AMO, store APIs, etc.) needs a test per
+  branch, not just the common one. The `firefox-cli.ts` signed/published branch (download, hash and
+  hostname checks, disk writes) had zero orchestration-level coverage even though the unit it calls
+  was tested.
 
 ## Hand-off
 

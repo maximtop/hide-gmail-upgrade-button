@@ -1,5 +1,6 @@
 /**
- * @file Popup behavior tests for optional Google Calendar access.
+ * @file Popup behavior tests: the two feature toggles and optional Google
+ * Calendar access.
  *
  * @vitest-environment happy-dom
  */
@@ -15,6 +16,8 @@ type PermissionsListener = (permissions: chrome.permissions.Permissions) => void
 const containsMock = vi.fn();
 const requestMock = vi.fn();
 const removeMock = vi.fn();
+const storageGetMock = vi.fn();
+const storageSetMock = vi.fn();
 let addedListeners: PermissionsListener[] = [];
 let removedListeners: PermissionsListener[] = [];
 let animationFrameCallbacks: FrameRequestCallback[] = [];
@@ -69,6 +72,8 @@ describe('popup Calendar access', () => {
         containsMock.mockReset().mockResolvedValue(false);
         requestMock.mockReset().mockResolvedValue(false);
         removeMock.mockReset().mockResolvedValue(false);
+        storageGetMock.mockReset().mockResolvedValue({});
+        storageSetMock.mockReset().mockResolvedValue(undefined);
         addedListeners = [];
         removedListeners = [];
 
@@ -84,14 +89,59 @@ describe('popup Calendar access', () => {
             },
             storage: {
                 local: {
-                    get: vi.fn().mockResolvedValue({}),
-                    set: vi.fn().mockResolvedValue(undefined),
+                    get: storageGetMock,
+                    set: storageSetMock,
                 },
                 onChanged: {
                     addListener: vi.fn(),
                     removeListener: vi.fn(),
                 },
             },
+        });
+    });
+
+    describe('feature toggles', () => {
+        it('renders defaults when nothing is cached or stored', async () => {
+            await loadPopup();
+
+            expect((document.getElementById('hide-upgrade') as HTMLInputElement).checked).toBe(true);
+            expect((document.getElementById('hide-gemini') as HTMLInputElement).checked).toBe(true);
+        });
+
+        it('renders the authoritative stored settings once loaded, overriding the cache', async () => {
+            storageGetMock.mockResolvedValue({ settings: { hideUpgrade: false, hideGemini: true } });
+
+            await loadPopup();
+
+            expect((document.getElementById('hide-upgrade') as HTMLInputElement).checked).toBe(false);
+            expect((document.getElementById('hide-gemini') as HTMLInputElement).checked).toBe(true);
+        });
+
+        it('saves a toggled feature under its own settings key, leaving the other untouched', async () => {
+            await loadPopup();
+
+            const toggle = document.getElementById('hide-gemini') as HTMLInputElement;
+            toggle.checked = false;
+            toggle.dispatchEvent(new Event('change', { bubbles: true }));
+
+            await vi.waitFor(() => {
+                expect(storageSetMock).toHaveBeenCalledWith({ settings: { hideUpgrade: true, hideGemini: false } });
+            });
+        });
+
+        it('caches the saved settings so the next popup open renders them synchronously', async () => {
+            await loadPopup();
+
+            const toggle = document.getElementById('hide-upgrade') as HTMLInputElement;
+            toggle.checked = false;
+            toggle.dispatchEvent(new Event('change', { bubbles: true }));
+
+            await vi.waitFor(() => {
+                expect(JSON.parse(localStorage.getItem('settings-cache') ?? '{}')).toEqual({
+                    hideUpgrade: false,
+                    hideGemini: true,
+                });
+            });
         });
     });
 

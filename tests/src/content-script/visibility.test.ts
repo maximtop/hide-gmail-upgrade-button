@@ -7,6 +7,7 @@ import {
 } from 'vitest';
 
 import {
+    ensureHidden,
     hideElement,
     isHiddenByExtension,
     restoreAllHidden,
@@ -91,6 +92,36 @@ describe('hideElement / restoreElement', () => {
         restoreElement(element);
 
         expect(element.style.display).toBe('');
+    });
+
+    describe('ensureHidden', () => {
+        it('re-applies display:none when the page overwrote the inline style', () => {
+            hideElement(element, FEATURE);
+
+            element.style.display = '';
+            ensureHidden(element);
+
+            expect(element.style.display).toBe('none');
+        });
+
+        it('does nothing to an element not hidden by the extension', () => {
+            element.style.display = 'flex';
+
+            ensureHidden(element);
+
+            expect(element.style.display).toBe('flex');
+        });
+
+        it('does not touch the saved original display value', () => {
+            element.style.display = 'inline-flex';
+            hideElement(element, FEATURE);
+
+            element.style.display = '';
+            ensureHidden(element);
+            restoreElement(element);
+
+            expect(element.style.display).toBe('inline-flex');
+        });
     });
 });
 
