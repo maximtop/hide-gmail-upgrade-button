@@ -15,11 +15,19 @@ import {
 
 const addMessageListenerMock = vi.fn();
 const removeMessageListenerMock = vi.fn();
+const storageGetMock = vi.fn();
+const storageOnChangedAddListenerMock = vi.fn();
+const storageOnChangedRemoveListenerMock = vi.fn();
 const EXTENSION_ID = 'test-extension-id';
 
 type RuntimeMessageListener = (
     message: unknown,
     sender: chrome.runtime.MessageSender,
+) => void;
+
+type StorageChangeListener = (
+    changes: Record<string, chrome.storage.StorageChange>,
+    area: string,
 ) => void;
 
 describe('content-script lifecycle', () => {
@@ -37,6 +45,9 @@ describe('content-script lifecycle', () => {
         vi.stubGlobal('location', { hostname: CALENDAR_HOSTNAME });
         addMessageListenerMock.mockReset();
         removeMessageListenerMock.mockReset();
+        storageGetMock.mockReset().mockResolvedValue({});
+        storageOnChangedAddListenerMock.mockReset();
+        storageOnChangedRemoveListenerMock.mockReset();
 
         vi.stubGlobal('chrome', {
             runtime: {
@@ -47,10 +58,10 @@ describe('content-script lifecycle', () => {
                 },
             },
             storage: {
-                local: { get: vi.fn().mockResolvedValue({}) },
+                local: { get: storageGetMock },
                 onChanged: {
-                    addListener: vi.fn(),
-                    removeListener: vi.fn(),
+                    addListener: storageOnChangedAddListenerMock,
+                    removeListener: storageOnChangedRemoveListenerMock,
                 },
             },
         });
@@ -109,5 +120,46 @@ describe('content-script lifecycle', () => {
         expect(upgrade.style.display).toBe('none');
         expect(window.hgubContentScriptLoaded).toBe(true);
         expect(removeMessageListenerMock).not.toHaveBeenCalled();
+    });
+
+    describe('live settings updates', () => {
+        it('restores a button when its feature is switched off through the storage subscription', async () => {
+            await import('../../../src/content-script');
+            const upgrade = document.getElementById('upgrade') as HTMLElement;
+            await vi.waitFor(() => {
+                expect(upgrade.style.display).toBe('none');
+            });
+
+            const listener = storageOnChangedAddListenerMock.mock.calls[0]?.[0] as StorageChangeListener;
+            listener({ settings: { newValue: { hideUpgrade: false, hideGemini: true } } }, 'local');
+
+            expect(upgrade.style.display).toBe('');
+        });
+
+        // BUG: init() only reaches `subscribeToSettings(...)` after the awaited
+        // `loadSettings()` call resolves (src/content-script/index.ts). When the
+        // first load rejects, `init().catch()` swallows the error and the tab
+        // never subscribes, so a later settings change is never applied — even
+        // though the file's own header comment promises "Toggling still works
+        // once storage recovers via the subscription." This reproducer commits
+        // as `test.fails` so it starts failing (i.e. flips green) once init()
+        // subscribes regardless of the initial load outcome.
+        it.fails('re-subscribes to live settings once storage recovers after an initial load failure', async () => {
+            storageGetMock.mockRejectedValueOnce(new Error('storage unavailable'));
+
+            await import('../../../src/content-script');
+            await new Promise((resolve) => {
+                setTimeout(resolve, 0);
+            });
+
+            const listener = storageOnChangedAddListenerMock.mock.calls[0]?.[0] as
+                StorageChangeListener | undefined;
+            expect(listener).toBeDefined();
+
+            const upgrade = document.getElementById('upgrade') as HTMLElement;
+            listener?.({ settings: { newValue: { hideUpgrade: false, hideGemini: true } } }, 'local');
+
+            expect(upgrade.style.display).toBe('');
+        });
     });
 });
