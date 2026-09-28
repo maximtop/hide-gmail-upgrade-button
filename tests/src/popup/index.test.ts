@@ -6,7 +6,11 @@
  */
 
 import {
-    beforeEach, describe, expect, it, vi,
+    beforeEach,
+    describe,
+    expect,
+    it,
+    vi,
 } from 'vitest';
 
 import { CALENDAR_URL_PATTERN } from '../../../src/common/constants';
@@ -303,15 +307,24 @@ describe('popup Calendar access', () => {
 
     it.each([
         {
-            initial: false, requested: true, authoritative: true, operation: 'request',
+            initial: false,
+            requested: true,
+            authoritative: true,
+            operation: 'request',
         },
         {
-            initial: true, requested: false, authoritative: false, operation: 'remove',
+            initial: true,
+            requested: false,
+            authoritative: false,
+            operation: 'remove',
         },
     ])(
         'renders authoritative access when $operation rejects',
         async ({
-            initial, requested, authoritative, operation,
+            initial,
+            requested,
+            authoritative,
+            operation,
         }) => {
             containsMock.mockResolvedValue(initial);
             await loadPopup();

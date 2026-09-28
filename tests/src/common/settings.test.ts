@@ -1,9 +1,17 @@
 import {
-    beforeEach, describe, expect, it, vi,
+    beforeEach,
+    describe,
+    expect,
+    it,
+    vi,
 } from 'vitest';
 
 import {
-    DEFAULT_SETTINGS, loadSettings, saveSettings, subscribeToSettings, validateSettings,
+    DEFAULT_SETTINGS,
+    loadSettings,
+    saveSettings,
+    subscribeToSettings,
+    validateSettings,
 } from '../../../src/common/settings';
 
 describe('validateSettings', () => {
