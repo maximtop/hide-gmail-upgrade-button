@@ -4,8 +4,10 @@
  * @file Verify Firefox preflight and status orchestration with simulated AMO responses.
  */
 
+import { createHash } from 'node:crypto';
 import { appendFileSync, readFileSync, writeFileSync } from 'node:fs';
 
+import AdmZip from 'adm-zip';
 import {
     afterEach,
     beforeEach,
@@ -48,7 +50,23 @@ const pending = {
     file: { status: AMO_STATUS.Unreviewed },
 };
 const request = vi.fn<typeof fetch>();
-const json = (value: unknown): Response => new Response(JSON.stringify(value));
+const json = (value: unknown): Response => {
+    return new Response(JSON.stringify(value));
+};
+
+const signedXpiFixture = (): { bytes: Buffer; hash: string } => {
+    const zip = new AdmZip();
+    zip.addFile('manifest.json', Buffer.from(JSON.stringify({
+        manifest_version: 3,
+        version: '1.2.3',
+        browser_specific_settings: { gecko: { id: GECKO_ID } },
+        background: { scripts: ['background.js'] },
+    })));
+    zip.addFile('META-INF/mozilla.rsa', Buffer.from('synthetic signature envelope'));
+    const bytes = zip.toBuffer();
+    const hash = `sha256:${createHash('sha256').update(bytes).digest('hex')}`;
+    return { bytes, hash };
+};
 
 beforeEach(() => {
     vi.resetAllMocks();
@@ -114,5 +132,56 @@ describe('Firefox deployment orchestration', () => {
         await expect(run({ ...env, AMO_OPERATION: AMO_OPERATION.Preflight })).rejects
             .toThrow('Gecko ID mismatch');
         expect(request).toHaveBeenCalledTimes(1);
+    });
+    it('downloads, verifies and writes the signed XPI once AMO publishes the version', async () => {
+        const { bytes, hash } = signedXpiFixture();
+        request.mockResolvedValueOnce(json({
+            ...pending,
+            file: { status: AMO_STATUS.Public, url: 'https://addons.mozilla.org/files/fixture.xpi', hash },
+        }));
+        request.mockResolvedValueOnce(new Response(new Uint8Array(bytes)));
+
+        await run({ ...env, AMO_OPERATION: AMO_OPERATION.Status });
+
+        expect(writeFileSync).toHaveBeenCalledWith(expect.stringContaining('firefox-1.2.3.xpi'), bytes);
+        expect(writeFileSync).toHaveBeenCalledWith(
+            expect.stringContaining('SHA256SUMS.txt'),
+            `${hash.slice('sha256:'.length)}  firefox-1.2.3.xpi\n`,
+        );
+        expect(appendFileSync).toHaveBeenCalledWith('fixture-output', 'signed=true\n');
+    });
+    it('refuses a download URL that is not an AMO HTTPS host, without fetching it', async () => {
+        request.mockResolvedValueOnce(json({
+            ...pending,
+            file: { status: AMO_STATUS.Public, url: 'https://evil.example.test/fixture.xpi', hash: 'sha256:aa' },
+        }));
+
+        await expect(run({ ...env, AMO_OPERATION: AMO_OPERATION.Status })).rejects
+            .toThrow('Unexpected AMO download URL');
+        expect(request).toHaveBeenCalledTimes(2);
+        expect(writeFileSync).not.toHaveBeenCalled();
+    });
+    it('reports an approved version with no signed artifact yet, without downloading', async () => {
+        request.mockResolvedValueOnce(json({ ...pending, file: { status: AMO_STATUS.Public } }));
+
+        await expect(run({ ...env, AMO_OPERATION: AMO_OPERATION.Status })).rejects
+            .toThrow('no downloadable signed artifact');
+        expect(writeFileSync).not.toHaveBeenCalled();
+    });
+    it('refuses a signed download whose hash does not match the AMO-supplied one', async () => {
+        const { bytes } = signedXpiFixture();
+        request.mockResolvedValueOnce(json({
+            ...pending,
+            file: {
+                status: AMO_STATUS.Public,
+                url: 'https://addons.mozilla.org/files/fixture.xpi',
+                hash: `sha256:${'0'.repeat(64)}`,
+            },
+        }));
+        request.mockResolvedValueOnce(new Response(new Uint8Array(bytes)));
+
+        await expect(run({ ...env, AMO_OPERATION: AMO_OPERATION.Status })).rejects
+            .toThrow('hash does not match');
+        expect(writeFileSync).not.toHaveBeenCalled();
     });
 });

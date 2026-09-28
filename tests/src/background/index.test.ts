@@ -3,7 +3,11 @@
  */
 
 import {
-    beforeEach, describe, expect, it, vi,
+    beforeEach,
+    describe,
+    expect,
+    it,
+    vi,
 } from 'vitest';
 
 import { CALENDAR_URL_PATTERN } from '../../../src/common/constants';
