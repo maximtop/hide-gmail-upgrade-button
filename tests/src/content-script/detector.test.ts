@@ -3,7 +3,11 @@
  */
 
 import {
-    beforeEach, describe, expect, it, vi,
+    beforeEach,
+    describe,
+    expect,
+    it,
+    vi,
 } from 'vitest';
 
 import { findGeminiButton, findHideTarget, findUpgradeButton } from '../../../src/content-script/detector';

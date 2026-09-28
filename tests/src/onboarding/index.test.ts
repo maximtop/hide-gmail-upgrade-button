@@ -10,7 +10,11 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 import {
-    beforeEach, describe, expect, it, vi,
+    beforeEach,
+    describe,
+    expect,
+    it,
+    vi,
 } from 'vitest';
 
 import { CALENDAR_URL_PATTERN } from '../../../src/common/constants';
@@ -58,7 +62,13 @@ const pin = () => {
 
 const expectCalendarState = (enabled: boolean): void => {
     const {
-        card, textOff, textOn, why, enableButton, enabledStatus, disableButton,
+        card,
+        textOff,
+        textOn,
+        why,
+        enableButton,
+        enabledStatus,
+        disableButton,
     } = calendar();
     expect(card.hasAttribute('data-pending')).toBe(false);
     expect(textOff.hidden).toBe(enabled);
@@ -73,7 +83,11 @@ const expectCalendarState = (enabled: boolean): void => {
 
 const expectPinnedState = (pinned: boolean): void => {
     const {
-        card, text, doneText, art, done,
+        card,
+        text,
+        doneText,
+        art,
+        done,
     } = pin();
     expect(card.hasAttribute('data-pending')).toBe(false);
     expect(text.hidden).toBe(pinned);

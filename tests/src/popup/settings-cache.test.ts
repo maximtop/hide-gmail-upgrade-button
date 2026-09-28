@@ -3,7 +3,10 @@
  */
 
 import {
-    beforeEach, describe, expect, it,
+    beforeEach,
+    describe,
+    expect,
+    it,
 } from 'vitest';
 
 import { DEFAULT_SETTINGS } from '../../../src/common/settings';
