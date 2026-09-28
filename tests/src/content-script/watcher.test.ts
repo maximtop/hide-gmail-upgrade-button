@@ -18,13 +18,19 @@ import type { HidingWatcher } from '../../../src/content-script/watcher';
 
 const WAIT_MS = 20;
 
-const sleep = (ms: number) => new Promise((resolve) => {
-    setTimeout(resolve, ms);
-});
+const sleep = (ms: number) => {
+    return new Promise((resolve) => {
+        setTimeout(resolve, ms);
+    });
+};
 
-const upgradeButtonHtml = (id: string) => `<button id="${id}" role="link"><span>Upgrade</span></button>`;
+const upgradeButtonHtml = (id: string) => {
+    return `<button id="${id}" role="link"><span>Upgrade</span></button>`;
+};
 
-const geminiButtonHtml = (id: string) => `<button id="${id}" aria-label="Ask Gemini"></button>`;
+const geminiButtonHtml = (id: string) => {
+    return `<button id="${id}" aria-label="Ask Gemini"></button>`;
+};
 
 describe('createHidingWatcher', () => {
     let watcher: HidingWatcher;

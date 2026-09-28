@@ -203,10 +203,12 @@ const wrapTwoLines = (text: string): [string, string] => {
  * @returns SVG fragment.
  */
 const popupMock = (x: number, y: number, scale: number, locale: Locale): string => {
-    const toggle = (ty: number, label: string): string => `
+    const toggle = (ty: number, label: string): string => {
+        return `
         <text x="22" y="${ty + 27}" font-family="${FONT}" font-size="14" fill="${INK}">${esc(label)}</text>
         <rect x="240" y="${ty + 12}" width="38" height="22" rx="11" fill="${TEAL}"/>
         <circle cx="${240 + 27}" cy="${ty + 23}" r="8" fill="#ffffff"/>`;
+    };
     return `<g transform="translate(${x} ${y}) scale(${scale})">
         <rect width="300" height="248" rx="14" fill="#ffffff" stroke="${CARD_BORDER}" stroke-width="1.5"/>
         ${iconArt(16, 14, 24)}
@@ -275,7 +277,8 @@ const buildScreenshots = (locale: Locale): string[] => {
             fill="${TEAL}">${afterLabel}</text>
         ${headerStrip(120, 530, 1040, false)}`;
     const s2 = popupMock(430, 240, 1.6, locale);
-    const appCard = (cx: number, label: string, glyph: string): string => `
+    const appCard = (cx: number, label: string, glyph: string): string => {
+        return `
         <g transform="translate(${cx} 300)">
             <rect width="300" height="300" rx="24" fill="#ffffff" stroke="${CARD_BORDER}" stroke-width="2"/>
             ${glyph}
@@ -283,6 +286,7 @@ const buildScreenshots = (locale: Locale): string[] => {
                 fill="${INK}">${esc(label)}</text>
             ${iconArt(252, 20, 30)}
         </g>`;
+    };
     const envelope = `<g transform="translate(90 80)"><rect width="120" height="84" rx="12" fill="#eef1f5"
         stroke="#5f6368" stroke-width="6"/><path d="M8 14 L60 52 L112 14" fill="none" stroke="#5f6368"
         stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></g>`;
@@ -300,7 +304,8 @@ const buildScreenshots = (locale: Locale): string[] => {
         appCard(868, appNames[2] ?? '', doc),
     ].join('');
     const { bullets } = captions;
-    const bulletRow = (by: number, text: string): string => `
+    const bulletRow = (by: number, text: string): string => {
+        return `
         <g transform="translate(240 ${by})">
             <rect width="800" height="104" rx="20" fill="#ffffff" stroke="${CARD_BORDER}" stroke-width="2"/>
             <circle cx="56" cy="52" r="22" fill="${TEAL}"/>
@@ -309,6 +314,7 @@ const buildScreenshots = (locale: Locale): string[] => {
             <text x="104" y="62" font-family="${FONT}" font-size="28" font-weight="600" fill="${INK}">
                 ${esc(text)}</text>
         </g>`;
+    };
     const s4 = [
         bulletRow(252, bullets[0] ?? ''),
         bulletRow(392, bullets[1] ?? ''),
