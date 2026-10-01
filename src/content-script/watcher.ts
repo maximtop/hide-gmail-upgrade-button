@@ -21,7 +21,6 @@
 
 import { DEFAULT_SETTINGS } from '../common/settings';
 
-import { findHideTarget } from './detector';
 import { HIDE_FEATURES } from './features';
 import { syncPrehideOverrides } from './prehide';
 import {
@@ -88,7 +87,7 @@ export const createHidingWatcher = (doc: Document): HidingWatcher => {
                     hiddenByFeature.delete(feature.id);
                     const button = feature.findButton(doc);
                     if (button) {
-                        const target = findHideTarget(button);
+                        const target = feature.findTarget(button);
                         hideElement(target, feature.id);
                         hiddenByFeature.set(feature.id, target);
                     }
