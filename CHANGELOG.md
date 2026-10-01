@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.4.0](https://github.com/maximtop/hide-gmail-upgrade-button/compare/v0.3.1...v0.4.0) (2026-10-01)
+
+
+### Features
+
+* hide the Google Docs subscription promo banner (MT-152) ([#32](https://github.com/maximtop/hide-gmail-upgrade-button/issues/32)) ([0634709](https://github.com/maximtop/hide-gmail-upgrade-button/commit/0634709a09b68b80c431db4cb90636346cc7db0f))
+
+
+### Bug Fixes
+
+* send short AMO approval notes, check their length only where sent ([#27](https://github.com/maximtop/hide-gmail-upgrade-button/issues/27)) ([0a5059f](https://github.com/maximtop/hide-gmail-upgrade-button/commit/0a5059feca6adf73d791004046d8a822d36906b2))
+
 ## [0.3.1](https://github.com/maximtop/hide-gmail-upgrade-button/compare/v0.3.0...v0.3.1) (2026-09-24)
 
 
