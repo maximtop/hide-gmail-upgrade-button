@@ -331,10 +331,12 @@ export const findSubscriptionPromoBanner = (root: Document | HTMLElement): HTMLE
 };
 
 /**
- * Resolves the element to hide for a detected promo banner: climbs while
- * every sibling at the current level is empty decoration, so the banner's
- * whole container is hidden and its reserved space collapses, but a parent
- * with other real content is never touched.
+ * Resolves the element to hide for a detected promo banner: the outermost
+ * wrapper that holds nothing but the banner, so its reserved space
+ * collapses. The banner's own level may carry empty decoration siblings
+ * (an elevation overlay); every wrapper above must have the banner chain as
+ * its only child, so a parent shared with other content or banners is never
+ * touched.
  *
  * @param banner Detected banner region.
  *
@@ -347,10 +349,11 @@ export const findBannerHideTarget = (banner: HTMLElement): HTMLElement => {
 
     while (parent && parent !== parent.ownerDocument.body && parent !== parent.ownerDocument.documentElement) {
         const current = target;
-        const siblingsEmpty = Array.from(parent.children).every((child) => {
-            return child === current || isEmptyDecoration(child);
+        const decorationAllowed = current === banner;
+        const alone = Array.from(parent.children).every((child) => {
+            return child === current || (decorationAllowed && isEmptyDecoration(child));
         });
-        if (!siblingsEmpty) {
+        if (!alone) {
             break;
         }
         target = parent;

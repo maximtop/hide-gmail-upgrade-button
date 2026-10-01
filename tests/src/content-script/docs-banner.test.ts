@@ -126,6 +126,13 @@ describe('findBannerHideTarget', () => {
         expect(findBannerHideTarget(region)).toBe(document.getElementById('container'));
     });
 
+    it('hides the single-child wrapper chain but stops below a parent shared with empty siblings', () => {
+        renderDocs(`<div id="shared"><div id="wrapper">${PROMO_BANNER_HTML}</div><div id="empty-a"></div></div>`);
+        const region = findSubscriptionPromoBanner(document) as HTMLElement;
+
+        expect(findBannerHideTarget(region)).toBe(document.getElementById('wrapper'));
+    });
+
     it('never climbs into a parent that holds other content', () => {
         renderDocs(PROMO_BANNER_HTML);
         const region = findSubscriptionPromoBanner(document) as HTMLElement;
