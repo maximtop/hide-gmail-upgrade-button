@@ -29,6 +29,18 @@ export const GEMINI_BUTTON_LABELS: readonly string[] = [
 export const GEMINI_NAME_FRAGMENT = 'gemini';
 
 /**
+ * Google Docs hostname: the subscription promo banner is hidden only there,
+ * since the same banner component carries storage warnings elsewhere.
+ */
+export const DOCS_HOSTNAME = 'docs.google.com';
+
+/**
+ * Locale-independent marker of a Google subscription promo: its graphic is
+ * served from this gstatic path (verified on the Docs Gemini offer banner).
+ */
+export const SUBSCRIPTION_PROMO_IMAGE_SELECTOR = 'img[src*="gstatic.com/subscriptions/"]';
+
+/**
  * How much wider than the target button an ancestor may be while still
  * counting as its layout wrapper (accounts for wrapper padding/margins).
  */

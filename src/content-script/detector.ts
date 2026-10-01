@@ -13,6 +13,10 @@
  * - Ask Gemini: exact accessible label, with a fallback on the "gemini"
  *   product-name fragment, which stays untranslated in localized UIs.
  *
+ * - Docs subscription promo banner: a `role="complementary"` region whose
+ *   graphic comes from gstatic's subscriptions path, on docs.google.com only.
+ *   Ordinary informational and error banners have no such graphic.
+ *
  * When a signal is ambiguous — no candidate or several unrelated candidates
  * — a detector returns null and the extension safely does nothing.
  *
@@ -24,8 +28,10 @@
 
 import {
     GEMINI_BUTTON_LABELS,
+    DOCS_HOSTNAME,
     GEMINI_NAME_FRAGMENT,
     HIDDEN_MARKER_ATTRIBUTE,
+    SUBSCRIPTION_PROMO_IMAGE_SELECTOR,
     UPGRADE_BUTTON_LABELS,
     WRAPPER_WIDTH_TOLERANCE_PX,
 } from '../common/constants';
@@ -282,6 +288,73 @@ export const findHideTarget = (button: HTMLElement): HTMLElement => {
         }
         target = ancestor;
         ancestor = ancestor.parentElement;
+    }
+
+    return target;
+};
+
+const BANNER_REGION_SELECTOR = '[role="complementary"]';
+
+/**
+ * Checks whether an element holds nothing a user could see or use: no
+ * clickable, media or non-whitespace text. Decorative spans (elevation
+ * overlays) qualify.
+ *
+ * @param element Element to check.
+ *
+ * @returns Whether the element is visually and functionally empty.
+ */
+const isEmptyDecoration = (element: Element): boolean => {
+    return (element.textContent ?? '').trim() === ''
+        && element.querySelector(`${CLICKABLE_SELECTOR}, img, svg, canvas, iframe, input`) === null;
+};
+
+/**
+ * Finds the Google subscription promo banner (e.g. the Gemini offer) in
+ * Docs.
+ *
+ * @param root Document or element to search in.
+ *
+ * @returns The single banner region, or null when absent, ambiguous or the
+ * page is not Docs.
+ */
+export const findSubscriptionPromoBanner = (root: Document | HTMLElement): HTMLElement | null => {
+    if (window.location.hostname !== DOCS_HOSTNAME) {
+        return null;
+    }
+
+    const regions = Array.from(root.querySelectorAll<HTMLElement>(BANNER_REGION_SELECTOR)).filter((region) => {
+        return region.querySelector(SUBSCRIPTION_PROMO_IMAGE_SELECTOR) !== null
+            && region.closest(`[${HIDDEN_MARKER_ATTRIBUTE}]`) === null;
+    });
+    return singleOrNull(keepOutermost(regions));
+};
+
+/**
+ * Resolves the element to hide for a detected promo banner: climbs while
+ * every sibling at the current level is empty decoration, so the banner's
+ * whole container is hidden and its reserved space collapses, but a parent
+ * with other real content is never touched.
+ *
+ * @param banner Detected banner region.
+ *
+ * @returns The outermost banner-only wrapper; the region itself when it has
+ * none.
+ */
+export const findBannerHideTarget = (banner: HTMLElement): HTMLElement => {
+    let target = banner;
+    let parent = target.parentElement;
+
+    while (parent && parent !== parent.ownerDocument.body && parent !== parent.ownerDocument.documentElement) {
+        const current = target;
+        const siblingsEmpty = Array.from(parent.children).every((child) => {
+            return child === current || isEmptyDecoration(child);
+        });
+        if (!siblingsEmpty) {
+            break;
+        }
+        target = parent;
+        parent = parent.parentElement;
     }
 
     return target;

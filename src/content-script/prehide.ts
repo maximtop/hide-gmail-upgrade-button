@@ -24,8 +24,10 @@ const OVERRIDE_ATTRIBUTE = 'data-hgub-prehide-override';
  * @returns CSS text of the pre-hide stylesheet.
  */
 export const buildPrehideCss = (): string => {
-    const rules = HIDE_FEATURES.map((feature) => {
-        return `${feature.prehideSelector} {\n    visibility: hidden !important;\n}`;
+    const rules = HIDE_FEATURES.flatMap((feature) => {
+        return feature.prehideSelector
+            ? [`${feature.prehideSelector} {\n    visibility: hidden !important;\n}`]
+            : [];
     });
     return `${rules.join('\n\n')}\n`;
 };
@@ -37,9 +39,12 @@ export const buildPrehideCss = (): string => {
  *
  * @param feature Feature to reveal.
  *
- * @returns CSS text of the override.
+ * @returns CSS text of the override, empty for a feature without pre-hide.
  */
 export const buildOverrideCss = (feature: HideFeature): string => {
+    if (!feature.prehideSelector) {
+        return '';
+    }
     return `:root ${feature.prehideSelector} { visibility: visible !important; }`;
 };
 
@@ -52,7 +57,7 @@ export const buildOverrideCss = (feature: HideFeature): string => {
  * @param settings Current settings.
  */
 export const syncPrehideOverrides = (doc: Document, settings: Settings): void => {
-    for (const feature of HIDE_FEATURES) {
+    for (const feature of HIDE_FEATURES.filter((candidate) => candidate.prehideSelector)) {
         const existing = doc.querySelector(`style[${OVERRIDE_ATTRIBUTE}="${feature.id}"]`);
         const wantOverride = !settings[feature.settingKey];
 
