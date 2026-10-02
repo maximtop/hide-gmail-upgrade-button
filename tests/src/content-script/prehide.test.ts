@@ -15,7 +15,7 @@ describe('buildPrehideCss', () => {
         const css = buildPrehideCss();
         const selectors = css.trim().split('\n\n').map((rule) => rule.split(' {')[0]);
 
-        expect(selectors).toEqual(HIDE_FEATURES.map((feature) => feature.prehideSelector));
+        expect(selectors).toEqual(HIDE_FEATURES.flatMap((feature) => feature.prehideSelector ?? []));
     });
 
     it('hides exactly what each feature selector matches, nothing else', () => {
@@ -39,7 +39,7 @@ describe('buildPrehideCss', () => {
 
 describe('buildOverrideCss', () => {
     it('builds a :root-scoped rule that reveals exactly the feature selector', () => {
-        for (const feature of HIDE_FEATURES) {
+        for (const feature of HIDE_FEATURES.filter((candidate) => candidate.prehideSelector)) {
             expect(buildOverrideCss(feature)).toBe(
                 `:root ${feature.prehideSelector} { visibility: visible !important; }`,
             );

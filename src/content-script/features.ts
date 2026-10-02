@@ -3,7 +3,13 @@
  * extension can hide, wiring a settings key to its detector.
  */
 
-import { findGeminiButton, findUpgradeButton } from './detector';
+import {
+    findBannerHideTarget,
+    findGeminiButton,
+    findHideTarget,
+    findSubscriptionPromoBanner,
+    findUpgradeButton,
+} from './detector';
 
 import type { Settings } from '../common/settings';
 
@@ -27,12 +33,18 @@ export interface HideFeature {
     findButton: (root: Document | HTMLElement) => HTMLElement | null;
 
     /**
+     * Resolves the element to hide for the detected one.
+     */
+    findTarget: (element: HTMLElement) => HTMLElement;
+
+    /**
      * CSS selector for the pre-hide stylesheet applied at document_start,
      * so the button never paints before the detector runs. Deliberately a
      * close CSS approximation of the detector's signals; the JS detector
      * stays the source of truth for the actual layout-collapsing hide.
+     * Omitted for features whose pages cannot be told apart in CSS.
      */
-    prehideSelector: string;
+    prehideSelector?: string;
 }
 
 export const HIDE_FEATURES: readonly HideFeature[] = [
@@ -40,13 +52,21 @@ export const HIDE_FEATURES: readonly HideFeature[] = [
         id: 'upgrade',
         settingKey: 'hideUpgrade',
         findButton: findUpgradeButton,
+        findTarget: findHideTarget,
         prehideSelector: ':is(header, [role="banner"]) button[role="link"]',
     },
     {
         id: 'gemini',
         settingKey: 'hideGemini',
         findButton: findGeminiButton,
+        findTarget: findHideTarget,
         prehideSelector: ':is(header, [role="banner"]) '
             + ':is(a, button, [role="button"], [role="link"])[aria-label*="gemini" i]',
+    },
+    {
+        id: 'upgrade-banner',
+        settingKey: 'hideUpgrade',
+        findButton: findSubscriptionPromoBanner,
+        findTarget: findBannerHideTarget,
     },
 ];
