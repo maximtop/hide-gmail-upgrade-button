@@ -1,6 +1,9 @@
 name: Assemble extension release
 description: Check the actual browser ZIPs and retain one release candidate
 inputs:
+  browsers:
+    default: chrome edge firefox
+    description: Space-separated browser targets to retain in the release candidate
   build-dir:
     required: true
     description: Directory containing the browser ZIPs
@@ -19,11 +22,13 @@ runs:
         BUILD_DIR: ${{ inputs.build-dir }}
         ASSET_PREFIX: ${{ inputs.asset-prefix }}
         LOCALE_DIR: ${{ inputs.locale-dir }}
+        BROWSER_TARGETS: ${{ inputs.browsers }}
       run: |
         set -euo pipefail
         VERSION="$(jq -er '.version' package.json)"
         mkdir -p release-artifacts
-        for BROWSER in chrome edge firefox; do
+        read -r -a TARGETS <<< "$BROWSER_TARGETS"
+        for BROWSER in "${TARGETS[@]}"; do
           ZIP="$BUILD_DIR/$BROWSER.zip"
           test -s "$ZIP"
           unzip -tq "$ZIP"
@@ -35,6 +40,13 @@ runs:
               (.background.page | length > 0)' <<< "$MANIFEST"
             jq -e '(.background | has("service_worker") | not) and
               (.browser_specific_settings.gecko.id | length > 0)' <<< "$MANIFEST"
+          elif [[ "$BROWSER" == safari ]]; then
+            # Safari supports background pages and service workers; each
+            # extension's manifest tests enforce its chosen compatibility floor.
+            jq -e '(.background.scripts | length > 0) or
+              (.background.page | length > 0) or
+              (.background.service_worker | length > 0)' <<< "$MANIFEST"
+            jq -e 'has("minimum_chrome_version") | not' <<< "$MANIFEST"
           else
             jq -e '(.background.service_worker | length > 0) and
               (.background | has("scripts") | not)' <<< "$MANIFEST"

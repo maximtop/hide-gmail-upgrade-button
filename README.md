@@ -22,6 +22,11 @@ Google's markup is obfuscated and changes often, so the extension never relies o
 
 Install the extension from the [Chrome Web Store](https://chromewebstore.google.com/detail/hide-upgrade-button-for-g/flakajdfnklpgiefoffmecgbfbckmpcb), [Microsoft Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/hide-upgrade-button-for-g/oifpjlhikjiifjlcihandpghdiechhik) or [Firefox Add-ons](https://addons.mozilla.org/firefox/addon/hide-upgrade-gmail-drive-docs/).
 
+Safari 16.4+ WebExtension resources can be built with `pnpm release safari`.
+The resulting `build/release/safari.zip` needs Apple's Safari Web Extension
+Packager before installation; a Safari App Store listing is not available yet.
+See [Safari packaging](DEVELOPMENT.md#safari-packaging-and-publication).
+
 For local development, install from source:
 
 ```bash

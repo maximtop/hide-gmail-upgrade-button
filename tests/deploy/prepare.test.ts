@@ -251,6 +251,19 @@ describe.each(STORE_TARGETS)('release preparation protocol for %s', (target) => 
         expect(downloadArguments()).toContain(assetName(target));
         expect(appendFileSync).toHaveBeenCalledTimes(1);
     });
+    it('validates its named assets when the release also contains a Safari archive', () => {
+        assets[assetName('safari')] = pack({
+            'manifest.json': JSON.stringify({
+                manifest_version: 3,
+                version: '1.2.3',
+                background: { scripts: ['background.js'] },
+                browser_specific_settings: { safari: { strict_min_version: '16.4' } },
+            }),
+        });
+        prepare(envFor(target, 'validate'));
+        expect(downloadArguments()).not.toContain(assetName('safari'));
+        expect(appendFileSync).toHaveBeenCalledTimes(1);
+    });
 });
 
 describe('Firefox approval notes', () => {

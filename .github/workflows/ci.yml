@@ -68,6 +68,7 @@ jobs:
           build-dir: build/release
           asset-prefix: hide-gmail-upgrade-button
           locale-dir: src/_locales
+          browsers: chrome edge firefox safari
 
   check:
     name: check

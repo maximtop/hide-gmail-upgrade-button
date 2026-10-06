@@ -6,6 +6,7 @@ export const BROWSER_TARGETS = {
     CHROME: 'chrome',
     EDGE: 'edge',
     FIREFOX: 'firefox',
+    SAFARI: 'safari',
 } as const;
 
 /**
@@ -32,6 +33,8 @@ export const FIREFOX_STRICT_MIN_VERSION = '128.0';
 
 export const CHROMIUM_STRICT_MIN_VERSION = '102';
 
+export const SAFARI_STRICT_MIN_VERSION = '16.4';
+
 export const DEV_NAME_SUFFIX = ' (Dev)';
 
 /**
@@ -44,6 +47,8 @@ export const STORE_LISTING_URLS: Record<BrowserTarget, string> = {
     [BROWSER_TARGETS.CHROME]: 'https://chromewebstore.google.com/detail/flakajdfnklpgiefoffmecgbfbckmpcb',
     [BROWSER_TARGETS.EDGE]: 'https://microsoftedge.microsoft.com/addons/detail/oifpjlhikjiifjlcihandpghdiechhik',
     [BROWSER_TARGETS.FIREFOX]: 'https://addons.mozilla.org/firefox/addon/hide-upgrade-gmail-drive-docs/',
+    // Use the project page until this extension has a public Safari listing.
+    [BROWSER_TARGETS.SAFARI]: 'https://github.com/maximtop/hide-gmail-upgrade-button#install',
 };
 
 // The store deployment code (scripts/deploy) owns the release constants; the build keeps

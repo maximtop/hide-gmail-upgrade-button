@@ -1,5 +1,5 @@
 /**
- * @file Factory of per-browser Rspack configurations for the extension build.
+ * @file Shared Rspack configuration factory for Chrome, Edge, Firefox and Safari resources.
  */
 
 import fs from 'node:fs';
