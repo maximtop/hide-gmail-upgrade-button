@@ -44,8 +44,24 @@ describe('updateManifest', () => {
         expect(result.minimum_chrome_version).toBeUndefined();
     });
 
+    it('safari: replaces Chromium and Gecko settings with a Safari 16.4 background page', () => {
+        const result = transform(BROWSER_TARGETS.SAFARI, {
+            ...baseManifest,
+            minimum_chrome_version: '102',
+            background: { service_worker: 'old-worker.js' },
+            browser_specific_settings: { gecko: { id: 'other@example.test' } },
+        });
+
+        expect(result.version).toBe(VERSION);
+        expect(result.background).toEqual({ scripts: ['background.js'] });
+        expect(result.browser_specific_settings).toEqual({ safari: { strict_min_version: '16.4' } });
+        expect(result.minimum_chrome_version).toBeUndefined();
+        expect(result.permissions).toEqual(baseManifest.permissions);
+    });
+
     it('produces a valid MV3 manifest from the real src/manifest.json for every browser', () => {
         const realManifest = fs.readFileSync(path.join(import.meta.dirname, '../../src/manifest.json'), 'utf-8');
+        const source = JSON.parse(realManifest);
 
         for (const browser of ALL_BROWSER_TARGETS) {
             const result = JSON.parse(updateManifest(realManifest, { browser, version: VERSION }));
@@ -54,6 +70,10 @@ describe('updateManifest', () => {
             expect(result.default_locale).toBe('en');
             expect(result.version).toBe(VERSION);
             expect(result.background).toBeDefined();
+            expect(result.permissions).toEqual(source.permissions);
+            expect(result.host_permissions).toEqual(source.host_permissions);
+            expect(result.optional_host_permissions).toEqual(source.optional_host_permissions);
+            expect(result.content_scripts).toEqual(source.content_scripts);
             expect(result.optional_host_permissions).toContain('https://calendar.google.com/*');
             expect(result.host_permissions).not.toContain('https://calendar.google.com/*');
             expect(result.content_scripts[0].matches).not.toContain('https://calendar.google.com/*');

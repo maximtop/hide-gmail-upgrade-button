@@ -10,6 +10,7 @@ import {
     DEV_NAME_SUFFIX,
     FIREFOX_STRICT_MIN_VERSION,
     GECKO_ID,
+    SAFARI_STRICT_MIN_VERSION,
 } from '../constants';
 
 import type { BrowserTarget, ChannelEnv } from '../constants';
@@ -58,6 +59,16 @@ export const updateManifest = (content: Buffer | string, options: UpdateManifest
                 data_collection_permissions: {
                     required: ['none'],
                 },
+            },
+        };
+        delete manifest.minimum_chrome_version;
+    } else if (options.browser === BROWSER_TARGETS.SAFARI) {
+        manifest.background = {
+            scripts: ['background.js'],
+        };
+        manifest.browser_specific_settings = {
+            safari: {
+                strict_min_version: SAFARI_STRICT_MIN_VERSION,
             },
         };
         delete manifest.minimum_chrome_version;

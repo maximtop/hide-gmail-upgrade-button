@@ -54,6 +54,9 @@ The manual version-and-tag fallback remains available:
      `hide-gmail-upgrade-button-<version>-edge.zip`, and
      `hide-gmail-upgrade-button-<version>-firefox.zip`, the store-ready
      archives
+   - `hide-gmail-upgrade-button-<version>-safari.zip`, WebExtension resources
+     for Safari Web Extension Packager in App Store Connect; see
+     [Safari packaging and publication](../DEVELOPMENT.md#safari-packaging-and-publication)
    - `hide-gmail-upgrade-button-<version>-source.zip`, the tagged repository
      state, which Firefox submissions attach as the reviewable source
    - `SHA256SUMS.txt`, GNU `sha256sum` lines with the bare asset names

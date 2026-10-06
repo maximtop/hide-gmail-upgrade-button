@@ -1,6 +1,6 @@
 # Local builds never upload, submit, or publish. See DEVELOPMENT.md for outputs.
 .DEFAULT_GOAL := build
-override BROWSERS := chrome edge firefox
+override BROWSERS := chrome edge firefox safari
 override BROWSER_GOALS := $(filter $(BROWSERS),$(MAKECMDGOALS))
 override BUILD_GOALS := $(filter build dev start release package,$(MAKECMDGOALS))
 override COMMAND_GOALS := install setup init build dev start release package lint typecheck test check validate chrome_status chrome_update chrome_publish .require-chrome-app-id
