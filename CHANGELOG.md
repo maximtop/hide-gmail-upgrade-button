@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.1](https://github.com/maximtop/hide-gmail-upgrade-button/compare/v0.4.0...v0.4.1) (2026-11-27)
+
+
+### Features
+
+* link button reports to a version-prefilled issue form (MT-33, [#37](https://github.com/maximtop/hide-gmail-upgrade-button/issues/37)) ([a0133cb](https://github.com/maximtop/hide-gmail-upgrade-button/commit/a0133cbcaca32025b8b879cd91deba2fc26723ee))
+
 ## [0.4.0](https://github.com/maximtop/hide-gmail-upgrade-button/compare/v0.3.1...v0.4.0) (2026-10-01)
 
 
