@@ -89,6 +89,12 @@ export const CALENDAR_DISABLE_MESSAGE_TYPE = 'disable-google-calendar';
 export const ONBOARDING_PAGE_FILE = 'onboarding.html';
 
 /**
+ * GitHub issue form for reporting buttons that reappeared.
+ */
+export const BUTTON_REPORT_FORM_URL = 'https://github.com/maximtop/hide-gmail-upgrade-button/issues/new'
+    + '?template=button-came-back.yml';
+
+/**
  * Bundled content script file name, as emitted by the build.
  */
 export const CONTENT_SCRIPT_FILE = 'content-script.js';

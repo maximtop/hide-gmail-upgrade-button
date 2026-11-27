@@ -8,6 +8,7 @@
  * storage subscription.
  */
 
+import { getButtonReportUrl } from '../common/button-report';
 import { changeCalendarAccess, readCalendarAccess, subscribeToCalendarAccess } from '../common/calendar-access';
 import { ONBOARDING_PAGE_FILE } from '../common/constants';
 import { DEFAULT_SETTINGS, loadSettings, saveSettings } from '../common/settings';
@@ -119,6 +120,7 @@ const initSync = (): void => {
     localize('calendar-access-label', 'popup_calendar_access_label');
     localize('markup-note', 'popup_markup_note');
     localize('report-link', 'popup_report_link');
+    document.getElementById('report-link')?.setAttribute('href', getButtonReportUrl());
     localize('onboarding-link', 'popup_onboarding_link');
     document.getElementById('onboarding-link')?.setAttribute('href', chrome.runtime.getURL(ONBOARDING_PAGE_FILE));
 
