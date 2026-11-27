@@ -10,6 +10,7 @@
  * browser's extension settings, the toolbar).
  */
 
+import { getButtonReportUrl } from '../common/button-report';
 import { changeCalendarAccess, readCalendarAccess, subscribeToCalendarAccess } from '../common/calendar-access';
 
 const calendarCard = document.getElementById('calendar-card') as HTMLElement;
@@ -121,6 +122,7 @@ const refreshPinned = async (): Promise<void> => {
 };
 
 localizePage();
+document.getElementById('report-link')?.setAttribute('href', getButtonReportUrl());
 
 enableButton.addEventListener('click', () => {
     void updateCalendarAccess(true);

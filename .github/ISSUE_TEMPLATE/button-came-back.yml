@@ -1,0 +1,50 @@
+name: A button came back
+description: Report an Upgrade or Ask Gemini button that reappeared.
+body:
+  - type: dropdown
+    id: service
+    attributes:
+      label: Where did it come back?
+      options:
+        - Gmail
+        - Google Drive
+        - Google Docs
+        - Google Sheets
+        - Google Slides
+        - Google Calendar
+    validations:
+      required: true
+  - type: dropdown
+    id: button
+    attributes:
+      label: Which button?
+      options:
+        - Upgrade
+        - Ask Gemini
+        - Both
+    validations:
+      required: true
+  - type: input
+    id: language
+    attributes:
+      label: Language of your Google interface
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and version
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Extension version
+    validations:
+      required: true
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: Screenshot of the header (paste or drag it here)
+    validations:
+      required: false

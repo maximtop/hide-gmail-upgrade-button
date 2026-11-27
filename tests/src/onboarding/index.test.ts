@@ -115,6 +115,7 @@ const stubChrome = (action: object): void => {
         i18n: {
             getMessage: (key: string) => CATALOG_METADATA[key] ?? `msg:${key}`,
         },
+        runtime: { getManifest: () => ({ version: '1.2.3' }) },
         permissions: {
             contains: containsMock,
             request: requestMock,
@@ -156,6 +157,15 @@ describe('onboarding page', () => {
         for (const element of document.querySelectorAll('[data-i18n]')) {
             expect(element.textContent).toMatch(/^msg:(onboarding|popup)_/);
         }
+    });
+
+    it('links to the button report form with the installed version', async () => {
+        await loadPage();
+
+        const link = document.querySelector('[data-i18n="onboarding_report_link"]');
+        expect(link?.getAttribute('href')).toBe(
+            'https://github.com/maximtop/hide-gmail-upgrade-button/issues/new?template=button-came-back.yml&version=1.2.3',
+        );
     });
 
     describe('Calendar card', () => {

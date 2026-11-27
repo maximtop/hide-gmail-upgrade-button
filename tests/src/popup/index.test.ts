@@ -83,7 +83,10 @@ describe('popup Calendar access', () => {
 
         vi.stubGlobal('chrome', {
             i18n: { getMessage: (key: string) => key },
-            runtime: { getURL: (path: string) => `chrome-extension://test-id/${path}` },
+            runtime: {
+                getURL: (path: string) => `chrome-extension://test-id/${path}`,
+                getManifest: () => ({ version: '2.3.4' }),
+            },
             permissions: {
                 contains: containsMock,
                 request: requestMock,
@@ -167,6 +170,16 @@ describe('popup Calendar access', () => {
         const link = document.getElementById('onboarding-link');
         expect(link?.textContent).toBe('popup_onboarding_link');
         expect(link?.getAttribute('href')).toBe('chrome-extension://test-id/onboarding.html');
+    });
+
+    it('links to the button report form with the installed version', async () => {
+        await loadPopup();
+
+        const link = document.getElementById('report-link');
+        expect(link?.textContent).toBe('popup_report_link');
+        expect(link?.getAttribute('href')).toBe(
+            'https://github.com/maximtop/hide-gmail-upgrade-button/issues/new?template=button-came-back.yml&version=2.3.4',
+        );
     });
 
     it('follows Calendar access changed on the onboarding page', async () => {
