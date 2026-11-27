@@ -34,7 +34,7 @@ jobs:
         (github.event.pull_request.merged == true &&
           github.event.pull_request.head.repo.full_name == github.repository &&
           contains(github.event.pull_request.labels.*.name, 'autorelease: pending') &&
-          startsWith(github.event.pull_request.head.ref, 'release-please--branches--master'))
+          startsWith(github.event.pull_request.head.ref, 'release/'))
       }}
     runs-on: ubuntu-latest
     timeout-minutes: 5
@@ -61,6 +61,7 @@ jobs:
         id: context
         env:
           GH_TOKEN: ${{ github.token }}
+          RELEASE_BRANCH: ${{ github.event.pull_request.head.ref }}
         run: |
           set -euo pipefail
           PACKAGE_VERSION="$(jq -er '.version' package.json)"
@@ -75,6 +76,10 @@ jobs:
           fi
 
           if [[ "$DRY_RUN" == "false" ]]; then
+            if [[ "$GITHUB_EVENT_NAME" == "pull_request" && "$RELEASE_BRANCH" != "release/$PACKAGE_VERSION" ]]; then
+              echo "Release PR branch must be release/$PACKAGE_VERSION" >&2
+              exit 1
+            fi
             if [[ "$RELEASE_TAG" != "v$PACKAGE_VERSION" ]]; then
               echo "Tag $RELEASE_TAG does not match package.json ($PACKAGE_VERSION)" >&2
               exit 1

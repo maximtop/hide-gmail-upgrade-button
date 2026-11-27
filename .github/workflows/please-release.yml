@@ -89,29 +89,28 @@ jobs:
           echo "version=$REQUESTED_VERSION" >> "$GITHUB_OUTPUT"
           echo "Validated $CURRENT_VERSION -> $REQUESTED_VERSION"
 
-      - name: Create or update the release PR
-        id: release
+      - name: Set up toolchain
         if: inputs.mode == 'prepare'
-        uses: googleapis/release-please-action@5c625bfb5d1ff62eadeeb3772007f7f66fdcf071 # v4
-        with:
-          token: ${{ secrets.RELEASE_PLEASE_TOKEN || github.token }}
-          release-type: node
-          target-branch: master
-          release-as: ${{ steps.version.outputs.version }}
-          include-component-in-tag: false
-          skip-github-release: true
+        uses: ./.github/actions/setup-toolchain
+
+      - name: Create or update the release PR
+        if: inputs.mode == 'prepare'
+        env:
+          GH_TOKEN: ${{ secrets.RELEASE_PLEASE_TOKEN || github.token }}
+          RELEASE_VERSION: ${{ steps.version.outputs.version }}
+        run: node scripts/release/prepare.ts
 
       - name: Find the release PR
         id: pr
         if: inputs.mode == 'prepare'
         env:
           GH_TOKEN: ${{ github.token }}
+          RELEASE_BRANCH: release/${{ steps.version.outputs.version }}
         run: |
           set -euo pipefail
           PRS="$(gh pr list --repo "$GITHUB_REPOSITORY" --state open \
-            --base master --label "autorelease: pending" --limit 100 \
-            --json number,headRefName,url \
-            --jq 'map(select(.headRefName | startswith("release-please--branches--master")))')"
+            --base master --head "$RELEASE_BRANCH" --label "autorelease: pending" \
+            --json isCrossRepository,url --jq 'map(select(.isCrossRepository == false))')"
           test "$(jq length <<< "$PRS")" = 1
           echo "pr-url=$(jq -er '.[0].url' <<< "$PRS")" >> "$GITHUB_OUTPUT"
 
